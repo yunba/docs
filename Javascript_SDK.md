@@ -23,7 +23,7 @@
 
 ### 第二步：创建Yunba实例并初始化
 
-    var yunba = new Yunba();
+    var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
     yunba.init();
 
 ### 第三步：连接消息服务器
@@ -76,30 +76,12 @@ OK! 现在你应该对我们的 Yunba 消息服务有一个初步的了解了。
 
 目前版本API方法有：
 
-* init()
 * connect()
 * subscribe()
 * unsubscribe()
 * publish()
 * disconnect()
 
-### Yunba.init()
-
-|版本:0.1
-|定义在：yunba.js
-
-#### 说明：
-我们的 JavaScript SDK 通过 Socket.IO 与消息服务器通信。创建的 Yunba 实例必须首先运行 init() 方法才能进行后面的所有操作。init() 运行后，实例就与后端建立了 Socket.IO 链接。
-#### 基本使用：
-
-	yunba.init(callback);
-
-#### 参数：
-* 参数名:callback
-* 参数类型:function
-* 可选/必须：可选
-* 参数说明:
-   yunba 实例初始化后，不管成功或失败都会回调 callback。传递给 callback 的参数有 success、msg。success 为 true 则表示初始化成功，否则初始化失败。初始化失败会返回错误信息msg。
 
 ### Yunba.connect()
 
