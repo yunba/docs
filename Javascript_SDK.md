@@ -1,4 +1,4 @@
-# Yunba Javascript SDK 使用文档
+# Yunba JavaScript SDK 使用文档
 
 通过利用 Yunba Javascript SDK 提供的接口API，你可以很方便的在智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
 
