@@ -10,21 +10,23 @@
 
 ## 新手上路
 
-你只须在你的个人电脑上安装一个带有JavaScript Console功能的网页浏览器（例如：Google Chrome）就可以开始使用我们的SDK了。Chrome本身自带JavaScript Console,其它浏览器可能需要安装相应插件。例如FireFox需要安装FireBug。
+你只须在你的个人电脑上安装一个带有JavaScript Console功能的网页浏览器（例如：Google Chrome）就可以开始使用我们的 SDK了。
+调试工具可以用 Chrome 本身自带 JavaScript Console, 其它浏览器可能需要安装相应插件。例如 FireFox 需要安装 FireBug。
 
-### 第一步：引入SDK
+### 第一步：引入 SDK
 
+Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引入。
 	
     <html>
         <body>
-	    <script src="yunba.min.js"></script>
+		<script src="socket.io.js"></script>
+	    <script src="yunba-1.0.1.js"></script>
         </body> 
     </html>
 
-### 第二步：创建Yunba实例并初始化
+### 第二步：创建 Yunba 实例
 
     var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
-    yunba.init();
 
 ### 第三步：连接消息服务器
 
@@ -36,15 +38,15 @@
   		}
 	});
 
-### 第四步：收听消息（Subscribe）
+### 第四步：订阅频道（Subscribe）
 
-如果你想接收一个频道的消息，你得先使用 subscribe() 方法收听该频道。
+如果你想接收一个频道的消息，你得先使用 subscribe() 方法订阅该频道。
 
 	yunba.subscribe(
 	  {topic:'my_topic'},
 	  function(success){
 	    if(success){
-	      console.log('你已成功收听频道：my_topic')
+	      console.log('你已成功订阅频道：my_topic')
 	    }
 	  },
 	  function(data){
@@ -52,12 +54,12 @@
 	  }
 	);
 
-### 第五步：推送消息（Publish）
+### 第五步：发布消息（Publish）
 
-你可以使用 publish() 方法向所有收听 my_topic 频道的终端发布一条‘你好！我亲爱的朋友。’消息。
+你可以使用 publish() 方法向所有订阅 my_topic 频道的终端发布一条‘你好！Yunba。’消息。
 
 	yunba.publish(
-	  {topic:'my_topic',msg:'你好！我亲爱的朋友。'},
+	  {topic:'my_topic',msg:'你好！Yunba'},
 	  function(success){
 	    if(success){
 	      console.log('消息发布成功！');
@@ -65,12 +67,7 @@
 	  }
 	);
 
-### 第六部：在两个浏览器窗口实例之间发送消息
-
-将上面的例子扩展一下，我们就可以利用 yunba 实现在两个浏览器窗口实例之间收发消息。按照以上的步骤再打开一个浏览器窗口实例。
-
-OK! 现在你应该对我们的 Yunba 消息服务有一个初步的了解了。
-
+将上面的例子扩展一下，我们就可以利用 Yunba 实现在两个页面之间收发消息。
 
 ## API
 
