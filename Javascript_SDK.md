@@ -1,16 +1,13 @@
 # Yunba Javascript SDK 使用文档
 
-通过利用 Yunba Javascript SDK 提供的接口API，你可以很方便的在你的智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
+通过利用 Yunba Javascript SDK 提供的接口API，你可以很方便的在智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
 
 ## 获取 SDK
-
-你可以通过以下几种方式获得最新 Yunba Javascript SDK.
 
 * [下载最新SDK](https://github.com/yunba/yunba-javascript-sdk)
 
 ## 新手上路
 
-你只须在你的个人电脑上安装一个带有JavaScript Console功能的网页浏览器（例如：Google Chrome）就可以开始使用我们的 SDK了。
 调试工具可以用 Chrome 本身自带 JavaScript Console, 其它浏览器可能需要安装相应插件。例如 FireFox 需要安装 FireBug。
 
 ### 第一步：引入 SDK
@@ -67,7 +64,7 @@ Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引�
 	  }
 	);
 
-将上面的例子扩展一下，我们就可以利用 Yunba 实现在两个页面之间收发消息。
+将上面的例子扩展一下，我们就可以利用 Yunba 实现在 JavaScript 和其他平台之间实时通讯。
 
 ## API
 
