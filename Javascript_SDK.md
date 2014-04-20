@@ -6,7 +6,7 @@
 
 你可以通过以下几种方式获得最新 Yunba Javascript SDK.
 
-* [下载最新SDK](http://yunba.io)
+* [下载最新SDK](https://github.com/yunba/yunba-javascript-sdk)
 
 ## 新手上路
 
