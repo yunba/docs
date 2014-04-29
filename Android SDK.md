@@ -188,7 +188,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 ### 参数说明
 * context: Andrdoid 应用上下文环境。
 * topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
-* message: 想对应 topic 的订阅者发布的消息.
+* message: 向对应 topic 的订阅者发布的消息.
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
