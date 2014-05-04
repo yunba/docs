@@ -211,6 +211,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
+
 ## API - stop
 #### 功能
 App 可以调用此函数来停止推送服务，当需要使用推送服务时，则必须要调用 resume API
@@ -229,6 +230,7 @@ public static void stop(
 ```Java
 YunBaManager.stop(getApplicationContext());
 ```
+
 
 ## API - resume
 #### 功能
@@ -249,12 +251,13 @@ public static void resume(
 YunBaManager.resume(getApplicationContext());
 ```
 
+
 ## API - isStopped
 #### 功能
 App 可以调用此函数来查看推送服务是否被停止。
 ### 函数原型
 ```Java
-public static void resume(
+public static void isStopped(
 	    Context context,
     );
 ```
@@ -265,8 +268,9 @@ public static void resume(
 ### Code Example
 
 ```Java
-YunBaManager.stop(getApplicationContext());
+YunBaManager.isStopped(getApplicationContext());
 ```
+
 
 ## API - Report
 ### 功能
