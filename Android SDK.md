@@ -104,7 +104,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 
 
 ### 参数说明
-* context: Andrdoid 应用上下文环境。
+* context: Android 应用上下文环境。
 * topics: app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100.
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
@@ -145,7 +145,7 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 
 
 ### 参数说明
-* context: Andrdoid 应用上下文环境。
+* context: Android 应用上下文环境。
 * topics:  app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100.
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
@@ -186,7 +186,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
     );
 
 ### 参数说明
-* context: Andrdoid 应用上下文环境。
+* context: Android 应用上下文环境。
 * topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
 * message: 向对应 topic 的订阅者发布的消息.
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
@@ -211,6 +211,63 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
+## API - stop
+#### 功能
+App 可以调用此函数来停止推送服务，当需要使用推送服务时，则必须要调用 resume API
+### 函数原型
+```Java
+public static void stop(
+	    Context context,
+    );
+```
+
+### 参数说明
+* context: Android 应用上下文环境。
+
+### Code Example
+
+```Java
+YunBaManager.stop(getApplicationContext());
+```
+
+## API - resume
+#### 功能
+App 可以调用此函数来恢复推送服务，与 stop API 相对应。
+### 函数原型
+```Java
+public static void resume(
+	    Context context,
+    );
+```
+
+### 参数说明
+* context: Android 应用上下文环境。
+
+### Code Example
+
+```Java
+YunBaManager.resume(getApplicationContext());
+```
+
+## API - isStopped
+#### 功能
+App 可以调用此函数来查看推送服务是否被停止。
+### 函数原型
+```Java
+public static void resume(
+	    Context context,
+    );
+```
+
+### 参数说明
+* context: Android 应用上下文环境。
+
+### Code Example
+
+```Java
+YunBaManager.stop(getApplicationContext());
+```
+
 ## API - Report
 ### 功能
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
@@ -225,7 +282,7 @@ public static void report(
 ```
 
 ### 参数说明
-* context: Andrdoid 应用上下文环境。
+* context: Android 应用上下文环境。
 * action: app 需要统计的行为，如打开通知栏，下载资源成功等等。
 * data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
 
