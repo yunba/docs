@@ -214,7 +214,8 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 
 ## API - stop
 #### 功能
-App 可以调用此函数来停止推送服务，当需要使用推送服务时，则必须要调用 resume API
+App 可以调用此函数来停止推送服务，当推送服务被停止后，所以的 API 都会失效（包括 start API）, 当需要重新使用推送服务时，必须要调用 resume API
+
 ### 函数原型
 ```Java
 public static void stop(
