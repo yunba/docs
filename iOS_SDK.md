@@ -7,7 +7,7 @@
     [YunBaService setupWithAppkey:AppKey LogLevel:kYBLogLevelDebug];
 
 
-##[](#id_anchor_03) 添加通知监听代码接受 Publish 消息
+##[](#id_anchor_03) 添加 Message Received 代码
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:kMbDidReceiveMessageNotificationKey object:nil];
 
