@@ -1,18 +1,18 @@
-# [](#id_anchor_01)导入 SDK 
+## [](#id_anchor_01)导入 SDK 
 下载的 lib文件夹加入到项目工程中，在需要使用YunBa的代码中引入YunBaService.h，添加依赖库SystemConfiguration。
 
-#[](#id_anchor_02) 添加使用代码
+##[](#id_anchor_02) 添加使用代码
 初始化 YunBa SDK。请在您的代码入口函数didFinishLaunchingWithOptions处添加如下代码：
 
     [YunBaService setupWithAppkey:AppKey LogLevel:kYBLogLevelDebug];
 
 
-#[](#id_anchor_03) 添加通知监听代码接受 Publish 消息
+##[](#id_anchor_03) 添加通知监听代码接受 Publish 消息
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:kMbDidReceiveMessageNotificationKey object:nil];
 
 
-##[](#id_anchor_03_01)  自定义消息处理函数处理 Publish 消息代码示例  
+###[](#id_anchor_03_01)  自定义消息处理函数处理 Publish 消息代码示例  
 
     - (void) onMessageReceived:(NSNotification *)notification {
         mbMessage *message = [notification object];
@@ -24,7 +24,7 @@
     }
 
 
-#[](#id_anchor_04) API - subscribe
+##[](#id_anchor_04) API - subscribe
 
 ###[](#id_anchor_04_01) 功能
 App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
@@ -48,7 +48,7 @@ Code Example
         }
     }];
 
-#[](#id_anchor_05) API - unsubscribe
+##[](#id_anchor_05) API - unsubscribe
 
 ###[](#id_anchor_05_01) 功能
 App 可以取消订阅一个 Topic, 以便取消接收来自 Topic 的 Message.
@@ -77,7 +77,7 @@ unsubscribe to topic(%@) failed: %@, recovery suggestion: %@", topic, error, [er
 
 
 
-#[](#id_anchor_06) API - Publish
+##[](#id_anchor_06) API - Publish
 
 ###[](#id_anchor_06_01) 功能
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
@@ -104,7 +104,7 @@ Code Example
     }];
 
 
-#[](#id_anchor_07) API - Store DeviceToken
+##[](#id_anchor_07) API - Store DeviceToken
 
 ###[](#id_anchor_07_01) 功能
 App 将DeviceToken 存储在YunBa的云端， 那么可以通过YunBa发送APNs通知。
