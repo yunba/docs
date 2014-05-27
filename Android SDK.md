@@ -296,3 +296,76 @@ public static void report(
 ```Java
 YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
 ```
+
+## API - setAlias
+### 功能
+App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
+
+### 函数原型
+```Java
+public static void setAlias(
+        Context context, 
+        String alias, 
+        IMqttActionListener callback
+);
+```
+
+### 参数说明
+* context: Android 应用上下文环境。
+* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+### Code Example
+
+```Java
+YunBaManager.setAlias(getApplicationContext(), alias, 
+    new IMqttActionListener() {
+
+        public void onSuccess(IMqttToken asyncActionToken) {
+            DemoUtil.showToast("success", getApplicationContext());
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "setAlias failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
+## API - getAlias
+### 功能
+App  可以调用此函数来获取当前用户的别名。
+
+### 函数原型
+```Java
+public static void getAlias(
+        Context context,  
+        IMqttActionListener callback
+);
+```
+
+### 参数说明
+* context: Android 应用上下文环境。.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+### Code Example
+
+```Java
+YunBaManager.getAlias(getApplicationContext(), alias, 
+    new IMqttActionListener() {
+
+        public void onSuccess(IMqttToken mqttToken) {
+            DemoUtil.showToast("get alias success " + mqttToken.getAlias(), getApplicationContext());
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "getAlias failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+	
