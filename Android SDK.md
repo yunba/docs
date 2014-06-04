@@ -171,7 +171,7 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 );
 ```
 
-## API - Publish
+## API - publish
 
 ### 功能
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
@@ -273,7 +273,7 @@ YunBaManager.isStopped(getApplicationContext());
 ```
 
 
-## API - Report
+## API - report
 ### 功能
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
