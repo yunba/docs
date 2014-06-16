@@ -11,18 +11,15 @@
 
 ## 添加 Message Received 代码
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:kMbDidReceiveMessageNotificationKey object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:kYBDidReceiveMessageNotificationKey object:nil];
 
 
 ###  自定义消息处理函数处理 Publish 消息代码示例  
 
     - (void) onMessageReceived:(NSNotification *)notification {
-        mbMessage *message = [notification object];
-        NSLog(@"new message, %zu bytes, topic=%@", (unsigned long)[[message data] length], [message topic]);
+        YBMessage *message = [notification object];
         NSString *payloadString = [[NSString alloc] initWithData:[message data] encoding:NSUTF8StringEncoding];
-        NSLog(@"data: %@ %@", payloadString,[message data]);
-        NSString *curMsg = [NSString stringWithFormat:@"%@ => %@", [message topic], payloadString];
-        NSLog(@"received message: %@", curMsg);
+        NSLog(@"received string: %@ on topic %@", payloadString, [message topic]);
     }
 
 
@@ -33,10 +30,10 @@ App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 
 ### 函数原型
 
-     + (void)subscribeToTopic:(NSString*)topic atLevel:(UInt8)qosLevel resultBlock:(MbResultBlock)resultBlock;
+     + (void)subscribeToTopic:(NSString *)topic atLevel:(UInt8)qosLevel resultBlock:(YBResultBlock)resultBlock;
 
 ### 参数说明
-* topic: app 订阅的的主题数，topic 只支持英文数字下划线，长度不超过50个字符。
+* topic: app 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符。
 * qosLevel: 服务质量等级，具体参考服务质量等级说明。
 * resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
 
@@ -44,9 +41,9 @@ Code Example
 
     [YunBaService subscribeToTopic:topic atLevel:qosLevel resultBlock:^(BOOL succ, NSError *error){
         if (succ) {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo] subscribe to topic(%@) succeed", topic]];
+            NSLog(@"subscribe to topic succ: %@", topic);
         } else {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo] subscribe to topic(%@) failed: %@, recovery suggestion: %@", topic, error, [error localizedRecoverySuggestion]]];
+            NSLog(@"subscribe to topic failed due to : %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
 
@@ -58,20 +55,20 @@ App 可以取消订阅一个 Topic, 以便取消接收来自 Topic 的 Message.
 ### 函数原型
 
 
-     + (void)unsubscribeTopic:(NSString*)theTopic resultBlock:(MbResultBlock)resultBlock;
+     + (void)unsubscribeTopic:(NSString*)topic resultBlock:(MbResultBlock)resultBlock;
 
 
 ### 参数说明
-* topics: app 订阅的的主题数组，topic 只支持英文数字下划线，长度不超过50个字符。
+* topic: app 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符。
 * resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
 
 Code Example
 
     [YunBaService unsubscribeTopic:topic resultBlock:^(BOOL succ, NSError *error){
         if (succ) {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo unsubscribe to topic(%@) succeed", topic]];
+            NSLog(@"unsubscribe to topic succ: %@", topic);
         } else {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo unsubscribe to topic(%@) failed: %@, recovery suggestion: %@", topic, error, [error localizedRecoverySuggestion]]];
+            NSLog(@"unsubscribe to topic failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
 
@@ -97,9 +94,9 @@ Code Example
     [YunBaService publishData:data ToTopic:topic atLevel:qosLevel retain:isRetained
                   resultBlock:^(BOOL succ, NSError *error){
         if (succ) {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo] publish data(%@) to topic(%@) succeed", data, topic]];
+            NSLog(@"publish data: %@ to topic: %@ succ", data, topic);
         } else {
-            [self addMsgToTextView:[NSString stringWithFormat:@"[Demo] publish data(%@) to topic(%@) failed: %@, recovery suggestion: %@", data, topic, error,  [error localizedRecoverySuggestion]]];
+            NSLog(@"publish to topic failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
 
@@ -155,7 +152,7 @@ Code Example
 ## API - SetAlias
 
 ### 功能
-App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
+App 可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
 ### 函数原型
 
@@ -167,7 +164,7 @@ App  可以调用此函数来绑定账号，用户名，每个用户只能指定
 
 Code Example
 
-        [YunBaService setAlias:alias resultBlock:^(BOOL succ, NSError *error) {
+    [YunBaService setAlias:alias resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
             NSLog(@"set alias succ");
         } else {
@@ -180,7 +177,7 @@ Code Example
 ## API - GetAlias
 
 ### 功能
-App  可以调用此函数来获取当前用户的别名。
+App 可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
 
@@ -196,5 +193,69 @@ Code Example
             NSLog(@"get alias succ:%@", res);
         } else {
             NSLog(@"get alias failed due to : %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
+        }
+    }];
+
+
+
+## 添加 Presence Received 代码
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPresence:) name:kYBDidReceivePresenceNotificationKey object:nil];
+
+
+###  自定义消息处理函数处理 onPresence 消息代码示例  
+
+    - (void)onPresence:(NSNotification *)notification {    
+        YBPresenceEvent *presence = [notification object];
+        NSString *theTime = [NSDateFormatter localizedStringFromDate:[NSDate dateWithTimeIntervalSince1970:[presence time]/1000] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];
+        NSLog(@"new presence, action=%@, topic=%@, alias=%@, time=%@", [presence action], [presence topic], [presence alias], theTime);
+    }
+
+
+## API - Subscribe Presence
+
+### 功能
+App 可以订阅某个频道上的用户的上、下线及(取消)订阅事件通知。
+
+### 函数原型
+
+     + (void)subscribePresenceToTopic:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
+
+### 参数说明
+* topic: app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符。
+* resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+
+Code Example
+
+    [YunBaService subscribePresenceToTopic:topic resultBlock:^(BOOL succ, NSError *error) {
+        if (succ) {
+            NSLog(@"subscribe presence to topic:%@ succ", topic);
+        } else {
+            NSLog(@"subscribe presence failed due to : %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
+        }
+    }];
+
+
+
+## API - Unsubscribe Presence
+
+### 功能
+App 可以取消订阅某个频道上的用户的上、下线及(取消)订阅事件通知。
+
+### 函数原型
+
+     + (void)unsubscribePresenceToTopic:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
+
+### 参数说明
+* topic: app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符。
+* resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+
+Code Example
+
+    [YunBaService unsubscribePresenceToTopic:topic resultBlock:^(BOOL succ, NSError *error) {
+        if (succ) {
+            NSLog(@"unsubscribe presence to topic:%@ succ", topic);
+        } else {
+            NSLog(@"unsubscribe presence failed due to : %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
