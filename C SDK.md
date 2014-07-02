@@ -6,11 +6,15 @@
 初始化 YunBa SDK。请在您的代码入口函数main后处添加如下代码：
 
 MQTTClient client;
+
 MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
 
 char url[100];
+
 sprintf(url, "%s:%s", opts.host, opts.port);
+
 rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE, NULL);
+
 MQTTClient_connect(client, &conn_opts);
 
 ## 添加 Message Received 代码
