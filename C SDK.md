@@ -111,9 +111,7 @@ int MQTTClient_set_alias(MQTTClient handle, char* alias);
 
 int ret = MQTTClient_set_alias(client, "000000018302");
 
-
 ## API - MQTTClient_get_alias
-
 ### 功能
 
 App 可以调用此函数来获取当前用户的别名。
@@ -130,9 +128,7 @@ int ret = MQTTClient_get_alias(client, "0“）;
 
 在回调函数extendedCmdArrive中获得该用户的alias.
 
-
 ## API - MQTTClient_get_status
-
 ### 功能
 
 App 可以调用此函数来获得alias的用户状态。
@@ -149,9 +145,7 @@ int ret = MQTTClient_get_alias(client, "0“）;
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
-
 ## API - MQTTClient_get_aliaslist
-
 ### 功能
 
 App 可以调用此函数来某个topic的别名列表
@@ -168,9 +162,7 @@ int ret = MQTTClient_get_aliaslist(client, "rocket“）;
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
-
 ## API - MQTTClient_get_topic
-
 ### 功能
 
 App 可以调用此函数来某个alias的所订阅的topic
