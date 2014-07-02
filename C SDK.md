@@ -13,7 +13,7 @@ sprintf(url, "%s:%s", opts.host, opts.port);
 rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE, NULL);
 MQTTClient_connect(client, &conn_opts);
 
-#添加 Message Received 代码
+##添加 Message Received 代码
 rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedCmdArrive);
 
 其中messageArrived， extendedCmdArrive为回调函数。
@@ -29,7 +29,7 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
   //处理topic以及推送的消息内容。
 }
 
-#API - MQTTClient_subscribe
+##API - MQTTClient_subscribe
 功能
 
 App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
@@ -44,7 +44,7 @@ qos: 订阅服务质量，一般设置为2.
 Code Example
 rc = MQTTClient_subscribe(client, “rocket”, 2);
 
-#API - MQTTClient_unsubscribe
+##API - MQTTClient_unsubscribe
 功能
 
 App 可以取消订阅一个Topic。
@@ -58,7 +58,7 @@ topic: 取消订阅的的主题，topic 只支持英文数字下划线，长度�
 Code Example
 rc = MQTTClient_unsubscribe(client, “rocket”);
 
-#API - MQTTClient_publish
+##API - MQTTClient_publish
 功能
 
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。。
@@ -79,7 +79,7 @@ int data_len = 0;
 buffer[data_len++] = getchar();
 rc = MQTTClient_publish(client, topic, data_len, buffer, 0, 0, NULL);
 
-#API - SetAlias
+##API - SetAlias
 功能
 
 App 可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
@@ -95,7 +95,7 @@ Code Example
 int ret = MQTTClient_set_alias(client, "000000018302");
 
 
-#API - MQTTClient_get_alias
+##API - MQTTClient_get_alias
 
 功能
 
@@ -113,7 +113,7 @@ int ret = MQTTClient_get_alias(client, "0“）;
 在回调函数extendedCmdArrive中获得该用户的alias.
 
 
-#API - MQTTClient_get_status
+##API - MQTTClient_get_status
 
 功能
 
@@ -131,7 +131,7 @@ int ret = MQTTClient_get_alias(client, "0“）;
 在回调函数extendedCmdArrive中获得该用户的状态.
 
 
-#API - MQTTClient_get_aliaslist
+##API - MQTTClient_get_aliaslist
 
 功能
 
@@ -150,7 +150,7 @@ int ret = MQTTClient_get_aliaslist(client, "rocket“）;
 
 
 
-#API - MQTTClient_get_topic
+##API - MQTTClient_get_topic
 
 功能
 
