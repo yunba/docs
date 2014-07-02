@@ -5,6 +5,7 @@
 ## 添加使用代码
 初始化 YunBa SDK。请在您的代码入口函数main后处添加如下代码：
 
+
 MQTTClient client;
 
 MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
@@ -18,19 +19,27 @@ rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE,
 MQTTClient_connect(client, &conn_opts);
 
 ## 添加 Message Received 代码
+
 rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedCmdArrive);
 
 其中messageArrived， extendedCmdArrive为回调函数。
 
 下面函数处理status, get alias get-topic等扩展命令。
+
 int extendedCmdArrive(void *context, EXTED_CMD cmd, int status, int ret_string_len, char *ret_string)
+
 {
+
   //处理接收到的扩展命令返回。
+  
 }
 
 int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_message* m)
+
 {
+
   //处理topic以及推送的消息内容。
+  
 }
 
 ## API - MQTTClient_subscribe
@@ -79,8 +88,11 @@ int MQTTClient_publish(MQTTClient handle, char* topicName, int payloadlen, void*
 * dt:指向MQTTClient_deliveryToken的指针。
 
 ### Code Example
+
 int data_len = 0;
+
 buffer[data_len++] = getchar();
+
 rc = MQTTClient_publish(client, topic, data_len, buffer, 0, 0, NULL);
 
 ## API - SetAlias
@@ -96,6 +108,7 @@ int MQTTClient_set_alias(MQTTClient handle, char* alias);
 * alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
+
 int ret = MQTTClient_set_alias(client, "000000018302");
 
 
@@ -114,6 +127,7 @@ int MQTTClient_get_alias(MQTTClient handle, char* parameter);
 
 ### Code Example
 int ret = MQTTClient_get_alias(client, "0“）;
+
 在回调函数extendedCmdArrive中获得该用户的alias.
 
 
@@ -132,6 +146,7 @@ int MQTTClient_get_status(MQTTClient handle, char* parameter)
 
 ### Code Example
 int ret = MQTTClient_get_alias(client, "0“）;
+
 在回调函数extendedCmdArrive中获得该用户的状态.
 
 
@@ -150,6 +165,7 @@ int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
 
 ### Code Example
 int ret = MQTTClient_get_aliaslist(client, "rocket“）;
+
 在回调函数extendedCmdArrive中获得该用户的状态.
 
 
@@ -168,4 +184,5 @@ int MQTTClient_get_topic(MQTTClient handle, char* parameter);
 
 ### Code Example
 int ret = MQTTClient_get_topic(client, "000000018302“）;
+
 在回调函数extendedCmdArrive中获得该用户的状态.
