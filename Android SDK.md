@@ -353,7 +353,7 @@ public static void getAlias(
 ### Code Example
 
 ```Java
-YunBaManager.getAlias(getApplicationContext(), alias, 
+YunBaManager.getAlias(getApplicationContext(), 
     new IMqttActionListener() {
 
         public void onSuccess(IMqttToken mqttToken) {
