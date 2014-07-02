@@ -1,8 +1,8 @@
-Yunba C SDK 使用文档
+#Yunba C SDK 使用文档
 导入 SDK
 根据用户平台芯片下载相应的yunba c sdk。比如arm平台。下载 yunba-c-sdk-release-for-arm.tar.gz包解压到本地。在使用yunba的代码中，加入相应的头文件。在Makefile添加yunba库文件。
 
-添加使用代码
+#添加使用代码
 初始化 YunBa SDK。请在您的代码入口函数main后处添加如下代码：
 
 MQTTClient client;
