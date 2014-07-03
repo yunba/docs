@@ -83,7 +83,7 @@ int MQTTClient_publish(MQTTClient handle, char* topicName, int payloadlen, void*
 * handle: 客户端句柄
 * topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
 * payloadlen: 净荷的长度
-* qos: 服务质量
+* qos: 服务质量，一般设置为1
 * retained：该条信息的retained的标示。
 * dt:指向MQTTClient_deliveryToken的指针。
 
@@ -131,17 +131,17 @@ int ret = MQTTClient_get_alias(client, "0“）;
 ## API - MQTTClient_get_status
 ### 功能
 
-App 可以调用此函数来获得alias的用户状态。
+App 可以调用此函数来获得某个alias的用户状态。
 
 ### 函数原型
 int MQTTClient_get_status(MQTTClient handle, char* parameter)
 
 ### 参数说明
 * handle: 客户端句柄
-* parameter: 该用户的alias
+* parameter: alias名字
 
 ### Code Example
-int ret = MQTTClient_get_alias(client, "0“）;
+int ret = MQTTClient_get_alias(client, "000000018302“）;
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
@@ -155,7 +155,7 @@ int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
 
 ### 参数说明
 * handle: 客户端句柄
-* parameter: 某个topic
+* parameter: topic名字
 
 ### Code Example
 int ret = MQTTClient_get_aliaslist(client, "rocket“）;
