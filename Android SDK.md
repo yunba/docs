@@ -1,6 +1,6 @@
 # Yunba Android SDK Quick Start
 ## 注册开发者账号
-打开 yunba.io, 点击注册创建账号。
+打开 http://yunba.io, 点击注册创建账号。
 ![create_accout.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_accout.png)
 
 ## 创建应用
