@@ -178,3 +178,21 @@ int MQTTClient_get_topic(MQTTClient handle, char* parameter);
 int ret = MQTTClient_get_topic(client, "000000018302“）;
 
 在回调函数extendedCmdArrive中获得该用户的状态.
+
+
+## API - MQTTClient_report
+### 功能
+
+App 可以调用此函数来某个alias的所订阅的topic
+
+### 函数原型
+int MQTTClient_get_topic(MQTTClient handle, char* parameter);
+
+### 参数说明
+* handle: 客户端句柄
+* parameter: 用户别名。
+
+### Code Example
+int ret = MQTTClient_get_topic(client, "000000018302“）;
+
+在回调函数extendedCmdArrive中获得该用户的状态.
