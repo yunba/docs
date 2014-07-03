@@ -1,4 +1,6 @@
-# Yunba Android SDK 使用文档
+# Yunba Android SDK Quick Start
+## 注册开发者账号
+打开 yunba.io 创建账号。
 
 ## 导入 SDK
 下载的 yunba-sdk-release.jar 包放到项目的 libs 目录下。
