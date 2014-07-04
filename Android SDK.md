@@ -61,7 +61,7 @@
 ```
 
 ## 添加使用代码
-初始化 SDK。请在您的 Application 子类的 OnCreate 方法中加入如下代码
+初始化 SDK并订阅 Topic ，请在您的 Application 子类的 OnCreate 方法中加入如下代码
 ```Java
 public class YourApp extends Application {
 
@@ -69,6 +69,19 @@ public class YourApp extends Application {
 
         super.onCreate();
         YunBaManager.start(getApplicationContext());
+        
+        YunBaManager.subscribe(getApplicationContext(), new String[]{"t1", "t2", "t3"}, new IMqttActionListener() {
+			
+			@Override
+			public void onSuccess(IMqttToken arg0) {
+				Log.d(TAG, "Subscribe succeed : " + topic);
+			}
+			
+			@Override
+			public void onFailure(IMqttToken arg0, Throwable arg1) {
+				Log.d(TAG, "Subscribe failed : " + topic);
+			}
+		});
 
     }
 }
@@ -105,6 +118,24 @@ public class YourApp extends Application {
                 .append(msg);
 		DemoUtil.showNotifation(context, topic, msg);
 	}
+
+### 在 Portal 上发布消息
+
+打开应用详情页面，点击发布消息，如图所示:
+
+![publish.png](https://bitbucket.org/yunba/public_docs/downloads/publish.png)
+
+### 在 Portal 查看消息发布实时报表
+
+打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
+
+![report.jpeg](https://bitbucket.org/yunba/public_docs/downloads/report.jpeg)
+
+### 在 Portal 查看用户在线信息实时报表
+
+打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
+
+![online.jpeg](https://bitbucket.org/yunba/public_docs/downloads/online.jpeg)
 
 
 
