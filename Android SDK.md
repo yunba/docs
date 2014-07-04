@@ -1,17 +1,23 @@
 # Yunba Android SDK Quick Start
 ## 注册开发者账号
 打开 http://yunba.io, 点击注册创建账号。
+
 ![create_accout.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_accout.png)
 
 ## 创建应用
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
+
 ![create_application.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_application.png)
 
 ## 下载 Android SDK
+
 打开 http://yunba.io/developers/ 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
 
 ## 导入 Android SDK
+
 下载的 yunba-sdk-release.jar 包放到项目的 libs 目录下。
+
+![libs.jpg](https://bitbucket.org/yunba/public_docs/downloads/libs.jpeg)
 
 ## 配置 AndroidManifest.xml
 ### 添加权限
@@ -34,6 +40,9 @@
 ```
 
 ### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
+
+![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
+
 ```xml
 <meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
 ```
