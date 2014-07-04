@@ -183,16 +183,48 @@ int ret = MQTTClient_get_topic(client, "000000018302“）;
 ## API - MQTTClient_report
 ### 功能
 
-App 可以调用此函数来某个alias的所订阅的topic
+App 可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
+函数原型
 
 ### 函数原型
-int MQTTClient_get_topic(MQTTClient handle, char* parameter);
+int MQTTClient_report(MQTTClient handle, char* action, char *data);
 
 ### 参数说明
 * handle: 客户端句柄
-* parameter: 用户别名。
+* action: app 需要统计的行为，如打开通知栏，下载资源成功等等
+* data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
 
 ### Code Example
-int ret = MQTTClient_get_topic(client, "000000018302“）;
+int ret = MQTTClient_report(client, "action“, "data"）;
 
-在回调函数extendedCmdArrive中获得该用户的状态.
+## API - MQTTClient_set_broker
+### 功能
+
+App 可以设置broker
+
+### 函数原型
+int MQTTClient_set_broker(MQTTClient *handle, char* broker);
+
+### 参数说明
+* handle: 客户端句柄
+* broker: broker域名或者ip地址
+
+### Code Example
+int ret = MQTTClient_set_broker(client, "192.168.1.100”）;
+
+
+## API - MQTTClient_get_broker
+### 功能
+
+App 可以获得broker
+
+### 函数原型
+int MQTTClient_get_broker(MQTTClient *handle, char* broker);
+
+### 参数说明
+* handle: 客户端句柄
+* broker: 存放broker的指针
+
+### Code Example
+char buf[100];
+int ret = MQTTClient_set_broker(client, buf）;
