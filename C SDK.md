@@ -184,7 +184,6 @@ int ret = MQTTClient_get_topic(client, "000000018302“）;
 ### 功能
 
 App 可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
-函数原型
 
 ### 函数原型
 int MQTTClient_report(MQTTClient handle, char* action, char *data);
@@ -227,4 +226,5 @@ int MQTTClient_get_broker(MQTTClient *handle, char* broker);
 
 ### Code Example
 char buf[100];
+
 int ret = MQTTClient_set_broker(client, buf）;
