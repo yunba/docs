@@ -61,7 +61,7 @@
 ```
 
 ## 添加使用代码
-初始化 SDK并订阅 Topic ，请在您的 Application 子类的 OnCreate 方法中加入如下代码
+初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码
 ```Java
 public class YourApp extends Application {
 
@@ -70,16 +70,16 @@ public class YourApp extends Application {
         super.onCreate();
         YunBaManager.start(getApplicationContext());
         
-        YunBaManager.subscribe(getApplicationContext(), new String[]{"t1", "t2", "t3"}, new IMqttActionListener() {
+        YunBaManager.subscribe(getApplicationContext(), new String[]{"t1"}, new IMqttActionListener() {
 			
 			@Override
 			public void onSuccess(IMqttToken arg0) {
-				Log.d(TAG, "Subscribe succeed : " + topic);
+				Log.d(TAG, "Subscribe topic succeed");
 			}
 			
 			@Override
 			public void onFailure(IMqttToken arg0, Throwable arg1) {
-				Log.d(TAG, "Subscribe failed : " + topic);
+				Log.d(TAG, "Subscribe topic failed" ;
 			}
 		});
 
