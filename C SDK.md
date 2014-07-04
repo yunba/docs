@@ -102,7 +102,6 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
 
 ### 函数原型
 int MQTTClient_set_alias(MQTTClient handle, char* alias);
-
 ### 参数说明
 * handle: 客户端句柄
 * alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
@@ -118,7 +117,6 @@ App 可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
 int MQTTClient_get_alias(MQTTClient handle, char* parameter);
-
 ### 参数说明
 * handle: 客户端句柄
 * parameter: 参数
@@ -135,7 +133,6 @@ App 可以调用此函数来获得某个alias的用户状态。
 
 ### 函数原型
 int MQTTClient_get_status(MQTTClient handle, char* parameter)
-
 ### 参数说明
 * handle: 客户端句柄
 * parameter: alias名字
@@ -152,7 +149,6 @@ App 可以调用此函数来某个topic的别名列表
 
 ### 函数原型
 int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
-
 ### 参数说明
 * handle: 客户端句柄
 * parameter: topic名字
@@ -169,7 +165,6 @@ App 可以调用此函数来某个alias的所订阅的topic
 
 ### 函数原型
 int MQTTClient_get_topic(MQTTClient handle, char* parameter);
-
 ### 参数说明
 * handle: 客户端句柄
 * parameter: 用户别名。
@@ -187,7 +182,6 @@ App 可以调用此函数来上报客户端的行为，如打开通知栏次数�
 
 ### 函数原型
 int MQTTClient_report(MQTTClient handle, char* action, char *data);
-
 ### 参数说明
 * handle: 客户端句柄
 * action: app 需要统计的行为，如打开通知栏，下载资源成功等等
@@ -203,7 +197,6 @@ App 可以设置broker
 
 ### 函数原型
 int MQTTClient_set_broker(MQTTClient *handle, char* broker);
-
 ### 参数说明
 * handle: 客户端句柄
 * broker: broker域名或者ip地址
@@ -219,7 +212,6 @@ App 可以获得broker
 
 ### 函数原型
 int MQTTClient_get_broker(MQTTClient *handle, char* broker);
-
 ### 参数说明
 * handle: 客户端句柄
 * broker: 存放broker的指针
