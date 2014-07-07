@@ -111,7 +111,7 @@ rc = MQTTClient_publish(client, topic, data_len, buffer);
 App 可以向 Topic 发送json包, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON *data)
+int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)
 ### 参数说明
 * handle: 客户端句柄
 * topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
@@ -213,7 +213,7 @@ int ret = MQTTClient_get_topic(client, "000000018302“）;
 App 可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
 ### 函数原型
-int MQTTClient_report(MQTTClient handle, char* action, char *data)
+int MQTTClient_report(MQTTClient handle, char* action, char* data)
 ### 参数说明
 * handle: 客户端句柄
 * action: app 需要统计的行为，如打开通知栏，下载资源成功等等
@@ -228,7 +228,7 @@ int ret = MQTTClient_report(client, "action“, "data"）;
 App 可以设置broker
 
 ### 函数原型
-int MQTTClient_set_broker(MQTTClient *handle, char* broker)
+int MQTTClient_set_broker(MQTTClient* handle, char* broker)
 ### 参数说明
 * handle: 客户端句柄
 * broker: broker域名或者ip地址
@@ -243,7 +243,7 @@ int ret = MQTTClient_set_broker(client, "192.168.1.100”）;
 App 可以获得broker
 
 ### 函数原型
-int MQTTClient_get_broker(MQTTClient *handle, char* broker)
+int MQTTClient_get_broker(MQTTClient* handle, char* broker)
 ### 参数说明
 * handle: 客户端句柄
 * broker: 存放broker的指针
