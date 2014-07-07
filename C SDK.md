@@ -89,7 +89,7 @@ rc = MQTTClient_unsubscribe(client, “rocket”);
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-MQTTClient_publish(MQTTClient handle, char* topicName, int data_len, void* data)
+MQTTCient_publish(MQTTClient handle, char* topicName, int len, void *data)
 ### 参数说明
 * handle: 客户端句柄
 * topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
