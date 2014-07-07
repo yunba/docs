@@ -62,7 +62,9 @@ printf("used:%s, %s\n", version->name, version->value);
 App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 
 ### 函数原型
+
 int MQTTClient_subscribe(MQTTClient handle, char* topic);
+
 ### 参数说明
 * handle: 客户端句柄
 * topic: 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
@@ -76,7 +78,9 @@ rc = MQTTClient_subscribe(client, “rocket”);
 App 可以取消订阅一个Topic。
 
 ### 函数原型
+
 int MQTTClient_unsubscribe(MQTTClient handle, char* topic)
+
 ### 参数说明
 * handle: 客户端句柄
 * topic: 取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
@@ -90,6 +94,7 @@ rc = MQTTClient_unsubscribe(client, “rocket”);
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。。
 
 ### 函数原型
+
 MQTTClient_publish(MQTTClient handle, char* topicName, int data_len, void* data);
 
 ### 参数说明
@@ -113,7 +118,9 @@ rc = MQTTClient_publish(client, topic, data_len, buffer);
 App 可以向 Topic 发送json包, 那么任何订阅此 Topic 的 Client 都会接受到消息。。
 
 ### 函数原型
+
 int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON *data);
+
 ### 参数说明
 * handle: 客户端句柄
 * topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
