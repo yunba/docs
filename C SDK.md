@@ -26,15 +26,12 @@ rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedC
 下面函数处理status, get alias get-topic等扩展命令。
 
 int extendedCmdArrive(void *context, EXTED_CMD cmd, int status, int ret_string_len, char *ret_string)
-
 {
-
   //处理接收到的扩展命令返回。
-  
 }
 
-int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_message* m)
 
+int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_message* m)
 {
 
   //处理topic以及推送的消息内容。
@@ -119,7 +116,7 @@ int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)
 
 ### Code Example
 
-char buf[100] = "{"num_name":2";
+char buf[100] = "{"num_name":2}";
 
 cJSON *data = cJSON_Parse(buf);
 
@@ -154,7 +151,7 @@ int MQTTClient_get_alias(MQTTClient handle, char* parameter);
 * parameter: 参数
 
 ### Code Example
-int ret = MQTTClient_get_alias(client, "0“）;
+int ret = MQTTClient_get_alias(client, "0");
 
 在回调函数extendedCmdArrive中获得该用户的alias.
 
@@ -170,7 +167,7 @@ int MQTTClient_get_status(MQTTClient handle, char* parameter);
 * parameter: alias名字
 
 ### Code Example
-int ret = MQTTClient_get_alias(client, "000000018302“）;
+int ret = MQTTClient_get_alias(client, "000000018302");
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
@@ -186,7 +183,7 @@ int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
 * parameter: topic名字
 
 ### Code Example
-int ret = MQTTClient_get_aliaslist(client, "rocket“）;
+int ret = MQTTClient_get_aliaslist(client, "rocket");
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
@@ -202,7 +199,7 @@ int MQTTClient_get_topic(MQTTClient handle, char* parameter);
 * parameter: 用户别名。
 
 ### Code Example
-int ret = MQTTClient_get_topic(client, "000000018302“）;
+int ret = MQTTClient_get_topic(client, "000000018302");
 
 在回调函数extendedCmdArrive中获得该用户的状态.
 
@@ -220,7 +217,7 @@ int MQTTClient_report(MQTTClient handle, char* action, char* data);
 * data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
 
 ### Code Example
-int ret = MQTTClient_report(client, "action“, "data"）;
+int ret = MQTTClient_report(client, "action", "data");
 
 ## API - MQTTClient_set_broker
 ### 功能
@@ -234,7 +231,7 @@ int MQTTClient_set_broker(MQTTClient* handle, char* broker);
 * broker: broker域名或者ip地址
 
 ### Code Example
-int ret = MQTTClient_set_broker(client, "192.168.1.100”）;
+int ret = MQTTClient_set_broker(client, "192.168.1.100");
 
 
 ## API - MQTTClient_get_broker
@@ -251,4 +248,4 @@ int MQTTClient_get_broker(MQTTClient* handle, char* broker);
 ### Code Example
 char buf[100];
 
-int ret = MQTTClient_set_broker(client, buf）;
+int ret = MQTTClient_set_broker(client, buf);
