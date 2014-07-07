@@ -147,7 +147,7 @@ int ret = MQTTClient_set_alias(client, "000000018302");
 ## API - MQTTClient_get_alias
 ### 功能
 
-App 可以调用此函数来获取当前用户的别名。
+App 可以调用此函数来获取当前用户的别名
 
 ### 函数原型
 int MQTTClient_get_alias(MQTTClient handle, char* parameter);
