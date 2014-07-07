@@ -93,7 +93,7 @@ MQTTCient_publish(MQTTClient handle, char* topicName, int len, void *data)
 ### 参数说明
 * handle: 客户端句柄
 * topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
-* data_len: 消息内容长度
+* len: 消息内容长度
 * data: 消息指针
 
 ### Code Example
