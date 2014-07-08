@@ -536,7 +536,7 @@ public static void  getStatusOfAlias(
 
 
 ```Java
-YunBaManager.getStatusOfAlias(getApplicationContext(), “t1"
+YunBaManager.getStatusOfAlias(getApplicationContext(), “t1",
     new IMqttActionListener() {
 
 
@@ -561,4 +561,124 @@ YunBaManager.getStatusOfAlias(getApplicationContext(), “t1"
 ```
 
 
-	
+## API -  subscribePresenceToTopic
+### 功能
+App  可以调用此函数来监听 Topic 下面所有的用户的别名状态的变化。所有用户的状态变化时都发起一个  <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 的广播，用户 App 的程序监听此 action 的广播就能收到相应状态的变化。
+
+
+### 函数原型
+```Java
+public static void subscribePresenceToTopic(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
+
+
+### 参数说明
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+
+### Code Example
+
+
+```Java
+YunBaManager.subscribePresenceToTopic(getApplicationContext(), “t1"
+    new IMqttActionListener() {
+
+
+        public void onSuccess(IMqttToken mqttToken) {
+            DemoUtil.showToast("subscribePresenceToTopic succeed", getApplicationContext());
+        }
+
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "getAliasList failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
+
+### 自定义 Receive 监听状态变化的 AndroidManifest.xml 配置
+```xml
+ <receiver android:name="Your Receiver">
+              <intent-filter>
+                <action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
+                <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 
+                <category android:name="Package Name" />
+            </intent-filter>
+         </receiver>
+
+```
+
+
+### 自定义 Receive 监听状态变化代码片段
+```Java
+else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
+			 //msg from presence.
+			 String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);		
+				String payload = intent.getStringExtra(YunBaManager.MQTT_MSG);
+				try {
+					JSONObject res = new JSONObject(payload);
+					String action = res.optString("action", null);
+					String  alias = res.optString("alias", null);
+					//process your code
+				} catch (JSONException e) {
+				
+				}
+		}
+
+```
+
+
+## API -  unsubscribePresenceToTopic
+### 功能
+与 subscribePresenceToTopic 想对应， 取消监听对应 Topic 下用户状态的变化。
+
+
+### 函数原型
+```Java
+public static void   unsubscribePresenceToTopic(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
+
+
+### 参数说明
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+
+### Code Example
+
+
+```Java
+YunBaManager.unsubscribePresenceToTopic(getApplicationContext(), “t1"
+    new IMqttActionListener() {
+
+
+        public void onSuccess(IMqttToken mqttToken) {
+            String msg = "subscribePresenceToTopic succeed ";
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "unsubscribePresenceToTopic failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
+    
