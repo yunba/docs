@@ -25,7 +25,7 @@ rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedC
 ```
 订阅你的频道
 ```c
-rc = MQTTClient_subscribe（client, "your_channel"）;
+rc = MQTTClient_subscribe(client, "your_channel");
 ```
 
 当你的程序退出时，不要忘记使用：
