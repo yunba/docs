@@ -35,7 +35,7 @@ MQTTClient_destroy(&client)
 ##how to get demo code?
 使用下面命令获得demo代码
 ```c
-git clone https://github.com/yunba_c_sdk_demo.git
+git clone https://github.com/alexbank/yunba_demo.git
 ```
 
 
