@@ -256,7 +256,7 @@ App 可以设置broker
 int MQTTClient_set_broker(MQTTClient* handle, char* broker);
 ```
 ### 参数说明
-* handle: 客户端句柄
+* handle: 客户端句柄指针
 * broker: broker域名或者ip地址
 
 ### Code Example
@@ -276,7 +276,7 @@ int MQTTClient_get_broker(MQTTClient* handle, char* broker);
 ```
 
 ### 参数说明
-* handle: 客户端句柄
+* handle: 客户端句柄指针
 * broker: 存放broker的指针
 
 ### Code Example
@@ -288,7 +288,7 @@ int ret = MQTTClient_set_broker(client, buf);
 ## API - MQTTClient_freeMessage
 ### 功能
 
-App 可以获得broker
+释放message资源
 
 ### 函数原型
 ```c
@@ -296,7 +296,7 @@ void MQTTClient_freeMessage(MQTTClient_message** msg);
 ```
 
 ### 参数说明
-* msg: 
+* msg: 指向message指针的指针
 
 ### Code Example
 ```c
@@ -309,7 +309,7 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
 ## API - MQTTClient_destroy 
 ### 功能
 
-App 可以获得broker
+释放客户端资源。
 
 ### 函数原型
 ```c
@@ -317,7 +317,7 @@ void MQTTClient_destroy(MQTTClient* handle);
 ```
 
 ### 参数说明
-* handle:  
+* handle:  客户端句柄指针
 
 ### Code Example
 ```c
