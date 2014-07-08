@@ -460,4 +460,105 @@ YunBaManager.getTopics(getApplicationContext(),
 );
 ```
 
+
+## API - getAliasList
+### 功能
+App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
+
+
+### 函数原型
+```Java
+public static void getAliasList(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
+
+
+### 参数说明
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+
+### Code Example
+
+
+```Java
+YunBaManager.getAliasList(getApplicationContext(), “t1"
+    new IMqttActionListener() {
+
+
+        public void onSuccess(IMqttToken mqttToken) {
+            JSONObject result = mqttToken.getResult();
+                    try {
+                         JSONArray topics = result.getJSONArray(“alias");
+                         System.out.println(topics.toString());
+                    } catch (JSONException e) {
+                        
+                    }
+        }
+
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "getAliasList failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
+
+## API -  getStatusOfAlias
+### 功能
+根据别名来获取用用户的状态，如是否在线等信息
+
+
+### 函数原型
+```Java
+public static void  getStatusOfAlias(
+        Context context, 
+        String alias,
+        IMqttActionListener callback
+);
+```
+
+
+### 参数说明
+* context: Android 应用上下文环境.
+* alias: app 自定义的别名
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+
+### Code Example
+
+
+```Java
+YunBaManager.getStatusOfAlias(getApplicationContext(), “t1"
+    new IMqttActionListener() {
+
+
+        public void onSuccess(IMqttToken mqttToken) {
+            JSONObject result = mqttToken.getResult();
+                    try {
+                        String status = result.getJSONArray(“status");
+                         System.out.println(topics.toString());
+                    } catch (JSONException e) {
+                        
+                    }
+        }
+
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "getStatusOfAlias failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
+
 	
