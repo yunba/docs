@@ -2,7 +2,7 @@
 ##Where do I get the code?
 你可以使用下面命令去获得sdk:
 ```c
-git clone https://github.com/yunba_c_sdk.git
+git clone https://github.com/alexbank/c_sdk.git
 ```
 ##How do I get started?
 ###1.添加lib以及header到你的Makefile,比如：
