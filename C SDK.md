@@ -12,12 +12,10 @@ sprintf(url, "%s:%s", opts.host, opts.port);
 rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE, NULL);
 MQTTClient_connect(client, &conn_opts);
 ```
-
 ## 添加 Message Received 代码
 ```c
 rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedCmdArrive);
 ```
-
 其中messageArrived， extendedCmdArrive为回调函数。
 
 下面函数处理status, get alias get-topic等扩展命令。
@@ -285,4 +283,43 @@ int MQTTClient_get_broker(MQTTClient* handle, char* broker);
 ```c
 char buf[100];
 int ret = MQTTClient_set_broker(client, buf);
+```
+
+## API - MQTTClient_freeMessage
+### 功能
+
+App 可以获得broker
+
+### 函数原型
+```c
+void MQTTClient_freeMessage(MQTTClient_message** msg);
+```
+
+### 参数说明
+* msg: 
+
+### Code Example
+```c
+int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_message* m) {
+	MQTTClient_freeMessage(&m);
+	MQTTClient_free(topicName);
+}
+```
+
+## API - MQTTClient_destroy 
+### 功能
+
+App 可以获得broker
+
+### 函数原型
+```c
+void MQTTClient_destroy(MQTTClient* handle);
+```
+
+### 参数说明
+* handle:  
+
+### Code Example
+```c
+MQTTClient_destroy(&client);
 ```
