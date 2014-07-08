@@ -5,7 +5,7 @@
 git clone https://github.com/yunba_c_sdk.git
 ```
 ##How do I get started?
-###1.添加lib以及header到你的Makefile,比如：
+###1.添加lib以及header到Makefile，比如：
 ```c
 INCLUDEPATH = -I/home/yunba/test/cmqtt-sdk/install/include
 LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
