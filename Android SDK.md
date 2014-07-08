@@ -261,6 +261,46 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
+## API - publishByAlias
+
+### 功能
+向用户别名发送消息, 用于实现点对点的消息发送。
+
+### 函数原型
+
+	public static void publishByAlias(
+	    Context context,
+	    String alias,
+	    String message,
+	    IMqttActionListener mqttAction
+    );
+
+### 参数说明
+* context: Android 应用上下文环境。
+* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
+* message: 向对应 topic 的订阅者发布的消息.
+* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+### Code Example
+```Java
+YunBaManager.publishByAlias(getApplicationContext(), topic, msg,
+    new IMqttActionListener() {
+        @Override
+        public void onSuccess(IMqttToken asyncActionToken) {
+            String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
+            String msgLog = "publishByAlias succeed : " + topic;
+            DemoUtil.showToast(msgLog, getApplicationContext());
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "publishByAlias failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
 
 ## API - stop
 #### 功能
@@ -663,7 +703,7 @@ YunBaManager.unsubscribePresenceToTopic(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
-            String msg = "subscribePresenceToTopic succeed ";
+            String msg = "unsubscribePresenceToTopic succeed ";
             DemoUtil.showToast(msg, getApplicationContext());
         }
 
