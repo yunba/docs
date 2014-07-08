@@ -1,3 +1,38 @@
+#Yunba C quick start
+##Where do I get the code?
+你可以使用下面命令去获得sdk:
+git clone https://github.com/yunba_c_sdk.git
+##How do I get started?
+###1.添加lib以及header到你的Makefile,比如：
+INCLUDEPATH = -I/home/yunba/test/cmqtt-sdk/install/include
+LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
+其中/home/yunba/test/cmqtt-sdk/install是你的yun SDK目录。
+###2.在应用中添加yunba服务。
+在你的代码中应用
+···c
+#include "yunba.h"
+```
+在入口函数中添加yunba服务初始化：
+···c
+MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
+rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE, NULL);
+
+rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedCmdArrive);
+```
+订阅你的频道
+```c
+rc = MQTTClient_subscribe（client, "your_channel"）;
+```
+
+当你的程序退出时，不要忘记使用：
+···c
+MQTTClient_destroy(&client)
+```
+##如何获得demo
+使用下面命令获得demo代码。
+git clone https://github.com/yunba_c_sdk_demo.git
+
+
 # Yunba C SDK 使用文档
 导入 SDK
 根据用户平台芯片下载相应的yunba c sdk。比如arm平台。下载 yunba-c-sdk-release-for-arm.tar.gz包解压到本地。在使用yunba的代码中，加入相应的头文件。在Makefile添加yunba库文件。
