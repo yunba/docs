@@ -32,7 +32,7 @@ rc = MQTTClient_subscribe（client, "your_channel"）;
 ```c
 MQTTClient_destroy(&client)
 ```
-##如何获得demo
+##how to get demo code?
 使用下面命令获得demo代码
 ```c
 git clone https://github.com/yunba_c_sdk_demo.git
