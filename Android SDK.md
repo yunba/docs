@@ -245,7 +245,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 ```Java
 YunBaManager.publish(getApplicationContext(), topic, msg,
     new IMqttActionListener() {
-
+        @Override
         public void onSuccess(IMqttToken asyncActionToken) {
             String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
             String msgLog = "Publish succeed : " + topic;
@@ -370,7 +370,7 @@ public static void setAlias(
 ```Java
 YunBaManager.setAlias(getApplicationContext(), alias, 
     new IMqttActionListener() {
-
+        @Override
         public void onSuccess(IMqttToken asyncActionToken) {
             DemoUtil.showToast("success", getApplicationContext());
         }
@@ -405,7 +405,7 @@ public static void getAlias(
 ```Java
 YunBaManager.getAlias(getApplicationContext(), 
     new IMqttActionListener() {
-
+        @Override
         public void onSuccess(IMqttToken mqttToken) {
             DemoUtil.showToast("get alias success " + mqttToken.getAlias(), getApplicationContext());
         }
@@ -440,7 +440,7 @@ public static void getTopics(
 ```Java
 YunBaManager.getTopics(getApplicationContext(), 
     new IMqttActionListener() {
-
+        @Override
         public void onSuccess(IMqttToken mqttToken) {
             JSONObject result = mqttToken.getResult();
 				try {
@@ -486,14 +486,13 @@ public static void getAliasList(
 
 
 ```Java
-YunBaManager.getAliasList(getApplicationContext(), “t1"
+YunBaManager.getAliasList(getApplicationContext(), "t1",
     new IMqttActionListener() {
-
-
+        @Override
         public void onSuccess(IMqttToken mqttToken) {
             JSONObject result = mqttToken.getResult();
                     try {
-                         JSONArray topics = result.getJSONArray(“alias");
+                         JSONArray topics = result.getJSONArray("alias");
                          System.out.println(topics.toString());
                     } catch (JSONException e) {
                         
@@ -536,14 +535,13 @@ public static void  getStatusOfAlias(
 
 
 ```Java
-YunBaManager.getStatusOfAlias(getApplicationContext(), “t1",
+YunBaManager.getStatusOfAlias(getApplicationContext(), "t1",
     new IMqttActionListener() {
-
-
-        public void onSuccess(IMqttToken mqttToken) {
+       @Override
+       public void onSuccess(IMqttToken mqttToken) {
             JSONObject result = mqttToken.getResult();
                     try {
-                        String status = result.getJSONArray(“status");
+                        String status = result.getJSONArray("status");
                          System.out.println(topics.toString());
                     } catch (JSONException e) {
                         
@@ -586,10 +584,9 @@ public static void subscribePresenceToTopic(
 
 
 ```Java
-YunBaManager.subscribePresenceToTopic(getApplicationContext(), “t1"
+YunBaManager.subscribePresenceToTopic(getApplicationContext(), "t1",
     new IMqttActionListener() {
-
-
+        @Override
         public void onSuccess(IMqttToken mqttToken) {
             DemoUtil.showToast("subscribePresenceToTopic succeed", getApplicationContext());
         }
@@ -662,10 +659,9 @@ public static void   unsubscribePresenceToTopic(
 
 
 ```Java
-YunBaManager.unsubscribePresenceToTopic(getApplicationContext(), “t1"
+YunBaManager.unsubscribePresenceToTopic(getApplicationContext(), "t1",
     new IMqttActionListener() {
-
-
+        @Override
         public void onSuccess(IMqttToken mqttToken) {
             String msg = "subscribePresenceToTopic succeed ";
             DemoUtil.showToast(msg, getApplicationContext());
