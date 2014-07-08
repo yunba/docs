@@ -418,4 +418,46 @@ YunBaManager.getAlias(getApplicationContext(),
     }
 );
 ```
+
+## API - getTopics
+### 功能
+App  可以调用此函数来获取当前用户的订阅的所有 Topics。
+
+### 函数原型
+```Java
+public static void getTopics(
+        Context context,  
+        IMqttActionListener callback
+);
+```
+
+### 参数说明
+* context: Android 应用上下文环境。.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+
+### Code Example
+
+```Java
+YunBaManager.getTopics(getApplicationContext(), 
+    new IMqttActionListener() {
+
+        public void onSuccess(IMqttToken mqttToken) {
+            JSONObject result = mqttToken.getResult();
+				try {
+					JSONArray topics = result.getJSONArray("topics");
+					System.out.println(topics.toString());
+				} catch (JSONException e) {
+					
+				}
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+            String msg = "getTopics failed : " + exception.getMessage();
+            DemoUtil.showToast(msg, getApplicationContext());
+        }
+    }
+);
+```
+
 	
