@@ -240,12 +240,15 @@ int ret = MQTTClient_set_broker(client, "192.168.1.100");
 App 可以获得broker
 
 ### 函数原型
-+ int MQTTClient_get_broker(MQTTClient* handle, char* broker);
+<  int MQTTClient_get_broker(MQTTClient* handle, char* broker); >
+
 ### 参数说明
 * handle: 客户端句柄
 * broker: 存放broker的指针
 
 ### Code Example
+<
 char buf[100];
 
 int ret = MQTTClient_set_broker(client, buf);
+>
