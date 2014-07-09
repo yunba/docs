@@ -4,9 +4,8 @@
 ### 功能 
 
 ###函数原型
-```c
-MQTTClient_nameValue* MQTTClient_getVersionInfo();
-```
+` MQTTClient_nameValue* MQTTClient_getVersionInfo(); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -24,9 +23,8 @@ printf("used:%s, %s\n", version->name, version->value);
 App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 
 ### 函数原型
-```c
-int MQTTClient_subscribe(MQTTClient handle, char* topic);
-```
+` int MQTTClient_subscribe(MQTTClient handle, char* topic); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -44,9 +42,8 @@ rc = MQTTClient_subscribe(client, “rocket”);
 App 可以取消订阅一个Topic。
 
 ### 函数原型
-```c
-int MQTTClient_unsubscribe(MQTTClient handle, char* topic);
-```
+`  int MQTTClient_unsubscribe(MQTTClient handle, char* topic); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -64,9 +61,8 @@ rc = MQTTClient_unsubscribe(client, “rocket”);
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-```c
-MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data)
-```
+` MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data) `
+
 ### 参数说明:
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -88,9 +84,8 @@ rc = MQTTClient_publish(client, topic, data_len, buffer);
 App 可以向 Topic 发送json包, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-```c
-int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)
-```
+` int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data) `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -112,9 +107,8 @@ cJSON_Delete(data);
 App 可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
 ### 函数原型
-```c
-int MQTTClient_set_alias(MQTTClient handle, char* alias);
-```
+` int MQTTClient_set_alias(MQTTClient handle, char* alias); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -132,9 +126,8 @@ int ret = MQTTClient_set_alias(client, "000000018302");
 App 可以调用此函数来获取当前用户的别名
 
 ### 函数原型
-```c
-int MQTTClient_get_alias(MQTTClient handle, char* parameter);
-```
+` int MQTTClient_get_alias(MQTTClient handle, char* parameter); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -154,9 +147,8 @@ int ret = MQTTClient_get_alias(client, "0");
 App 可以调用此函数来获得某个alias的用户状态。
 
 ### 函数原型
-```c
-int MQTTClient_get_status(MQTTClient handle, char* parameter);
-```
+` int MQTTClient_get_status(MQTTClient handle, char* parameter); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -176,9 +168,8 @@ int ret = MQTTClient_get_alias(client, "000000018302");
 App 可以调用此函数来某个topic的别名列表
 
 ### 函数原型
-```c
-int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
-```
+`  int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -198,9 +189,8 @@ int ret = MQTTClient_get_aliaslist(client, "rocket");
 App 可以调用此函数来某个alias的所订阅的topic
 
 ### 函数原型
-```c
-int MQTTClient_get_topic(MQTTClient handle, char* parameter);
-```
+` int MQTTClient_get_topic(MQTTClient handle, char* parameter); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -221,9 +211,8 @@ int ret = MQTTClient_get_topic(client, "000000018302");
 App 可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
 ### 函数原型
-```c
-int MQTTClient_report(MQTTClient handle, char* action, char* data);
-```
+`  int MQTTClient_report(MQTTClient handle, char* action, char* data); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -242,9 +231,8 @@ int ret = MQTTClient_report(client, "action", "data");
 App 可以设置broker
 
 ### 函数原型
-```c
-int MQTTClient_set_broker(MQTTClient* handle, char* broker);
-```
+` int MQTTClient_set_broker(MQTTClient* handle, char* broker); `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -263,9 +251,8 @@ int ret = MQTTClient_set_broker(client, "192.168.1.100");
 App 可以获得broker
 
 ### 函数原型
-```c
-int MQTTClient_get_broker(MQTTClient* handle, char* broker);
-```
+` int MQTTClient_get_broker(MQTTClient* handle, char* broker); `
+
 
 ### 参数说明
 名称 | 类型 | 说明
@@ -285,9 +272,7 @@ int ret = MQTTClient_set_broker(client, buf);
 释放message资源
 
 ### 函数原型
-```c
-void MQTTClient_freeMessage(MQTTClient_message** msg);
-```
+` void MQTTClient_freeMessage(MQTTClient_message** msg); `
 
 ### 参数说明
 名称 | 类型 | 说明
@@ -308,9 +293,8 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
 释放客户端资源。
 
 ### 函数原型
-```c
-void MQTTClient_destroy(MQTTClient* handle);
-```
+` void MQTTClient_destroy(MQTTClient* handle); `
+
 
 ### 参数说明
 名称 | 类型 | 说明
