@@ -8,7 +8,9 @@
 MQTTClient_nameValue* MQTTClient_getVersionInfo();
 ```
 ### 参数说明
-* null
+名称 | 类型 | 说明
+--------- | ------- | -----------
+null | null | null
 
 ### Code Example
 ```c
@@ -26,8 +28,10 @@ App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 int MQTTClient_subscribe(MQTTClient handle, char* topic);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* topic: 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient|  客户端句柄
+topic |  char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -44,8 +48,10 @@ App 可以取消订阅一个Topic。
 int MQTTClient_unsubscribe(MQTTClient handle, char* topic);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* topic: 取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+topic |  char* |取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -61,11 +67,13 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 ```c
 MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data)
 ```
-### 参数说明
-* handle: 客户端句柄
-* topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
-* data_len: 消息内容长度
-* data: 消息指针
+### 参数说明:
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient |客户端句柄
+topic | char* |订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
+data_len | int |消息内容长度
+data | void* |消息指针
 
 ### Code Example
 ```c
@@ -85,9 +93,11 @@ App 可以向 Topic 发送json包, 那么任何订阅此 Topic 的 Client 都会
 int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)
 ```
 ### 参数说明
-* handle: 客户端句柄
-* topic: 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
-* data: json包
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient |客户端句柄
+topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
+data | cJSON* | json包
 
 ### Code Example
 ```c
@@ -107,8 +117,10 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
 int MQTTClient_set_alias(MQTTClient handle, char* alias);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+alias  | char* |用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -125,8 +137,10 @@ App 可以调用此函数来获取当前用户的别名
 int MQTTClient_get_alias(MQTTClient handle, char* parameter);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* parameter: 参数
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient |客户端句柄
+parameter | char* | 参数
 
 ### Code Example
 ```c
@@ -145,8 +159,10 @@ App 可以调用此函数来获得某个alias的用户状态。
 int MQTTClient_get_status(MQTTClient handle, char* parameter);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* parameter: alias名字
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | alias名字
 
 ### Code Example
 ```c
@@ -165,8 +181,10 @@ App 可以调用此函数来某个topic的别名列表
 int MQTTClient_get_aliaslist(MQTTClient handle, char* parameter);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* parameter: topic名字
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | topic名字
 
 ### Code Example
 ```c
@@ -185,8 +203,10 @@ App 可以调用此函数来某个alias的所订阅的topic
 int MQTTClient_get_topic(MQTTClient handle, char* parameter);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* parameter: 用户别名。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | 用户别名。
 
 ### Code Example
 ```c
@@ -206,9 +226,11 @@ App 可以调用此函数来上报客户端的行为，如打开通知栏次数�
 int MQTTClient_report(MQTTClient handle, char* action, char* data);
 ```
 ### 参数说明
-* handle: 客户端句柄
-* action: app 需要统计的行为，如打开通知栏，下载资源成功等等
-* data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+action | char* | app 需要统计的行为，如打开通知栏，下载资源成功等等
+data | char* | 想对应 action 的附加数据，以满足统计相关的其他业务需求。
 
 ### Code Example
 ```c
@@ -225,8 +247,10 @@ App 可以设置broker
 int MQTTClient_set_broker(MQTTClient* handle, char* broker);
 ```
 ### 参数说明
-* handle: 客户端句柄指针
-* broker: broker域名或者ip地址
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient* | 客户端句柄指针
+broker | char* |broker域名或者ip地址
 
 ### Code Example
 ```c
@@ -245,8 +269,10 @@ int MQTTClient_get_broker(MQTTClient* handle, char* broker);
 ```
 
 ### 参数说明
-* handle: 客户端句柄指针
-* broker: 存放broker的指针
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient* | 客户端句柄指针
+broker | char* |存放broker的指针
 
 ### Code Example
 ```c
@@ -265,7 +291,9 @@ void MQTTClient_freeMessage(MQTTClient_message** msg);
 ```
 
 ### 参数说明
-* msg: 指向message指针的指针
+名称 | 类型 | 说明
+--------- | ------- | -----------
+msg | MQTTClient_message** | 指向message指针的指针
 
 ### Code Example
 ```c
@@ -286,7 +314,9 @@ void MQTTClient_destroy(MQTTClient* handle);
 ```
 
 ### 参数说明
-* handle:  客户端句柄指针
+名称 | 类型 | 说明
+--------- | ------- | -----------
+andle | MQTTClient* |  客户端句柄指针
 
 ### Code Example
 ```c
