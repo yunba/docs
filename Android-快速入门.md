@@ -23,7 +23,7 @@
 ### 添加权限
 
 ```xml
-
+> 添加权限
 <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -46,19 +46,27 @@
 ![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
 
 ```xml
-
+> 添加 Appkey
 <meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
 
 ```
 ### 添加 Service
+添加 YunBaService ，YunBa SDK 会启动一个后台的 service.
 
 ```xml
+
+> 添加 YunBaService
+
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
 
 ### 添加 Receiver
+添加 YunBaReceiver, 用来监听网络变化等事件，确保网络切换时能重新建立长连接.
 
 ```xml
+
+> 添加 YunBaReceiver
+
 <receiver android:name="io.yunba.android.core.YunBaReceiver">
     <intent-filter>
         <action android:name="android.intent.action.USER_PRESENT" />
@@ -98,9 +106,14 @@ public class YourApp extends Application {
 
 
 ## 自定义 Receiver 接受 Publish 消息
+YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 监听相关的 Action 接受消息并处理。
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
+
 ```xml
+
+ > 自定义 Receiver 接受 Publish 消息
+ 
 	<receiver android:name="Your Receiver">
 		<intent-filter>
 		<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
@@ -112,6 +125,7 @@ public class YourApp extends Application {
 ### 自定义 Receiver 处理 Publish 消息代码示例
 
 ```Java
+ > 自定义 Receiver 处理 Publish 消息
 	if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
 
 		String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
