@@ -2,7 +2,7 @@
 ## 注册开发者账号
 打开 <http://yunba.io>, 点击注册创建账号。
 
-![create_accout.jpg](/image/register_account.png)
+![create_accout.jpg](../image/register_account.png)
 
 ## 创建应用
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
