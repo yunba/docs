@@ -1,5 +1,4 @@
 #Yunba C 快速入门
-
 ## 注册开发者账号
 打开 http://yunba.io, 点击注册创建账号。
 
@@ -9,7 +8,6 @@
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
 
 ![create_application.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_application.png)
-
 
 ##Where do I get the code?
 你可以使用下面命令去获得sdk:
