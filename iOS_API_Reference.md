@@ -1,4 +1,4 @@
-# Yunba iOS API Reference
+# Yunba iOS SDK API 手册 
 
 ## setup
 
@@ -6,17 +6,21 @@
 初始化 YunBa SDK。
 
 ### 函数原型
-+ (BOOL)setupWithAppkey:(NSString *)appkey;
-+ (BOOL)setupWithAppkey:(NSString *)appkey option:(YBSetupOption *)option;
+
+`+ (BOOL)setupWithAppkey:(NSString *)appkey;`
+
+`+ (BOOL)setupWithAppkey:(NSString *)appkey option:(YBSetupOption *)option;`
 
 ### 参数说明
-* (NSString *) appkey : YunBa 中注册的App ID。
-* (YBSetupOption *) option : 选项，可包含sub_key, pub_key, sec_key, auth_key。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+appkey | NSString* | YunBa 中注册的App ID
+option | YBSetupOption* | 选项，可包含sub_key, pub_key, sec_key, auth_key
 
 ### 返回值
 * (BOOL) : setup的结果，YES说明setup成功，开始尝试连接，否则说明setup失败，参数错误。
 
-Code Example
+```objective_c
 
     BOOL succ = [YunBaService setupWithAppkey:appkey option:option];
 	if (succ) {
@@ -26,6 +30,7 @@ Code Example
         }
     }];
 
+```
 
 ## API - subscribe
 
@@ -34,20 +39,23 @@ App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 
 ### 函数原型
 
-     + (void)subscribe:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
-     + (void)subscribe:(NSString *)topic qos:(UInt8)qosLevel resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)subscribe:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;`
+
+     `+ (void)subscribe:(NSString *)topic qos:(UInt8)qosLevel resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* topic: app 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符。
-* qosLevel: 服务质量等级，具体参考服务质量等级说明。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | app 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+qosLevel | NSString* | 服务质量等级，具体参考服务质量等级说明
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
 
-Code Example
+```objective_c
 
-    [YunBaService subscribe:topic qos:qosLevel resultBlock:^(BOOL succ, NSError *error){
+    [YunBaService subscribe:topic qos:qosLevel resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
             NSLog(@"subscribe to topic succ: %@", topic);
         } else {
@@ -55,6 +63,7 @@ Code Example
         }
     }];
 
+```
 
 ## API - unsubscribe
 
@@ -64,19 +73,21 @@ App 可以取消订阅一个 Topic, 以便取消接收来自 Topic 的 Message.
 ### 函数原型
 
 
-     + (void)unsubscribe:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)unsubscribe:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;`
 
 
 ### 参数说明
-* topic: app 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | app 取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
 
-Code Example
+```objective_c
 
-    [YunBaService unsubscribe:topic resultBlock:^(BOOL succ, NSError *error){
+    [YunBaService unsubscribe:topic resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
             NSLog(@"unsubscribe to topic succ: %@", topic);
         } else {
@@ -84,6 +95,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - publish
@@ -93,20 +105,23 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 ### 函数原型
 
-     + (void)publish:(NSString *)topic data:(NSData *)data resultBlock:(YBResultBlock)resultBlock;
-     + (void)publish:(NSString *)topic data:(NSData *)data option:(YBPublishOption *)option resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)publish:(NSString *)topic data:(NSData *)data resultBlock:(YBResultBlock)resultBlock;`
+
+     `+ (void)publish:(NSString *)topic data:(NSData *)data option:(YBPublishOption *)option resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* topic: app 待发布消息的主题，只支持英文数字下划线，长度不超过50个字符。
-* message: 向对应 topic 的订阅者发布的消息。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | app 发布消息的主题，只支持英文数字下划线，长度不超过50个字符
+message | NSData* | 向对应 topic 的订阅者发布的消息
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
 
-Code Example
+```objective_c
 
-    [YunBaService publish:topic data:data option:option resultBlock:^(BOOL succ, NSError *error){
+    [YunBaService publish:topic data:data option:option resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
             NSLog(@"publish to topic: %@ data: %@ succ", topic, data);
         } else {
@@ -114,29 +129,33 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - publish to alias
 
 ### 功能
-App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
+App 可以向 alias 发送消息, 那么此别名的 Client 都会接受到消息。
 
 ### 函数原型
 
-     + (void)publishToAlias:(NSString *)alias data:(NSData *)data resultBlock:(YBResultBlock)resultBlock;
-     + (void)publishToAlias:(NSString *)alias data:(NSData *)data option:(YBPublishOption *)option resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)publishToAlias:(NSString *)alias data:(NSData *)data resultBlock:(YBResultBlock)resultBlock;`
+
+     `+ (void)publishToAlias:(NSString *)alias data:(NSData *)data option:(YBPublishOption *)option resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* alias: 目标用户的别名，只支持英文数字下划线，长度不超过50个字符。
-* message: 向对应 topic 的订阅者发布的消息。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+alias | NSString* | 目标用户的别名，只支持英文数字下划线，长度不超过50个字符
+message | NSData* | 向对应 topic 的订阅者发布的消息
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
 
-Code Example
+```objective_c
 
-    [YunBaService publishToAlias:alias data:data option:option resultBlock:^(BOOL succ, NSError *error){
+    [YunBaService publishToAlias:alias data:data option:option resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
             NSLog(@"publish to alias: %@ data: %@ succ", alias, data);
         } else {
@@ -144,6 +163,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - subscribe presence
@@ -153,16 +173,18 @@ App 可以订阅某个频道上的其他用户的上、下线及(取消)订阅�
 
 ### 函数原型
 
-     + (void)subscribePresence:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)subscribePresence:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* topic: app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService subscribePresence:topic resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
@@ -172,6 +194,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - unsubscribe presence
@@ -181,7 +204,7 @@ App 可以取消订阅某个频道上的其他用户的上、下线及(取消)�
 
 ### 函数原型
 
-     + (void)unsubscribePresence:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)unsubscribePresence:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
 * topic: app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符。
@@ -190,7 +213,7 @@ App 可以取消订阅某个频道上的其他用户的上、下线及(取消)�
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService unsubscribePresenceToTopic:topic resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
@@ -200,6 +223,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - get alias list of topic
@@ -209,8 +233,9 @@ App 可以查询订阅某个频道的所有用户别名个数、列表及状态�
 
 ### 函数原型
 
-     + (void)getAliasList:(NSString *)topic resultBlock:(YBArrayCountResultBlock)arrayCountResultBlock;
-     + (void)getAliasList:(NSString *)topic disableState:(BOOL)disableState disableAlias:(BOOL)disableAlias resultBlock:(YBArrayCountResultBlock)arrayCountResultBlock;
+     `+ (void)getAliasList:(NSString *)topic resultBlock:(YBArrayCountResultBlock)arrayCountResultBlock;`
+
+     `+ (void)getAliasList:(NSString *)topic disableState:(BOOL)disableState disableAlias:(BOOL)disableAlias resultBlock:(YBArrayCountResultBlock)arrayCountResultBlock;`
 
 ### 参数说明
 * (NSString *) topic: 目标频道。
@@ -221,7 +246,7 @@ App 可以查询订阅某个频道的所有用户别名个数、列表及状态�
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService getAliasList:testTopic disableState:NO disableAlias:NO resultBlock:^(NSArray *resArray, size_t resCount, NSError *error) {
         if (error.code == kYBErrorNoError) {
@@ -231,6 +256,7 @@ Code Example
             }
     }];
 
+```
 
 
 ## API - get topic list of alias
@@ -240,8 +266,9 @@ App 可以查询用户订阅的频道列表。
 
 ### 函数原型
 
-     + (void)getTopicList:(YBArrayResultBlock)stringResultBlock;
-     + (void)getTopicList:(NSString *)alias resultBlock:(YBArrayResultBlock)arrayResultBlock;
+     `+ (void)getTopicList:(YBArrayResultBlock)stringResultBlock;`
+
+     `+ (void)getTopicList:(NSString *)alias resultBlock:(YBArrayResultBlock)arrayResultBlock;`
 
 ### 参数说明
 * (NSString *) alias: 目标用户别名。
@@ -250,7 +277,7 @@ App 可以查询用户订阅的频道列表。
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService getTopicList:alias resultBlock:^(NSArray *res, NSError *error) {
             if (error.code == kYBErrorNoError) {
@@ -260,6 +287,7 @@ Code Example
             }
     }];
 
+```
 
 
 ## API - get state of alias
@@ -269,7 +297,7 @@ App 可以查询用户的在线状态。
 
 ### 函数原型
 
-     + (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;
+     `+ (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;`
 
 ### 参数说明
 * (NSString *) alias: 目标用户别名。
@@ -278,7 +306,7 @@ App 可以查询用户的在线状态。
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService getState:alias resultBlock:^(NSString *res, NSError *error) {
         if (error.code == kYBErrorNoError) {
@@ -288,6 +316,7 @@ Code Example
         }
 	}];
 
+```
 
 
 ## API - Report
@@ -297,7 +326,7 @@ App  可以调用此函数来上报客户端的行为，如打开通知栏次数
 
 ### 函数原型
 
-     + (void)report:(NSString *)action withData:(NSData *)data;
+     `+ (void)report:(NSString *)action withData:(NSData *)data;`
 
 ### 参数说明
 * (NSString *) action: app 需要统计的行为，如打开通知栏，下载资源成功等等。
@@ -306,10 +335,11 @@ App  可以调用此函数来上报客户端的行为，如打开通知栏次数
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService report:action withData:data];
 
+```
 
 
 ## API - get state of alias
@@ -319,7 +349,7 @@ App 可以查询用户的在线状态。
 
 ### 函数原型
 
-     + (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;
+     `+ (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;`
 
 ### 参数说明
 * (NSString *) alias: 目标用户别名。
@@ -328,7 +358,7 @@ App 可以查询用户的在线状态。
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService getState:alias resultBlock:^(NSString *res, NSError *error) {
         if (error.code == kYBErrorNoError) {
@@ -338,6 +368,7 @@ Code Example
         }
 	}];
 
+```
 
 
 ## API - set alias
@@ -347,7 +378,7 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
 
 ### 函数原型
 
-     + (void)setAlias:(NSString *)alias resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)setAlias:(NSString *)alias resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
 * alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
@@ -356,7 +387,7 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService setAlias:alias resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
@@ -366,6 +397,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - GetAlias
@@ -375,7 +407,7 @@ App 可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
 
-     + (void)getAlias:(YBStringResultBlock)stringResultBlock;
+     `+ (void)getAlias:(YBStringResultBlock)stringResultBlock;`
 
 ### 参数说明
 * stringResultBlock: API 回调接口， 可通过返回的 NSError *error获取错误代码(kYBErrorNoError表示成功)及原因。
@@ -383,7 +415,7 @@ App 可以调用此函数来获取当前用户的别名。
 ### 返回值
 None
 
-Code Example
+```objective_c
 
     [YunBaService getAlias:^(NSString *res, NSError *error) {
         if (error.code == kYBErrorNoError) {
@@ -393,6 +425,7 @@ Code Example
         }
     }];
 
+```
 
 
 ## API - store device token
@@ -402,7 +435,7 @@ App 将DeviceToken 存储在YunBa的云端， 那么可以通过YunBa发送APNs�
 
 ### 函数原型
 
-     + (void)storeDeviceToken:(NSData *)token resultBlock:(YBResultBlock)resultBlock;
+     `+ (void)storeDeviceToken:(NSData *)token resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
 * token: 通过注册APNs而获取到的对应设备的device token。
@@ -411,10 +444,15 @@ App 将DeviceToken 存储在YunBa的云端， 那么可以通过YunBa发送APNs�
 ### 返回值
 None
 
-Code Example
+> 注册APNs，申请获取device token:
 
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];     //注册APNs，申请获取device token
+```objective_c
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+```
 
+> 上传device token:
+
+```objective_c
     - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSLog(@"get Device Token: %@", [NSString stringWithFormat:@"Device Token: %@", deviceToken]);
         [YunBaService storeDeviceToken:deviceToken resultBlock:^(BOOL succ, NSError *error) {
@@ -425,4 +463,4 @@ Code Example
             }
         }];
     }
-
+```
