@@ -22,8 +22,10 @@
 ## 配置 AndroidManifest.xml
 ### 添加权限
 
-```xml
 > 添加权限
+
+```xml
+
 <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -42,10 +44,12 @@
 ```
 
 ### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
+AppKey 来自 YunBa 注册的应用，与包名对应. 
 
 ![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
 
 > 添加 Appkey
+
 ```xml
 
 <meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
@@ -64,9 +68,9 @@
 ### 添加 Receiver
 添加 YunBaReceiver, 用来监听网络变化等事件，确保网络切换时能重新建立长连接.
 
-```xml
-
 > 添加 YunBaReceiver
+
+```xml
 
 <receiver android:name="io.yunba.android.core.YunBaReceiver">
     <intent-filter>
@@ -111,9 +115,10 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 监听�
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
 
-```xml
 
  > 自定义 Receiver 接受 Publish 消息
+ 
+```xml
  
 	<receiver android:name="Your Receiver">
 		<intent-filter>
