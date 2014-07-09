@@ -1,4 +1,4 @@
-# API 手册
+# Android SDK API 手册
 
 ## subscribe
 
@@ -6,15 +6,9 @@
 App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
 
 ### 函数原型
-
-```java
-
-	public static void subscribe(
-	    Context context,
-	    String[] topics,
-        IMqttActionListener mqttAction
-    );
-```
+`
+	public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction);
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
