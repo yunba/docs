@@ -7,7 +7,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 
 ### 函数原型
 `
-	public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction);
+	public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction)
 `
 
 ### 参数说明
@@ -45,14 +45,9 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 
 ### 函数原型
 
-```java
-
-	public static void unsubscribe(
-	    Context context,
-        String[] topics,
-        IMqttActionListener mqttAction
-    )
-```
+`
+    public static void unsubscribe(Context context, String[] topics, IMqttActionListener mqttAction)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -89,15 +84,9 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 ### 函数原型
 
-```java
-
-	public static void publish(
-	    Context context,
-	    String topic,
-	    String message,
-	    IMqttActionListener mqttAction
-    );
-```
+`
+	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)
+`
 ### 参数说明
 * context: Android 应用上下文环境。
 * topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
@@ -133,15 +122,9 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 
 ### 函数原型
 
-```java
-
-	public static void publishByAlias(
-	    Context context,
-	    String alias,
-	    String message,
-	    IMqttActionListener mqttAction
-    );
-```
+`
+	public static void publishByAlias(Context context, String alias, String message,IMqttActionListener mqttAction)
+`
 ### 参数说明
 * context: Android 应用上下文环境。
 * alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
@@ -177,12 +160,9 @@ App 可以调用此函数来停止推送服务，当推送服务被停止后，�
 
 ### 函数原型
 
-```java
-
-public static void stop(
-	    Context context,
-    );
-```
+`
+    public static void stop(Context context)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -200,12 +180,9 @@ YunBaManager.stop(getApplicationContext());
 App 可以调用此函数来恢复推送服务，与 stop API 相对应。
 ### 函数原型
 
-```java
-
-public static void resume(
-	    Context context,
-    );
-```
+`
+public static void resume(Context context)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -223,12 +200,9 @@ YunBaManager.resume(getApplicationContext());
 App 可以调用此函数来查看推送服务是否被停止。
 ### 函数原型
 
-```java
-
-public static void isStopped(
-	    Context context,
-    );
-```
+`
+    public static void isStopped(Context context)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -247,14 +221,9 @@ App  可以调用此函数来上报客户端的行为，如打开通知栏次数
 
 ### 函数原型
 
-```java
-
-public static void report(
-	    Context context,
-	    String actiton,
-	    String data
-    );
-```
+`
+    public static void report(Context context, String actiton, String data)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -274,14 +243,10 @@ App  可以调用此函数来绑定账号，用户名，每个用户只能指定
 
 ### 函数原型
 
-```java
+`
 
-public static void setAlias(
-        Context context, 
-        String alias, 
-        IMqttActionListener callback
-);
-```
+public static void setAlias(Context context, String alias, IMqttActionListener callback)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -314,13 +279,9 @@ App  可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
 
-```java
-
-public static void getAlias(
-        Context context,  
-        IMqttActionListener callback
-);
-```
+`
+    public static void getAlias(Context context, IMqttActionListener callback)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。.
@@ -352,13 +313,9 @@ App  可以调用此函数来获取当前用户的订阅的所有 Topics。
 
 ### 函数原型
 
-```java
-
-public static void getTopics(
-        Context context,  
-        IMqttActionListener callback
-);
-```
+`
+public static void getTopics(Context context,IMqttActionListener callback)
+`
 
 ### 参数说明
 * context: Android 应用上下文环境。.
@@ -398,14 +355,9 @@ App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的�
 
 ### 函数原型
 
-```java
-
-public static void getAliasList(
-        Context context, 
-        String topic,
-        IMqttActionListener callback
-);
-```
+`
+    public static void getAliasList(Context context, String topic, IMqttActionListener callback)
+`
 
 
 ### 参数说明
@@ -449,14 +401,9 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 
 ### 函数原型
 
-```java
-
-public static void  getStatusOfAlias(
-        Context context, 
-        String alias,
-        IMqttActionListener callback
-);
-```
+`
+public static void  getStatusOfAlias(Context context, String alias, IMqttActionListener callback)
+`
 
 
 ### 参数说明
@@ -500,14 +447,9 @@ App  可以调用此函数来监听 Topic 下面所有的用户的别名状态�
 
 ### 函数原型
 
-```java
-
-public static void subscribePresenceToTopic(
-        Context context, 
-        String topic,
-        IMqttActionListener callback
-);
-```
+`
+public static void subscribePresenceToTopic(Context context, String topic, IMqttActionListener callback)
+`
 
 
 ### 参数说明
@@ -580,14 +522,9 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 
 ### 函数原型
 
-```java
-
-public static void   unsubscribePresenceToTopic(
-        Context context, 
-        String topic,
-        IMqttActionListener callback
-);
-```
+`
+public static void   unsubscribePresenceToTopic(Context context, String topic, IMqttActionListener callback)
+`
 
 
 ### 参数说明
