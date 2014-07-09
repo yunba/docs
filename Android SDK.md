@@ -91,16 +91,16 @@ public class YourApp extends Application {
 ## 自定义 Receiver 接受 Publish 消息
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
-
+```xml
 	<receiver android:name="Your Receiver">
 		<intent-filter>
 		<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
 		<category android:name="Package Name" />
 		</intent-filter>
 	</receiver>
-
+```
 ### 自定义 Receiver 处理 Publish 消息代码示例
-
+```Java
 	if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
 
 		String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
@@ -118,7 +118,7 @@ public class YourApp extends Application {
                 .append(msg);
 		DemoUtil.showNotifation(context, topic, msg);
 	}
-
+```
 ### 在 Portal 上发布消息
 
 打开应用详情页面，点击发布消息，如图所示:
@@ -145,13 +145,13 @@ public class YourApp extends Application {
 App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
 
 ### 函数原型
-
+```Java
 	public static void subscribe(
 	    Context context,
 	    String[] topics,
         IMqttActionListener mqttAction
     );
-
+```
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -159,7 +159,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
-
+```Java
 	YunBaManager.subscribe(getApplicationContext(),topic,
 	  new IMqttActionListener() {
         @Override
@@ -176,7 +176,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
         }
       }
     );
-
+```
 
 
 ## API - unsubscribe
@@ -186,13 +186,13 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 
 ### 函数原型
 
-
+```Java
 	public static void unsubscribe(
 	    Context context,
         String[] topics,
         IMqttActionListener mqttAction
     )
-
+```
 
 ### 参数说明
 * context: Android 应用上下文环境。
@@ -227,14 +227,14 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-
+```Java
 	public static void publish(
 	    Context context,
 	    String topic,
 	    String message,
 	    IMqttActionListener mqttAction
     );
-
+```
 ### 参数说明
 * context: Android 应用上下文环境。
 * topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
@@ -267,14 +267,14 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 向用户别名发送消息, 用于实现点对点的消息发送。
 
 ### 函数原型
-
+```Java
 	public static void publishByAlias(
 	    Context context,
 	    String alias,
 	    String message,
 	    IMqttActionListener mqttAction
     );
-
+```
 ### 参数说明
 * context: Android 应用上下文环境。
 * alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
@@ -282,6 +282,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 * mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
+
 ```Java
 YunBaManager.publishByAlias(getApplicationContext(), topic, msg,
     new IMqttActionListener() {
@@ -307,6 +308,7 @@ YunBaManager.publishByAlias(getApplicationContext(), topic, msg,
 App 可以调用此函数来停止推送服务，当推送服务被停止后，所以的 API 都会失效（包括 start API）, 当需要重新使用推送服务时，必须要调用 resume API
 
 ### 函数原型
+
 ```Java
 public static void stop(
 	    Context context,
@@ -327,6 +329,7 @@ YunBaManager.stop(getApplicationContext());
 #### 功能
 App 可以调用此函数来恢复推送服务，与 stop API 相对应。
 ### 函数原型
+
 ```Java
 public static void resume(
 	    Context context,
@@ -347,6 +350,7 @@ YunBaManager.resume(getApplicationContext());
 #### 功能
 App 可以调用此函数来查看推送服务是否被停止。
 ### 函数原型
+
 ```Java
 public static void isStopped(
 	    Context context,
@@ -368,6 +372,7 @@ YunBaManager.isStopped(getApplicationContext());
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
 ### 函数原型
+
 ```Java
 public static void report(
 	    Context context,
@@ -392,6 +397,7 @@ YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
 App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
 ### 函数原型
+
 ```Java
 public static void setAlias(
         Context context, 
@@ -429,6 +435,7 @@ YunBaManager.setAlias(getApplicationContext(), alias,
 App  可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
+
 ```Java
 public static void getAlias(
         Context context,  
@@ -464,6 +471,7 @@ YunBaManager.getAlias(getApplicationContext(),
 App  可以调用此函数来获取当前用户的订阅的所有 Topics。
 
 ### 函数原型
+
 ```Java
 public static void getTopics(
         Context context,  
