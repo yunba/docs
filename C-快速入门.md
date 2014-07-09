@@ -23,6 +23,7 @@ LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
 其中/home/yunba/test/cmqtt-sdk/install是你的yun SDK目录。
 ###2.在应用中添加yunba服务。
 在你的代码中应用
+
 ```c
 #include "yunba.h"
 ```
