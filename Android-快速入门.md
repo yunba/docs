@@ -52,7 +52,7 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
 
 ```xml
 
-<meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
+<meta-data android:name="YUNBA_APPKEY" android:value="Your Appkey" />
 
 ```
 ### 添加 Service
@@ -81,7 +81,7 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
 ```
 
 ## 添加使用代码
-初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码
+初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
 
 ```java
 
@@ -111,12 +111,12 @@ public class YourApp extends Application {
 
 
 ## 自定义 Receiver 接受 Publish 消息
-YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 监听相关的 Action 接受消息并处理。
+YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过监听相关的 Action 接受消息并处理。
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
 
 
- > 自定义 Receiver 接受 Publish 消息
+ > 自定义 Receiver 接受 Publish 消息, Package Name 为当前应用程序的包名。
  
 ```xml
  
