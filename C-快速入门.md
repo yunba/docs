@@ -1,4 +1,5 @@
-#Yunba C quick start
+#Yunba C 快速入门
+
 ##Where do I get the code?
 你可以使用下面命令去获得sdk:
 ```c
