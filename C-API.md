@@ -31,7 +31,7 @@ int MQTTClient_subscribe(MQTTClient handle, char* topic);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient|  客户端句柄
-topic |  char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+topic | char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -51,7 +51,7 @@ int MQTTClient_unsubscribe(MQTTClient handle, char* topic);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
-topic |  char* |取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+topic | char* | 取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -70,10 +70,10 @@ MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data)
 ### 参数说明:
 名称 | 类型 | 说明
 --------- | ------- | -----------
-handle | MQTTClient |客户端句柄
-topic | char* |订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
-data_len | int |消息内容长度
-data | void* |消息指针
+handle | MQTTClient | 客户端句柄
+topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
+data_len | int | 消息内容长度
+data | void* | 消息指针
 
 ### Code Example
 ```c
@@ -81,7 +81,6 @@ char buf[100] = "Just test";
 int data_len = strlen(buf);
 rc = MQTTClient_publish(client, topic, data_len, buffer);
 ```
-
 
 ## API - MQTTClient_publish_json
 ### 功能
@@ -95,7 +94,7 @@ int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-handle | MQTTClient |客户端句柄
+handle | MQTTClient | 客户端句柄
 topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
 data | cJSON* | json包
 
@@ -120,7 +119,7 @@ int MQTTClient_set_alias(MQTTClient handle, char* alias);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
-alias  | char* |用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias  | char* | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 
 ### Code Example
 ```c
@@ -139,7 +138,7 @@ int MQTTClient_get_alias(MQTTClient handle, char* parameter);
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-handle | MQTTClient |客户端句柄
+handle | MQTTClient | 客户端句柄
 parameter | char* | 参数
 
 ### Code Example
@@ -206,7 +205,7 @@ int MQTTClient_get_topic(MQTTClient handle, char* parameter);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
-parameter | char* | 用户别名。
+parameter | char* | 用户别名
 
 ### Code Example
 ```c
@@ -250,7 +249,7 @@ int MQTTClient_set_broker(MQTTClient* handle, char* broker);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient* | 客户端句柄指针
-broker | char* |broker域名或者ip地址
+broker | char* | broker域名或者ip地址
 
 ### Code Example
 ```c
@@ -316,7 +315,7 @@ void MQTTClient_destroy(MQTTClient* handle);
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-andle | MQTTClient* |  客户端句柄指针
+andle | MQTTClient* | 客户端句柄指针
 
 ### Code Example
 ```c
