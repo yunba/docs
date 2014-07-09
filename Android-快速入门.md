@@ -1,6 +1,6 @@
 # Yunba Android SDK 快速入门
 ## 注册开发者账号
-打开 http://yunba.io, 点击注册创建账号。
+打开 <http://yunba.io>, 点击注册创建账号。
 
 ![create_accout.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_accout.png)
 
@@ -11,7 +11,7 @@
 
 ## 下载 Android SDK
 
-打开 http://yunba.io/developers/ 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
+打开 <http://yunba.io/developers/> 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
 
 ## 导入 Android SDK
 
