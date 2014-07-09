@@ -6,11 +6,10 @@
 App 初始化 YunBa SDK.
 
 ### 函数原型
-`   
-    public static void start(Context context)
-    public static void start(Context context, String appkey)
-	public static void start(Context context, String appkey, Map opts)
-`
+  ` public static void start(Context context) ｀
+  ` public static void start(Context context, String appkey) `
+  `	public static void start(Context context, String appkey, Map opts) `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -72,10 +71,8 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 
 ### 函数原型
 
-`
-    public static void unsubscribe(Context context, String topic, IMqttActionListener mqttAction)
-    public static void unsubscribe(Context context, String[] topics, IMqttActionListener mqttAction)
-`
+`    public static void unsubscribe(Context context, String topic, IMqttActionListener mqttAction) `
+`    public static void unsubscribe(Context context, String[] topics, IMqttActionListener mqttAction) `
 
 ### 参数说明
 名称 | 类型 | 说明
@@ -114,10 +111,10 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 ### 函数原型
 
-`
-	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction))
-    public static void publish(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction)
-`
+
+`	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)) `
+`   public static void publish(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction) `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -156,10 +153,9 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 
 ### 函数原型
 
-`
-	public static void publishToAlias(Context context, String alias, String message,IMqttActionListener mqttAction)
-    public static void publishToAlias(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction)
-`
+`	public static void publishToAlias(Context context, String alias, String message,IMqttActionListener mqttAction) `
+`   public static void publishToAlias(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction) `
+
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
@@ -415,10 +411,9 @@ App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的�
 
 ### 函数原型
 
-`
-    public static void getAliasList(Context context, String topic, IMqttActionListener mqttAction)
-    public static void getAliasList(Context context, String topic, boolean disableState, boolean disableAlias, IMqttActionListener mqttAction)
-`
+
+  ` public static void getAliasList(Context context, String topic, IMqttActionListener mqttAction) `
+  ` public static void getAliasList(Context context, String topic, boolean disableState, boolean disableAlias, IMqttActionListener mqttAction) `
 
 
 ### 参数说明
@@ -468,7 +463,7 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 ### 函数原型
 
 `
-public static void  getState(Context context, String alias, IMqttActionListener callback)
+    public static void  getState(Context context, String alias, IMqttActionListener callback)
 `
 
 
