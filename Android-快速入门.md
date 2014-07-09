@@ -130,8 +130,10 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 
 ### 自定义 Receiver 处理 Publish 消息代码示例
 
+> 自定义 Receiver 处理 Publish 消息
+
 ```Java
- > 自定义 Receiver 处理 Publish 消息
+
 	if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
 
 		String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
