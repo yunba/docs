@@ -17,7 +17,7 @@ App 初始化 YunBa SDK.
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
 appkey | String | YunBa 中注册的 App Key
-opts | Map | 选项，可包含sub_key, pub_key, sec_key, auth_key
+opts | Map | 选项，可包含 sub_key, pub_key, sec_key, auth_key 
 
 ### Code Example
 
@@ -122,7 +122,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topics | String | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 message | String | 向目标 topic 的订阅者发布的消息
 opts | Map | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
