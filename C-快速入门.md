@@ -9,13 +9,13 @@
 
 ![create_application.jpg](image/create_app.png)
 
-##Where do I get the code?
+##从哪里获得sdk
 你可以使用下面命令去获得sdk:
 
 ```c
 git clone https://github.com/alexbank/c_sdk.git
 ```
-##How do I get started?
+##怎么开始
 ###1.添加lib以及header到Makefile：
 
 ```c
@@ -28,7 +28,7 @@ LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
 在你的代码中应用包含:
 
 ```c
-#include "yunba.h"
+\#include "yunba.h"
 ```
 
 在入口函数中添加yunba服务初始化：
@@ -68,7 +68,7 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
 MQTTClient_destroy(&client)
 ```
 
-##how to get demo code?
+##怎样获得demo代码
 使用下面命令获得demo代码
 
 ```c
