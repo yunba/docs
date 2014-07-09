@@ -19,15 +19,19 @@
 
 ![add_sdk_iOS.png](../image/add_sdk_iOS.png)
 
-## 添加 头文件
+## 添加使用代码
+
+### 添加 头文件
 引入`YunBaService.h` :
 
 ```objective_c
 #import "YunBaService.h"
 ```
 
-## 添加使用代码
-初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化代码：
+从portal获取AppKey:
+![copy_app_key.png](../image/copy_app_key.png)
+
+初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码。
 
 ```objective_c
     [YunBaService setupWithAppkey:AppKey];
@@ -58,19 +62,19 @@
 }
 ```
 
-### 在 Portal 上发布消息
+## 在 Portal 上发布消息
 
 打开应用详情页面，点击发布消息，如图所示:
 
 ![send_message.png](../image/send_message.png)
 
-### 在 Portal 查看消息发布实时报表
+## 在 Portal 查看消息发布实时报表
 
 打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
 
 ![publish_statistic.png](../image/publish_statistic.png)
 
-### 在 Portal 查看用户在线信息实时报表
+## 在 Portal 查看用户在线信息实时报表
 
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
