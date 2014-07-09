@@ -11,9 +11,11 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 `
 
 ### 参数说明
-* context: Android 应用上下文环境。
-* topics: app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100.
-* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
+名称 | 类型 | 说明
+--------- | ------- | -----------
+context | Context | Android 应用上下文环境
+topics | String | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+mqttAction | IMqttActionListener | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 
 ### Code Example
 
