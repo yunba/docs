@@ -114,6 +114,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 --------- | ------- | ----
 topic | NSString* | app 发布消息的主题，只支持英文数字下划线，长度不超过50个字符
 message | NSData* | 向对应 topic 的订阅者发布的消息
+option | YBPublishOption* | 选项，可包含qos, retained等属性
 resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
@@ -148,6 +149,7 @@ App 可以向 alias 发送消息, 那么此别名的 Client 都会接受到消�
 --------- | ------- | ----
 alias | NSString* | 目标用户的别名，只支持英文数字下划线，长度不超过50个字符
 message | NSData* | 向对应 topic 的订阅者发布的消息
+option | YBPublishOption* | 选项，可包含qos, retained等属性
 resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
