@@ -6,15 +6,11 @@
 App 初始化 YunBa SDK.
 
 ### 函数原型
-  `
-      public static void start(Context context) 
- ｀
-  ` 
-      public static void start(Context context, String appkey) 
-  `
-  `
-      public static void start(Context context, String appkey, Map opts) 
-`
+  ` public static void start(Context context) ` 
+  
+  ` public static void start(Context context, String appkey) `
+  
+  ` public static void start(Context context, String appkey, Map opts) `
 
 ### 参数说明
 名称 | 类型 | 说明
