@@ -2,12 +2,12 @@
 ## 注册开发者账号
 打开 <http://yunba.io>, 点击注册创建账号。
 
-![create_accout.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_accout.png)
+![create_accout.jpg](image/register_account.png)
 
 ## 创建应用
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
 
-![create_application.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_application.png)
+![create_application.jpg](image/create_app.png)
 
 ## 下载 Android SDK
 
@@ -17,7 +17,7 @@
 
 下载的 yunba-sdk-release.jar 包放到项目的 libs 目录下。
 
-![libs.jpg](https://bitbucket.org/yunba/public_docs/downloads/libs.jpeg)
+![libs.jpg](image/libs_android.jpeg)
 
 ## 配置 AndroidManifest.xml
 ### 添加权限
@@ -46,7 +46,7 @@
 ### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
 AppKey 来自 YunBa 注册的应用，与包名对应. 
 
-![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
+![appkey-pkg.jpg](image/copy_app_key.png)
 
 > 添加 Appkey
 
@@ -156,16 +156,16 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 
 打开应用详情页面，点击发布消息，如图所示:
 
-![publish.png](https://bitbucket.org/yunba/public_docs/downloads/publish.png)
+![publish.png](image/send_message.png)
 
 ### 在 Portal 查看消息发布实时报表
 
 打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
 
-![report.jpeg](https://bitbucket.org/yunba/public_docs/downloads/report.jpeg)
+![report.jpeg](image/publish_statistic.png)
 
 ### 在 Portal 查看用户在线信息实时报表
 
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
-![online.jpeg](https://bitbucket.org/yunba/public_docs/downloads/online.jpeg)
+![online.jpeg](image/online_statistic.png)
