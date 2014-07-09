@@ -45,17 +45,18 @@
 
 ![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
 
-```xml
 > 添加 Appkey
+```xml
+
 <meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
 
 ```
 ### 添加 Service
 添加 YunBaService ，YunBa SDK 会启动一个后台的 service.
 
-```xml
-
 > 添加 YunBaService
+
+```xml
 
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
