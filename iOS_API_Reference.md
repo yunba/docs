@@ -207,8 +207,10 @@ App 可以取消订阅某个频道上的其他用户的上、下线及(取消)�
      `+ (void)unsubscribePresence:(NSString *)topic resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* topic: app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符。
-* resultBlock: API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | app 订阅的的目标用户所在频道主题，topic 只支持英文数字下划线，长度不超过50个字符
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
@@ -238,10 +240,12 @@ App 可以查询订阅某个频道的所有用户别名个数、列表及状态�
      `+ (void)getAliasList:(NSString *)topic disableState:(BOOL)disableState disableAlias:(BOOL)disableAlias resultBlock:(YBArrayCountResultBlock)arrayCountResultBlock;`
 
 ### 参数说明
-* (NSString *) topic: 目标频道。
-* (BOOL) disableState: 结果是否排除别名状态信息。
-* (BOOL) disableAlias: 结果是否排除别名列表。
-* (YBArrayCountResultBlock) arrayCountResultBlock: API 回调接口，可通过返回的error.code判断结果的成功与否，NSError *error获取错误原因，NSArray *resArray获取别名及状态列表，size_t resCount获取别名数量。
+名称 | 类型 | 说明
+--------- | ------- | ----
+topic | NSString* | 目标频道
+disableState | BOOL | 结果是否排除别名状态信息
+disableAlias | BOOL | 结果是否排除别名列表。
+arrayCountResultBlock | YBArrayCountResultBlock | API 回调接口，可通过返回的error.code判断结果的成功与否，NSError *error获取错误原因，NSArray *resArray获取别名及状态列表，size_t resCount获取别名数量。
 
 ### 返回值
 None
@@ -271,8 +275,10 @@ App 可以查询用户订阅的频道列表。
      `+ (void)getTopicList:(NSString *)alias resultBlock:(YBArrayResultBlock)arrayResultBlock;`
 
 ### 参数说明
-* (NSString *) alias: 目标用户别名。
-* (YBArrayResultBlock) arrayResultBlock: API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因， NSArray *res获取频道列表。
+名称 | 类型 | 说明
+--------- | ------- | ----
+alias | NSString* | 目标用户别名
+arrayResultBlock | YBArrayResultBlock | API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因， NSArray *res获取频道列表
 
 ### 返回值
 None
