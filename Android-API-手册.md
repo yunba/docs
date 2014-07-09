@@ -1,4 +1,6 @@
-## API - subscribe
+# API 手册
+
+## subscribe
 
 ### 功能
 App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
@@ -42,7 +44,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 ```
 
 
-## API - unsubscribe
+## unsubscribe
 
 ### 功能
 App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 的 Message.
@@ -86,7 +88,7 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 );
 ```
 
-## API - publish
+## publish
 
 ### 功能
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
@@ -130,7 +132,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
-## API - publishByAlias
+## publishByAlias
 
 ### 功能
 向用户别名发送消息, 用于实现点对点的消息发送。
@@ -175,7 +177,7 @@ YunBaManager.publishByAlias(getApplicationContext(), topic, msg,
 ```
 
 
-## API - stop
+## stop
 #### 功能
 App 可以调用此函数来停止推送服务，当推送服务被停止后，所以的 API 都会失效（包括 start API）, 当需要重新使用推送服务时，必须要调用 resume API
 
@@ -199,7 +201,7 @@ YunBaManager.stop(getApplicationContext());
 ```
 
 
-## API - resume
+## resume
 #### 功能
 App 可以调用此函数来恢复推送服务，与 stop API 相对应。
 ### 函数原型
@@ -222,7 +224,7 @@ YunBaManager.resume(getApplicationContext());
 ```
 
 
-## API - isStopped
+## isStopped
 #### 功能
 App 可以调用此函数来查看推送服务是否被停止。
 ### 函数原型
@@ -245,7 +247,7 @@ YunBaManager.isStopped(getApplicationContext());
 ```
 
 
-## API - report
+## report
 ### 功能
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
@@ -272,7 +274,7 @@ public static void report(
 YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
 ```
 
-## API - setAlias
+## setAlias
 ### 功能
 App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
@@ -312,7 +314,7 @@ YunBaManager.setAlias(getApplicationContext(), alias,
 );
 ```
 
-## API - getAlias
+## getAlias
 ### 功能
 App  可以调用此函数来获取当前用户的别名。
 
@@ -350,7 +352,7 @@ YunBaManager.getAlias(getApplicationContext(),
 );
 ```
 
-## API - getTopics
+## getTopics
 ### 功能
 App  可以调用此函数来获取当前用户的订阅的所有 Topics。
 
@@ -395,7 +397,7 @@ YunBaManager.getTopics(getApplicationContext(),
 ```
 
 
-## API - getAliasList
+## getAliasList
 ### 功能
 App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
 
@@ -446,7 +448,7 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 ```
 
 
-## API -  getStatusOfAlias
+## getStatusOfAlias
 ### 功能
 根据别名来获取用用户的状态，如是否在线等信息
 
@@ -497,7 +499,7 @@ YunBaManager.getStatusOfAlias(getApplicationContext(), "t1",
 ```
 
 
-## API -  subscribePresenceToTopic
+## subscribePresenceToTopic
 ### 功能
 App  可以调用此函数来监听 Topic 下面所有的用户的别名状态的变化。所有用户的状态变化时都发起一个  <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 的广播，用户 App 的程序监听此 action 的广播就能收到相应状态的变化。
 
@@ -577,7 +579,7 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 ```
 
 
-## API -  unsubscribePresenceToTopic
+## unsubscribePresenceToTopic
 ### 功能
 与 subscribePresenceToTopic 想对应， 取消监听对应 Topic 下用户状态的变化。
 

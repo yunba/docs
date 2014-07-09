@@ -1,4 +1,4 @@
-# Yunba Android SDK Quick Start
+# Yunba Android SDK 快速入门
 ## 注册开发者账号
 打开 http://yunba.io, 点击注册创建账号。
 
@@ -21,7 +21,9 @@
 
 ## 配置 AndroidManifest.xml
 ### 添加权限
+
 ```xml
+
 <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -44,13 +46,18 @@
 ![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
 
 ```xml
+
 <meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
+
 ```
 ### 添加 Service
+
 ```xml
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
+
 ### 添加 Receiver
+
 ```xml
 <receiver android:name="io.yunba.android.core.YunBaReceiver">
     <intent-filter>
@@ -62,7 +69,9 @@
 
 ## 添加使用代码
 初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码
-```Java
+
+```java
+
 public class YourApp extends Application {
 
     public void onCreate() {
@@ -99,7 +108,9 @@ public class YourApp extends Application {
 		</intent-filter>
 	</receiver>
 ```
+
 ### 自定义 Receiver 处理 Publish 消息代码示例
+
 ```Java
 	if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
 
