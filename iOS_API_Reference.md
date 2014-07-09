@@ -32,7 +32,7 @@ option | YBSetupOption* | 选项，可包含sub_key, pub_key, sec_key, auth_key
 
 ```
 
-## API - subscribe
+## subscribe
 
 ### 功能
 App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
@@ -65,7 +65,7 @@ None
 
 ```
 
-## API - unsubscribe
+## unsubscribe
 
 ### 功能
 App 可以取消订阅一个 Topic, 以便取消接收来自 Topic 的 Message.
@@ -98,7 +98,7 @@ None
 ```
 
 
-## API - publish
+## publish
 
 ### 功能
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
@@ -132,7 +132,7 @@ None
 ```
 
 
-## API - publish to alias
+## publishToAlias
 
 ### 功能
 App 可以向 alias 发送消息, 那么此别名的 Client 都会接受到消息。
@@ -166,7 +166,7 @@ None
 ```
 
 
-## API - subscribe presence
+## subscribePresence
 
 ### 功能
 App 可以订阅某个频道上的其他用户的上、下线及(取消)订阅频道的事件通知。
@@ -197,7 +197,7 @@ None
 ```
 
 
-## API - unsubscribe presence
+## unsubscribePresence
 
 ### 功能
 App 可以取消订阅某个频道上的其他用户的上、下线及(取消)订阅频道的事件通知。
@@ -228,7 +228,7 @@ None
 ```
 
 
-## API - get alias list of topic
+## getAliasList
 
 ### 功能
 App 可以查询订阅某个频道的所有用户别名个数、列表及状态。
@@ -263,7 +263,7 @@ None
 ```
 
 
-## API - get topic list of alias
+## getTopicList
 
 ### 功能
 App 可以查询用户订阅的频道列表。
@@ -278,7 +278,7 @@ App 可以查询用户订阅的频道列表。
 名称 | 类型 | 说明
 --------- | ------- | ----
 alias | NSString* | 目标用户别名
-arrayResultBlock | YBArrayResultBlock | API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因， NSArray *res获取频道列表
+arrayResultBlock | YBArrayResultBlock | API 回调接口，可通过返回的error.code判断结果的成功与否，NSError *error获取错误原因，NSArray *res获取频道列表
 
 ### 返回值
 None
@@ -295,37 +295,7 @@ None
 
 ```
 
-
-## API - get state of alias
-
-### 功能
-App 可以查询用户的在线状态。
-
-### 函数原型
-
-     `+ (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;`
-
-### 参数说明
-* (NSString *) alias: 目标用户别名。
-* (YBStringResultBlock) stringResultBlock: API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因。
-
-### 返回值
-None
-
-```objective_c
-
-    [YunBaService getState:alias resultBlock:^(NSString *res, NSError *error) {
-        if (error.code == kYBErrorNoError) {
-            NSLog(@"get state[%@] of alias[%@] succ", res, alias);
-        } else {
-            NSLog(@"get state of alias failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
-        }
-	}];
-
-```
-
-
-## API - Report
+## report
 
 ### 功能
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
@@ -335,8 +305,10 @@ App  可以调用此函数来上报客户端的行为，如打开通知栏次数
      `+ (void)report:(NSString *)action withData:(NSData *)data;`
 
 ### 参数说明
-* (NSString *) action: app 需要统计的行为，如打开通知栏，下载资源成功等等。
-* (NSData *) data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
+名称 | 类型 | 说明
+--------- | ------- | ----
+action | NSString* | app 需要统计的行为，如打开通知栏，下载资源成功等等
+data | NSData * | 想对应 action 的附加数据，以满足统计相关的其他业务需求
 
 ### 返回值
 None
@@ -348,7 +320,7 @@ None
 ```
 
 
-## API - get state of alias
+## getState
 
 ### 功能
 App 可以查询用户的在线状态。
@@ -358,8 +330,10 @@ App 可以查询用户的在线状态。
      `+ (void)getState:(NSString *)alias resultBlock:(YBStringResultBlock)stringResultBlock;`
 
 ### 参数说明
-* (NSString *) alias: 目标用户别名。
-* (YBStringResultBlock) stringResultBlock: API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+alias | NSString* | 目标用户别名
+stringResultBlock | YBStringResultBlock | API 回调接口，可通过返回的error.code判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
@@ -377,7 +351,7 @@ None
 ```
 
 
-## API - set alias
+## setAlias
 
 ### 功能
 App 可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
@@ -387,8 +361,10 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
      `+ (void)setAlias:(NSString *)alias resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
-* resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+alias | NSString* | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
@@ -406,7 +382,7 @@ None
 ```
 
 
-## API - GetAlias
+## getAlias
 
 ### 功能
 App 可以调用此函数来获取当前用户的别名。
@@ -416,7 +392,9 @@ App 可以调用此函数来获取当前用户的别名。
      `+ (void)getAlias:(YBStringResultBlock)stringResultBlock;`
 
 ### 参数说明
-* stringResultBlock: API 回调接口， 可通过返回的 NSError *error获取错误代码(kYBErrorNoError表示成功)及原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+stringResultBlock | YBStringResultBlock | API 回调接口，可通过返回的 NSError *error获取错误代码(kYBErrorNoError表示成功)及原因
 
 ### 返回值
 None
@@ -434,18 +412,20 @@ None
 ```
 
 
-## API - store device token
+## storeDeviceToken
 
 ### 功能
-App 将DeviceToken 存储在YunBa的云端， 那么可以通过YunBa发送APNs通知。
+App 将DeviceToken 存储在YunBa的云端，那么可以通过YunBa发送APNs通知。
 
 ### 函数原型
 
      `+ (void)storeDeviceToken:(NSData *)token resultBlock:(YBResultBlock)resultBlock;`
 
 ### 参数说明
-* token: 通过注册APNs而获取到的对应设备的device token。
-* resultBlock: API 回调接口， 可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因。
+名称 | 类型 | 说明
+--------- | ------- | ----
+token | NSData* | 通过注册APNs而获取到的对应设备的device token
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
 None
