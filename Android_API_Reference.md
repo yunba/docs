@@ -575,6 +575,7 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 ### 自定义 Receive 监听状态变化代码片段
 
 > 自定义 Receive 监听状态变化代码片段
+
 ```java
 
 else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
