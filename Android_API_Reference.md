@@ -534,6 +534,7 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
 ### Code Example
 
 > Code Example
+
 ```java
 
 YunBaManager.subscribePresence(getApplicationContext(), "t1",
@@ -551,12 +552,14 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
         }
     }
 );
+
 ```
 
 
 ### 自定义 Receive 监听状态变化的 AndroidManifest.xml 配置
 
 > 自定义 Receiver 处理 Publish 消息
+
 ```xml
  <receiver android:name="Your Receiver">
               <intent-filter>
