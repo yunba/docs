@@ -17,7 +17,7 @@ App 初始化 YunBa SDK.
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
 appkey | String | YunBa 中注册的 App Key
-opts | Map | 选项，可包含 sub_key, pub_key, sec_key, auth_key 
+opts | Map | 选项，可包含sub_key(用于获取订阅权限的密钥), pub_key(用于获取发布权限的密钥),sec_key(用于获取管理权限的密钥，切勿外泄), auth_key(用于access manager模块中权限管理的动态密钥)
 
 ### Code Example
 
