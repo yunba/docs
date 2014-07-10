@@ -10,6 +10,8 @@
 名称 | 类型 | 说明
 --------- | ------- | -----------
 null | null | null
+### 返回值
+* MQTTClient_nameValue* : 保持SDK版本号的结构体指针
 
 ### Code Example
 ```c
@@ -30,6 +32,8 @@ App 可以增加订阅一个Topic, 以便可以接收来自 Topic 的 Message。
 --------- | ------- | -----------
 handle | MQTTClient|  客户端句柄
 topic | char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -49,6 +53,8 @@ App 可以取消订阅一个Topic。
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 topic | char* | 取消订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -61,7 +67,7 @@ rc = MQTTClient_unsubscribe(client, “rocket”);
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-` MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data) `
+` int MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data) `
 
 ### 参数说明:
 名称 | 类型 | 说明
@@ -70,6 +76,8 @@ handle | MQTTClient | 客户端句柄
 topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
 data_len | int | 消息内容长度
 data | void* | 消息指针
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -92,6 +100,8 @@ App 可以向 Topic 发送json包, 那么任何订阅此 Topic 的 Client 都会
 handle | MQTTClient | 客户端句柄
 topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
 data | cJSON* | json包
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -114,6 +124,8 @@ App 可以调用此函数来绑定账号，用户名，每个用户只能指定�
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 alias  | char* | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -133,6 +145,8 @@ App 可以调用此函数来获取当前用户的别名
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 parameter | char* | 参数
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -154,6 +168,8 @@ App 可以调用此函数来获得某个alias的用户状态。
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 parameter | char* | alias名字
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -175,6 +191,8 @@ App 可以调用此函数来某个topic的别名列表
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 parameter | char* | topic名字
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -196,6 +214,8 @@ App 可以调用此函数来某个alias的所订阅的topic
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 parameter | char* | 用户别名
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -219,6 +239,8 @@ App 可以调用此函数来上报客户端的行为，如打开通知栏次数�
 handle | MQTTClient | 客户端句柄
 action | char* | app 需要统计的行为，如打开通知栏，下载资源成功等等
 data | char* | 想对应 action 的附加数据，以满足统计相关的其他业务需求。
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -238,6 +260,8 @@ App 可以设置broker
 --------- | ------- | -----------
 handle | MQTTClient* | 客户端句柄指针
 broker | char* | broker域名或者ip地址
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -259,6 +283,8 @@ App 可以获得broker
 --------- | ------- | -----------
 handle | MQTTClient* | 客户端句柄指针
 broker | char* |存放broker的指针
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
 
 ### Code Example
 ```c
@@ -278,6 +304,8 @@ int ret = MQTTClient_set_broker(client, buf);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 msg | MQTTClient_message** | 指向message指针的指针
+### 返回值
+null
 
 ### Code Example
 ```c
@@ -299,7 +327,9 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-andle | MQTTClient* | 客户端句柄指针
+handle | MQTTClient* | 客户端句柄指针
+### 返回值
+null
 
 ### Code Example
 ```c
