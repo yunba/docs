@@ -154,7 +154,7 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 ```
 ## 在 Portal 上发布消息
 
-客服端继承 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
+客服端集成 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
 
 ![publish.png](../image/send_message.png)
 
