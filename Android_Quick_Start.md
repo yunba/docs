@@ -152,19 +152,19 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 		DemoUtil.showNotifation(context, topic, msg);
 	}
 ```
-### 在 Portal 上发布消息
+## 在 Portal 上发布消息
 
-打开应用详情页面，点击发布消息，如图所示:
+客服端继承 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
 
 ![publish.png](../image/send_message.png)
 
-### 在 Portal 查看消息发布实时报表
+## 在 Portal 查看消息发布实时报表
 
 打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
 
 ![report.jpeg](../image/publish_statistic.png)
 
-### 在 Portal 查看用户在线信息实时报表
+## 在 Portal 查看用户在线信息实时报表
 
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
