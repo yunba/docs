@@ -14,13 +14,6 @@
 
 Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引入。
 	
-    <html>
-        <body>
-		<script src="socket.io.js"></script>
-	    <script src="yunba-1.0.1.js"></script>
-        </body> 
-    </html>
-
 ### 第二步：创建 Yunba 实例
 
 ```javascript
@@ -97,9 +90,9 @@ yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要
 ```
 
 #### 参数说明
-名称 | 类型 | 可选/必选 | 说明
---------- | ------- | ------ | -----------
-callback | function | 可选 | 连接成功后会调用 callback
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+callback | function | 参数可选，连接成功后会调用 callback
 
 ### Yunba.subscribe()
 
@@ -112,11 +105,11 @@ callback | function | 可选 | 连接成功后会调用 callback
 ```
 	
 #### 参数说明
-名称 | 类型 | 可选/必选 | 说明
---------- | ------- | ------ | -----------
-obj | object | 必选 | 参数说明：obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 0）。
-cb1 | functon | 可选 | 收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)。
-cb2 | function | 必选| 收听成功后，通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)。
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 0）
+cb1 | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
+cb2 | function | 参数必选, 收听成功后，通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)
 
 ### Yunba.unsubscribe()
 
@@ -129,10 +122,10 @@ cb2 | function | 必选| 收听成功后，通过该回调函数监听所收听�
 ```
 
 #### 参数说明
-名称 | 类型 | 可选/必选 | 说明
---------- | ------- | ------ | -----------
-obj | object | 必选 | 目前版本之要求 obj 包含一个属性字段为 topic，即准备取消收听的频道。
-cb | function | 可选 | 取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj | object | 参数必选，目前版本之要求 obj 包含一个属性字段为 topic，即准备取消收听的频道
+cb | function | 参数可选，取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg
 
 ### Yunba.publish()
 
@@ -146,10 +139,10 @@ Yunba 客户端实例可以通过 publish() 向某频道发布消息。
 ```
 
 #### 参数说明
-名称 | 类型 | 可选/必选 | 说明
---------- | ------- | ------ | -----------
-obj | object | 必选 | obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0.
-cb | function | 可选 | 不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj | object | 参数必选，obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0
+cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
 ### Yunba.disconnect()
 
@@ -162,6 +155,6 @@ cb | function | 可选 | 不管消息发布是否成功或失败都会回调此�
 ```
 
 #### 参数说明
-名称 | 类型 | 可选/必选 | 说明
---------- | ------- | ------ | -----------
-cb | function | 可选 |  不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg。
+名称 | 类型 |  说明
+--------- | ------- |  -----------
+cb | function | 参数可选，不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg
