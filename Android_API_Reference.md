@@ -336,7 +336,7 @@ App  可以调用此函数来获取当前用户的别名。
 ### 函数原型
 
 `
-    public static void getAlias(Context context, IMqttActionListener callback)
+    public static void getAlias(Context context, IMqttActionListener mqttAction)
 `
 
 ### 参数说明
@@ -470,7 +470,7 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 ### 函数原型
 
 `
-    public static void  getState(Context context, String alias, IMqttActionListener callback)
+    public static void  getState(Context context, String alias, IMqttActionListener mqttAction)
 `
 
 
@@ -519,7 +519,7 @@ App  可以调用此函数来监听 Topic 下面所有的用户的别名状态�
 ### 函数原型
 
 `
-    public static void subscribePresence(Context context, String topic, IMqttActionListener callback)
+    public static void subscribePresence(Context context, String topic, IMqttActionListener mqttAction)
 `
 
 
@@ -604,7 +604,7 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 ### 函数原型
 
 `
-    public static void unsubscribePresence(Context context, String topic, IMqttActionListener callback)
+    public static void unsubscribePresence(Context context, String topic, IMqttActionListener mqttAction)
 `
 
 
