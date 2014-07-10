@@ -1,21 +1,21 @@
 # Yunba iOS SDK 快速入门
 ## 注册开发者账号
-打开 <http://yunba.io>, 点击注册创建账号。
+打开 <http://yunba.io>, 点击注册创建账号。  
 
 ![register_account.png](../image/register_account.png)
 
 ## 创建应用
-注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称
+注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称  
 
 ![create_app.png](../image/create_app.png)
 
 ## 下载 iOS SDK
 
-打开 <http://yunba.io/developers/> 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。
+打开 <http://yunba.io/developers/> 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。  
 
 ## 导入 iOS SDK
 
-下载的 YunBa-iOS-sdk 包并添加到项目中，并且添加依赖库SystemConfiguration.framework。
+下载的 YunBa-iOS-sdk 包并添加到项目中，并且添加依赖库SystemConfiguration.framework。  
 
 ![add_sdk_iOS.png](../image/add_sdk_iOS.png)
 
@@ -66,18 +66,18 @@
 
 ## 在 Portal 上发布消息
 
-打开应用详情页面，点击发布消息，如图所示:
+打开应用详情页面，点击发布消息，如图所示:  
 
 ![send_message.png](../image/send_message.png)
 
 ## 在 Portal 查看消息发布实时报表
 
-打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
+打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:  
 
 ![publish_statistic.png](../image/publish_statistic.png)
 
 ## 在 Portal 查看用户在线信息实时报表
 
-打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
+打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:  
 
 ![online_statistic.png](../image/online_statistic.png)
