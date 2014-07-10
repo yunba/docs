@@ -12,9 +12,8 @@
 ##从哪里获得sdk
 你可以使用下面命令去获得sdk:
 
-```c
-git clone https://github.com/alexbank/c_sdk.git
-```
+打开 <http://yunba.io/developers/> 下载 C SDK。
+
 ##怎么开始
 ###1.添加lib以及header到Makefile：
 
@@ -28,7 +27,7 @@ LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
 在你的代码中应用包含:
 
 ```c
-\#include "yunba.h"
+#include "yunba.h"
 ```
 
 在入口函数中添加yunba服务初始化：
@@ -71,7 +70,6 @@ MQTTClient_destroy(&client)
 ##怎样获得demo代码
 使用下面命令获得demo代码
 
-```c
-git clone https://github.com/alexbank/yunba_demo.git
-```
+
+打开 <http://yunba.io/developers/> 下载 C demo。
 

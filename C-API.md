@@ -39,7 +39,7 @@ topic | char* | 订阅的的主题，topic 只支持英文数字下划线，长�
 
 ### Code Example
 ```c
-rc = MQTTClient_subscribe(client, “rocket”);
+rc = MQTTClient_subscribe(client, "rocket");
 ```
 
 ## MQTTClient_unsubscribe
@@ -61,7 +61,7 @@ topic | char* | 取消订阅的的主题，topic 只支持英文数字下划线�
 
 ### Code Example
 ```c
-rc = MQTTClient_unsubscribe(client, “rocket”);
+rc = MQTTClient_unsubscribe(client, "rocket");
 ```
 
 ## MQTTClient_publish
