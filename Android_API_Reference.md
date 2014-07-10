@@ -39,6 +39,7 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
@@ -80,6 +81,7 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
@@ -116,7 +118,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 `	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)) `
 
-`   public static void publish(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction) `
+`   public static void publish(Context context, String topic, String message, Map opts, IMqttActionListener mqttAction) `
 
 ### 参数说明
 名称 | 类型 | 说明
