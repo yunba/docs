@@ -15,23 +15,24 @@
 
 ## 导入 iOS SDK
 
-下载的 YunBa-iOS-sdk 包并添加到项目中。
+下载的 YunBa-iOS-sdk 包并添加到项目中，并且添加依赖库SystemConfiguration.framework。
 
 ![add_sdk_iOS.png](../image/add_sdk_iOS.png)
 
 ## 添加使用代码
 
-### 添加 头文件
-引入`YunBaService.h` :
+从portal获取AppKey:
+![copy_app_key.png](../image/copy_app_key.png)
+
+> 添加头文件，引入`YunBaService.h`:
 
 ```objective_c
 #import "YunBaService.h"
 ```
 
-从portal获取AppKey:
-![copy_app_key.png](../image/copy_app_key.png)
+<aside class="warning">注意使用从portal获取到的AppKey替换代码中的AppKey。</aside>
 
-初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码。
+> 初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码:
 
 ```objective_c
     [YunBaService setupWithAppkey:AppKey];
