@@ -502,7 +502,7 @@ YunBaManager.getState(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getStatusOfAlias failed : " + exception.getMessage();
+            String msg = "getState failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
@@ -541,13 +541,13 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
-            DemoUtil.showToast("subscribePresenceToTopic succeed", getApplicationContext());
+            DemoUtil.showToast("subscribePresence to topic succeed", getApplicationContext());
         }
 
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getAliasList failed : " + exception.getMessage();
+            String msg = "subscribePresence failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
@@ -612,7 +612,7 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 
@@ -632,7 +632,7 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "unsubscribePresenceToTopic failed : " + exception.getMessage();
+            String msg = "unsubscribePresence to topic failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
