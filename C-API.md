@@ -12,7 +12,7 @@
 null | null | null
 
 ### 返回值
-* MQTTClient_nameValue* : 保持SDK版本号的结构体指针
+* MQTTClient_nameValue* : 保存SDK版本号的结构体指针
 
 ### Code Example
 ```c
