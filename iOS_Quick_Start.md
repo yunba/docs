@@ -11,7 +11,7 @@
 
 ## 下载 iOS SDK
 
-打开 <http://yunba.io/developers/> 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
+打开 <http://yunba.io/developers/> 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。
 
 ## 导入 iOS SDK
 
@@ -21,18 +21,19 @@
 
 ## 添加使用代码
 
-从portal获取AppKey:
-![copy_app_key.png](../image/copy_app_key.png)
-
-> 添加头文件，引入`YunBaService.h`:
+添加头文件，引入`YunBaService.h`:  
 
 ```objective_c
 #import "YunBaService.h"
 ```
 
-<aside class="warning">注意使用从portal获取到的AppKey替换代码中的AppKey。</aside>
+从portal获取AppKey:  
 
-> 初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码:
+![copy_app_key.png](../image/copy_app_key.png)
+
+<aside class="notice">注意使用从portal获取到的AppKey替换代码中的AppKey。</aside>
+
+初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码:  
 
 ```objective_c
     [YunBaService setupWithAppkey:AppKey];
@@ -47,13 +48,13 @@
 ```
 
 ## 添加 监听消息及处理代码
-> 在默认消息中心添加的监听代码 :
+在默认消息中心添加的监听代码:  
 
 ```objective_c
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMessageReceived:) name:kYBDidReceiveMessageNotification object:nil];
 ```
 
-> 消息处理代码 :
+消息处理代码:  
 
 ```objective_c
 - (void)onMessageReceived:(NSNotification *)notification {
