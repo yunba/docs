@@ -11,14 +11,16 @@ Yunba 的 SDK 按照实现的方式，可以分为两种，一种是所谓原生
 Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的常链接通讯方式，使用起来跟原生的 Socket 一样方便，
 特别是在 Web App 开发中，使用得越来越多。
 
-# 使用 Socket.IO API
+## 使用 Socket.IO API
 
 这里以 Python 为例子，演示通过调用 Yunba Socket.IO API 快速集成。
 
 ## 安装 Socket.IO Client
 
-```python
-参考：https://pypi.python.org/pypi/socketIO-client
+> 参考：[https://pypi.python.org/pypi/socketIO-client](https://pypi.python.org/pypi/socketIO-client)
+
+```bash
+pip install -U socketIO-client
 ```
 
 ## init
@@ -28,7 +30,7 @@ Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的常链�
 socketIO = SocketIO('sock.yunba.io', 3000)
 
 ```
-### init 回调
+## init 回调
 建立连接成功后，收到回调。
 
 ```python
@@ -42,22 +44,49 @@ socketIO = SocketIO('sock.yunba.io', 3000)
 socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 ```
 
-### connect 回调
+## connect 回调
+connect 成功后的回调。
+
 ```python
 {"name":"connack","args":[{"success":true}]}
 ```
 
+## subscribe
+
+订阅一个频道。
+
+```python
+socketIO.emit('subscribe', {'topic': 'testtopic1'})
+```
+
+## subscribe 回调
+
+订阅成功回调。
+
+```python
+{"name":"suback","args":[{"success":true}]}
+```
+
 ## publish
+
+发布一个消息。
+
 ```python
 socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ```
-### publish 回调
+
+## publish 回调
+
+发布成功回调。
+
 ```python
 {"name":"puback","args":[{"success":true}]}
 ```
 
-## Examples
-### Python
+## 例子
+
+> Python 例子
+
 ```python
 from socketIO_client import SocketIO
 import logging
@@ -65,15 +94,24 @@ logging.basicConfig(level=logging.DEBUG)
 
 def on_connect_response(*args):
     print 'on_connect_response', args
-    socketIO.emit('publish', {'topic': 'testtopic1', 'msg': 'from python', 'qos': 1})
+    socketIO.emit('subscribe', {'topic': 'testtopic1'})
 
 def on_puback(*args):
     print 'on_puback', args
 
-socketIO = SocketIO('localhost', 3000)
+def on_suback(*args):
+    print 'on_suback', args
+    socketIO.emit('publish', {'topic': 'testtopic1', 'msg': 'from python', 'qos': 1})
+
+def on_message(*args):
+    print 'on_message', args
+
+socketIO = SocketIO('sock.yunba.io', 3000)
 # socketIO.on('sockconnectack', on_connect_response)
 socketIO.on('connack', on_connect_response)
 socketIO.on('puback', on_puback)
+socketIO.on('suback', on_suback)
+socketIO.on('message', on_message)
 
 socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 socketIO.wait()
