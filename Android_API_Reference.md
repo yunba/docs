@@ -180,13 +180,13 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
             String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
-            String msgLog = "publishByAlias succeed : " + topic;
+            String msgLog = "publish to alias succeed : " + topic;
             DemoUtil.showToast(msgLog, getApplicationContext());
         }
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "publishByAlias failed : " + exception.getMessage();
+            String msg = "publish to alias failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
@@ -630,7 +630,7 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
-            String msg = "unsubscribePresenceToTopic succeed ";
+            String msg = "unsubscribePresence to topic succeed ";
             DemoUtil.showToast(msg, getApplicationContext());
         }
 
