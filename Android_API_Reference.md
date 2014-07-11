@@ -368,18 +368,22 @@ YunBaManager.getAlias(getApplicationContext(),
 ## getTopics
 
 ### 功能
-App  可以调用此函数来获取当前用户的订阅的所有 Topics。
+App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表,如果输入参数 alias，则是获取目标 alias 的频道列表。
 
 ### 函数原型
 
 `
-public static void getTopics(Context context,IMqttActionListener mqttAction)
+public static void getTopicList(Context context,IMqttActionListener mqttAction)
+`
+`
+public static void getTopicList(Context context, String alias, IMqttActionListener mqttAction)
 `
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
