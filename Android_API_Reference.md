@@ -373,10 +373,11 @@ App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则
 ### 函数原型
 
 `
-public static void getTopicList(Context context,IMqttActionListener mqttAction)
+    public static void getTopicList(Context context,IMqttActionListener mqttAction)
 `
-`
-public static void getTopicList(Context context, String alias, IMqttActionListener mqttAction)
+
+`    
+    public static void getTopicList(Context context, String alias, IMqttActionListener mqttAction)
 `
 
 ### 参数说明
