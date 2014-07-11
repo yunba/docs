@@ -1,6 +1,6 @@
 # Yunba JavaScript SDK 使用文档
 
-通过利用 Yunba Javascript SDK 提供的接口API，你可以很方便的在智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
+通过利用 Yunba Javascript SDK 提供的接口 API，你可以很方便的在智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
 
 ## 获取 SDK
 
@@ -17,52 +17,52 @@ Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引�
 ### 第二步：创建 Yunba 实例
 
 ```javascript
-    var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
+var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 ```
 
 ### 第三步：连接消息服务器
 
 ```javascript
-	yunba.connect(function(success,msg){
-  		if(success){
-    		console.log('你已成功连接到消息服务器');
-  		}else{
-    		console.log(msg);
-  		}
-	});
+yunba.connect(function(success,msg){
+	if(success){
+		console.log('你已成功连接到消息服务器');
+	}else{
+		console.log(msg);
+	}
+});
 ```
 
 ### 第四步：订阅频道（Subscribe）
 
-如果你想接收一个频道的消息，你得先使用 subscribe() 方法订阅该频道。
+如果你想接收一个频道的消息，你得先使用 `subscribe()` 方法订阅该频道。
 
 ```javascript
-	yunba.subscribe(
-	  {topic:'my_topic'},
-	  function(success){
-	    if(success){
-	      console.log('你已成功订阅频道：my_topic')
-	    }
-	  },
-	  function(data){
-	    console.log(data);
-	  }
-	);
+yunba.subscribe(
+	{topic:'my_topic'},
+  	function(success){
+		if(success){
+    		console.log('你已成功订阅频道：my_topic')
+    	}
+  	},
+  	function(data){
+    	console.log(data);
+  	}
+);
 ```
 
 ### 第五步：发布消息（Publish）
 
-你可以使用 publish() 方法向所有订阅 my_topic 频道的终端发布一条‘你好！Yunba。’消息。
+你可以使用 `publish()` 方法向所有订阅 my_topic 频道的终端发布一条‘你好！Yunba。’消息。
 
 ```javascript
-	yunba.publish(
-	  {topic:'my_topic',msg:'你好！Yunba'},
-	  function(success){
-	    if(success){
-	      console.log('消息发布成功！');
-	    }
-	  }
-	);
+yunba.publish(
+	{topic:'my_topic',msg:'你好！Yunba'},
+  	function(success){
+    	if(success){
+      	console.log('消息发布成功！');
+    	}
+  	}
+);
 ```
 
 将上面的例子扩展一下，我们就可以利用 Yunba 实现在 JavaScript 和其他平台之间实时通讯。
@@ -81,12 +81,12 @@ Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引�
 ### Yunba.connect()
 
 #### 说明：
-yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 connect() 方法连接上消息服务器。连接上消息服务器后才开始收发消息。
+yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 `connect()`方法连接上消息服务器。连接上消息服务器后才开始收发消息。
 
 #### 基本使用
 
 ```javascript
-	yunba.connect(callback)
+yunba.connect(callback)
 ```
 
 #### 参数说明
@@ -97,11 +97,11 @@ callback | function | 参数可选，连接成功后会调用 callback
 ### Yunba.subscribe()
 
 #### 说明：
-通过 subscribe() 收听一个频道后，你就可以接收消息服务器向该频道推送的消息了。
+通过 `subscribe()` 收听一个频道后，你就可以接收消息服务器向该频道推送的消息了。
 #### 基本使用：
 
 ```javascript
-	yunba.subscribe(obj,cb1,cb2)
+yunba.subscribe(obj,cb1,cb2)
 ```
 	
 #### 参数说明
@@ -114,11 +114,11 @@ cb2 | function | 参数必选, 收听成功后，通过该回调函数监听所�
 ### Yunba.unsubscribe()
 
 #### 说明：
-你可以通过 unsubscribe() 取消对一个频道的收听。
+你可以通过 `unsubscribe()` 取消对一个频道的收听。
 #### 基本使用：
 
 ```javascript
-	yunba.unsubscribe(obj,cb)
+yunba.unsubscribe(obj,cb)
 ```
 
 #### 参数说明
@@ -130,12 +130,12 @@ cb | function | 参数可选，取消收听某频道成功或失败都会回调�
 ### Yunba.publish()
 
 #### 说明：
-Yunba 客户端实例可以通过 publish() 向某频道发布消息。
+Yunba 客户端实例可以通过 `publish()` 向某频道发布消息。
 
 #### 基本使用
 
 ```javascript
-	yunba.publish(obj,cb)
+yunba.publish(obj,cb)
 ```
 
 #### 参数说明
@@ -147,11 +147,11 @@ cb | function | 参数可选，不管消息发布是否成功或失败都会回�
 ### Yunba.disconnect()
 
 #### 说明：
-与 connect() 相对，通过 disconnect() 可以断开与消息服务器的连接。
+与 `connect()` 相对，通过 `disconnect()` 可以断开与消息服务器的连接。
 #### 基本使用：
 
 ```javascript
-	msg.disconnect(cb)
+msg.disconnect(cb)
 ```
 
 #### 参数说明
