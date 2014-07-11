@@ -90,6 +90,30 @@ int data_len = strlen(buf);
 rc = MQTTClient_publish(client, topic, data_len, buffer);
 ```
 
+## MQTTClient_publish_to_alias
+### 功能
+
+App 向某个alias发送message
+
+### 函数原型
+` int MQTTClient_publish_to_alias(MQTTClient handle, char* alias, int data_len, void* data); `
+
+### 参数说明:
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+alias | char* | alias名字
+data_len | int | 消息内容长度
+data | void* | 消息指针
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+rc = MQTTClient_publish_to_alias(client, "Hello_alias", strlen("test"), "test");
+```
+
 ## MQTTClient_publish_json
 ### 功能
 
