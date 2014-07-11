@@ -64,6 +64,50 @@ topic | char* | 取消订阅的的主题，topic 只支持英文数字下划线�
 rc = MQTTClient_unsubscribe(client, "rocket");
 ```
 
+## MQTTClient_presence
+### 功能
+
+App 可以调用此函数来监听 Topic 下面所有的用户的别名状态的变化
+
+### 函数原型
+` int MQTTClient_presence(MQTTClient handle, char* topic); `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+topic | char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+rc = MQTTClient_presence(client, "rocket");
+```
+
+## MQTTClient_unpresence
+### 功能
+
+取消监听对应 Topic 下用户状态的变化
+
+### 函数原型
+` int MQTTClient_unpresence(MQTTClient handle, char* topic); `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+topic | char* | 订阅的的主题，topic 只支持英文数字下划线，长度不超过50个字符
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+rc = MQTTClient_unpresence(client, "rocket");
+```
+
 ## MQTTClient_publish
 ### 功能
 
