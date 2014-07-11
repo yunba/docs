@@ -1,31 +1,27 @@
-# Yunba Android SDK 快速入门
+# Yunba Android SDK Quick Start
 ## 注册开发者账号
-打开 <http://yunba.io>, 点击注册创建账号。
+打开 http://yunba.io, 点击注册创建账号。
 
-![create_accout.jpg](../image/register_account.png)
+![create_accout.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_accout.png)
 
 ## 创建应用
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
 
-![create_application.jpg](../image/create_app.png)
+![create_application.jpg](https://bitbucket.org/yunba/public_docs/downloads/create_application.png)
 
 ## 下载 Android SDK
 
-打开 <http://yunba.io/developers/> 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
+打开 http://yunba.io/developers/ 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
 
 ## 导入 Android SDK
 
 下载的 yunba-sdk-release.jar 包放到项目的 libs 目录下。
 
-![libs_android.jpeg](../image/libs_android.jpeg)
+![libs.jpg](https://bitbucket.org/yunba/public_docs/downloads/libs.jpeg)
 
 ## 配置 AndroidManifest.xml
 ### 添加权限
-
-> 添加权限
-
 ```xml
-
 <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -44,34 +40,18 @@
 ```
 
 ### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
-AppKey 来自 YunBa 注册的应用，与包名对应. 
 
-![appkey-pkg.jpg](../image/copy_app_key.png)
-
-> 添加 Appkey
+![appkey-pkg.jpg](https://bitbucket.org/yunba/public_docs/downloads/appkey-pkg.jpeg)
 
 ```xml
-
-<meta-data android:name="YUNBA_APPKEY" android:value="Your Appkey" />
-
+<meta-data android:name="YUNBA_APPKEY" android:value="XXXXXXXXXXXXXX" />
 ```
 ### 添加 Service
-添加 YunBaService ，YunBa SDK 会启动一个后台的 service.
-
-> 添加 YunBaService
-
 ```xml
-
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
-
 ### 添加 Receiver
-添加 YunBaReceiver, 用来监听网络变化等事件，确保网络切换时能重新建立长连接.
-
-> 添加 YunBaReceiver
-
 ```xml
-
 <receiver android:name="io.yunba.android.core.YunBaReceiver">
     <intent-filter>
         <action android:name="android.intent.action.USER_PRESENT" />
@@ -81,10 +61,8 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
 ```
 
 ## 添加使用代码
-初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
-
-```java
-
+初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码
+```Java
 public class YourApp extends Application {
 
     public void onCreate() {
@@ -111,15 +89,9 @@ public class YourApp extends Application {
 
 
 ## 自定义 Receiver 接受 Publish 消息
-YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过监听相关的 Action 接受消息并处理。
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
-
-
- > 自定义 Receiver 接受 Publish 消息, Package Name 为当前应用程序的包名。
- 
 ```xml
- 
 	<receiver android:name="Your Receiver">
 		<intent-filter>
 		<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
@@ -127,13 +99,8 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 		</intent-filter>
 	</receiver>
 ```
-
 ### 自定义 Receiver 处理 Publish 消息代码示例
-
-> 自定义 Receiver 处理 Publish 消息
-
-```java
-
+```Java
 	if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
 
 		String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
@@ -152,72 +119,47 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 		DemoUtil.showNotifation(context, topic, msg);
 	}
 ```
-## 在 Portal 上发布消息
+### 在 Portal 上发布消息
 
-客服端集成 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
+打开应用详情页面，点击发布消息，如图所示:
 
-![publish.png](../image/send_message.png)
+![publish.png](https://bitbucket.org/yunba/public_docs/downloads/publish.png)
 
-## 在 Portal 查看消息发布实时报表
+### 在 Portal 查看消息发布实时报表
 
 打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
 
-![report.jpeg](../image/publish_statistic.png)
+![report.jpeg](https://bitbucket.org/yunba/public_docs/downloads/report.jpeg)
 
-## 在 Portal 查看用户在线信息实时报表
+### 在 Portal 查看用户在线信息实时报表
 
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
-![online.jpeg](../image/online_statistic.png)
-# YunBa Android SDK API 手册
+![online.jpeg](https://bitbucket.org/yunba/public_docs/downloads/online.jpeg)
 
-## start
 
-### 功能
-App 初始化 YunBa SDK.
 
-### 函数原型
-  ` public static void start(Context context) ` 
-  
-  ` public static void start(Context context, String appkey) `
-  
-  ` public static void start(Context context, String appkey, Map opts) `
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-appkey | String | YunBa 中注册的 App Key
-opts | Map | 选项，可包含sub_key(用于获取订阅权限的密钥), pub_key(用于获取发布权限的密钥),sec_key(用于获取管理权限的密钥，切勿外泄), auth_key(用于access manager模块中权限管理的动态密钥)
-
-### Code Example
-
-```java
-    YunBaManager.start(getApplicationContext());
-```
-
-## subscribe
+## API - subscribe
 
 ### 功能
 App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
 
 ### 函数原型
-`   public static void subscribe(Context context, String topic, IMqttActionListener mqttAction) `
-
-`	public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction) `
+```Java
+	public static void subscribe(
+	    Context context,
+	    String[] topics,
+        IMqttActionListener mqttAction
+    );
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。
+* topics: app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100.
+* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
-
-```java
-
+```Java
 	YunBaManager.subscribe(getApplicationContext(),topic,
 	  new IMqttActionListener() {
         @Override
@@ -237,29 +179,29 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
 ```
 
 
-## unsubscribe
+## API - unsubscribe
 
 ### 功能
 App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 的 Message.
 
 ### 函数原型
 
-`    public static void unsubscribe(Context context, String topic, IMqttActionListener mqttAction) `
-
-`    public static void unsubscribe(Context context, String[] topics, IMqttActionListener mqttAction) `
+```Java
+	public static void unsubscribe(
+	    Context context,
+        String[] topics,
+        IMqttActionListener mqttAction
+    )
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。
+* topics:  app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100.
+* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
 
-```java
-
+```Java
 YunBaManager.unsubscribe(getApplicationContext(), topic,
   new IMqttActionListener() {
 
@@ -279,31 +221,28 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 );
 ```
 
-## publish
+## API - publish
 
 ### 功能
 App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-
-
-`	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)) `
-
-`   public static void publish(Context context, String topic, String message, Map opts, IMqttActionListener mqttAction) `
-
+```Java
+	public static void publish(
+	    Context context,
+	    String topic,
+	    String message,
+	    IMqttActionListener mqttAction
+    );
+```
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-message | String | 向目标 topic 的订阅者发布的消息
-opts | Map | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台等等
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* message: 向对应 topic 的订阅者发布的消息.
+* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
-
-```java
-
+```Java
 YunBaManager.publish(getApplicationContext(), topic, msg,
     new IMqttActionListener() {
         @Override
@@ -322,31 +261,30 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
-## publishToAlias
+## API - publishByAlias
 
 ### 功能
 向用户别名发送消息, 用于实现点对点的消息发送。
 
 ### 函数原型
-
-`	public static void publishToAlias(Context context, String alias, String message,IMqttActionListener mqttAction) `
-
-`   public static void publishToAlias(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction) `
-
+```Java
+	public static void publishByAlias(
+	    Context context,
+	    String alias,
+	    String message,
+	    IMqttActionListener mqttAction
+    );
+```
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-message | String | 向目标别名的订阅者发布的消息
-opts | Map | 向目标别名的订阅者发布的消息的选项：如消息有效时间，目标平台等等
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。
+* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
+* message: 向对应 topic 的订阅者发布的消息.
+* mqttAction: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
 
-```java
-
-YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
+```Java
+YunBaManager.publishByAlias(getApplicationContext(), topic, msg,
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
@@ -365,124 +303,117 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
 ```
 
 
-## stop
-
+## API - stop
 #### 功能
 App 可以调用此函数来停止推送服务，当推送服务被停止后，所以的 API 都会失效（包括 start API）, 当需要重新使用推送服务时，必须要调用 resume API
 
 ### 函数原型
 
-`
-    public static void stop(Context context)
-`
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-
-### Code Example
-
-```java
-
-    YunBaManager.stop(getApplicationContext());
+```Java
+public static void stop(
+	    Context context,
+    );
 ```
-
-
-## resume
-
-#### 功能
-App 可以调用此函数来恢复推送服务，与 stop API 相对应。
-
-### 函数原型
-
-`
-    public static void resume(Context context)
-`
 
 ### 参数说明
 * context: Android 应用上下文环境。
 
 ### Code Example
 
-```java
-
-    YunBaManager.resume(getApplicationContext());
+```Java
+YunBaManager.stop(getApplicationContext());
 ```
 
 
-## isStopped
-
+## API - resume
 #### 功能
-App 可以调用此函数来查看推送服务是否被停止。
-
+App 可以调用此函数来恢复推送服务，与 stop API 相对应。
 ### 函数原型
 
-`
-    public static void isStopped(Context context)
-`
+```Java
+public static void resume(
+	    Context context,
+    );
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
+* context: Android 应用上下文环境。
 
 ### Code Example
 
-```java
-
-    YunBaManager.isStopped(getApplicationContext());
+```Java
+YunBaManager.resume(getApplicationContext());
 ```
 
 
-## report
+## API - isStopped
+#### 功能
+App 可以调用此函数来查看推送服务是否被停止。
+### 函数原型
 
+```Java
+public static void isStopped(
+	    Context context,
+    );
+```
+
+### 参数说明
+* context: Android 应用上下文环境。
+
+### Code Example
+
+```Java
+YunBaManager.isStopped(getApplicationContext());
+```
+
+
+## API - report
 ### 功能
 App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
 
 ### 函数原型
 
-`
-    public static void report(Context context, String actiton, String data)
-`
+```Java
+public static void report(
+	    Context context,
+	    String actiton,
+	    String data
+    );
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-action | String | 需要统计的行为，如打开通知栏，下载资源成功等等
-data | String | 想对应 action 的附加数据，以满足统计相关的其他业务需求
-
+* context: Android 应用上下文环境。
+* action: app 需要统计的行为，如打开通知栏，下载资源成功等等。
+* data: 想对应 action 的附加数据，以满足统计相关的其他业务需求。
 
 ### Code Example
 
-```java
-
-    YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
+```Java
+YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
 ```
 
-## setAlias
-
+## API - setAlias
 ### 功能
 App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
 ### 函数原型
 
-`
-    public static void setAlias(Context context, String alias, IMqttActionListener mqttAction)
-`
+```Java
+public static void setAlias(
+        Context context, 
+        String alias, 
+        IMqttActionListener callback
+);
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。
+* alias: 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
 
-```java
-
+```Java
 YunBaManager.setAlias(getApplicationContext(), alias, 
     new IMqttActionListener() {
         @Override
@@ -499,27 +430,26 @@ YunBaManager.setAlias(getApplicationContext(), alias,
 );
 ```
 
-## getAlias
-
+## API - getAlias
 ### 功能
 App  可以调用此函数来获取当前用户的别名。
 
 ### 函数原型
 
-`
-    public static void getAlias(Context context, IMqttActionListener mqttAction)
-`
+```Java
+public static void getAlias(
+        Context context,  
+        IMqttActionListener callback
+);
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
 
-```java
-
+```Java
 YunBaManager.getAlias(getApplicationContext(), 
     new IMqttActionListener() {
         @Override
@@ -536,27 +466,26 @@ YunBaManager.getAlias(getApplicationContext(),
 );
 ```
 
-## getTopics
-
+## API - getTopics
 ### 功能
 App  可以调用此函数来获取当前用户的订阅的所有 Topics。
 
 ### 函数原型
 
-`
-public static void getTopics(Context context,IMqttActionListener mqttAction)
-`
+```Java
+public static void getTopics(
+        Context context,  
+        IMqttActionListener callback
+);
+```
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境。.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 ### Code Example
 
-```java
-
+```Java
 YunBaManager.getTopics(getApplicationContext(), 
     new IMqttActionListener() {
         @Override
@@ -580,34 +509,31 @@ YunBaManager.getTopics(getApplicationContext(),
 ```
 
 
-## getAliasList
-
+## API - getAliasList
 ### 功能
 App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
 
 
 ### 函数原型
-
-
-  ` public static void getAliasList(Context context, String topic, IMqttActionListener mqttAction) `
-  
-  ` public static void getAliasList(Context context, String topic, boolean disableState, boolean disableAlias, IMqttActionListener mqttAction) `
+```Java
+public static void getAliasList(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
 
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-disableState | boolean | 结果是否排除别名状态信息
-disableAlias | boolean | 结果是否排除别名列表
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 
 ### Code Example
 
-```java
 
+```Java
 YunBaManager.getAliasList(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
@@ -632,32 +558,32 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 ```
 
 
-## getState
-
+## API -  getStatusOfAlias
 ### 功能
 根据别名来获取用用户的状态，如是否在线等信息
 
 
 ### 函数原型
-
-`
-    public static void  getState(Context context, String alias, IMqttActionListener mqttAction)
-`
+```Java
+public static void  getStatusOfAlias(
+        Context context, 
+        String alias,
+        IMqttActionListener callback
+);
+```
 
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境.
+* alias: app 自定义的别名
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 
 ### Code Example
 
-```java
 
-YunBaManager.getState(getApplicationContext(), "t1",
+```Java
+YunBaManager.getStatusOfAlias(getApplicationContext(), "t1",
     new IMqttActionListener() {
        @Override
        public void onSuccess(IMqttToken mqttToken) {
@@ -673,7 +599,7 @@ YunBaManager.getState(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getState failed : " + exception.getMessage();
+            String msg = "getStatusOfAlias failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
@@ -681,56 +607,50 @@ YunBaManager.getState(getApplicationContext(), "t1",
 ```
 
 
-## subscribePresence
-
+## API -  subscribePresenceToTopic
 ### 功能
 App  可以调用此函数来监听 Topic 下面所有的用户的别名状态的变化。所有用户的状态变化时都发起一个  <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 的广播，用户 App 的程序监听此 action 的广播就能收到相应状态的变化。
 
 
 ### 函数原型
-
-`
-    public static void subscribePresence(Context context, String topic, IMqttActionListener mqttAction)
-`
+```Java
+public static void subscribePresenceToTopic(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
 
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 
 ### Code Example
 
-> Code Example
 
-```java
-
-YunBaManager.subscribePresence(getApplicationContext(), "t1",
+```Java
+YunBaManager.subscribePresenceToTopic(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
-            DemoUtil.showToast("subscribePresence to topic succeed", getApplicationContext());
+            DemoUtil.showToast("subscribePresenceToTopic succeed", getApplicationContext());
         }
 
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "subscribePresence failed : " + exception.getMessage();
+            String msg = "getAliasList failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
 );
-
 ```
 
 
 ### 自定义 Receive 监听状态变化的 AndroidManifest.xml 配置
-
-> 自定义 Receiver 处理 Publish 消息
-
 ```xml
  <receiver android:name="Your Receiver">
               <intent-filter>
@@ -744,11 +664,7 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 
 
 ### 自定义 Receive 监听状态变化代码片段
-
-> 自定义 Receive 监听状态变化代码片段
-
-```java
-
+```Java
 else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 			 //msg from presence.
 			 String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);		
@@ -766,33 +682,32 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 ```
 
 
-## unsubscribePresence
-
+## API -  unsubscribePresenceToTopic
 ### 功能
-与 subscribePresence 想对应， 取消监听对应 Topic 下用户状态的变化。
+与 subscribePresenceToTopic 想对应， 取消监听对应 Topic 下用户状态的变化。
 
 
 ### 函数原型
-
-`
-    public static void unsubscribePresence(Context context, String topic, IMqttActionListener mqttAction)
-`
+```Java
+public static void   unsubscribePresenceToTopic(
+        Context context, 
+        String topic,
+        IMqttActionListener callback
+);
+```
 
 
 ### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+* context: Android 应用上下文环境.
+* topic: app 待发布消息的频道，只支持英文数字下划线，长度不超过50个字符.
+* callback: API 回调接口， 成功会回调 onSuccess， 失败回调 onFailure.
 
 
 ### Code Example
 
 
-```java
-
-YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
+```Java
+YunBaManager.unsubscribePresenceToTopic(getApplicationContext(), "t1",
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
@@ -803,7 +718,7 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "unsubscribePresence to topic failed : " + exception.getMessage();
+            String msg = "unsubscribePresenceToTopic failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
