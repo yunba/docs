@@ -110,7 +110,7 @@ data | cJSON* | json包
 
 ### Code Example
 ```c
-char buf[100] = "{"num_name":2}";
+char buf[100] = "{\"num_name\":2}";
 cJSON *data = cJSON_Parse(buf);
 rc = MQTTClient_publish_json(client, topic, data);
 cJSON_Delete(data);
