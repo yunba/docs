@@ -365,7 +365,7 @@ YunBaManager.getAlias(getApplicationContext(),
 );
 ```
 
-## getTopics
+## getTopicList
 
 ### 功能
 App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表,如果输入参数 alias，则是获取目标 alias 的频道列表。
@@ -390,7 +390,7 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
 
 ```java
 
-YunBaManager.getTopics(getApplicationContext(), 
+YunBaManager.getTopicList(getApplicationContext(), 
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken mqttToken) {
@@ -405,7 +405,7 @@ YunBaManager.getTopics(getApplicationContext(),
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getTopics failed : " + exception.getMessage();
+            String msg = "getTopicList failed : " + exception.getMessage();
             DemoUtil.showToast(msg, getApplicationContext());
         }
     }
