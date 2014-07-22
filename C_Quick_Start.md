@@ -11,14 +11,18 @@
 
 ## 获得client-id, 用户名以及密码。
 
+```c
 curl -X  POST -H "Content-Type: application/json" -d '{"a": "app_key", "p":2}'  http://reg.yunba.io:8383/device/reg/
+```
 
 回复获得
+```c
 {
   "u": "J3SoTq6t",
   "p": "UFOrH0xkC",
   "c": "0000000034-000000000276"
 }
+```
 
 json包中，u为用户名，p为密码。c为client-id.
 
