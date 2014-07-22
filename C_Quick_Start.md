@@ -5,9 +5,24 @@
 ![create_accout.jpg](../image/register_account.png)
 
 ## 创建应用
-注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
+注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名
 
 ![create_application.jpg](image/create_app.png)
+
+## 获得client-id, 用户名以及密码。
+
+curl -X  POST -H "Content-Type: application/json" -d '{"a": "app_key", "p":2}'  http://reg.yunba.io:8383/device/reg/
+
+回复获得
+{
+  "u": "J3SoTq6t",
+  "p": "UFOrH0xkC",
+  "c": "0000000034-000000000276"
+}
+
+json包中，u为用户名，p为密码。c为client-id.
+
+
 
 ##从哪里获得sdk
 你可以使用下面命令去获得sdk:
