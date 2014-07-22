@@ -24,6 +24,8 @@ printf("used:%s, %s\n", version->name, version->value);
 ## MQTTClient_setup_with_appkey
 ### 功能
 
+通过appkey，获得注册信息。
+
 ###函数原型
 ` int MQTTClient_setup_with_appkey(char* appkey, REG_info *info) `
 

@@ -35,7 +35,7 @@ LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
 ```c
 REG_info my_reg_info;
 int res = MQTTClient_setup_with_appkey(appkey, &my_reg_info);
-if (ret < 0) {
+if (res < 0) {
 	printf("can't get info");
 	return -1;
 }
