@@ -42,6 +42,13 @@ if (res < 0) {
 ```
 上面appkey为用户注册获得的app key。
 
+获得url.
+```c
+char url[200];
+MQTTClient_get_host(appkey, url);
+```
+url用来保存获得url.
+
 
 接下来,
 ```c
