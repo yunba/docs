@@ -25,7 +25,7 @@ curl -X  POST -H "Content-Type: application/json" -d '{"a": "5335292c44deccab563
 }
 ```
 
-json包中，u为用户名，p为密码。c为client-id.
+回复的json包中，u为用户名，p为密码。c为client-id.
 
 
 ##从哪里获得sdk
