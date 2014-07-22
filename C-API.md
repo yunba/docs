@@ -43,6 +43,29 @@ info | REG_info* | 保存获取到的注册信息。
 int res = MQTTClient_setup_with_appkey(appkey, &my_reg_info);
 ```
 
+## MQTTClient_get_host
+### 功能
+
+通过appkey，获得host信息。
+
+###函数原型
+` int MQTTClient_get_host(char *appkey, char* url) `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+appkey | char* | 主用注册时或得到的app key。
+url | char* | 保存获取到的host。
+
+### 返回值
+* int : 为0时，表示成功。小于0，表示失败。
+
+### Code Example
+```c
+char url[200];
+int res = MQTTClient_get_host(appkey, url);
+```
+
 ## MQTTClient_subscribe
 ### 功能
 
