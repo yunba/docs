@@ -11,8 +11,9 @@
 
 ## 获得client-id, 用户名以及密码。
 
+使用下面的命令，其中5335292c44deccab56399e4f为注册时获得到的app key.
 ```c
-curl -X  POST -H "Content-Type: application/json" -d '{"a": "app_key", "p":2}'  http://reg.yunba.io:8383/device/reg/
+curl -X  POST -H "Content-Type: application/json" -d '{"a": "5335292c44deccab56399e4f", "p":2}'  http://reg.yunba.io:8383/device/reg/
 ```
 
 回复获得
@@ -25,7 +26,6 @@ curl -X  POST -H "Content-Type: application/json" -d '{"a": "app_key", "p":2}'  
 ```
 
 json包中，u为用户名，p为密码。c为client-id.
-
 
 
 ##从哪里获得sdk
