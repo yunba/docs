@@ -9,7 +9,7 @@
 
 ![create_application.jpg](image/create_app.png)
 
-## 获得client-id, 用户名以及密码。
+## 如何获得client-id, 用户名以及密码。
 
 使用下面的命令，其中5335292c44deccab56399e4f为注册时获得到的app key.
 ```c
