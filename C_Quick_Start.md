@@ -9,24 +9,6 @@
 
 ![create_application.jpg](image/create_app.png)
 
-## 如何获得client-id, 用户名以及密码。
-
-使用下面的命令，其中5335292c44deccab56399e4f为注册时获得到的app key.
-```c
-curl -X  POST -H "Content-Type: application/json" -d '{"a": "5335292c44deccab56399e4f", "p":2}'  http://reg.yunba.io:8383/device/reg/
-```
-
-回复获得
-```c
-{
-  "u": "J3SoTq6t",
-  "p": "UFOrH0xkC",
-  "c": "0000000034-000000000276"
-}
-```
-
-回复的json包中，u为用户名，p为密码。c为client-id.
-
 
 ##从哪里获得sdk
 你可以使用下面命令去获得sdk:
@@ -50,12 +32,32 @@ LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
 ```
 
 在入口函数中添加yunba服务初始化：
+```c
+REG_info my_reg_info;
+int res = MQTTClient_setup_with_appkey(appkey, &my_reg_info);
+if (ret < 0) {
+	printf("can't get info");
+	return -1;
+}
+```
+上面appkey为用户注册获得的app key。
 
+
+接下来,
 ```c
 MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
-rc = MQTTClient_create(&client, url, opts.clientid, MQTTCLIENT_PERSISTENCE_NONE, NULL);
+rc = MQTTClient_create(&client, url, my_reg_info.client_id, MQTTCLIENT_PERSISTENCE_NONE, NULL);
 
 rc = MQTTClient_setCallbacks(client, NULL, NULL, messageArrived, NULL, extendedCmdArrive);
+```
+连接到服务器。
+
+```c
+conn_opts.username = my_reg_info.username;
+conn_opts.password = my_reg_info.password;
+if (MQTTClient_connect(*client, opts) != 0) {
+	return -1;
+}
 ```
 
 订阅你的频道

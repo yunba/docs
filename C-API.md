@@ -20,6 +20,27 @@ MQTTClient_nameValue* version = MQTTClient_getVersionInfo();
 printf("used:%s, %s\n", version->name, version->value);
 ```
 
+
+## MQTTClient_setup_with_appkey
+### 功能
+
+###函数原型
+` int MQTTClient_setup_with_appkey(char* appkey, REG_info *info) `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+appkey | char* | 主用注册时或得到的app key。
+info | REG_info* | 保存获取到的注册信息。
+
+### 返回值
+* int : 为0时，表示成功。小于0，表示失败。
+
+### Code Example
+```c
+int res = MQTTClient_setup_with_appkey(appkey, &my_reg_info);
+```
+
 ## MQTTClient_subscribe
 ### 功能
 
