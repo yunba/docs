@@ -158,3 +158,55 @@ msg.disconnect(cb)
 名称 | 类型 |  说明
 --------- | ------- |  -----------
 cb | function | 参数可选，不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg
+
+### Yunba.getAlias()
+
+#### 说明：
+获取之前已经设置过的当前实例别名
+#### 基本使用：
+
+```javascript
+msg.getAlias(cb)
+```
+
+#### 参数说明
+名称 | 类型 |  说明
+--------- | ------- |  -----------
+cb | function | 必填参数，成功获取别名后回调此方法，传递给该方法的参数是{alias:""},alias即别名值，如果为空，则表示暂未设置别名。
+
+### Yunba.hereNow()
+
+#### 说明：
+返回订阅某一个topic的用户信息和用户数
+#### 基本使用：
+
+```javascript
+var cb = function(result){consle.log(result)}
+msg.hereNow(topic,cb)
+```
+
+#### 参数说明：
+--------- | ------- |  -----------
+topcic | string | 频道名称
+cb | function | 无论成功或失败都会回调此方法
+result | object | {success:true,data:{...}} or {success:false,error_msg:""}
+
+### Yunba.whereNow()
+
+#### 说明：
+给定的alias，返回所有订阅的channel信息
+#### 基本使用：
+
+```javascript
+var cb = function(result){consle.log(result)}
+msg.whereNow(alias,cb)
+```
+
+#### 参数说明：
+--------- | ------- |  -----------
+alias | string | 给定别名
+cb | function | 无论成功或失败都会回调此方法
+result | object | {success:true,data:{...}} or {success:false,error_msg:""}
+
+
+
