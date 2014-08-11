@@ -127,5 +127,14 @@
 
 6. 点击继续之后生成APNs证书成功，然后点击下载即可  
 
-	![download_created_cert.png](../image/download_created_cert.png)  
+	![download_created_cert.png](../image/download_created_cert.png)  	
+7. 导出证书为p12文件
+
+	![export_certs_to_p12.png](../image/export_certs_to_p12.png)   
+
+	导出时可以添加自定义密码以提高安全性:
+
+	![export_p12_password.png](../image/export_p12_password.png)   
+
+8. 制作完成后，在 Portal 上传APNs证书以激活APN推送功能
 	
