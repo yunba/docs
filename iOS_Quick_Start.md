@@ -86,7 +86,7 @@
 
 打开编辑应用页面，点击上传iOS开发/生产环境证书并输入相应的证书密码后可以激活APN推送功能，如图所示:  
 
-![upload_APNs_cert_file.png](../image/upload_APNs_cert_file.png)
+![upload_ios_cert.png](../image/upload_ios_cert.png)
 
 ### 生成APNs证书的步骤如下：
 1. 打开apple开发者网站的证书管理界面<https://developer.apple.com/account/ios/certificate/>  
