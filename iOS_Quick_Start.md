@@ -81,3 +81,51 @@
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:  
 
 ![online_statistic.png](../image/online_statistic.png)
+
+## 在 Portal 上传APNs证书以激活APN推送功能
+
+打开编辑应用页面，点击上传iOS开发/生产环境证书并输入相应的证书密码后可以激活APN推送功能，如图所示:  
+
+![upload_APNs_cert_file.png](../image/upload_APNs_cert_file.png)
+
+### 生成APNs证书的步骤如下：
+1. 打开apple开发者网站的证书管理界面<https://developer.apple.com/account/ios/certificate/>  
+
+2. 点击新建证书  
+
+	![create_ios_cert.png](../image/create_ios_cert.png)  
+
+3. 选择新建证书的类型（开发或者生产推送环境）
+
+	![create_cert_choose_type.png](../image/create_cert_choose_type.png)  
+
+	注：如果你的系统中没有中间签名证书，则需要下载并安装到你的系统中：  
+
+	![before_create_cert.png](../image/before_create_cert.png)  
+
+4. 为证书选择对应需要推送功能的APP ID:  
+
+	![create_cert_choose_appid.png](../image/create_cert_choose_appid.png)  
+
+5. 为制作推送证书，需要有一个CSR文件用以使新生成的推送证书与私钥相匹配：
+
+	![create_cert_upload_csr.png](../image/create_cert_upload_csr.png)  
+	
+	注：如果你没有CSR文件，则需要新建一个，步骤如下：  
+
+	a. 打开钥匙串访问  
+
+	![open_key_chain.png](../image/open_key_chain.png)  
+	
+	b. 申请创建CSR文件  
+
+	![create_csr.png](../image/create_csr.png)  
+	
+	c. 输入你的邮件等信息后保存CSR文件到本地磁盘  
+
+	![save_csr.png](../image/save_csr.png)  
+
+6. 点击继续之后生成APNs证书成功，然后点击下载即可  
+
+	![download_created_cert.png](../image/download_created_cert.png)  
+	
