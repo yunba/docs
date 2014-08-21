@@ -486,7 +486,7 @@ mqttAsyncClient.getState("t1", new IMqttActionListener() {
        public void onSuccess(IMqttToken mqttToken) {
             JSONObject result = mqttToken.getResult();
                     try {
-                        String status = result.getJSONArray("status");
+                        String status = result.getString("status");
                          System.out.println(topics.toString());
                     } catch (JSONException e) {
                         
