@@ -521,7 +521,7 @@ YunBaManager.getState(getApplicationContext(), "t1",
             JSONObject result = mqttToken.getResult();
                     try {
                         String status = result.getString("status");
-                         System.out.println(topics.toString());
+                        System.out.println("status = " + status);
                     } catch (JSONException e) {
                         
                     }
