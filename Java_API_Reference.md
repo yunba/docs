@@ -52,6 +52,11 @@ callback | MqttCallback | 处理消息到达，服务器状态变化等事件
 				}
 ```
 
+## connect
+
+### 功能
+MqttAsyncClient 连接到 YunBa Server, 只有连接成功后才能调用 subscibe, publish 等 API。
+
 ### 函数原型
 `   public void connect(IMqttActionListener mqttAction) `
 
