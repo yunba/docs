@@ -28,10 +28,17 @@ pip install -U socketIO-client
 
 ```python
 socketIO = SocketIO('sock.yunba.io', 3000)
-
 ```
-## init 回调
-建立连接成功后，收到回调。
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+host | String | socket.io API server，默认值 'sock.yunba.io'
+port | number | socket.io API 端口，默认值 3000
+
+
+## socketconnectack
+`init` 建立连接成功后的回调。
 
 ```python
 {"name":"socketconnectack","args":[{"msg":"你已经通过websocket与服务器链接上。"}]}
@@ -44,8 +51,8 @@ socketIO = SocketIO('sock.yunba.io', 3000)
 socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 ```
 
-## connect 回调
-connect 成功后的回调。
+## connack
+`connect` 成功后的回调。
 
 ```python
 {"name":"connack","args":[{"success":true}]}
@@ -59,9 +66,9 @@ connect 成功后的回调。
 socketIO.emit('subscribe', {'topic': 'testtopic1'})
 ```
 
-## subscribe 回调
+## suback
 
-订阅成功回调。
+`subscribe` 订阅成功回调。
 
 ```python
 {"name":"suback","args":[{"success":true}]}
@@ -75,13 +82,158 @@ socketIO.emit('subscribe', {'topic': 'testtopic1'})
 socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ```
 
-## publish 回调
-
-发布成功回调。
+## puback
+发布 `publish`, `publish_to_alias` 成功回调。
 
 ```python
 {"name":"puback","args":[{"success":true}]}
 ```
+
+## set_alias
+
+### 功能
+App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
+
+### 函数原型
+
+```python
+socketIO.emit('set_alias', {'alias': 'mytestalias1'})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+
+
+## set_alias_ack
+
+### 功能
+设置别名成功回调。
+
+回调参数:
+
+```python
+{"success": true}
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | boolen | 设置成功返回 true，否则返回 false
+
+## get_alias
+
+### 功能
+App  可以调用此函数来获取当前用户的别名。
+
+### 函数原型
+
+```python
+socketIO.emit('get_alias')
+```
+
+## alias
+
+### 功能
+读取别名回调。
+
+```python
+{'alias': 'mytestalias1'}
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | string | 用户当前别名
+
+
+## publish_to_alias
+
+### 功能
+向用户别名发送消息, 用于实现点对点的消息发送。
+
+### 函数原型
+
+```python
+socketIO.emit('publish_to_alias', {'alias': 'mytestalias1', 'msg': "hello to alias"})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+msg | String | 向目标别名的订阅者发布的消息
+
+## get_alias_list
+
+### 功能
+App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
+
+### 函数原型
+
+```python
+socketIO.emit('get_alias_list', {'topic': 'testtopic1'})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+
+## get_alias_list_ack
+`get_alias_list` 结果回调。
+
+### 示例
+```python
+'''succ'''
+{'data': {'alias': ['mytestalias1'], 'occupancy': 1}, 'success': True}
+'''failed'''
+{success: false, error_msg: 'Broker Error'}
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | boolean | 成功返回 true, 否则返回 false
+data.alias | List | 订阅的 `alias` 列表，success 为 true 时有效
+error_msg | String | 错误信息，success 为 false 时有效
+
+## get_topic_list
+
+### 功能
+App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表,如果输入参数 alias，则是获取目标 alias 的频道列表。
+
+### 函数原型
+
+```python
+socketIO.emit('get_topic_list', {'alias': 'mytestalias1'})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+
+## get_topic_list_ack
+
+### 功能
+`get_topic_list` 结果回调。
+
+### 示例
+```python
+'''succ'''
+{'data': {'topics': ['testtopic2']}, 'success': True}
+'''failed'''
+{'success': False, error_msg: 'Broker Error'}
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | boolean | 成功返回 true, 否则返回 false
+data.topics | List | 订阅的 `topic` 列表，success 为 true 时有效
+error_msg | String | 错误信息，success 为 false 时有效
 
 ## 例子
 
@@ -90,29 +242,56 @@ socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ```python
 from socketIO_client import SocketIO
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
-def on_connect_response(*args):
-    print 'on_connect_response', args
-    socketIO.emit('subscribe', {'topic': 'testtopic1'})
+def on_socket_connect_ack(args):
+    print 'on_socket_connect_ack', args
+    socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 
-def on_puback(*args):
+def on_connack(args):
+    print 'on_connack', args
+    socketIO.emit('subscribe', {'topic': 'testtopic2'})
+
+def on_puback(args):
     print 'on_puback', args
 
-def on_suback(*args):
+def on_suback(args):
     print 'on_suback', args
-    socketIO.emit('publish', {'topic': 'testtopic1', 'msg': 'from python', 'qos': 1})
+    socketIO.emit('publish', {'topic': 'testtopic2', 'msg': 'from python', 'qos': 1})
+    socketIO.emit('set_alias', {'alias': 'mytestalias1'})
+    socketIO.emit('get_topic_list', {'alias': 'mytestalias1'})
 
-def on_message(*args):
+def on_message(args):
     print 'on_message', args
 
+def on_set_alias(args):
+	print 'on_set_alias', args
+	socketIO.emit('get_alias')
+	socketIO.emit('publish_to_alias', {'alias': 'mytestalias1', 'msg': "hello to alias"})
+
+def on_get_alias(args):
+	print 'on_get_alias', args
+
+def on_alias(args):
+    socketIO.emit('get_alias_list', {'topic': 'testtopic2'})
+    print 'on_alias', args
+
+def on_get_topic_list_ack(args):
+    print 'on_get_topic_list_ack', args
+
+def on_get_alias_list_ack(args):
+    print 'on_get_alias_list_ack', args
+
 socketIO = SocketIO('sock.yunba.io', 3000)
-# socketIO.on('sockconnectack', on_connect_response)
-socketIO.on('connack', on_connect_response)
+socketIO.on('socketconnectack', on_socket_connect_ack)
+socketIO.on('connack', on_connack)
 socketIO.on('puback', on_puback)
 socketIO.on('suback', on_suback)
 socketIO.on('message', on_message)
+socketIO.on('set_alias_ack', on_set_alias)
+socketIO.on('get_topic_list_ack', on_get_topic_list_ack)
+socketIO.on('get_alias_list_ack', on_get_alias_list_ack)
+socketIO.on('alias', on_alias)				# get alias callback
 
-socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 socketIO.wait()
 ```
