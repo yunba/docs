@@ -52,14 +52,17 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
           String topic = DemoUtil.join(asyncActionToken.getTopics(), ",");
-          DemoUtil.showToast( "Subscribe succeed : " + topic,
-            getApplicationContext());
+          DemoUtil.showToast( "Subscribe succeed : " + topic, getApplicationContext());
         }
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-          String msg =  "Subscribe failed : " + exception.getMessage();
-          DemoUtil.showToast(msg, getApplicationContext());
+           if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+                String msg =  "Subscribe failed with error code : " + ex.getReasonCode();
+                DemoUtil.showToast(msg, getApplicationContext());
+           }
+         
         }
       }
     );
@@ -95,14 +98,16 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
     @Override
     public void onSuccess(IMqttToken asyncActionToken) {
       String topic = DemoUtil.join(asyncActionToken.getTopics(), ",");
-      DemoUtil.showToast( "UnSubscribe succeed : " + topic,
-        getApplicationContext());
+      DemoUtil.showToast( "UnSubscribe succeed : " + topic, getApplicationContext());
     }
 
     @Override
     public void onFailure(IMqttToken asyncActionToken,Throwable exception) {
-      String msg =  "UnSubscribe failed : " + exception.getMessage();
-      DemoUtil.showToast(msg, getApplicationContext());
+       if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+                String msg =  "unSubscribe failed with error code : " + ex.getReasonCode();
+                DemoUtil.showToast(msg, getApplicationContext());
+        }
     }
   }
 );
@@ -144,8 +149,11 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "Publish failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+                String msg =  "publish failed with error code : " + ex.getReasonCode();
+                DemoUtil.showToast(msg, getApplicationContext());
+           }
         }
     }
 );
@@ -186,8 +194,11 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "publish to alias failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "publishToAlias failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -321,8 +332,11 @@ YunBaManager.setAlias(getApplicationContext(), alias,
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "setAlias failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "setAlias failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -358,8 +372,11 @@ YunBaManager.getAlias(getApplicationContext(),
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getAlias failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "getAlias failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -406,8 +423,11 @@ YunBaManager.getTopicList(getApplicationContext(),
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getTopicList failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "getTopicList failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -458,8 +478,11 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getAliasList failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "getAliasList failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -497,8 +520,8 @@ YunBaManager.getState(getApplicationContext(), "t1",
        public void onSuccess(IMqttToken mqttToken) {
             JSONObject result = mqttToken.getResult();
                     try {
-                        String status = result.getJSONArray("status");
-                         System.out.println(topics.toString());
+                        String status = result.getString("status");
+                        System.out.println("status = " + status);
                     } catch (JSONException e) {
                         
                     }
@@ -507,8 +530,11 @@ YunBaManager.getState(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "getState failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+            if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "getState failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -552,8 +578,11 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "subscribePresence failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+            if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "subscribePresence failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
@@ -637,8 +666,11 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
 
         @Override
         public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            String msg = "unsubscribePresence to topic failed : " + exception.getMessage();
-            DemoUtil.showToast(msg, getApplicationContext());
+              if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "unsubscribePresence failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
         }
     }
 );
