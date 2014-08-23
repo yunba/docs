@@ -69,16 +69,7 @@ yunba.publish(
 
 ## API
 
-目前版本API方法有：
-
-* connect()
-* subscribe()
-* unsubscribe()
-* publish()
-* disconnect()
-
-
-### Yunba.connect()
+### Yunba.connect
 
 #### 说明：
 yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 `connect()`方法连接上消息服务器。连接上消息服务器后才开始收发消息。
@@ -94,28 +85,45 @@ yunba.connect(callback)
 --------- | ------- |  -----------
 callback | function | 参数可选，连接成功后会调用 callback
 
-### Yunba.subscribe()
+### Yunba.set_message_cb
 
-#### 说明：
-通过 `subscribe()` 收听一个频道后，你就可以接收消息服务器向该频道推送的消息了。
-#### 基本使用：
+#### 说明
+设置收到消息时调用的回调函数。
+
+#### 基本使用
 
 ```javascript
-yunba.subscribe(obj,cb1,cb2)
+yunba.set_message_cb(cb)
+```
+
+#### 参数说明
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+cb | function | 参数必选, 通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)
+
+### Yunba.subscribe
+
+#### 说明
+通过 `subscribe()` 收听一个频道后，你就可以接收消息服务器向该频道推送的消息了。
+
+#### 基本使用
+
+```javascript
+yunba.subscribe(obj,cb)
 ```
 	
 #### 参数说明
 名称 | 类型 | 说明
 --------- | ------- |  -----------
 obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 0）
-cb1 | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
-cb2 | function | 参数必选, 收听成功后，通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)
+cb  | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
 
-### Yunba.unsubscribe()
+### Yunba.unsubscribe
 
-#### 说明：
+#### 说明
 你可以通过 `unsubscribe()` 取消对一个频道的收听。
-#### 基本使用：
+
+#### 基本使用
 
 ```javascript
 yunba.unsubscribe(obj,cb)
@@ -127,9 +135,9 @@ yunba.unsubscribe(obj,cb)
 obj | object | 参数必选，目前版本之要求 obj 包含一个属性字段为 topic，即准备取消收听的频道
 cb | function | 参数可选，取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg
 
-### Yunba.publish()
+### Yunba.publish
 
-#### 说明：
+#### 说明
 Yunba 客户端实例可以通过 `publish()` 向某频道发布消息。
 
 #### 基本使用
@@ -144,10 +152,11 @@ yunba.publish(obj,cb)
 obj | object | 参数必选，obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0
 cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
-### Yunba.disconnect()
+### Yunba.disconnect
 
-#### 说明：
+#### 说明
 与 `connect()` 相对，通过 `disconnect()` 可以断开与消息服务器的连接。
+
 #### 基本使用：
 
 ```javascript
