@@ -26,7 +26,7 @@ your_mesage
 http POST请求JSON格式如下:
 
 ```json
-{'method':"publish",'appkey':"app-key",'seckey':"secret-key,'topic':"your-topic",'msg':"your-message"}
+{'method':"publish",'appkey':"app-key",'seckey':"secret-key",'topic':"your-topic",'msg':"your-message"}
 ```
 
 ##发送状态回复
