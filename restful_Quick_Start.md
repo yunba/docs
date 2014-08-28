@@ -29,6 +29,7 @@ http POST请求JSON格式如下:
 {'method':"publish",'appkey':"app-key",'seckey':"secret-key",'topic':"your-topic",'msg':"your-message"}
 ```
 
+
 其中app-key, secret-keyc从应用详情中页面获得，分别对应于页面中AppKey， Secret Key。
 
 ##发送状态回复
