@@ -15,7 +15,7 @@
 http GET请求格式如下:
 
 ```url
-http://abj-tfs-2:8080/
+http://abj-rest-1.yunba.io:8080/
 publish/
 app-key/
 secret-key/
@@ -27,7 +27,9 @@ http POST请求JSON格式如下:
 
 ```json
 {'method':"publish",'appkey':"app-key",'seckey':"secret-key",'topic':"your-topic",'msg':"your-message"}
-```
+``
+
+其中app-key, secret-keyc从应用详情中页面获得，分别对应于页面中AppKey， Secret Key。
 
 ##发送状态回复
 
