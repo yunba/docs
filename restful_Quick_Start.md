@@ -15,12 +15,7 @@
 http GET请求格式如下:
 
 ```url
-http://abj-rest-1.yunba.io:8080/
-publish/
-app-key/
-secret-key/
-topic/
-your_mesage
+http://abj-rest-1.yunba.io:8080/publish/<app-key>/<secret-key>/<topic>/<your_mesage>
 ```
 
 http POST请求JSON格式如下:
