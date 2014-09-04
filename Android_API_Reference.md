@@ -123,7 +123,6 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 `	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)) `
 
-`   public static void publish(Context context, String topic, String message, Map opts, IMqttActionListener mqttAction) `
 
 ### 参数说明
 名称 | 类型 | 说明
@@ -131,7 +130,6 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 context | Context | Android 应用上下文环境
 topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 message | String | 向目标 topic 的订阅者发布的消息
-opts | Map | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -159,6 +157,59 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 );
 ```
 
+## publish2
+
+### 功能
+App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息，此API可以带有其他参数，如APN选项等。
+
+### 函数原型
+
+
+`   public static void publish2(Context context, String topic, String message, JSONObject opts, IMqttActionListener mqttAction) `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+context | Context | Android 应用上下文环境
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+message | String | 向目标 topic 的订阅者发布的消息
+opts | JSONObject | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台，APNS等等
+mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+
+### Code Example
+
+```java
+
+JSONObject opts = new JSONObject();
+JSONObject apn_json = new JSONObject();
+JSONObject aps = new JSONObject();
+aps.put("sound", "bingbong.aiff");
+aps.put("badge", 9);
+aps.put("alert", "msg from android中文");
+apn_json.put("aps", aps);
+opts.put("apn_json", apn_json);
+	
+YunBaManager.publish2(getApplicationContext(), topic, msg,
+    new IMqttActionListener() {
+        @Override
+        public void onSuccess(IMqttToken asyncActionToken) {
+            String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
+            String msgLog = "Publish2 succeed : " + topic;
+            DemoUtil.showToast(msgLog, getApplicationContext());
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+                String msg =  "publish2 failed with error code : " + ex.getReasonCode();
+                DemoUtil.showToast(msg, getApplicationContext());
+           }
+        }
+    }
+);
+```
+
 ## publishToAlias
 
 ### 功能
@@ -168,15 +219,12 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 
 `	public static void publishToAlias(Context context, String alias, String message,IMqttActionListener mqttAction) `
 
-`   public static void publishToAlias(Context context, String alias, String message, Map opts, IMqttActionListener mqttAction) `
-
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
 alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 message | String | 向目标别名的订阅者发布的消息
-opts | Map | 向目标别名的订阅者发布的消息的选项：如消息有效时间，目标平台等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -204,6 +252,56 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
 );
 ```
 
+## publish2ToAlias
+
+### 功能
+向用户别名发送消息, 用于实现点对点的消息发送。
+
+### 函数原型
+
+`   public static void publish2ToAlias(Context context, String alias, String message, JSONObject opts, IMqttActionListener mqttAction) `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+context | Context | Android 应用上下文环境
+alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+message | String | 向目标别名的订阅者发布的消息
+opts | JSONObject | 向目标别名的订阅者发布的消息的选项：如消息有效时间，目标平台， APNS 参数等等
+mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+
+### Code Example
+
+```java
+
+JSONObject opts = new JSONObject();
+JSONObject apn_json = new JSONObject();
+JSONObject aps = new JSONObject();
+aps.put("sound", "bingbong.aiff");
+aps.put("badge", 9);
+aps.put("alert", "msg from android中文");
+apn_json.put("aps", aps);
+opts.put("apn_json", apn_json);
+YunBaManager.publish2ToAlias(getApplicationContext(), topic, msg,
+    new IMqttActionListener() {
+        @Override
+        public void onSuccess(IMqttToken asyncActionToken) {
+            String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
+            String msgLog = "publish2 to alias succeed : " + topic;
+            DemoUtil.showToast(msgLog, getApplicationContext());
+        }
+
+        @Override
+        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+             if (exception instanceof MqttException) {
+               MqttException ex = (MqttException)exception;
+               String msg =  "publish2ToAlias failed with error code : " + ex.getReasonCode();
+               DemoUtil.showToast(msg, getApplicationContext());
+             }
+        }
+    }
+);
+```
 
 ## stop
 
