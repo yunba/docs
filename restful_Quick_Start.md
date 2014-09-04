@@ -53,7 +53,7 @@ HTTP POST 请求 JSON 格式如下:
 {'status':3}
 ```
 
-* 推送超时
+* 发布超时
 
 ```json
 {'status':4}
