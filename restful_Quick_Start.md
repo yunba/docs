@@ -25,7 +25,7 @@ HTTP POST 请求 JSON 格式如下:
 ```
 
 
-其中app-key, secret-keyc从应用详情中页面获得，分别对应于页面中AppKey， Secret Key。
+其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
 
 ## 发送状态回复
 
