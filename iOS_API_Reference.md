@@ -149,7 +149,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 --------- | ------- | ----
 topic | NSString* | app 发布消息的主题，只支持英文数字下划线，长度不超过50个字符
 data | NSData* | 向对应 topic 的订阅者发布的消息
-option | YBPublish2Option* | 选项，可YBApnOption等属性
+option | YBPublish2Option* | 选项，可包含YBApnOption等属性
 resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
 
 ### 返回值
@@ -159,9 +159,9 @@ None
 
     [YunBaService publish2:topic data:data option:option resultBlock:^(BOOL succ, NSError *error) {
         if (succ) {
-            NSLog(@"publish to topic: %@ data: %@ succ", topic, data);
+            NSLog(@"publish2 to topic: %@ data: %@ succ", topic, data);
         } else {
-            NSLog(@"publish to topic failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
+            NSLog(@"publish2 to topic failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
 
@@ -171,7 +171,7 @@ None
 ## publishToAlias
 
 ### 功能
-App 可以向 alias 发送消息, 那么此别名的 Client 都会接受到消息。
+App 可以向 alias 发送消息, 那么此别名的 Client 会接受到消息。
 
 ### 函数原型
 
@@ -197,6 +197,38 @@ None
             NSLog(@"publish to alias: %@ data: %@ succ", alias, data);
         } else {
             NSLog(@"publish to alias failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
+        }
+    }];
+
+```
+
+## publish2ToAlias
+
+### 功能
+App 可以向 alias 发送消息, 那么此别名的 Client 会接受到消息。
+
+### 函数原型
+
+     `+ (void)publish2ToAlias:(NSString *)alias data:(NSData *)data option:(YBPublish2Option *)option resultBlock:(YBResultBlock)resultBlock;`
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | ----
+alias | NSString* | 目标用户的别名，只支持英文数字下划线，长度不超过50个字符
+data | NSData* | 向对应 topic 的订阅者发布的消息
+option | YBPublish2Option* | 选项，可包含YBApnOption等属性
+resultBlock | YBResultBlock | API 回调接口，可通过返回的BOOL succ判断结果的成功与否, NSError *error获取错误原因
+
+### 返回值
+None
+
+```objective_c
+
+    [YunBaService publish2ToAlias:alias data:data option:option resultBlock:^(BOOL succ, NSError *error) {
+        if (succ) {
+            NSLog(@"publish2 to alias: %@ data: %@ succ", alias, data);
+        } else {
+            NSLog(@"publish2 to alias failed due to: %@, recovery suggestion: %@", error, [error localizedRecoverySuggestion]);
         }
     }];
 
