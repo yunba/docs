@@ -24,6 +24,12 @@ HTTP POST 请求 JSON 格式如下:
 {'method':"publish",'appkey': <app-key>,'seckey':<secret-key>,'topic':<your-topic>,'msg':<your-message>}
 ```
 
+比如：
+
+```
+$curl -s -H "Content-type: application/json" -d {"method":"publish","appkey":"<app-key>","seckey":"<secret-key>","topic":"<your-topic>","msg":"<your-message>"} -X POST "http://rest.yunba.io:8080"
+```
+
 
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
 
