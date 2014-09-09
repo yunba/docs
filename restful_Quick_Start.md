@@ -40,7 +40,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 
 注意:
 
-* \<method\>: 目前只支持"publish", "publish_alias". 如果 \<method\> 是"publish_alias", topic用alias填充.
+* <method\>: 目前只支持"publish", "publish_alias". 如果 <method\> 是"publish_alias", topic用alias填充.
 
 ## 发送状态回复
 
