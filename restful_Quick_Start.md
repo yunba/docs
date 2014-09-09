@@ -10,28 +10,37 @@
 ![create_application.jpg](image/create_app.png)
 
 ## 方法
-### publish
 
-HTTP GET 请求格式如下:
+### HTTP GET 请求格式如下:
 
 ```url
-http://rest.yunba.io:8080/publish/<app-key>/<secret-key>/<topic>/<your_mesage>
+http://rest.yunba.io:8080/<method>/<app-key>/<secret-key>/<topic>/<your_mesage>
 ```
 
-HTTP POST 请求 JSON 格式如下:
+### HTTP POST 请求 JSON 格式如下:
 
 ```json
-{'method':"publish",'appkey': <app-key>,'seckey':<secret-key>,'topic':<your-topic>,'msg':<your-message>}
+{'method':<method>, 'appkey':<app-key>, 'seckey':<secret-key>, 'topic':<topic>, 'msg':<message>}
 ```
 
-比如：
+在json中可选部分:
+
+```json
+"opts":{'time_to_live':<number>,'platform':<number>,'time_delay':<number>,'location':<string>,'qos':<number>,'apn_json':{'alert':<string>,'badge:<number>,'sound':<string>,'priority':<number>,'expiration':<number>','content-available':<number>}}
+```
+
+比如:
 
 ```
-$curl -s -H "Content-type: application/json" -d {"method":"publish","appkey":"<app-key>","seckey":"<secret-key>","topic":"<your-topic>","msg":"<your-message>"} -X POST "http://rest.yunba.io:8080"
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "appkey":"53ea21cd4e9f46851d5a57b5", "seckey":"sec-QMirTLEpuNC6tIUyn40drNfrlWDbgDV64iDnjdni4QFyZaUH", "topic":"rocket", "msg":"just test"}' http://rest.yunba.io:8080
 ```
 
 
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
+
+注意:
+
+* \<method\>: 目前只支持"publish", "publish_alias". 如果 \<method\> 是"publish_alias", topic用alias填充.
 
 ## 发送状态回复
 
