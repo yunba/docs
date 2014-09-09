@@ -38,6 +38,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
 
+
 注意:
 
 * <method\>: 目前只支持"publish", "publish_alias". 如果 <method\> 是"publish_alias", topic用alias填充.
