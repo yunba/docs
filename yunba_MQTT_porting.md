@@ -14,6 +14,8 @@ mqtt 目前定义的 message id 为 16bit，对于一个设计容量及大的系
 当前有很多业务需要进行查询内容，返回结果的流程，MQTT当前协议的puback并没有payload。通过扩展MQTT协议，可以解决这类问题。MQTT协议的Message Type有两个保留值0和15，扩展15来处理上面的问题。
 
 ### 包结构
+
+```
 fix header
 Byte 1: 
     Message Type: 15
@@ -24,6 +26,7 @@ Byte 2:
     remaining length
 Variable header
 8字节：MessageId
+```
 
 ### Payload
 1字节： 1~254表示命令字  (0，255保留)
@@ -42,43 +45,62 @@ Variable header
 1: get_alias
 2: get_alias_ack
 返回值
+
+```json
     {command:2, status:0, data:"aliasname"}
     {command:2, status:1, data:"server internal error"}
     {command:2, status:2, data:"alias not find"}
+```
 
 3: get_topic
 4: get_topic_ack
 返回值
+
+```json
     {command:4, status:0, data: "{'topic':[topic1,topic2,...]}"}
     {command:4, status:1, data: "server internal error"}
     {command:4, status:2, data: "no operation permission"}
     {command:4, status:3, data: "alias not find"}
+```
 
 5: get_aliaslist
 6: get_aliaslist_ack
 返回值
+
+```json
     {command:6, status:0, data: "{'alias':[alias1,alias2,alias3], 'occupancy': alias_length}"}
     {command:6, status:1, data: "server internal error"}
     {command:6, status:2, data: "no operation permission"}
+```
 
 7: new_publish 至少需要两个参数叠加:topic/payload (platform/apn_json/...)
 8: new_puback
 返回值
+
+```json
     {command:8, status:0, data: NULL}
+```
 
 9: get_status
 参数： alias
 10: get_status_ack
 返回值
+
+```json
     {command:10, status:0, data: "online/offline"}
     {command:10, status:1, data: "server internal error"}
     {command:10, status:2, data: "no operation permission"}
     {command:10, status:3, data: "alias not find"}
     {command:10, status:4, data: "no status"}
     {command:10, status:5, data: "alias is empty"}
+```
 
 11: puback. 通知推送者谁是第一个收到该消息的。
+
+```json
 {"sub_uid": <uid>, 'mid':<message_Id>, "timestamp": <timestamp>, "alias":<aliasName>}
+```
+
 uid: 第一个收到该消息的uid.
 message_Id: 该消息的ID.
 timestamp:第一个收到该休息client的timestamp.
