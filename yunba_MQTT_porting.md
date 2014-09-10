@@ -114,13 +114,21 @@ new_publish tlv 参数
 后面的字节： 参数的值
 
 type 类型列表
+
 * 0: topics
+
 * 1: payload
+
 * 2: platform 参数为int 目标用户终端手机的平台类型，如： android, ios, winphone 多个请使用逗号分隔（默认全部推送）
+
 * 3: time_to_live 参数为int 从消息推送时起，保存离线的时长。秒为单位。最多支持15天 (默认永久保留)
+
 * 4: time_delay 定时发送
+
 * 5: location 位置
+
 * 6: qos
+
 * 7: apn_json，包含以下键:
 
 ```
