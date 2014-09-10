@@ -29,16 +29,21 @@ Variable header
 ```
 
 ### Payload
+
+```
 1字节： 1~254表示命令字  (0，255保留)
 2字节： 表示后面的长度
 最后部分： 参数 或者 返回结果
+```
 
 ### Payload ACK
 
+```
 1字节： 1~254表示命令字  (0，255保留)
 1字节： 表示状态
 2字节： 表示后面的长度
 最后部分 (string)： 参数 或者 返回结果
+```
 
 ### cmd 列表
 
@@ -106,12 +111,13 @@ message_Id: 该消息的ID.
 timestamp:第一个收到该休息client的timestamp.
 alias: 第一个收到该消息client的别名.
 
-对new publish tlv的说明。
+对new publish tlv的参数说明。
 
-new_publish tlv 参数
+```
 1字节： 1~254表示 type 类型  (0，255保留)
 2字节： 参数value的长度
 后面的字节： 参数的值
+```
 
 type 类型列表
 
