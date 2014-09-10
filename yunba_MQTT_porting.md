@@ -111,7 +111,7 @@ message_Id: 该消息的ID.
 timestamp:第一个收到该休息client的timestamp.
 alias: 第一个收到该消息client的别名.
 
-对new publish tlv的参数说明。
+### 对new publish tlv的参数说明。
 
 ```
 1字节： 1~254表示 type 类型  (0，255保留)
