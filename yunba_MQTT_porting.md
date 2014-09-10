@@ -106,19 +106,24 @@ message_Id: 该消息的ID.
 timestamp:第一个收到该休息client的timestamp.
 alias: 第一个收到该消息client的别名.
 
+对new publish tlv的说明。
+
 new_publish tlv 参数
 1字节： 1~254表示 type 类型  (0，255保留)
 2字节： 参数value的长度
 后面的字节： 参数的值
+
 type 类型列表
-0: topics
-1: payload
-2: platform 参数为int 目标用户终端手机的平台类型，如： android, ios, winphone 多个请使用逗号分隔（默认全部推送）
-3: time_to_live 参数为int 从消息推送时起，保存离线的时长。秒为单位。最多支持15天 (默认永久保留)
-4: time_delay 定时发送
-5: location 位置
-6: qos
-7: apn_json，包含以下键:
+* 0: topics
+* 1: payload
+* 2: platform 参数为int 目标用户终端手机的平台类型，如： android, ios, winphone 多个请使用逗号分隔（默认全部推送）
+* 3: time_to_live 参数为int 从消息推送时起，保存离线的时长。秒为单位。最多支持15天 (默认永久保留)
+* 4: time_delay 定时发送
+* 5: location 位置
+* 6: qos
+* 7: apn_json，包含以下键:
+
+```
       expiration: number (maybe NULL)
       priority: number (maybe NULL)
       alert: string or dictionary (maybe NULL) 
@@ -127,6 +132,7 @@ type 类型列表
       sound: string (maybe NULL)
       content-available: number (maybe NULL)
       extra:  dictionary （自定义参数， maybe NULL)
+```
 
 ## 4)　特殊topic的定义
 
