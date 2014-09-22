@@ -229,11 +229,95 @@ alias | String | 用户设置的别名信息，只支持英文数字下划线，
 ```
 
 ### 参数说明
+
 名称 | 类型 | 说明
 --------- | ------- | -----------
 success | boolean | 成功返回 true, 否则返回 false
 data.topics | List | 订阅的 `topic` 列表，success 为 true 时有效
 error_msg | String | 错误信息，success 为 false 时有效
+
+## publish2
+
+### 功能
+`publish` 升级版本，支持更多参数。目前支持的参数。
+
+### 函数原型
+
+```python
+socketIO.emit('publish2', {
+    'topic': 'topic1',
+    'msg': 'from publish2',
+    "opts": {
+        'qos': 1,
+        'apn_json': {"sound":"bingbong.aiff", "badge": 3, "alert":"douban"},
+        'messageId': '11833652203486491113'
+    }
+})
+```
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+msg | String | 向订阅者发布的消息
+opts | Dict | 可选项。`publish2` 扩展参数。
+
+> 目前支持的 publish2 扩展参数
+
+`publish2` 扩展参数都是可选项，如果不填写参数，`publish2` 的行为与 `publish` 一样。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | number | 如果不填，默认为 1
+apn_json | dict | 如果不填？？？ TODO xuxifu
+messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
+time_to_live | ??? | ??? TODO linbo
+
+## publish2_to_alias
+
+### 功能
+`publish2` 的 alias 版本。
+
+### 函数原型
+
+```python
+    socketIO.emit('publish2_to_alias', {'alias': 'alias_mqttc_sub', 'msg': "hello to alias from publish2_to_alias"});
+```
+
+### 参数说明
+* 参考 `publish_to_alias`
+* 支持 `publish2` 扩展参数
+
+> publish2_to_alias, publish_to_alias 对比
+
+差异| publish_to_alias | publish_to_alias
+----| --------| -----
+当 alias 不存在 | 返回 puback | 返回发布错误，error 3 (no uid found)
+
+## publish2_recvack
+
+> recvack 是付费服务，免费用户可能不能正常使用。
+
+### 功能
+
+第一个目标用户（且不是消息发布者）收到消息给服务器回复 `puback` 后，给消息发布者发送 `recvack`，消息发布者通过这个通知，可以了解第一个收到消息的用户的 alias 和 时间戳。
+
+### 函数原型
+
+```python
+on_publish2_recvack {u'data': u'{"timestamp":1411374510357,"alias":"alias_mqttc_sub"}', u'success': True, u'messageId': u'11839467508410466019'}
+```
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | boolean | 成功返回 true, 否则返回 false
+data.timestamp | number | recvack 收到的时间戳，时区为 GMT
+data.alias | String | recvack 用户的 alias
+messageId | String | 消息 ID，与 publish 时的 ID 对应
+
 
 ## 例子
 
