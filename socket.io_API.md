@@ -272,7 +272,7 @@ opts | Dict | 可选项。`publish2` 扩展参数。
 qos | number | 如果不填，默认为 1
 apn_json | dict | 如果不填，则不会发送APN
 messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
-time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2*24*3600)，当前默认值为5天
+time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
 
 ## publish2_to_alias
 
