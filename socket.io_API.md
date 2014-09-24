@@ -291,9 +291,16 @@ time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\
 
 > publish2_to_alias, publish_to_alias 对比
 
-差异| publish_to_alias | publish_to_alias
+差异| publish_to_alias | publish2_to_alias
 ----| --------| -----
 当 alias 不存在 | 返回 puback | 返回发布错误，error 3 (no uid found)
+
+## publish2_ack
+发布 `publish2`, `publish2_to_alias` 成功回调。
+
+```python
+{"name":"publish2_ack","args":[{"success":true}]}
+```
 
 ## publish2_recvack
 
