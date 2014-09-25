@@ -249,7 +249,7 @@ socketIO.emit('publish2', {
     'msg': 'from publish2',
     "opts": {
         'qos': 1,
-        'apn_json': {"sound":"bingbong.aiff", "badge": 3, "alert":"douban"},
+        'apn_json':  {"aps":{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}}
         'messageId': '11833652203486491113'
     }
 })
@@ -367,7 +367,7 @@ def on_suback(args):
         'msg': 'from publish2',
         "opts": {
             'qos': 1,
-            'apn_json': {"sound":"bingbong.aiff", "badge": 3, "alert":"douban"},
+            'apn_json':  {"aps":{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}}
             'messageId': '11833652203486491113'
         }
     })
@@ -385,7 +385,7 @@ def on_set_alias(args):
         'msg': 'from publish2',
         "opts": {
             'qos': 1,
-            'apn_json':{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}
+            'apn_json':  {"aps":{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}}
         }
     })
 
