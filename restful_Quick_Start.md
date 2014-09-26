@@ -1,5 +1,7 @@
 # Yunba RESTful API 快速入门
+
 ## 注册开发者账号
+
 打开 <http://yunba.io>, 点击注册创建账号。
 
 ![create_accout.jpg](../image/register_account.png)
@@ -23,7 +25,7 @@ http://rest.yunba.io:8080/<method>/<app-key>/<secret-key>/<topic>/<your_mesage>
 {'method':<method>, 'appkey':<app-key>, 'seckey':<secret-key>, 'topic':<topic>, 'msg':<message>}
 ```
 
-在json中可选部分:
+在 json 中可选部分:
 
 ```json
 "opts":{'time_to_live':<number>,'platform':<number>,'time_delay':<number>,'location':<string>,'qos':<number>,'apn_json':{'alert':<string>,'badge:<number>,'sound':<string>,'priority':<number>,'expiration':<number>','content-available':<number>}}
@@ -41,7 +43,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 
 注意:
 
-* <method\>: 目前只支持"publish", "publish_alias". 如果 <method\> 是"publish_alias", topic用alias填充.
+* <method\>: 目前只支持"publish", "publish_alias". 如果 <method\> 是 "publish_alias", topic 用 alias 填充.
 
 ## 发送状态回复
 
