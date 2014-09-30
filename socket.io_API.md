@@ -86,7 +86,7 @@ socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 发布 `publish`, `publish_to_alias` 成功回调。
 
 ```python
-{"name":"puback","args":[{"success":true}]}
+{"name":"puback","args":[{"success":true, "messageId": "11842355493944946011"}]}
 ```
 
 ## set_alias
