@@ -28,7 +28,7 @@ opts | Map | 选项，可包含sub_key(用于获取订阅权限的密钥), pub_k
 ## subscribe
 
 ### 功能
-App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
+App 可以 `订阅` 一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
 
 ### 函数原型
 `   public static void subscribe(Context context, String topic, IMqttActionListener mqttAction) `
@@ -72,7 +72,8 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
 ## unsubscribe
 
 ### 功能
-App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 的 Message.
+
+App 可以 `取消订阅` 一个或者多个 Topics, 以便取消接收来自 Topic 的 Message.
 
 ### 函数原型
 
@@ -81,6 +82,7 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 `    public static void unsubscribe(Context context, String[] topics, IMqttActionListener mqttAction) `
 
 ### 参数说明
+
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
@@ -125,6 +127,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 
 
 ### 参数说明
+
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
