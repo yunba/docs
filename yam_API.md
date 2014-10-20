@@ -13,7 +13,13 @@ YAM 分为三个级别：
 
 ## API使用说明
 
-外部访问通过HTTP POST即可。URL: http://abj-tfs-2:8181
+外部访问通过HTTP POST即可。
+
+URL为：
+
+```url
+http://abj-tfs-2:8181
+```
 
 ### YAM授权
 
