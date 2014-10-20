@@ -35,7 +35,7 @@ YAM 分为三个级别：
 {"cmd":"grant","level":"user","app_key":"<your-app-key>","secret_key":"<your-sec-key>","r":<access>,"w":<access>,"ttl":"<time-to-live>","channels":"<your-topic>","auth_key":"<your-auth-key>"}
 ```
 
-其中<access>为１或０．<time-to-live>单位为分钟，为0表示永不失效。
+其中<access>为 1 或 0．<time-to-live>单位为分钟，为 0 表示永不失效。
 
 ### YAM撤销授权
 
