@@ -148,3 +148,40 @@ response:
 {"status":0}
 ```
 
+## response错误说明
+
+* 错误的参数
+
+```json
+{"status":1}
+```
+
+* 服务内部错误
+
+```json
+{"status":2}
+```
+
+* 没有应用
+
+```json
+{"status":3}
+```
+
+* 错误的auth key
+
+```json
+{"status":4}
+```
+
+* YAM没有使能
+
+```json
+{"status":5}
+```
+
+* 不存在
+
+```json
+{"status":6}
+```
