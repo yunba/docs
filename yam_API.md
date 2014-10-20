@@ -1,4 +1,4 @@
-# YAM (Yunba Access Manager)
+# YAM (Yunba Access Manager) API
 
   默认情况下 YAM 是关闭的，用户有publish或者subscribe的权限，当打开YAM,默认是没有任何权限的，必须要设置 YAM 相关权限
 ## YAM级别的说明
