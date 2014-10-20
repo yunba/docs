@@ -101,6 +101,7 @@ response:
 {"status":0,"data":{"app_key":"<your-app-key>","r":<access>,"w":<access>,"channels":"<topic>","ttl":"<ttl>","auth_key":"<your-auth-key>"}}
 ```
 
+
 其中<access>为１或0
 
 ### auth key的设置/取消/查看
