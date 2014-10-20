@@ -102,7 +102,7 @@ response:
 ```
 
 
-其中<access>为１或0
+其中<access>为 1 或 0
 
 ### auth key的设置/取消/查看
 
