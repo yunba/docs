@@ -152,6 +152,23 @@ yunba.publish(obj,cb)
 obj | object | 参数必选，obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0
 cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
+## get_state
+
+### 说明
+可以通过 `get_state()` 查看在线状态
+
+### 基本使用
+
+```javascript
+yunba.get_state(alias,cb)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 参数必选，参数为要查询状态的 alias 名称
+cb | function | 参数可选，无论查询结果如何都会回调此函数。传递回的参数有 success、data、error_msg。查询成功 success 为 true 否则为 false，data 表示在线状态，success 为 false 时 error_msg 有效。
+
 ## disconnect
 
 ### 说明
