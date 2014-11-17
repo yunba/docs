@@ -302,6 +302,43 @@ time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\
 {"name":"publish2_ack","args":[{"success":true}]}
 ```
 
+## get_state
+
+### 功能
+App 可以查询用户的在线状态。
+
+### 函数原型
+
+```python
+socketIO.emit('get_state', {'alias': 'mytestalias1'})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+
+## get_state_ack
+
+### 功能
+`get_state` 结果回调。
+
+### 示例
+```python
+'''succ'''
+{'data': 'online', 'success': True}
+'''failed'''
+{'success': False, error_msg: 'Broker Error'}
+```
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | boolean | 成功返回 true, 否则返回 false
+data | String | 在线状态
+error_msg | String | 错误信息，success 为 false 时有效
+
 ## publish2_recvack
 
 > recvack 是付费服务，免费用户可能不能正常使用。
