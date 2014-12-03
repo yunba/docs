@@ -39,7 +39,7 @@ yunba.init(function (success) {
 ### 第四步：订阅频道（Subscribe）
 
 如果你想接收一个频道的消息，你得先使用 `subscribe()` 方法订阅该频道，
-然后用set_message_cb 设置收到消息时调用的回调函数来接收消息。
+然后用`set_message_cb()` 方法设置收到消息时调用的回调函数来接收消息。
 
 ```javascript
 yunba.subscribe({'topic': 'my_topic'}, 
@@ -59,10 +59,10 @@ yunba.set_message_cb(function (data) {
 
 ### 第五步：发布消息（Publish）
 
-你可以使用 `publish()` 方法向所有订阅 my_topic 频道的终端发布一条‘你好！Yunba。’消息。
+你可以使用 `publish()` 方法向所有订阅 my_topic 频道的终端发布一条“你好！Yunba。”消息。
 
 ```javascript
-yunba.publish({'topic': 'my_topic', 'msg': '你好！Yunba'},
+yunba.publish({'topic': 'my_topic', 'msg': '你好！Yunba。'},
 	function (success, msg) {
 		if (success) {
 			console.log('消息发布成功');
