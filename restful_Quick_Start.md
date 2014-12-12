@@ -43,7 +43,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 
 
 ```bash
-$ ccurl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "alias":"alias_mqttc_sub", "msg":"message from RESTful API", "opts":{"messageId":"11842355493944946011"}}' http://127.0.0.1:8080
+$ ccurl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "alias":"alias_mqttc_sub", "msg":"message from RESTful API", "opts":{"messageId":"11842355493944946011"}}' http://rest.yunba.io:8080
 ```
 
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
