@@ -20,48 +20,56 @@ Yunba JavaScript SDK 依赖于 socket.io，所以要确保 socket.io 被先引�
 var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 ```
 
-### 第三步：连接消息服务器
+### 第三步：初始化并连接消息服务器
 
 ```javascript
-yunba.connect(function(success,msg){
-	if(success){
-		console.log('你已成功连接到消息服务器');
-	}else{
-		console.log(msg);
+yunba.init(function (success) {
+	if (success) {
+		yunba.connect(function (success, msg) {
+			if (success) {
+				console.log('你已成功连接到消息服务器');
+			} else {
+				console.log(msg);
+			}
+        });
 	}
 });
 ```
 
 ### 第四步：订阅频道（Subscribe）
 
-如果你想接收一个频道的消息，你得先使用 `subscribe()` 方法订阅该频道。
+如果你想接收一个频道的消息，你得先使用 `subscribe()` 方法订阅该频道，
+然后用`set_message_cb()` 方法设置收到消息时调用的回调函数来接收消息。
 
 ```javascript
-yunba.subscribe(
-	{topic:'my_topic'},
-  	function(success){
-		if(success){
-    		console.log('你已成功订阅频道：my_topic')
-    	}
-  	},
-  	function(data){
-    	console.log(data);
-  	}
+yunba.subscribe({'topic': 'my_topic'}, 
+	function (success, msg) {
+		if (success) {
+			console.log('你已成功订阅频道：my_topic');
+		} else {
+    	    console.log(msg);
+		}
+	}
 );
+
+yunba.set_message_cb(function (data) {
+    console.log('Topic:' + data.topic + ',Msg:' + data.msg);
+});
 ```
 
 ### 第五步：发布消息（Publish）
 
-你可以使用 `publish()` 方法向所有订阅 my_topic 频道的终端发布一条‘你好！Yunba。’消息。
+你可以使用 `publish()` 方法向所有订阅 my_topic 频道的终端发布一条“你好！Yunba。”消息。
 
 ```javascript
-yunba.publish(
-	{topic:'my_topic',msg:'你好！Yunba'},
-  	function(success){
-    	if(success){
-      	console.log('消息发布成功！');
-    	}
-  	}
+yunba.publish({'topic': 'my_topic', 'msg': '你好！Yunba。'},
+	function (success, msg) {
+		if (success) {
+			console.log('消息发布成功');
+		} else {
+			console.log(msg);
+		}
+	}
 );
 ```
 
@@ -170,6 +178,23 @@ yunba.publish(obj,cb)
 --------- | ------- | -----------
 obj | object | 参数必选，obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0
 cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+## get_state
+
+### 说明
+可以通过 `get_state()` 查看在线状态
+
+### 基本使用
+
+```javascript
+yunba.get_state(alias,cb)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 参数必选，参数为要查询状态的 alias 名称
+cb | function | 参数可选，无论查询结果如何都会回调此函数。传递回的参数有 success、data、error_msg。查询成功 success 为 true 否则为 false，data 表示在线状态，success 为 false 时 error_msg 有效。
 
 ## disconnect
 
