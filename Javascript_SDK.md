@@ -69,9 +69,28 @@ yunba.publish(
 
 # Yunba JavaScript SDK API
 
-##connect
+## init
 
-### 说明：
+### 说明
+与 socket.io 服务器建立连接。
+
+### 基本使用
+
+```javascript
+yunba.init(init_callback, reconnect_callback)
+```
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+init_callback | function | 参数可选，通知 init 是否成功。参数 sucess: false/true
+reconnect_callback | function | 参数可选，连接断开后，调用该回调重连
+
+
+## connect
+
+### 说明
 yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 `connect()`方法连接上消息服务器。连接上消息服务器后才开始收发消息。
 
 ### 基本使用
