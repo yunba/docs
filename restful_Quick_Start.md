@@ -19,6 +19,14 @@
 http://rest.yunba.io:8080/rest/?method=<method>&appkey=<app-key>&seckey=<secret-key>&topic=<topic>&msg="your message"
 ```
 
+比如
+
+```bash
+$curl  --request GET "http://rest.yunba.io:8080/rest/?method=publish&appkey=5316bd7179b6570f2ca6e20b&seckey=sec-qaAQOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6FAcb&topic=helllo&msg="Thistest""
+```
+
+或直接在浏览器地址栏打开。
+
 在publish_to_alias中，请用 alias=<alias> 替换 topic=<topic> 即可。
 
 ### HTTP POST 
