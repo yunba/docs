@@ -28,7 +28,7 @@
 "opts":{"time_to_live":<number>,"platform":<number>,"time_delay":<number>,"location":<string>,"qos":<number>,"apn_json":{"alert":<string>,"badge:<number>,"sound":<string>,"priority":<number>,"expiration":<number>","content-available":<number>}}
 ```
 
-APN部分，参见苹果官方说明。 [APN](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")
+APN部分，参见苹果官方说明。 [Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")
 
 比如:
 
