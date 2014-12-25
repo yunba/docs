@@ -13,6 +13,14 @@
 
 ## 方法
 
+### HTTP GET
+
+```url
+http://rest.yunba.io:8080/rest/?method=<method>&appkey=<app-key>&seckey=<secret-key>&topic=<topic>&msg="your message"
+```
+
+在publish_to_alias中，请用 alias=<alias> 替换 topic=<topic> 即可。
+
 ### HTTP POST 
 
 请求 JSON 格式如下:
