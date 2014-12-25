@@ -24,6 +24,7 @@ http://rest.yunba.io:8080/<method>/<app-key>/<secret-key>/<topic>/<your_mesage>
 ```json
 {"method":<method>, "appkey":<app-key>, "seckey":<secret-key>, "topic":<topic>, "msg":<message>}
 ```
+在publish_to_alias中，请用 "alias":<alias> 替换 "topic":<topic> 即可。
 
 在 JSON 中可选部分:
 
@@ -43,7 +44,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "alias":"alias_mqttc_sub", "msg":"message from RESTful API", "opts":{"messageId":"11842355493944946011"}}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "alias":"alias_mqttc_sub", "msg":"message from RESTful API", "opts":{"time_to_live":20000}}' http://rest.yunba.io:8080
 ```
 
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
@@ -83,4 +84,9 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 
 ```json
 {"status":4}
+```
+ * 没有发现alias
+ 
+ ```json
+ {"status":5}
 ```
