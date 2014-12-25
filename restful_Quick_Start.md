@@ -13,7 +13,9 @@
 
 ## 方法
 
-### HTTP POST 请求 JSON 格式如下:
+### HTTP POST 
+
+请求 JSON 格式如下:
 
 ```json
 {"method":<method>, "appkey":<app-key>, "seckey":<secret-key>, "topic":<topic>, "msg":<message>}
@@ -81,6 +83,6 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 ```
  * 没有发现alias
  
- ```json
- {"status":5}
+```json
+{"status":5}
 ```
