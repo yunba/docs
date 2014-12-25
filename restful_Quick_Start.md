@@ -13,12 +13,6 @@
 
 ## 方法
 
-### HTTP GET 请求格式如下:
-
-```url
-http://rest.yunba.io:8080/<method>/<app-key>/<secret-key>/<topic>/<your_mesage>
-```
-
 ### HTTP POST 请求 JSON 格式如下:
 
 ```json
@@ -52,7 +46,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 
 注意:
 
-* <method\>: 目前只支持"publish", "publish_to_alias". 如果 <method\> 是 "publish_to_alias", topic 用 alias 填充.
+* <method\>: 目前只支持"publish", "publish_to_alias".
 
 ## 发送状态回复
 
