@@ -9,7 +9,7 @@
 ## 创建应用
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名
 
-![create_application.jpg](image/create_app.png)
+![create_application.jpg](../image/create_app.png)
 
 ## 方法
 
