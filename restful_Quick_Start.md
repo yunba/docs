@@ -61,12 +61,18 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "alias":"alias_mqttc_sub", "msg":"message from RESTful API", "opts":{"time_to_live":20000}}' http://rest.yunba.io:8080
 ```
 
-其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
+> publish_to_alias_batch
 
+
+```bash
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias_batch", "appkey":"XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "aliases":["mytest", "mytest2"], "msg":"test restful api publish_to_alias_batch 2", "opts":{"time_to_live": 20}}' http://rest.yunba.io:8080
+```
+
+其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
 
 注意:
 
-* <method\>: 目前只支持"publish", "publish_to_alias".
+* <method\>: 目前只支持"publish", "publish_to_alias", "publish_to_alias_batch".
 
 ## 发送状态回复
 
@@ -79,13 +85,13 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 * 参数错误
 
 ```json
-{"status":1}
+{"status":1, "error": "invalid parameters"}
 ```
 
 * 内部服务错误
 
 ```json
-{"status":2}
+{"status":2, "error": "internal server"}
 ```
 
 * 没有应用
@@ -97,10 +103,10 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 * 发布超时
 
 ```json
-{"status":4}
+{"status":4, "error": "timeout"}
 ```
  * 没有发现alias
  
 ```json
-{"status":5}
+{"status":5, "alias":"XXXXbd7179b6570f2ca6XXXX-mytest", "error": "alias not found"}
 ```
