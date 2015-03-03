@@ -25,9 +25,9 @@ var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 ```javascript
 yunba.init(function (success) {
 	if (success) {
-		yunba.connect(function (success, msg) {
+		yunba.connect_v2(function (success, msg, sessionid) {
 			if (success) {
-				console.log('你已成功连接到消息服务器');
+				console.log('你已成功连接到消息服务器，会话ID：' + sessionid);
 			} else {
 				console.log(msg);
 			}
@@ -110,6 +110,39 @@ yunba.connect(callback)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- |  -----------
+callback | function | 参数可选，连接成功后会调用 callback
+
+## connect_v2
+
+### 说明
+与connect功能一致，不同的是此接口会将会话状态保存下来（保存到url的query参数中），当由于网络不稳定等原因发生重新连接后会话状态不会丢失（包括离线消息、已订阅的频道和别名）。
+
+### 基本使用
+
+```javascript
+yunba.connect_v2(callback)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+callback | function | 参数可选，连接成功后会调用 callback
+
+## connect_by_sessionid
+
+### 说明
+与connect功能一致，不同的是此接口使用特定的会话ID进行连接，连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。
+
+### 基本使用
+
+```javascript
+yunba.connect_by_sessionid(sessionid, callback)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+sessionid | string | 参数必选, 会话ID（connect_v2连接成功后的回调函数会返回此参数）
 callback | function | 参数可选，连接成功后会调用 callback
 
 ## set_message_cb
