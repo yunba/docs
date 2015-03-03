@@ -68,11 +68,24 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias_batch", "appkey":"XXXXbd7179b6570f2ca6XXXX", "seckey":"sec-XXXXOCmuFL22b0mv78hcOEyc9DzB9q0zesIfBAereaN6XXXX", "aliases":["mytest", "mytest2"], "msg":"test restful api publish_to_alias_batch 2", "opts":{"time_to_live": 20}}' http://rest.yunba.io:8080
 ```
 
+>publish_async
+
+```bash
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"53ea21cd4e9f46851d5a57b5", "seckey":"sec-QMirTLEpuNC6tIUynXXXXNfrlWDbgDV64iDnjdni4QFyXXXX", "topic":"rocket", "msg":"just test"}' http://rest.yunba.io:8080
+```
+
+>publish_check
+当使用方法 publish_async 发送后, 可以使用该方法检查. 注意的是msg中为 publish_async 回复中的 message id.
+
+```bash
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"53ea21cd4e9f46851d5a57b5", "seckey":"sec-QMirTLEpuNC6tIUynXXXXNfrlWDbgDV64iDnjdni4QFyXXXX", "topic":"rocket", "msg":"<message-id>"}' http://rest.yunba.io:8080
+```
+
 其中 app-key, secret-key 从应用详情中页面获得，分别对应于页面中 AppKey， Secret Key。
 
 注意:
 
-* <method\>: 目前只支持"publish", "publish_to_alias", "publish_to_alias_batch".
+* <method\>: 目前只支持"publish", "publish_to_alias", "publish_to_alias_batch", "publish_async", "publish_check".
 
 ## 发送状态回复
 
