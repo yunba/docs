@@ -197,6 +197,23 @@ yunba.get_state(alias,cb)
 alias | String | 参数必选，参数为要查询状态的 alias 名称
 cb | function | 参数可选，无论查询结果如何都会回调此函数。传递回的参数有 success、data、error_msg。查询成功 success 为 true 否则为 false，data 表示在线状态，success 为 false 时 error_msg 有效。
 
+## get_alias_list
+
+### 说明
+通过调用此函数可以获取订阅该 topic 下所有用户的别名。
+
+### 基本使用
+
+```javascript
+yunba.get_alias_list(topic, cb)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+cb | function | 无论查询结果如何都会回调此函数。传递回的参数有 success、data.alias、error_msg。查询成功 success 为 true 否则为 false，data.alias 为订阅的 `alias` 列表，类型 List，success 为 true 时有效，success 为 false 时 error_msg 有效。
+
 ## disconnect
 
 ### 说明
