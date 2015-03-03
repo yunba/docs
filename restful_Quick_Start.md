@@ -75,6 +75,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_asy
 ```
 
 >publish_check
+
 当使用方法 publish_async 发送后, 可以使用该方法检查. 注意的是msg中为 publish_async 回复中的 message id.
 
 ```bash
