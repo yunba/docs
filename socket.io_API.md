@@ -44,18 +44,33 @@ port | number | socket.io API 端口，默认值 3000
 {"name":"socketconnectack","args":[{"msg":"你已经通过websocket与服务器链接上。"}]}
 ```
 
+## auth
+获得sessionid。
+
+```python
+socketIO.emit('auth', {'appkey': '52fcc04c4dc903d66d6f8f92'})
+```
+
+## authack
+`auth` 成功后的回调。
+
+```python
+{"name":"authack","args":[{"success":true}, {"sessionid": "123456789XXXX"}]}
+```
+
 ## connect
 触发 connect 命令，与 socket.io 服务器确认身份。
 
 ```python
-socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
+socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})       # 第一次连接使用appkey连接
+socketIO.emit('connect', {'sessionid': '123456789XXXX'})               # 再次连接时可使用之前获得的sessionid进行连接（sessionid可通过auth或者connect的回调结果获得）
 ```
 
 ## connack
 `connect` 成功后的回调。
 
 ```python
-{"name":"connack","args":[{"success":true}]}
+{"name":"connack","args":[{"success":true}, {"sessionid": "123456789XXXX"}]}
 ```
 
 ## subscribe
