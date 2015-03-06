@@ -50,7 +50,7 @@ APN部分，参见苹果官方说明。 [Apple Push Notification Service](https:
 
 
 
-比如:
+例子:
 
 > publish
 
