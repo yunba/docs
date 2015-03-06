@@ -48,6 +48,8 @@ APN部分，参见苹果官方说明。 [Apple Push Notification Service](https:
 
 如果在opts中没有出现apn_json项时,就不会发送APN。
 
+
+
 比如:
 
 > publish
