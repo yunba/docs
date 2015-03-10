@@ -43,10 +43,10 @@ info | REG_info* | 保存获取到的注册信息。
 int res = MQTTClient_setup_with_appkey(appkey, &my_reg_info);
 ```
 
-## int MQTTClient_setup_with_appkey_and_deviceid
+## MQTTClient_setup_with_appkey_and_deviceid
 ### 功能
 
-通过appkey，device_id获得注册信息。如果device id在云巴已经存在，返回用户注册的信息。如果该device id没有在云巴不存在，返回给用户新的注册信息。
+通过appkey，device_id获得注册信息。如果该device id在云巴数据库已经存在，返回用户原有的注册信息。如果该device id在云巴数据库不存在，返回给用户新的注册信息。
 
 ###函数原型
 ` int MQTTClient_setup_with_appkey_and_deviceid(char* appkey, char *deviceid, REG_info *info) `
