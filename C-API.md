@@ -24,7 +24,7 @@ printf("used:%s, %s\n", version->name, version->value);
 ## MQTTClient_setup_with_appkey
 ### 功能
 
-通过appkey，获得注册信息。使用该函数时，每次用户都将会获得新的注册信息，即新的client id，username，password，device id。
+通过appkey，获得注册信息。使用该函数时，每次用户都将会获得新的注册信息，即client id，username，password，device id。
 
 ###函数原型
 ` int MQTTClient_setup_with_appkey(char* appkey, REG_info *info) `
@@ -47,7 +47,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTClient_setup_with_appkey_and_deviceid
 ### 功能
 
-通过appkey，device_id获得注册信息。如果该device id在云巴数据库已经存在，返回用户原有的注册信息。如果该device id在云巴数据库不存在，返回给用户新的注册信息，即新的client id，username，password，device id。
+通过appkey，device_id获得注册信息。如果该device id在云巴数据库已经存在，返回用户原有的注册信息。如果该device id在云巴数据库不存在，返回给用户新的注册信息，即client id，username，password，device id。
 
 ###函数原型
 ` int MQTTClient_setup_with_appkey_and_deviceid(char* appkey, char *deviceid, REG_info *info) `
