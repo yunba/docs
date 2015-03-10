@@ -24,7 +24,7 @@ printf("used:%s, %s\n", version->name, version->value);
 ## MQTTClient_setup_with_appkey
 ### 功能
 
-通过appkey，获得注册信息。使用该函数时，每次用户都将会获得新的注册信息，即新的client id, username, password, device id.
+通过appkey，获得注册信息。使用该函数时，每次用户都将会获得新的注册信息，即新的client id，username，password，device id。
 
 ###函数原型
 ` int MQTTClient_setup_with_appkey(char* appkey, REG_info *info) `
@@ -32,7 +32,7 @@ printf("used:%s, %s\n", version->name, version->value);
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 主用注册时或得到的app key。
+appkey | char* | 用户通过网站注册获得到的app key。
 info | REG_info* | 保存获取到的注册信息。
 
 ### 返回值
