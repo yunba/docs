@@ -145,6 +145,23 @@ yunba.connect_by_sessionid(sessionid, callback)
 sessionid | string | 参数必选, 会话ID（connect_v2连接成功后的回调函数会返回此参数）
 callback | function | 参数可选，连接成功后会调用 callback
 
+## connect_by_customid
+
+### 说明
+与connect_by_sessionid功能一致，不同的是此接口可以设定自定义的会话ID。
+
+### 基本使用
+
+```javascript
+yunba.connect_by_customid(customid, callback)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+customid | string | 参数必选, 自定义会话ID
+callback | function | 参数可选，连接成功后会调用 callback
+
 ## set_message_cb
 
 ### 说明
