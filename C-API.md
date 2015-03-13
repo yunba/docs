@@ -47,7 +47,11 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTClient_setup_with_appkey_and_deviceid
 ### 功能
 
-通过appkey，device_id获得注册信息。如果该device id在云巴数据库已经存在，返回用户原有的注册信息。如果该device id在云巴数据库不存在，返回给用户新的注册信息，即client_id，username，password，new_device_id。
+通过appkey，device_id获得注册信息。
+
+当deviceid为NULL，云巴会返回一个deviceid给用户，用户需保存改deviceid。下次调用该函数时，需使用该deviceid。
+
+用户可自使用自己的deviceid，但需保证该deiviceid的唯一性。
 
 ###函数原型
 ` int MQTTClient_setup_with_appkey_and_deviceid(char* appkey, char *deviceid, REG_info *info) `
