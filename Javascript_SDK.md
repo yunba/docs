@@ -227,26 +227,26 @@ yunba.publish(obj,cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
-cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
 ## publish2
 
-### 功能
+### 说明
 `publish` 升级版本，支持更多参数。
 
-### 函数原型
+### 基本使用
 
 ```javascript
-yunba.publish2(obj,cb);
+yunba.publish2(obj,cb)
 ```
 
 ### 参数说明
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 扩展参数(opts:dict)
-cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
 > 目前支持的 publish2 扩展参数
 
