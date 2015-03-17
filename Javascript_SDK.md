@@ -192,7 +192,7 @@ yunba.subscribe(obj,cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- |  -----------
-obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 0）
+obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 1）
 cb  | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
 
 ## unsubscribe
@@ -227,8 +227,37 @@ yunba.publish(obj,cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj | object | 参数必选，obj 含有两个属性字段，分别为要发送的 目标频道(obj.topic:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 0
+obj | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
 cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+## publish2
+
+### 功能
+`publish` 升级版本，支持更多参数。
+
+### 函数原型
+
+```javascript
+yunba.publish2(obj,cb);
+```
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 扩展参数(opts:dict)
+cb | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+> 目前支持的 publish2 扩展参数
+
+`publish2` 扩展参数 opts 是可选项，如果不填写参数，`publish2` 的行为与 `publish` 相同。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | number | 如果不填，默认为 1
+apn_json | dict | 如果不填，则不会发送APN
+messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
+time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
 
 ## get_state
 
