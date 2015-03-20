@@ -276,6 +276,69 @@ apn_json | dict | 如果不填，则不会发送APN
 messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
 time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
 
+## publish_to_alias
+
+### 说明
+向用户别名发送消息, 用于实现点对点的消息发送。
+
+### 基本使用
+
+```javascript
+yunba.publish_to_alias(obj, cb)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.alias 为用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符 obj.qos 为可选，默认值为 1
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+## publish2_to_alias
+
+### 说明
+`publish2` 的 alias 版本。
+
+### 基本使用
+
+```javascript
+yunba.publish2(obj,cb)
+```
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+
+### 使用示例
+
+```javascript
+yunba.publish2_to_alias({
+    'alias': 'myAlias',
+    'msg': 'publish_2_alias_message',
+    'opts': {
+        'qos': 1,
+        'time_to_live': 36000,
+        'apn_json': {
+            'aps': {'sound': 'bingbong.aiff', 'badge': 3, 'alert': 'yunba'}
+        },
+        'messageId': '11833652203486491113'
+    }
+}, cb)
+```
+
+### 扩展参数说明
+
+`publish2_to_alias` 扩展参数 opts 是可选项。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | number | 如果不填，默认为 1
+apn_json | dict | 如果不填，则不会发送APN
+messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
+time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
+
 ## get_state
 
 ### 说明
