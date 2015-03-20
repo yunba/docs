@@ -290,7 +290,7 @@ yunba.publish_to_alias(obj, cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.alias 为用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符 obj.qos 为可选，默认值为 1
+obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符，obj.qos 为可选，默认值为 1。
 cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
 ## publish2_to_alias
@@ -307,7 +307,7 @@ yunba.publish2(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)
+obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符。
 cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
 
@@ -338,6 +338,39 @@ qos | number | 如果不填，默认为 1
 apn_json | dict | 如果不填，则不会发送APN
 messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
 time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
+
+## set_alias
+
+### 说明
+App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
+
+### 基本使用
+
+```javascript
+yunba.set_alias(alias, cb);
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj  | object | 参数必选，obj 含有一个属性字段，为要设置的 别名(obj.alias:string)。obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符。
+cb   | function | 参数可选，无论 alias 是否设置成功都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示 alias 设置成功，否则为失败。如果失败，则返回错误消息 msg。
+
+## get_alias
+
+### 说明
+App  可以调用此函数来获取当前用户的别名。
+
+### 基本使用
+
+```javascript
+yunba.get_alias(cb);
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+cb   | function | 传递回的参数 data.alias 为当前用户的别名。
 
 ## get_state
 
