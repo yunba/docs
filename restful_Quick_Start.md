@@ -83,7 +83,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_asy
 当使用方法 publish_async 发送后，可以使用该方法检查。注意的是msg中为 publish_async 回复中的 message id。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"53ea21cd4e9f46851d5a57b5", "seckey":"sec-QMirTLEpuNC6tIUynXXXXNfrlWDbgDV64iDnjdni4QFyXXXX", "topic":"rocket", "msg":"<message-id>"}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"53ea21cd4e9f46851d5a57b5", "seckey":"sec-QMirTLEpuNC6tIUynXXXXNfrlWDbgDV64iDnjdni4QFyXXXX", "topic":"rocket", "msg":"<message-id>"}' http://rest.yunba.io:8080
 ```
 
 其中 app-key，secret-key 从应用详情中页面获得，分别对应于页面中 AppKey，Secret Key。
