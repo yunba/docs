@@ -59,10 +59,11 @@ socketIO.emit('auth', {'appkey': '52fcc04c4dc903d66d6f8f92'})
 ```
 
 ## connect
-触发 connect 命令，与 socket.io 服务器确认身份。
+触发 connect 命令，与 socket.io 服务器确认身份。以下3方式任选其一即可，推荐使用appkey+customid方式进行连接，可保证每次连接都能使用相同的sessionid。
 
 ```python
 socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})       # 第一次连接使用appkey连接
+socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'userid'})       # 直接使用自定义的会话ID进行连接
 socketIO.emit('connect', {'sessionid': '123456789XXXX'})               # 再次连接时可使用之前获得的sessionid进行连接（sessionid可通过auth或者connect的回调结果获得）
 ```
 
@@ -389,7 +390,7 @@ logging.basicConfig(level=logging.INFO)
 
 def on_socket_connect_ack(args):
     print 'on_socket_connect_ack', args
-    socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})
+    socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'python_demo'})
 
 def on_connack(args):
     print 'on_connack', args
@@ -419,7 +420,7 @@ def on_suback(args):
         'msg': 'from publish2',
         "opts": {
             'qos': 1,
-            'apn_json':  {"aps":{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}}
+            'apn_json':  {"aps":{"sound":"bingbong.aiff","badge": 3, "alert":"douban"}},
             'messageId': '11833652203486491113'
         }
     })
