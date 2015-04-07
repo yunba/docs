@@ -25,7 +25,7 @@ var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 ```javascript
 yunba.init(function (success) {
 	if (success) {
-		yunba.connect_v2(function (success, msg, sessionid) {
+		yunba.connect_by_customid('your_app_user_id', function (success, msg, sessionid) {
 			if (success) {
 				console.log('你已成功连接到消息服务器，会话ID：' + sessionid);
 			} else {
