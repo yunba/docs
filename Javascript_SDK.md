@@ -128,27 +128,10 @@ yunba.connect_v2(callback)
 --------- | ------- |  -----------
 callback | function | 参数可选，连接成功后会调用 callback
 
-## connect_by_sessionid
-
-### 说明
-与connect功能一致，不同的是此接口使用特定的会话ID进行连接，连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。
-
-### 基本使用
-
-```javascript
-yunba.connect_by_sessionid(sessionid, callback)
-```
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- |  -----------
-sessionid | string | 参数必选, 会话ID（connect_v2连接成功后的回调函数会返回此参数）
-callback | function | 参数可选，连接成功后会调用 callback
-
 ## connect_by_customid
 
 ### 说明
-与connect_by_sessionid功能一致，不同的是此接口可以设定自定义的会话ID。
+与connect功能一致，不同的是此接口使用特定的会话ID进行连接，连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。
 
 ### 基本使用
 
