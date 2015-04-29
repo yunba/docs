@@ -41,7 +41,7 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=5316bd7179
 在 JSON 中可选部分:
 
 ```json
-"opts":{"time_to_live":<number>,"platform":<number>,"time_delay":<number>,"location":<string>,"qos":<number>,"apn_json":{"alert":<string>,"badge:<number>,"sound":<string>,"priority":<number>,"expiration":<number>","content-available":<number>}}
+"opts":{"time_to_live":<number>,"platform":<number>,"time_delay":<number>,"location":<string>,"qos":<number>,"apn_json":{"aps":{"alert":<string>,"badge:<number>,"sound":<string>,"priority":<number>,"expiration":<number>","content-available":<number>}}}
 ```
 
 APN部分，参见苹果官方说明。 [Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")
