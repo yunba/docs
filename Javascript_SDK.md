@@ -99,28 +99,13 @@ reconnect_callback | function | 参数可选，连接断开后，调用该回调
 ## connect
 
 ### 说明
+**兼容旧版本接口，无法保存会话状态（包括离线消息、已订阅的频道和别名），推荐使用connect_by_customid代替。**
 yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 `connect()`方法连接上消息服务器。连接上消息服务器后才开始收发消息。
 
 ### 基本使用
 
 ```javascript
 yunba.connect(callback)
-```
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- |  -----------
-callback | function | 参数可选，连接成功后会调用 callback
-
-## connect_v2
-
-### 说明
-与connect功能一致，不同的是此接口会将会话状态保存下来（保存到url的query参数中），当由于网络不稳定等原因发生重新连接后会话状态不会丢失（包括离线消息、已订阅的频道和别名）。
-
-### 基本使用
-
-```javascript
-yunba.connect_v2(callback)
 ```
 
 ### 参数说明
