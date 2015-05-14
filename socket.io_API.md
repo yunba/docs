@@ -381,7 +381,7 @@ messageId | String | 消息 ID，与 publish 时的 ID 对应
 
 ## 例子
 
-> Python 例子
+> Python 例子 (socketIO-client==0.5.5)
 
 ```python
 from socketIO_client import SocketIO
