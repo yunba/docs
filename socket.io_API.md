@@ -20,7 +20,7 @@ Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的常链�
 > 参考：[https://pypi.python.org/pypi/socketIO-client](https://pypi.python.org/pypi/socketIO-client)
 
 ```bash
-pip install -U socketIO-client
+pip install -U socketIO-client==0.5.5
 ```
 
 ## init
