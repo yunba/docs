@@ -1,0 +1,52 @@
+- name: github-doc-1
+  path: https://raw.githubusercontent.com/yunba/docs/master/
+  docs:
+    - name: Android SDK 快速入门
+      markdown: Android_Quick_Start.md
+      show: true
+    - name: Android SDK API 手册
+      markdown: Android_API_Reference.md
+      show: true
+    - name: iOS SDK 快速入门
+      markdown: iOS_Quick_Start.md
+      show: true
+    - name: iOS SDK API 手册
+      markdown: iOS_API_Reference.md
+      show: true
+    - name: C 快速入门
+      markdown: C_Quick_Start.md
+      show: true
+    - name: C API 手册
+      markdown: C-API.md
+      show: true
+    - name: JavaScript SDK 使用文档
+      markdown: Javascript_SDK.md
+      show: true
+    - name: Socket.io API 手册
+      markdown: socket.io_API.md
+      show: true
+    - name: RESTful API 快速入门
+      markdown: restful_Quick_Start.md
+      show: true
+
+- name: github-doc-2
+  path: https://raw.githubusercontent.com/yunbademo/Documentation/master/
+  docs:
+    - name: JavaScript 控制台 Demo (2)
+      markdown: JavaScriptConsoleDemo.md
+      show: true
+    - name: MQTT协议中英文对照
+      markdown: MQTTprotocol.md
+      show: true
+    - name: 云巴的发布-订阅模式
+      markdown: Pub&Sub.md
+      show: true
+    - name: 在线监控
+      markdown: Presence.md
+      show: true
+    - name: 实时统计
+      markdown: Analysis.md
+      show: true
+    - name: 认识Socket.IO-创建一个小型聊天室
+      markdown: Chat-room.md
+      show: true
