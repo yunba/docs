@@ -32,8 +32,8 @@
 - name: github-doc-2
   path: https://raw.githubusercontent.com/yunbademo/Documentation/master/
   docs:
-    - name: JavaScript 控制台 Demo (2)
-      markdown: JavaScriptConsoleDemo.md
+    - name: JavaScript 控制台 Demo
+      markdown: console.md
       show: true
     - name: MQTT协议中英文对照
       markdown: MQTTprotocol.md
