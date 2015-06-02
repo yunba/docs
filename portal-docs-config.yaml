@@ -39,7 +39,7 @@
       markdown: MQTTprotocol.md
       show: true
     - name: 云巴的发布-订阅模式
-      markdown: Pub&Sub.md
+      markdown: P&S.md
       show: true
     - name: 在线监控
       markdown: Presence.md
