@@ -95,6 +95,17 @@ yunba.init(init_callback, reconnect_callback)
 init_callback | function | 参数可选，通知 init 是否成功。参数 sucess: false/true
 reconnect_callback | function | 参数可选，连接断开后，调用该回调重连
 
+### 使用示例
+
+```javascript
+yunba.init(function (success) {
+    if (success) {
+        yunba.connect_by_customid(customid, callback) ...
+    }
+}, function () {
+    yunba.connect_by_customid(customid, callback) ...
+});
+```
 
 ## connect
 
@@ -114,6 +125,16 @@ yunba.connect(callback)
 --------- | ------- |  -----------
 callback | function | 参数可选，连接成功后会调用 callback
 
+### 使用示例
+
+```javascript
+yunba.connect(function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
 ## connect_by_customid
 
 ### 说明
@@ -131,6 +152,46 @@ yunba.connect_by_customid(customid, callback)
 customid | string | 参数必选, 自定义会话ID
 callback | function | 参数可选，连接成功后会调用 callback
 
+### 使用示例
+
+```javascript
+yunba.connect_by_customid('your_app_user_id', function (success, msg, sessionid) {
+    if (success) {
+        console.log(sessionid);
+    } else {
+        console.log(msg);
+    }
+});
+```
+
+## disconnect
+
+### 说明
+与 `connect()` 相对，通过 `disconnect()` 可以断开与消息服务器的连接。
+
+### 基本使用：
+
+```javascript
+msg.disconnect(cb)
+```
+
+### 参数说明
+名称 | 类型 |  说明
+--------- | ------- |  -----------
+cb | function | 参数可选，不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg
+
+> JavaScript SDK 别名(Alias) 相关 API 代码已经完成并开源，文档正在完善中。暂时可以参考 examples 中对这部分 API 的使用方法。
+
+### 使用示例
+
+```javascript
+yunba.disconnect(function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
 ## set_message_cb
 
 ### 说明
@@ -146,6 +207,15 @@ yunba.set_message_cb(cb)
 名称 | 类型 | 说明
 --------- | ------- |  -----------
 cb | function | 参数必选, 通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)
+
+### 使用示例
+
+```javascript
+yunba.set_message_cb(function (data) {
+    console.log(data.topic);
+    console.log(data.msg);
+});
+```
 
 ## subscribe
 
@@ -163,6 +233,16 @@ yunba.subscribe(obj,cb)
 --------- | ------- |  -----------
 obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 1）
 cb  | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
+
+### 使用示例
+
+```javascript
+yunba.subscribe({'topic': 'my_topic'}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
 
 ## unsubscribe
 
@@ -182,6 +262,16 @@ yunba.unsubscribe(obj,cb)
 obj | object | 参数必选，目前版本之要求 obj 包含一个属性字段为 topic，即准备取消收听的频道
 cb | function | 参数可选，取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg
 
+### 使用示例
+
+```javascript
+yunba.unsubscribe({'topic': 'my_topic'}, function (success, data) {
+    if (!success) {
+        console.log(data);
+    }
+});
+```
+
 ## publish
 
 ### 说明
@@ -198,6 +288,16 @@ yunba.publish(obj,cb)
 --------- | ------- | -----------
 obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
 cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+
+### 使用示例
+
+```javascript
+yunba.publish({'topic': 'my_topic', 'msg': 'test_message', 'qos': 1}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
 
 ## publish2
 
@@ -262,6 +362,16 @@ yunba.publish_to_alias(obj, cb)
 obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符，obj.qos 为可选，默认值为 1。
 cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
 
+### 使用示例
+
+```javascript
+yunba.publish_to_alias({'alias': 'my_alias', 'msg': 'test_message', 'qos': 1}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
 ## publish2_to_alias
 
 ### 说明
@@ -325,6 +435,16 @@ yunba.set_alias(alias, cb);
 obj  | object | 参数必选，obj 含有一个属性字段，为要设置的 别名(obj.alias:string)。obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符。
 cb   | function | 参数可选，无论 alias 是否设置成功都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示 alias 设置成功，否则为失败。如果失败，则返回错误消息 msg。
 
+### 使用示例
+
+```javascript
+yunba.set_alias({'alias': 'my_alias'}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
 ## get_alias
 
 ### 说明
@@ -340,6 +460,12 @@ yunba.get_alias(cb);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 cb   | function | 传递回的参数 data.alias 为当前用户的别名。
+
+```javascript
+yunba.get_alias(function(data) {
+    console.log(data.alias);
+});
+```
 
 ## get_state
 
@@ -358,6 +484,18 @@ yunba.get_state(alias,cb)
 alias | String | 参数必选，参数为要查询状态的 alias 名称
 cb | function | 参数可选，无论查询结果如何都会回调此函数。传递回的参数有 success、data、error_msg。查询成功 success 为 true 否则为 false，data 表示在线状态，success 为 false 时 error_msg 有效。
 
+### 使用示例
+
+```javascript
+yunba.get_state(alias, function (data) {
+    if (data.success) {
+        console.log(data.data);
+    } else {
+        console.log(data.error_msg);
+    }
+});
+```
+
 ## get_topic_list
 
 ### 说明
@@ -374,6 +512,20 @@ yunba.get_topic_list(alias, cb)
 --------- | ------- | -----------
 alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
 cb | function | 无论查询结果如何都会回调此函数。传递回的参数有 success、data.topics、error_msg。查询成功 success 为 true 否则为 false，data.topics 为订阅的 `topic` 列表，类型 List，success 为 true 时有效，success 为 false 时 error_msg 有效。
+
+### 使用示例
+
+```javascript
+yunba.get_topic_list('my_alias', function (success, data) {
+    if (success) {
+        data.topics.forEach(function (topic) {
+            console.log(topic);
+        });
+    } else {
+        console.log(data.error_msg);
+    }
+});
+```
 
 ## get_alias_list
 
@@ -392,20 +544,16 @@ yunba.get_alias_list(topic, cb)
 topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
 cb | function | 无论查询结果如何都会回调此函数。传递回的参数有 success、data.alias、error_msg。查询成功 success 为 true 否则为 false，data.alias 为订阅的 `alias` 列表，类型 List，success 为 true 时有效，success 为 false 时 error_msg 有效。
 
-## disconnect
-
-### 说明
-与 `connect()` 相对，通过 `disconnect()` 可以断开与消息服务器的连接。
-
-### 基本使用：
+### 使用示例
 
 ```javascript
-msg.disconnect(cb)
+yunba.get_alias_list('my_topic', function (success, data) {
+    if (success) {
+        data.alias.forEach(function (alias) {
+            console.log(alias);
+        });
+    } else {
+        console.log(data.error_msg);
+    }
+});
 ```
-
-### 参数说明
-名称 | 类型 |  说明
---------- | ------- |  -----------
-cb | function | 参数可选，不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg
-
-> JavaScript SDK 别名(Alias) 相关 API 代码已经完成并开源，文档正在完善中。暂时可以参考 examples 中对这部分 API 的使用方法。
