@@ -180,8 +180,6 @@ msg.disconnect(cb)
 --------- | ------- |  -----------
 cb | function | 参数可选，不管断开连接失败还是成功，都会回调此函数。传递回的参数有 success、msg。如果 success 值为 true 表示成功，否则表示失败。如果失败，则返回错误消息msg
 
-> JavaScript SDK 别名(Alias) 相关 API 代码已经完成并开源，文档正在完善中。暂时可以参考 examples 中对这部分 API 的使用方法。
-
 ### 使用示例
 
 ```javascript
