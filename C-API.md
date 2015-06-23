@@ -265,7 +265,7 @@ cJSON_Delete(data);
 App 可以向 Topic 发送 publish2, 那么任何订阅此 Topic 的 Client 都会接受到消息。
 
 ### 函数原型
-` int MQTTClient_publish2(MQTTClient handle, const char* topicName, int payloadlen, void* payload, cJSON *data); 
+` int MQTTClient_publish2(MQTTClient handle, const char* topicName, int payloadlen, void* payload, cJSON *Opt); 
 `
 
 ### 参数说明
@@ -275,7 +275,7 @@ handle | MQTTClient | 客户端句柄
 topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
 payloadlen | int | payload的长度
 payload | void* | payload内容
-data | CJSON * | Opt选项，可以带apn，ttl等参数内容
+data | CJSON * | Opt 选项，可以带 apn，ttl 等参数内容
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
@@ -295,10 +295,10 @@ printf("publish2 status:%i\n", ret);
 ## MQTTClient_publish2_to_alias
 ### 功能
 
-App 可以向 alias 发送 publish2, 那么任何订阅此 Topic 的 Client 都会接受到消息。
+App 可以向 alias 发送 publish2 消息。
 
 ### 函数原型
-` int MQTTClient_publish2_to_alias(MQTTClient handle, const char* alias, int payloadlen, void* payload, cJSON *data);
+` int MQTTClient_publish2_to_alias(MQTTClient handle, const char* alias, int payloadlen, void* payload, cJSON *Opt);
 `
 
 ### 参数说明
@@ -306,9 +306,9 @@ App 可以向 alias 发送 publish2, 那么任何订阅此 Topic 的 Client 都�
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
 alias | const char* | 发送对方的别名
-payloadlen | int | payload的长度
-payload | void* | payload内容
-data | CJSON * | Opt选项，可以带apn，ttl等参数内容
+payloadlen | int | payload 的长度
+payload | void* | payload 内容
+data | CJSON * | Opt 选项，可以带 apn，ttl 等参数内容
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
