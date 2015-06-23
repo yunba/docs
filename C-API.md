@@ -259,6 +259,72 @@ rc = MQTTClient_publish_json(client, topic, data);
 cJSON_Delete(data);
 ```
 
+## MQTTClient_publish2
+### 功能
+
+App 可以向 Topic 发送 publish2, 那么任何订阅此 Topic 的 Client 都会接受到消息。
+
+### 函数原型
+` int MQTTClient_publish2(MQTTClient handle, const char* topicName, int payloadlen, void* payload, cJSON *data); 
+`
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过50个字符
+payloadlen | int | payload的长度
+payload | void* | payload内容
+data | CJSON * | Opt选项，可以带apn，ttl等参数内容
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+cJSON *apn_json, *aps;
+cJSON *Opt = cJSON_CreateObject();
+cJSON_AddStringToObject(Opt,"time_to_live",  "120");
+cJSON_AddStringToObject(Opt,"time_delay",  "1100");
+cJSON_AddStringToObject(Opt,"apn_json",  "{\"aps\":{\"alert\":\"FENCE alarm\", \"sound\":\"alarm.mp3\"}}");
+ret = MQTTClient_publish2(client, topic, strlen("test"), "test", Opt);
+cJSON_Delete(Opt);
+printf("publish2 status:%i\n", ret);
+```
+
+## MQTTClient_publish2_to_alias
+### 功能
+
+App 可以向 alias 发送 publish2, 那么任何订阅此 Topic 的 Client 都会接受到消息。
+
+### 函数原型
+` int MQTTClient_publish2_to_alias(MQTTClient handle, const char* alias, int payloadlen, void* payload, cJSON *data);
+`
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+alias | const char* | 发送对方的别名
+payloadlen | int | payload的长度
+payload | void* | payload内容
+data | CJSON * | Opt选项，可以带apn，ttl等参数内容
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+cJSON *apn_json, *aps;
+cJSON *Opt = cJSON_CreateObject();
+cJSON_AddStringToObject(Opt,"time_to_live",  "120");
+cJSON_AddStringToObject(Opt,"time_delay",  "1100");
+cJSON_AddStringToObject(Opt,"apn_json",  "{\"aps\":{\"alert\":\"FENCE alarm\", \"sound\":\"alarm.mp3\"}}");
+ret = MQTTClient_publish2_to_alias(client, "Alex", strlen("test"), "test", Opt);
+cJSON_Delete(Opt);
+printf("publish2 status:%i\n", ret);
+```
+
 ## MQTTClient_set_alias
 ### 功能
 
