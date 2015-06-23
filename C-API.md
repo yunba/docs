@@ -322,7 +322,7 @@ cJSON_AddStringToObject(Opt,"time_delay",  "1100");
 cJSON_AddStringToObject(Opt,"apn_json",  "{\"aps\":{\"alert\":\"FENCE alarm\", \"sound\":\"alarm.mp3\"}}");
 ret = MQTTClient_publish2_to_alias(client, "Alex", strlen("test"), "test", Opt);
 cJSON_Delete(Opt);
-printf("publish2 status:%i\n", ret);
+printf("publish2_alas status:%i\n", ret);
 ```
 
 ## MQTTClient_set_alias
@@ -359,7 +359,7 @@ App 可以调用此函数来获取当前用户的别名
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄
-parameter | char* | 参数
+parameter | char* | 别名
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
@@ -390,7 +390,7 @@ parameter | char* | alias名字
 
 ### Code Example
 ```c
-int ret = MQTTClient_get_alias(client, "000000018302");
+int ret = MQTTClient_get_status(client, "000000018302");
 ```
 
 在回调函数 extendedCmdArrive 中获得该用户的状态.
@@ -465,6 +465,125 @@ data | char* | 想对应 action 的附加数据，以满足统计相关的其他
 ### Code Example
 ```c
 int ret = MQTTClient_report(client, "action", "data");
+```
+
+### 函数原型
+` int MQTTClient_get_topiclist2(MQTTClient handle, char* parameter); 
+`
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | 用户别名
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+int ret = MQTTClient_get_topiclist2(client, "000000018302");
+```
+
+在回调函数 extendedCmdArrive 中获得该用户的状态.
+有几下几种状态
+```json
+    {command:14, status:1, data: "{'msg': 'server internal error'}"}
+
+```
+
+```json
+    {command:14, status:2, data: "{'msg': 'no operation permission'}"}
+```
+
+```json
+    {command:14, status:3, data: "{'msg': 'alias not find'}"}
+```
+
+```json
+    {command:14, status:0, data: "{'topic':[topic1,topic2,...], 'alias': aliasname}"} 
+```
+
+### 函数原型
+` int MQTTClient_get_aliaslist2(MQTTClient handle, char* parameter); 
+`
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | topic名字
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+int ret = MQTTClient_get_aliaslist2(client, "mytopic");
+```
+
+在回调函数 extendedCmdArrive 中获得该用户的状态.
+有几下几种状态
+```json
+   {command:16, status:1, data: "{'msg': 'server internal error'}"}
+
+```
+
+```json
+   {command:16, status:2, data: "{'msg': 'no operation permission'}"}
+```
+
+```json
+   {command:16, status:0, data: "{'alias':[alias1,alias2,alias3], 'occupancy': alias_length, 'topic': topicname}"}
+```
+
+## MQTTClient_get_status2
+### 功能
+
+App 可以调用此函数来获得某个 alias 的用户状态。
+
+### 函数原型
+` int MQTTClient_get_status2(MQTTClient handle, char* parameter); `
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+handle | MQTTClient | 客户端句柄
+parameter | char* | alias名字
+
+### 返回值
+* (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看yunba.h中定义的返回码
+
+### Code Example
+```c
+int ret = MQTTClient_get_status2(client, "000000018302");
+```
+
+在回调函数 extendedCmdArrive 中获得该用户的状态.
+有几下几种状态
+```json
+   {command:20, status:1, data: "{'msg': 'server internal error'}"}
+
+```
+
+```json
+    {command:20, status:2, data: "{'msg': 'no operation permission'}"}
+```
+
+```json
+{command:20, status:3, data: "{'msg': 'alias not find'}"}
+```
+
+```json
+{command:20, status:4, data: "{'msg': 'no status'}"}
+```
+
+```json
+{command:20, status:5, data: "{'msg': 'alias is empty'}"}
+```
+
+```json
+   {command:20, status:0, data: "{'status': 'online/offline', 'alias': aliasname}"}
 ```
 
 ## MQTTClient_set_broker
