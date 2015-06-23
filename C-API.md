@@ -488,20 +488,19 @@ int ret = MQTTClient_get_topiclist2(client, "000000018302");
 在回调函数 extendedCmdArrive 中获得该用户的状态.
 有几下几种状态
 ```json
-    {command:14, status:1, data: "{'msg': 'server internal error'}"}
-
+{command:14, status:1, data: "{'msg': 'server internal error'}"}
 ```
 
 ```json
-    {command:14, status:2, data: "{'msg': 'no operation permission'}"}
+{command:14, status:2, data: "{'msg': 'no operation permission'}"}
 ```
 
 ```json
-    {command:14, status:3, data: "{'msg': 'alias not find'}"}
+{command:14, status:3, data: "{'msg': 'alias not find'}"}
 ```
 
 ```json
-    {command:14, status:0, data: "{'topic':[topic1,topic2,...], 'alias': aliasname}"} 
+{command:14, status:0, data: "{'topic':[topic1,topic2,...], 'alias': aliasname}"} 
 ```
 
 ### 函数原型
@@ -525,16 +524,15 @@ int ret = MQTTClient_get_aliaslist2(client, "mytopic");
 在回调函数 extendedCmdArrive 中获得该用户的状态.
 有几下几种状态
 ```json
-   {command:16, status:1, data: "{'msg': 'server internal error'}"}
-
+{command:16, status:1, data: "{'msg': 'server internal error'}"}
 ```
 
 ```json
-   {command:16, status:2, data: "{'msg': 'no operation permission'}"}
+{command:16, status:2, data: "{'msg': 'no operation permission'}"}
 ```
 
 ```json
-   {command:16, status:0, data: "{'alias':[alias1,alias2,alias3], 'occupancy': alias_length, 'topic': topicname}"}
+{command:16, status:0, data: "{'alias':[alias1,alias2,alias3], 'occupancy': alias_length, 'topic': topicname}"}
 ```
 
 ## MQTTClient_get_status2
@@ -562,12 +560,11 @@ int ret = MQTTClient_get_status2(client, "000000018302");
 在回调函数 extendedCmdArrive 中获得该用户的状态.
 有几下几种状态
 ```json
-   {command:20, status:1, data: "{'msg': 'server internal error'}"}
-
+{command:20, status:1, data: "{'msg': 'server internal error'}"}
 ```
 
 ```json
-    {command:20, status:2, data: "{'msg': 'no operation permission'}"}
+{command:20, status:2, data: "{'msg': 'no operation permission'}"}
 ```
 
 ```json
@@ -583,7 +580,7 @@ int ret = MQTTClient_get_status2(client, "000000018302");
 ```
 
 ```json
-   {command:20, status:0, data: "{'status': 'online/offline', 'alias': aliasname}"}
+{command:20, status:0, data: "{'status': 'online/offline', 'alias': aliasname}"}
 ```
 
 ## MQTTClient_set_broker
