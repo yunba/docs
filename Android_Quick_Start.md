@@ -44,7 +44,7 @@
 ```
 
 ### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
-AppKey 来自 YunBa 注册的应用，与包名对应. 
+AppKey 来自 YunBa 注册的应用，与包名对应.
 
 ![appkey-pkg.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
@@ -79,6 +79,10 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
     </intent-filter>
 </receiver>
 ```
+## 修改应用包名称
+在 AndroidManifest.xml  中根据YunBa Portal 注册应用的包名替换  “Your PackageName”， 友情提示：一共有两处需要修改。
+
+
 
 ## 添加使用代码
 初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
@@ -91,14 +95,14 @@ public class YourApp extends Application {
 
         super.onCreate();
         YunBaManager.start(getApplicationContext());
-        
+
         YunBaManager.subscribe(getApplicationContext(), new String[]{"t1"}, new IMqttActionListener() {
-			
+
 			@Override
 			public void onSuccess(IMqttToken arg0) {
 				Log.d(TAG, "Subscribe topic succeed");
 			}
-			
+
 			@Override
 			public void onFailure(IMqttToken arg0, Throwable arg1) {
 				Log.d(TAG, "Subscribe topic failed" ;
@@ -117,9 +121,9 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 
 
  > 自定义 Receiver 接受 Publish 消息, Package Name 为当前应用程序的包名。
- 
+
 ```xml
- 
+
 	<receiver android:name="Your Receiver">
 		<intent-filter>
 		<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
@@ -147,11 +151,26 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
                 .append(topic)
                 .append(" ")
                 .append(YunBaManager.MQTT_MSG)
-                .append(" = ")
+                .append(" = ")\
+
                 .append(msg);
 		DemoUtil.showNotifation(context, topic, msg);
 	}
 ```
+### 重新编译文件
+在 Eclipse 中重新编译项目生成新的 R 文件，在 MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
+![此处输入图片的描述][1]
+![此处输入图片的描述][2]
+
+### 运行程序
+运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected的 日志表示连接成功。
+
+### 运行成果展示
+程序运行主界面：
+![此处输入图片的描述][3]
+API接口界面展示：
+![此处输入图片的描述][4]
+
 ## 在 Portal 上发布消息
 
 客服端集成 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
@@ -169,3 +188,9 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
 ![online.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/online_statistic.png)
+
+
+  [1]: https://github.com/yunba/docs/blob/master/image/gen%20R.png?raw=true
+  [2]: https://raw.githubusercontent.com/yunba/docs/master/image/subR.png
+  [3]: https://raw.githubusercontent.com/yunba/docs/master/image/main%20window.png
+  [4]: https://raw.githubusercontent.com/yunba/docs/master/image/app%20api.png
