@@ -8,7 +8,7 @@ Yunba 的 SDK 按照实现的方式，可以分为两种，一种是所谓原生
 
 相对于原生 SDK，基于 Socket.io API 的 SDK 代码体积小，开发周期短，适合为小众语言快速开发 SDK。
 
-Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的常链接通讯方式，使用起来跟原生的 Socket 一样方便，
+Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的长连接通讯方式，使用起来跟原生的 Socket 一样方便，
 特别是在 Web App 开发中，使用得越来越多。
 
 ## 使用 Socket.IO API

@@ -162,9 +162,10 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 ## 运行程序
 运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected的 日志表示连接成功。
 
-### 程序运行主界面：
+### 程序运行主界面
 ![此处输入图片的描述][3]
-### API接口界面展示：
+
+### API接口界面展示
 ![此处输入图片的描述][4]
 
 ## 在 Portal 上发布消息
