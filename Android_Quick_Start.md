@@ -55,6 +55,8 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
 <meta-data android:name="YUNBA_APPKEY" android:value="Your Appkey" />
 
 ```
+### 修改应用包名称
+在 AndroidManifest.xml  中根据YunBa Portal 注册应用的包名替换  “Your PackageName”， 友情提示：一共有两处需要修改。
 ### 添加 Service
 添加 YunBaService ，YunBa SDK 会启动一个后台的 service.
 
@@ -79,10 +81,6 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
     </intent-filter>
 </receiver>
 ```
-## 修改应用包名称
-在 AndroidManifest.xml  中根据YunBa Portal 注册应用的包名替换  “Your PackageName”， 友情提示：一共有两处需要修改。
-
-
 
 ## 添加使用代码
 初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
@@ -112,7 +110,6 @@ public class YourApp extends Application {
     }
 }
 ```
-
 
 ## 自定义 Receiver 接受 Publish 消息
 YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过监听相关的 Action 接受消息并处理。
@@ -157,18 +154,17 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 		DemoUtil.showNotifation(context, topic, msg);
 	}
 ```
-### 重新编译文件
+## 重新编译文件
 在 Eclipse 中重新编译项目生成新的 R 文件，在 MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
 ![此处输入图片的描述][1]
 ![此处输入图片的描述][2]
 
-### 运行程序
+## 运行程序
 运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected的 日志表示连接成功。
 
-### 运行成果展示
-程序运行主界面：
+### 程序运行主界面：
 ![此处输入图片的描述][3]
-API接口界面展示：
+### API接口界面展示：
 ![此处输入图片的描述][4]
 
 ## 在 Portal 上发布消息
