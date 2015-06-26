@@ -53,7 +53,7 @@
       markdown: p&S.md
       url: p&S
       show: true
-    - name: 在线监控
+    - name: 实时监控
       markdown: Presence.md
       url: Presence
       show: true
