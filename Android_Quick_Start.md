@@ -8,13 +8,7 @@
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
 
 ![create_application.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
-## 运行环境
 
- - Eclicpse IDE for JAVA Developers 64bit
- - Google Android SDK R24.2
- - Platform 5.1.1
- - API level: 22
- - 最低支持 Platform：4.0 API level:14
 
 ## 下载 Android SDK
 
@@ -169,6 +163,14 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 ## 运行程序
 运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected的 日志表示连接成功。
 
+可能遇到的问题：
+运行程序的过程中可能会出现 requires API level 10 (current min is 8)的问题。只需要修改AndroidManifest.xml中的标签<uses-sdk>
+```
+<uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="14" />
+  ```
+        
 ### 程序运行主界面
 ![此处输入图片的描述][3]
 ### API接口界面展示
