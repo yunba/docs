@@ -8,6 +8,13 @@
 注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
 
 ![create_application.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
+## 运行环境
+
+ - Eclicpse IDE for JAVA Developers 64bit
+ - Google Android SDK R24.2
+ - Platform 5.1.1
+ - API level: 22
+ - 最低支持 Platform：4.0 API level:14
 
 ## 下载 Android SDK
 
@@ -155,7 +162,7 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 	}
 ```
 ## 重新编译文件
-在 Eclipse 中重新编译项目生成新的 R 文件，在 MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
+在 Eclipse 中重新编译项目生成新的R文件，在MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
 ![此处输入图片的描述][1]
 ![此处输入图片的描述][2]
 
@@ -164,7 +171,6 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 
 ### 程序运行主界面
 ![此处输入图片的描述][3]
-
 ### API接口界面展示
 ![此处输入图片的描述][4]
 
