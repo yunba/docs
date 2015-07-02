@@ -99,7 +99,7 @@ socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ```
 
 ## puback
-发布 `publish`, `publish_to_alias` 成功回调。
+发布 `publish`, `publish_to_alias`, `publish2`, `publish2_to_alias` 成功回调。
 
 ```python
 {"name":"puback","args":[{"success":true, "messageId": "11842355493944946011"}]}
@@ -305,17 +305,11 @@ time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\
 * 参考 `publish_to_alias`
 * 支持 `publish2` 扩展参数
 
-> publish2_to_alias, publish_to_alias 对比
-
-差异| publish_to_alias | publish2_to_alias
-----| --------| -----
-当 alias 不存在 | 返回 puback | 返回发布错误，error 3 (no uid found)
-
-## publish2_ack
-发布 `publish2`, `publish2_to_alias` 成功回调。
+## puback
+发布 `publish`, `publish_to_alias`, `publish2`, `publish2_to_alias` 成功回调。
 
 ```python
-{"name":"publish2_ack","args":[{"success":true}]}
+{"name":"puback","args":[{"success":true, "messageId": "11842355493944946011"}]}
 ```
 
 ## get_state
@@ -355,7 +349,7 @@ success | boolean | 成功返回 true, 否则返回 false
 data | String | 在线状态
 error_msg | String | 错误信息，success 为 false 时有效
 
-## publish2_recvack
+## recvack
 
 > recvack 是付费服务，免费用户可能不能正常使用。
 
@@ -366,7 +360,7 @@ error_msg | String | 错误信息，success 为 false 时有效
 ### 函数原型
 
 ```python
-on_publish2_recvack {u'data': u'{"timestamp":1411374510357,"alias":"alias_mqttc_sub"}', u'success': True, u'messageId': u'11839467508410466019'}
+recvack {u'data': u'{"timestamp":1411374510357,"alias":"alias_mqttc_sub"}', u'success': True, u'messageId': u'11839467508410466019'}
 ```
 
 ### 参数说明
@@ -481,8 +475,8 @@ socketIO.on('message', on_message)
 socketIO.on('set_alias_ack', on_set_alias)
 socketIO.on('get_topic_list_ack', on_get_topic_list_ack)
 socketIO.on('get_alias_list_ack', on_get_alias_list_ack)
-socketIO.on('publish2_ack', on_publish2_ack)
-socketIO.on('publish2_recvack', on_publish2_recvack)
+socketIO.on('puback', on_publish2_ack)
+socketIO.on('recvack', on_publish2_recvack)
 socketIO.on('get_state_ack', on_get_state_ack)
 socketIO.on('alias', on_alias)				# get alias callback
 
