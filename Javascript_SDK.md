@@ -377,7 +377,7 @@ yunba.publish_to_alias({'alias': 'my_alias', 'msg': 'test_message', 'messageId':
 ### 基本使用
 
 ```javascript
-yunba.publish2(obj,cb)
+yunba.publish2_to_alias(obj,cb)
 ```
 ### 参数说明
 
