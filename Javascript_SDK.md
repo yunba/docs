@@ -284,13 +284,13 @@ yunba.publish(obj,cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
-cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+obj    | object | 参数必选，obj 含有四个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string)、MessageId(obj.messageId:number/string) 和 消息级别(obj.qos:number)，其中 obj.qos 为可选，默认值为 1
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg ，发送失败返回错误消息 msg。
 
 ### 使用示例
 
 ```javascript
-yunba.publish({'topic': 'my_topic', 'msg': 'test_message', 'qos': 1}, function (success, msg) {
+yunba.publish({'topic': 'my_topic', 'msg': 'test_message','messageId': 199900724, 'qos': 1}, function (success, msg) {
     if (!success) {
         console.log(msg);
     }
@@ -312,8 +312,7 @@ yunba.publish2(obj,cb)
 名称 | 类型 | 说明
 --------- | ------- | -----------
 obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)
-cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
-
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg ，发送失败返回错误消息 msg。
 
 ### 使用示例
 
@@ -357,13 +356,13 @@ yunba.publish_to_alias(obj, cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | object | 参数必选，obj 含有三个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 消息级别(obj.qos:number)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符，obj.qos 为可选，默认值为 1。
-cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
+obj    | object | 参数必选，obj 含有四个属性字段，分别为要发送的 目标频道(obj.topic:string)、消息体(obj.msg:string)、MessageId(obj.messageId:number/string) 和 消息级别(obj.qos:number)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符，obj.qos 为可选，默认值为 1。
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg ，发送失败返回错误消息 msg。
 
 ### 使用示例
 
 ```javascript
-yunba.publish_to_alias({'alias': 'my_alias', 'msg': 'test_message', 'qos': 1}, function (success, msg) {
+yunba.publish_to_alias({'alias': 'my_alias', 'msg': 'test_message', 'messageId': 199900724, 'qos': 1}, function (success, msg) {
     if (!success) {
         console.log(msg);
     }
@@ -385,8 +384,7 @@ yunba.publish2(obj,cb)
 名称 | 类型 | 说明
 --------- | ------- | -----------
 obj    | object | 参数必选，obj 含有三个个属性字段，分别为要发送的 目标别名(obj.alias:string)、消息体(obj.msg:string) 和 扩展参数(obj.opts:dict)。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符。
-cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送失败，则返回错误消息 msg
-
+cb    | function | 参数可选，不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg ，发送失败返回错误消息 msg。
 
 ### 使用示例
 
