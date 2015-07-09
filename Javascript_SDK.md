@@ -246,7 +246,6 @@ yunba.subscribe({'topic': 'my_topic'}, function (success, msg) {
 
 ### 说明
 你可以通过 `unsubscribe()` 取消对一个频道的收听。
-程序关闭之前建议先进行 `unsubscribe()` 操作，再关闭程序。
 
 ### 基本使用
 
@@ -263,9 +262,9 @@ cb | function | 参数可选，取消收听某频道成功或失败都会回调�
 ### 使用示例
 
 ```javascript
-yunba.unsubscribe({'topic': 'my_topic'}, function (success, data) {
+yunba.unsubscribe({'topic': 'my_topic'}, function (success, msg) {
     if (!success) {
-        console.log(data);
+        console.log(msg);
     }
 });
 ```
