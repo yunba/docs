@@ -13,8 +13,6 @@
 
 ## 方法
 
-支持ssl，下面例子需用 https://rest.yunba.io 替代 http://rest.yunba.io:8080 即可。
-
 ### HTTP GET
 
 ```url
