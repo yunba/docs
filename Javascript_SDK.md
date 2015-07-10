@@ -110,7 +110,9 @@ yunba.init(function (success) {
 ## connect
 
 ### 说明
-**兼容旧版本接口，无法保存会话状态（包括离线消息、已订阅的频道和别名），推荐使用connect_by_customid代替。**
+**兼容旧版本接口，无法保存会话状态（包括离线消息、已订阅的频道和别名），推荐使用 connect_by_customid 代替。**
+
+**在浏览器支持并开启 cookie 的情况下，会自动生成一个 uid 并保存到 cookie 中然后进行 connect_by_customid 连接，若不支持或没开启 cookie 则只会进行普通的 connect 连接。**
 
 yunba 实例初始化后只表明与服务器建立了 socket 连接，还需要通过 `connect()`方法连接上消息服务器。连接上消息服务器后才开始收发消息。
 
@@ -139,6 +141,8 @@ yunba.connect(function (success, msg) {
 
 ### 说明
 与connect功能一致，不同的是此接口使用特定的会话ID进行连接，连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。
+
+**同时使用多个相同 customid 进行连接时只有一个连接是有效的。**
 
 ### 基本使用
 
