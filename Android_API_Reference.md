@@ -192,7 +192,7 @@ aps.put("alert", "msg from android中文");
 apn_json.put("aps", aps);
 opts.put("apn_json", apn_json);
 	
-YunBaManager.publish2(getApplicationContext(), topic, msg,
+YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
@@ -285,7 +285,7 @@ aps.put("badge", 9);
 aps.put("alert", "msg from android中文");
 apn_json.put("aps", aps);
 opts.put("apn_json", apn_json);
-YunBaManager.publish2ToAlias(getApplicationContext(), topic, msg,
+YunBaManager.publish2ToAlias(getApplicationContext(), topic, msg, opts,
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
