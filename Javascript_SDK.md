@@ -432,14 +432,14 @@ yunba.set_alias(alias, cb);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 obj  | object | 参数必选，obj 含有一个属性字段，为要设置的 别名(obj.alias:string)。obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过50个字符。
-cb   | function | 参数可选，无论 alias 是否设置成功都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示 alias 设置成功，否则为失败。如果失败，则返回错误消息 msg。
+cb   | function | 参数可选，无论 alias 是否设置成功都会回调此函数。传递回的参数有 data。data.success 值为 true 表示 alias 设置成功，否则为失败。如果失败，则返回错误消息 data.msg。
 
 ### 使用示例
 
 ```javascript
-yunba.set_alias({'alias': 'my_alias'}, function (success, msg) {
-    if (!success) {
-        console.log(msg);
+yunba.set_alias({'alias': 'my_alias'}, function (data) {
+    if (!data.success) {
+        console.log(data.msg);
     }
 });
 ```
