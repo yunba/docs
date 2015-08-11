@@ -46,9 +46,9 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=5316bd7179
 
 APN部分，参见苹果官方说明。 [Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")
 
-如果在opts中没有出现apn_json项时，就不会发送APN。
+如果在 opts 中没有出现 apn_json 项时，就不会发送 APN。
 
-
+如果 opts 中 apn_json 项对应的内容为空（即为 ""） 时，也不会发送 APN。
 
 例子:
 
