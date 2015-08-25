@@ -208,7 +208,7 @@ yunba.set_message_cb(cb)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- |  -----------
-cb | function | 参数必选, 通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)
+cb | function | 参数必选, 通过该回调函数监听所收听频道的推送消息。传递回来的参数为 data 是一个 object，含有消息频道(data.topic)与消息内容(data.msg)。如果消息为 presence 消息，data 中会多一个 presence 字段，其中包含 action、alias 和 timestamp。
 
 ### 使用示例
 
@@ -234,12 +234,39 @@ yunba.subscribe(obj,cb)
 名称 | 类型 | 说明
 --------- | ------- |  -----------
 obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 1）
-cb  | functon | 参数可选，收听成功或失败后的回调函数。传递回来的参数有 success、granted，sucees 为 true 表示收听成功，否则收听失败。如果收听成功则返回 granted，granted 为一个 object，含有两个字段，分别为收听的频道名称（granted.topic）和该频道的 qos 级别(granted.qos)
+cb  | functon | 参数可选，收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg
 
 ### 使用示例
 
 ```javascript
 yunba.subscribe({'topic': 'my_topic'}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
+## subscribe_presence
+
+### 说明
+调用此函数 `subscribe_presence()` 来监听 Topic 下面所有的用户的别名状态的变化，成功后用户状态一旦发生变化会向 Topic + '/p' 频道发送消息。
+
+### 基本使用
+
+```javascript
+yunba.subscribe_presence(obj,cb)
+```
+	
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- |  -----------
+obj | object |  参数必选，obj 包含两个字段，obj.topic 表示准备收听的频道，obj.qos 表示 qos 级别（可选，默认为 1）
+cb  | functon | 参数可选，收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg
+
+### 使用示例
+
+```javascript
+yunba.subscribe_presence({'topic': 'my_topic'}, function (success, msg) {
     if (!success) {
         console.log(msg);
     }
@@ -272,6 +299,34 @@ yunba.unsubscribe({'topic': 'my_topic'}, function (success, msg) {
     }
 });
 ```
+
+## unsubscribe_presence
+
+### 说明
+调用此函数 `unsubscribe_presence()` 来取消监听 Topic 下面所有的用户的别名状态的变化。
+
+### 基本使用
+
+```javascript
+yunba.unsubscribe_presence(obj,cb)
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+obj | object | 参数必选，目前版本之要求 obj 包含一个属性字段为 topic，即准备取消收听的频道
+cb | function | 参数可选，取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg
+
+### 使用示例
+
+```javascript
+yunba.unsubscribe_presence({'topic': 'my_topic'}, function (success, msg) {
+    if (!success) {
+        console.log(msg);
+    }
+});
+```
+
 
 ## publish
 
