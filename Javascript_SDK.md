@@ -396,7 +396,7 @@ yunba.publish2({
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | number | 如果不填，默认为 1
-apn_json | dict | 如果不填，则不会发送APN
+apn_json | dict | 如果不填，则不会发送APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
 messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
 time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
 
