@@ -555,39 +555,6 @@ yunba.get_state(alias, function (data) {
 });
 ```
 
-## get_state2
-
-### 说明
-可以通过 `get_state2()` 查看在线状态。
-该方法与 get_state 功能相同，参数新增 messageId，回调函数会返回该 messageId。
-
-### 基本使用
-
-```javascript
-yunba.get_state2({
-    'alias': alias,
-    'messageId': messagdId
-},cb)
-```
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-obj | object |  参数必选，obj 含有两个属性字段，分别为要查询状态的 Alias(obj.alias:string)、MessageId(obj.messageId:number/string)
-cb | function | 参数可选，无论查询结果如何都会回调此函数。传递回的参数有 success、data、data.messageId、error_msg。查询成功 success 为 true 否则为 false，data 表示在线状态，success 为 false 时 error_msg 有效。
-
-### 使用示例
-
-```javascript
-yunba.get_state('my_alias', function (data) {
-    if (data.success) {
-        console.log(data.data);
-    } else {
-        console.log(data.error_msg);
-    }
-});
-```
-
 ## get_topic_list
 
 ### 说明
@@ -619,41 +586,6 @@ yunba.get_topic_list('my_alias', function (success, data) {
 });
 ```
 
-## get_topic_list2
-
-### 说明
-可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表，如果输入参数 alias，则是获取目标 alias 的频道列表。
-该方法与 get_topic_list 功能相同，参数新增 messageId，回调函数会返回该 messageId。
-
-### 基本使用
-
-```javascript
-yunba.get_topic_list2(alias, cb)
-```
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-obj | object |  参数必选，obj 含有两个属性字段，分别为要查询的的 Alias(obj.alias:string)、MessageId(obj.messageId:number/string)
-cb | function | 无论查询结果如何都会回调此函数。传递回的参数有 success、data.topics、data.messageId、error_msg。查询成功 success 为 true 否则为 false，data.topics 为订阅的 `topic` 列表，类型 List，success 为 true 时有效，success 为 false 时 error_msg 有效。
-
-### 使用示例
-
-```javascript
-yunba.get_topic_list2({
-        'alias': 'my_alias',
-        'messageId': '123456789'
-    }, function (success, data) {
-    if (success) {
-        data.topics.forEach(function (topic) {
-            console.log(topic);
-        });
-    } else {
-        console.log(data.error_msg);
-    }
-});
-```
-
 ## get_alias_list
 
 ### 说明
@@ -675,44 +607,6 @@ cb | function | 无论查询结果如何都会回调此函数。传递回的参�
 
 ```javascript
 yunba.get_alias_list('my_topic', function (success, data) {
-    if (success) {
-        data.alias.forEach(function (alias) {
-            console.log(alias);
-        });
-    } else {
-        console.log(data.error_msg);
-    }
-});
-```
-
-## get_alias_list2
-
-### 说明
-通过调用此函数可以获取订阅该 topic 下所有用户的别名。
-该方法与 get_alias_list 功能相同，参数新增 messageId，回调函数会返回该 messageId。
-
-### 基本使用
-
-```javascript
-yunba.get_alias_list2({
-    'topic': topic,
-    'messageId': messageId
-}, cb)
-```
-
-### 参数说明
-名称 | 类型 | 说明
---------- | ------- | -----------
-obj | object |  参数必选，obj 含有两个属性字段，分别为要查询的的 目标频道(obj.topic:string)、MessageId(obj.messageId:number/string)
-cb | function | 无论查询结果如何都会回调此函数。传递回的参数有 success、data.alias、、error_msg。查询成功 success 为 true 否则为 false，data.alias 为订阅的 `alias` 列表，类型 List，success 为 true 时有效，success 为 false 时 error_msg 有效。
-
-### 使用示例
-
-```javascript
-yunba.get_alias_list2({
-        'topic': 'my_topic',
-        'messageId': '199900724'    
-    }, function (success, data) {
     if (success) {
         data.alias.forEach(function (alias) {
             console.log(alias);
