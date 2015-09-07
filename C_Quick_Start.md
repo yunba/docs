@@ -19,11 +19,11 @@
 ###1.添加lib以及header到Makefile：
 
 ```c
-INCLUDEPATH = -I/home/yunba/test/cmqtt-sdk/install/include
-LIBPATH = -L/home/yunba/test/cmqtt-sdk/install/lib
+INCLUDEPATH = -I/home/yunba/test/yunba-c-sdk/install/include
+LIBPATH = -L/home/yunba/test/yunba-c-sdk/install/lib
 ```
 
-其中/home/yunba/test/cmqtt-sdk/install是你的yun SDK目录。
+其中/home/yunba/test/yunba-c-sdk/install是你的yun SDK目录。
 ###2.在应用中添加yunba服务。
 在你的代码中应用包含:
 
@@ -95,9 +95,8 @@ int messageArrived(void* context, char* topicName, int topicLen, MQTTClient_mess
 MQTTClient_destroy(&client)
 ```
 
-##怎样获得demo代码
-使用下面命令获得demo代码
+## 例子代码
 
+在 C SDK 目录下 src/samples/stdinpub_present.c 。
 
-打开 <http://yunba.io/developers/> 下载 C demo。
 
