@@ -123,7 +123,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 ### 函数原型
 
 
-`	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction)) `
+`	public static void publish(Context context, String topic, String message,IMqttActionListener mqttAction) `
 
 
 ### 参数说明
