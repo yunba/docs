@@ -206,7 +206,7 @@ data | void* | 消息指针
 ```c
 char buf[100] = "Just test";
 int data_len = strlen(buf);
-rc = MQTTClient_publish(client, topic, data_len, buffer);
+rc = MQTTClient_publish(client, topic, data_len, buf);
 ```
 
 ## MQTTClient_publish_to_alias
