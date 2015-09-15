@@ -22,10 +22,9 @@
 - 通过 presence API 监听灯泡的在线状态；
 - 调用 publish API 发布有关亮度的消息，从而实时控制灯泡的亮度。
 
+###**代码示例**
 假设 Topic 名称为 light_brightness，灯泡的亮度由灭到亮共有10个等级。<br>
 下面列出将灯泡调为中等亮度 (Level 5) 代码示例，包括控制端的 Publish 代码以及灯泡端的 Subscribe 代码。
-
-###**代码示例**
 
 <table border="0">
 
