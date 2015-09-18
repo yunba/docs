@@ -138,3 +138,14 @@
 
 8. 制作完成后，在 Portal 上传APNs证书以激活APN推送功能
 	
+## 对iOS9云巴SDK不能正常注册的暂时解决办法
+
+打开APP的info.plist文件，在文件中加入如下键值（注意键值类型，暂时只能手动添加，没有对应的键可选）（此举是使APP能正常访问云巴的HTTP服务， 云巴将在稍后更新SDK以彻底解决此问题）:  
+
+```
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+</dict>
+```
