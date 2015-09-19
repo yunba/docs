@@ -6,6 +6,8 @@
 这是一个物联网的 Demo。<br>
 演示的是用户使用客户端程序（如移动设备上的 App），通过 Yunba 的服务来远程查看 Wi-Fi 灯泡的状态并实时调节其亮度。
 
+![IoT_light_brightness_3](https://raw.githubusercontent.com/yunba/docs/master/image/for_demo/IoT_light_brightness_3.gif)
+
 ###**开发步骤**
 
 ####**Wi-Fi 灯泡端**
