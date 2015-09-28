@@ -3,10 +3,15 @@
 这是一个 Web Demo，使用 HTML5 和 JavaScript 实现。<br>
 演示的是如何利用云巴的网页实时通信服务来开发实时股票报价的 Web 应用。
 
+
+![Web_stock_quote_2](https://raw.githubusercontent.com/yunba/docs/master/image/for_demo/Web_stock_quote_2.gif)
+
+
 ###**开发步骤**
 
 ####**Server 端**
-- 实时发送股票价格数据到云巴的云端；
+- 集成 Yunba SDK；
+- 起多个 Server 进程，调用 publish API 实时发送多路股价数据到云巴的消息服务器；
 
 ####**Web 应用端**
 - 集成 Yunba SDK；
