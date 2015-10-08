@@ -37,5 +37,3 @@
 
 	![export_p12_password.png](https://raw.githubusercontent.com/yunba/docs/master/image/export_p12_password.png)
 
-8. 制作完成后，在 Portal 上传 APNs 证书以激活 APN 推送功能。
-	
