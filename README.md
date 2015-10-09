@@ -39,13 +39,15 @@ Yunba Documentation
 * **实时统计开发指南** [/tutorials/tutorials_analytics.md]
 * **实时在线开发指南** [/tutorials/tutorials_presence.md]
 
-### 3. SDK 手册 [/sdk]
+### 3. 快速入门 [/quickstart]
 
-### 4. 技术支持 [/support]
+### 4. SDK 手册 [/sdk]
+
+### 5. 技术支持 [/support]
 * **FAQ** [/support/faq.md]
 * **知识库** [/support/knowledge_base]
 * **更新日志** [/support/change_log.md]
 * **技术博客** [/support/blog]
 * **开发论坛** [/support/forum]
 
-### 5. 案例分析 [/demos]
+### 6. 案例分析 [/demos]
