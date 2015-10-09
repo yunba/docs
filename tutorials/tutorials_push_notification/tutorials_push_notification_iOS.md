@@ -35,7 +35,7 @@
 
 ![copy_app_key.png](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
-<aside class="notice">注意使用从 Portal 获取到的 AppKey 替换代码中的 AppKey。</aside>
+**注**: 请使用从 Portal 获取到的 AppKey 替换代码中的 AppKey。
 
 初始化 SDK 并订阅 Topic，在`- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions` 中添加初始化和订阅代码:  
 
