@@ -10,5 +10,5 @@
 
 
 ###**解决方案**
-在 Xcode 开发环境中，找到 Build Settings --> Build Options --> Enable Bitcode 项，将 Yes 改为 No 即可。
+在 Xcode 开发环境中，找到 Product --> Build --> Build Settings --> Build Options --> Enable Bitcode 项，将 Yes 改为 No 即可。
 
