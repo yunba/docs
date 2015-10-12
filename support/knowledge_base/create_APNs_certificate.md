@@ -3,9 +3,9 @@
 
 ### **准备工作**
 
-1. 在生成 APNs 证书之前，请先生成 CSR 文件（CertificateSigningRequest.certSigningRequest）。CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_CSR_file.md "新建 CSR 文件的步骤")。
+1. 制作 APNs 证书时，需要一个 CSR（CertificateSigningRequest.certSigningRequest）文件，来使新生成的推送证书与私钥相匹配。CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_CSR_file.md "新建 CSR 文件的步骤")。
 
-2. 如果您还没有创建 App ID，请参考 [新建 App ID 的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_App_ID.md "新建 App ID 的步骤") 一文，创建一个 App ID，并为 App 开启 Push Notification 功能。如果已经创建过了，可跳过此步，只需在设置页面中确认其 Push Notification 功能已开启即可。
+2. 如果您还没有创建 App ID，请参考 [新建 App ID 的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_App_ID.md "新建 App ID 的步骤") 一文，创建一个 App ID，并为 App 开启 Push Notification 功能。如果已经创建过了，可跳过此步，只需在设置页面中确认该 App 已开启了 Push Notification 功能即可。
 
 ### **详细步骤**
 
@@ -23,16 +23,16 @@
 
 	![before_create_cert.png](https://raw.githubusercontent.com/yunba/docs/master/image/before_create_cert.png)
 
-4. 为证书选择对应需要推送功能的 APP ID，点击继续；
+4. 为证书选择对应需要推送功能的 App ID，点击继续；
 
 	![create_cert_choose_appid.png](https://raw.githubusercontent.com/yunba/docs/master/image/create_cert_choose_appid.png)
 
-5. 制作推送证书时，需要一个 CSR 文件，来使新生成的推送证书与私钥相匹配。在界面上点击“Continue”按钮后，请上传前文提到的 CSR 证书。（CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_CSR_file.md "新建 CSR 文件的步骤")）。
+5. 在界面上点击 Continue 按钮后，请上传前文提到的 CSR 证书。（CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_CSR_file.md "新建 CSR 文件的步骤")）。
 
 	![create_cert_upload_csr.png](https://raw.githubusercontent.com/yunba/docs/master/image/create_cert_upload_csr.png)
 	
 
-6. 点击“Generate”按钮生成 APNs 证书，然后点击“Download”按钮下载即可，点击“Done”按钮完成整个操作。
+6. 点击 Generate 按钮生成 APNs 证书，然后点击 Download 按钮下载即可，点击 Done 按钮完成整个操作。
 
 	![download_created_cert.png](https://raw.githubusercontent.com/yunba/docs/master/image/download_created_cert.png)
 
@@ -47,4 +47,4 @@
 
 	![export_p12_password.png](https://raw.githubusercontent.com/yunba/docs/master/image/export_p12_password.png)
 
-至此，APNs 证书生成完毕。<br>在 Yunba 的 Portal 页面创建新应用时，在 iOS 开发/生产证书处上传这份个人信息交换（.12）即可。
+至此，APNs 证书生成完毕。<br>在 Yunba 的 Portal 页面创建新应用时，在 iOS 开发/生产证书处上传这份个人信息交换（.p12）即可。
