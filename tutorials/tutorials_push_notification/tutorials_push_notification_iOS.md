@@ -76,7 +76,11 @@
 
 **注**: iOS SDK Demo 里已经包含了类似的处理代码。如果您想运行 Demo 程序，无需添加上述代码，只需使用您从 Portal 获取到的 Appkey 替换代码中的 Appkey 即可。另外，iOS Demo 真机调试时可能遇到“不包含 Bitcode”的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_bitcode_error.md "相关文章") 解决。
 
-#####2.3 编译运行即可。
+#####2.3 添加 Bundle ID
+如图所示：
+![tutorials_push_notification_iOS_BundleID.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_BundleID.png)
+
+至此，代码部分添加完毕，编译运行即可。<br>
 需要注意的是，云巴 SDK 1.5.2 之前的版本在 iOS 9 上无法正常注册，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/SDK_registration_problem_on_iOS9.md "相关文章") 解决。
 
 ####3. 发布消息
