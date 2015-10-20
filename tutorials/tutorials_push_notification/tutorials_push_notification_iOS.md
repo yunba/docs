@@ -77,7 +77,9 @@
 **注**: iOS SDK Demo 里已经包含了类似的处理代码。如果您想运行 Demo 程序，无需添加上述代码，只需使用您从 Portal 获取到的 Appkey 替换代码中的 Appkey 即可。另外，iOS Demo 真机调试时可能遇到“不包含 Bitcode”的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_bitcode_error.md "相关文章") 解决。
 
 #####2.3 添加 Bundle ID
-如图所示：
+
+在 Xcode 中添加 Bundle ID，如图所示：
+
 ![tutorials_push_notification_iOS_BundleID.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_BundleID.png)
 
 至此，代码部分添加完毕，编译运行即可。<br>
@@ -87,10 +89,18 @@
 
 这里仅演示在 Portal 上发布消息。如您集成了其他 SDK，或通过 RESTful API，请查阅相应的文档。
 <br>
-选择您在 Portal 上创建的应用，点击“发布消息”，即可向特定的 Topic 发消息，则您的 iOS App 会收到相应的消息。如图所示:  
+选择您在 Portal 上创建的应用，点击“发布消息”，即可向特定的 Topic 发消息，则您的 iOS App 会收到相应的消息。
+<br>
+在 Portal 上发送消息：
 
 ![tutorials_push_notification_iOS_publish.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_publish.png)
 
+<br>
+App 运行时会收到内部消息：
+
 ![tutorials_push_notification_iOS_recvmsg.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_recvmsg.png)
 
-（消息推送图片待续）
+<br>
+App 未运行时会收到推送通知：
+
+![tutorials_push_notification_iOS_push.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_push.png)

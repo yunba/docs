@@ -40,6 +40,9 @@ Yunba Documentation
 * **实时在线开发指南** [/tutorials/tutorials_presence.md]
 
 ### 3. 快速入门 [/quickstart]
+* **运行 Yunba SDK Demo** [/quickstart/demo]
+ - 运行 Yunba Android Demo [/quickstart/demo/Android.md]
+ - 运行 Yunba iOS Demo [/quickstart/demo/iOS.md]
 
 ### 4. SDK 手册 [/sdk]
 
