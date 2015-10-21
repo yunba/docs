@@ -45,7 +45,7 @@
 
 在 Xcode 中打开 Yunba iOS SDK 中的 Demo 工程“YunBaDemo”。
 
-![add_sdk_iOS.png](https://raw.githubusercontent.com/yunba/docs/master/image/add_sdk_iOS.png)
+![ios_xcode.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_xcode.png)
 
 #####2.2 替换代码中的 AppKey
 
