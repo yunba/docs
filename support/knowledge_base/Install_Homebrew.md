@@ -5,6 +5,8 @@
 * Mac OS X 10.11.1
 * Xcode 7.1
 
+###**安装步骤**
+
 1. 打开 [Homebrew 官方网站](http://brew.sh)，并根据提示，在 Mac 的 Terminal 中输入安装的指令：
 
  ```
@@ -12,7 +14,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 
 
-2. 打开 Xcode 同意相关的许可文件，或在 Terminal 中输入如下指令，再重新执行安装命令。
+2. 打开 Xcode，同意相关的许可文件，或在 Terminal 中输入如下指令，根据提示输入系统密码，再重新执行上一步的安装命令。
 
  ```
 sudo xcodebuild -license
