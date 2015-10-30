@@ -7,8 +7,7 @@
 
 ###**安装步骤**
 
-1. 参考 [如何安装 Homebrew 一文](https://github.com/yunba/docs/edit/master/support/knowledge_base/Install_Homebrew.md)，
-安装 Homebrew。
+1. 参考 [如何安装 Homebrew 一文](https://github.com/yunba/docs/blob/master/support/knowledge_base/Install_Homebrew.md)，安装 Homebrew。
 
 2. 在 Mac 的 Terminal 中输入如下指令，即可自动下载安装 nginx，以及相关的 dependencies。
  ```

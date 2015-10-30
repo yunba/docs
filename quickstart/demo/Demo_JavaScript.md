@@ -13,7 +13,7 @@
 
 ####1. 安装 nginx
 参考 [如何安装 nginx 一文](https://github.com/yunba/docs/blob/master/support/knowledge_base/Install_nginx.md)，
-安装 nginx
+安装 nginx。
 <br>
 ####2. 下载云巴 JavaScript SDK
 打开 [云巴开发者页面](http://yunba.io/developers "云巴开发者页面")，下载最新版本的 JavaScript SDK。
@@ -24,7 +24,7 @@
 ###**详细步骤**
 
 ####1. 在云巴 Portal 上创建新应用
-请参考 [Yunba Android Demo](https://github.com/yunba/docs/edit/master/quickstart/demo/Demo_Android.md) 
+请参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 
 一文中的该步骤的做法，获得一个 AppKey。
 
 
@@ -56,6 +56,34 @@
 ```
 ####4. 运行 Demo
 打开 Mac 的 Terminal，输入 nginx，启动 nginx。在浏览器中打开 “locahost:8080”，即可运行。
+例如，订阅了“news”，即可收到“news”频道下的消息。
+
+![javascript_sub.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_sub.png)
+
+发布消息的界面如下：
+
+![javascript_pub.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_pub.png)
+
+可通过 Set Alias 设置自己的别名：
+
+![javascript_set_alias.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_set_alias.png)
+
+设置成功后，即可收到发给该别名的消息：
+
+![javascript_alias_msg.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_alias_msg.png)
+
+还可以查询某个用户订阅的频道列表和用户的在线状态，以及某个频道下所有用户别名:
+
+![javascript_alias_list.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_alias_list.png)
+
+返回的结果如下：
+
+![javascript_alias_list_msg.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/javascript_alias_list_msg.png)
+
+
+
+
+
 
 
 
