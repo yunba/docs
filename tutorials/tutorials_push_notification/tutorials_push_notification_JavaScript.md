@@ -26,8 +26,6 @@ Chrome 可使用自带的 JavaScript Console，其它浏览器可能需要安装
 var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: 'XXXXXXXXXXXXXXXXXXXXXXXX'});
 ```
 
-将上面的例子扩展一下，就可以利用 Yunba 的服务实现 JavaScript 和其他平台之间的实时通讯。
-
 
 #### 2.2 初始化并连接消息服务器
 
