@@ -1,6 +1,4 @@
-
-## **运行 Yunba iOS Demo**
----
+# 运行 Yunba iOS Demo
 
 本文介绍如何运行 Yunba iOS SDK 中的 Demo 示例程序。
 <br>
@@ -10,21 +8,21 @@
 * Xcode 7.0.1
 * YunBa iOS SDK 1.5.2
 
-###**准备工作**
+## 准备工作
 
-####1. 生成 APNs 证书
+###1. 生成 APNs 证书
 请参考 [生成 APNs 证书的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_APNs_certificate.md "生成 APNs 证书的步骤") 一文，先生成 APNs 证书。
 <br>
-####2. 下载云巴 iOS SDK
+###2. 下载云巴 iOS SDK
 打开 [云巴开发者页面](http://yunba.io/developers "云巴开发者页面")，下载最新版本的 iOS SDK。iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。
 <br>
-####3. 注册云巴开发者账号
+###3. 注册云巴开发者账号
 打开 [云巴官方网站](http://yunba.io "云巴官方网站")，点击右上角的“注册”按钮创建账号。  
 
 
-###**详细步骤**
+## 详细步骤
 
-####1. 创建新应用
+###1. 在云巴 Portal 上创建新应用
 注册成功后，页面会跳转到“我的应用”界面，点击 我的应用 --> 创建新应用。
 
 ![create_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
@@ -39,19 +37,19 @@
 ![copy_app_key.png](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
 
-####2. 运行 Yunba iOS Demo 工程
+###2. 运行 Yunba iOS Demo 工程
 
-#####2.1 打开 YunBaDemo 工程
+####2.1 打开 YunBaDemo 工程
 
 在 Xcode 中打开 Yunba iOS SDK 中的 Demo 工程“YunBaDemo”。
 
 ![ios_xcode.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_xcode.png)
 
-#####2.2 替换代码中的 AppKey
+####2.2 替换代码中的 AppKey
 
 iOS SDK Demo 里已经包含了类似的处理代码，您无需添加代码，只需使用您从 Portal 获取到的 Appkey 替换代码中的 Appkey 即可。
 
-#####2.3 添加 Bundle ID
+####2.3 添加 Bundle ID
 
 在 Xcode 中添加 Bundle ID，如图所示：
 
@@ -63,7 +61,7 @@ iOS SDK Demo 里已经包含了类似的处理代码，您无需添加代码，�
 <br>
 **注**：云巴 SDK 1.5.2 以及 1.5.2 之前的版本在 iOS 9 上无法正常注册，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/SDK_registration_problem_on_iOS9.md "相关文章") 解决。
 
-####4. 发布消息
+###4. 发布消息
 
 选择您在 Portal 上创建的应用，点击“发布消息”，即可向特定的 Topic 发消息，则您的 iOS App 会收到相应的消息。
 <br>
