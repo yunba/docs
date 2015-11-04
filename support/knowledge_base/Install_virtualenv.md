@@ -1,6 +1,6 @@
 # 如何安装 virtualenv
 
-本文简单���介下绍如何在 Mac 下安装使用 virtualenv。<br>
+本文简单介绍下如何在 Mac 下安装和使用 virtualenv。<br>
 本文涉及的安装环境：
 * Mac OS X 10.11.1
 * pip 7.1.2
