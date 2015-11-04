@@ -1,12 +1,12 @@
-#如何安装 virtualenv
----
+# 如何安装 virtualenv
 
+本文简单���介下绍如何在 Mac 下安装使用 virtualenv。<br>
 本文涉及的安装环境：
 * Mac OS X 10.11.1
 * pip 7.1.2
 * virtualenv 13.1.2
 
-##**安装步骤**
+## 安装步骤
 
 1. 在 Mac 的 Terminal 中输入如下命令，安装 pip。根据提示，输入系统密码后，即可自动进行下载和安装。
 
