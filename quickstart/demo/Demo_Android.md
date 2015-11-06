@@ -1,6 +1,5 @@
+# 运行 Yunba Android Demo
 
-## **运行 Yunba Android Demo**
----
 
 本文介绍如何在 Android Studio 中运行 Yunba Android SDK 中的 Demo 示例程序。
 <br>
@@ -11,9 +10,9 @@
 * Android SDK 4.0.3 (API 15)
 * YunBa Android SDK 1.4.5
 
-###**详细步骤**
+## 详细步骤
 
-####1. 在云巴 Portal 上创建新应用
+###1. 在云巴 Portal 上创建新应用
 打开云巴官方网站，注册并登录。
 <br>
 点击界面右上角“我的应用 --> 创建新应用”。
@@ -26,14 +25,14 @@ Yunba Android Demo 的应用包名（PackageName）为："io.yunba.example"。
 
 ![android_portal_info.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/android_portal_info.png)
 
-####2. 修改 AndroidManifest.xml 文件
+###2. 修改 AndroidManifest.xml 文件
 用文本编辑器打开 YunBa-Android-sdk 中的 AndroidManifest.xml 文件，进行如下修改：
 <br>
 将 line 3 和 line 78 "Your PackageName" 修改为："io.yunba.example"；
 <br>
 将 line 83 的 "Your AppKey" 修改为之前从 Portal 中获取到的 AppKey。
 
-####3. 引入 Android Demo 工程
+###3. 引入 Android Demo 工程
 云巴官网提供的 Android Demo 是 Eclipse 下的工程，
 引入 Android Studio 时，需在其 Welcome 界面选择 Import project (Eclipse ADT, Gradle, etc.) 选项。
 <br>
@@ -62,7 +61,7 @@ Yunba Android Demo 的应用包名（PackageName）为："io.yunba.example"。
 是因为 Android Studio 不像 Eclipse 那样，只在 Manifest 里面定义 Package Name 等内容。
 如果先引入再修改的话，还会涉及其他地方的修改。这里不再赘述。
 
-####4. 编译运行
+###4. 编译运行
 Android Demo 中已经包含了相关的处理代码，您无需添加代码即可测试。
 连接 Android 手机并设置开发者模式。在 Android Studio 中，把 Run Target 设为 USB device，然后 Rebuild 工程，Run 即可。
 <br>
