@@ -41,13 +41,17 @@
 
 ## 详细步骤
 
-###1. 在云巴 Portal 上创建新应用
-请参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 
-一文中的该步骤的做法，获得一个 AppKey。
 
-###2. 修改 Python 程序
+###1. 申请 AppKey
+
+为了演示消息收发的功能，我们先准备好一个集成了云巴 SDK 的客户端程序，之后与 Python 的 Demo 进行通讯。
+<br>
+例如，就使用 Yunba Android SDK 中提供的 Demo 程序，
+其创建方法可参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文。在 Portal 上创建新应用后，会获得一个 AppKey。
+
+###2. 创建 Python 程序
 新建一个文本文件，保存下面的 Python 示例程序。比如取名为 python_demo.py。
-将代码中的 appkey 替换为步骤 1 中从 Portal 获得的 AppKey。<br>
+将代码中的“appkey”替换为步骤 1 中获得的 AppKey。只有这两个客户端使用同一个 AppKey，才能相互通信。<br>
 
 ```python
 from socketIO_client import SocketIO
@@ -156,21 +160,14 @@ socketIO.wait()
 
 ```
 
-###3. 准备好与之通讯的客户端
+###3. 收发消息
 
-为了演示消息收发的功能，我们用同一个 AppKey 来创建一个新的集成了云巴 SDK 的客户端程序，与之进行通讯。
-<br>
-例如，就使用 Yunba Android SDK 中提供的 Demo 程序，使用 python_demo 中的 AppKey 替换 Android Demo 中的 AppKey。
-创建方法可参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文。
-<br>
 为了收到 python_demo 发来的消息，需在 Android Demo 端订阅“testtopic2”、“t2thi”，
 并将别名设置为 “alias_mqttc_sub”，如图所示：
 
 ![socketio_client_setting.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/socketio_client_setting.png)
 
-###4. 收发消息
-
-在 Mac Terminal 中，激活虚拟环境。假设 python 文件就在当前路径下，在虚拟环境下，运行 python_demo.py，如下：
+准备好后，开始运行 Python 的 Demo。在 Mac Terminal 中，激活虚拟环境。假设 Python 文件就在当前路径下，在虚拟环境下，运行 python_demo.py，如下：
 
 >$ source $VIRTUAL_ENV/bin/activate
 
