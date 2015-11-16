@@ -126,6 +126,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 ```
 
 发送后，返回信息格式如下。从这个信息中可以看出，发送给 Jack 的消息成功了。但由于没有找到叫 Rose 的客户端，发给 Rose 的消息没有成功。
+
 **注**：别名设置的逻辑是，新设置的别名会取代之前设置的别名。
 
 ```bash
@@ -137,7 +138,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 下面这个例子演示了 `publish_async` 的使用。`publish_async` 和 `publish` 的不同之处在于前者是异步的，会立即返回，而后者则要等操作完成后才能返回。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "topic":"news", "msg":"512619373110763520"}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"56251969be17bc415cfbf2a1", "seckey":"sec-7qsfITZyCHJeZiEXCJXSzokedysIuDXj6foWr3PcLOPGQekz", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
 ```
 
 调用成功后，会收到如下格式的返回信息，详见文末的状态参数说明：
