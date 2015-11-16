@@ -144,6 +144,8 @@ yunba.connect(function (success, msg) {
 
 **同时使用多个相同 customid 进行连接时只有一个连接是有效的。**
 
+**注**：customid 和 alias 没有任何关系，如果想通过 customid 发消息，还需要将 alias 设置为 customid。参见 `set_alias()`。
+
 ### 基本使用
 
 ```javascript
