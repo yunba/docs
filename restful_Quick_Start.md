@@ -89,6 +89,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 注意:
 
 * <method\>: 目前只支持"publish"， "publish_to_alias"，"publish_to_alias_batch"，"publish_async"，"publish_check"。
+* 请不要使用 publish2 方法。publish 方法本身就可以带 opts 参数，带上参数后，就相当于 publish2。
 
 ## 发送状态回复
 
