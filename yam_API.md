@@ -1,25 +1,18 @@
 # YAM (Yunba Access Manager) API
 
-  默认情况下 YAM 是关闭的，用户有publish或者subscribe的权限，当打开YAM,默认是没有任何权限的，必须要设置 YAM 相关权限
-## YAM级别的说明
+  默认情况下 YAM 是关闭的，用户有 Publish 或者 Subscribe 的权限。当打开 YAM，默认是没有任何权限的，必须要设置 YAM 相关权限。
+  
+## YAM 级别的说明
 
 YAM 分为三个级别：
 
-* app level 控制所有用户对此应用的所有topic有publish或者subscribe的权限
-* channel level 控制所有用户对此应用的某一topic 有publish或者subscribe的权限
-* auth_key level/user level 控制某一或者某一组用户对此应用的某一channel有publish或者subscribe的权限
+* app level 控制所有用户对此应用的所有 Topic 有 Publish 或者 Subscribe 的权限
+* channel level 控制所有用户对此应用的某一 Topic 有 Publish 或者 Subscribe的权限
+* auth_key level/user level 控制某一或者某一组用户对此应用的某一 Channel 有 Publish 或者 Subscribe 的权限
 
-上面三个level优先级从高到低，优先获取优先级高的权限控制
+上面三个 level 优先级从高到低，优先获取优先级高的权限控制
 
 ## API使用说明
-
-外部访问通过HTTP POST即可。
-
-URL为：
-
-```url
-http://abj-tfs-2:8181
-```
 
 ### YAM授权
 
@@ -32,7 +25,7 @@ http://abj-tfs-2:8181
 * channel level
 
 ```json
-{"cmd":"grant","level":"subkey","app_key":"<your-app-key>","secret_key":"<your-sec-key>","r":<access>,"w":<access>,"ttl":"<time-to-live>"}
+{"cmd":"grant","level":"channel","app_key":"<your-app-key>","secret_key":"<your-sec-key>","r":<access>,"w":<access>,"ttl":"<time-to-live>"}
 ```
 
 * user level
@@ -41,9 +34,9 @@ http://abj-tfs-2:8181
 {"cmd":"grant","level":"user","app_key":"<your-app-key>","secret_key":"<your-sec-key>","r":<access>,"w":<access>,"ttl":"<time-to-live>","channels":"<your-topic>","auth_key":"<your-auth-key>"}
 ```
 
-其中<access>为 1 或 0．<time-to-live>单位为分钟，为 0 表示永不失效。
+其中`<access>`为 1 或 0。`<time-to-live>`单位为分钟，为 0 表示永不失效。
 
-### YAM撤销授权
+### YAM 撤销授权
 
 * app level
 
@@ -63,7 +56,7 @@ http://abj-tfs-2:8181
 {"cmd":"revoke","level":"user","app_key":"<your-app-key>","secret_key":"<your-sec-key>","channels":"<your-topic>","auth_key":"<your-auth-key>"}
 ```
 
-### YAM查看授权
+### YAM 查看授权
 
 * app level
 
@@ -108,9 +101,9 @@ response:
 ```
 
 
-其中<access>为 1 或 0
+其中`<access>`为 1 或 0。
 
-### auth key的设置/取消/查看
+### auth key 的设置/取消/查看
 
 * 设置
 
@@ -154,7 +147,7 @@ response:
 {"status":0}
 ```
 
-## response错误说明
+## response 错误说明
 
 * 错误的参数
 
@@ -174,13 +167,13 @@ response:
 {"status":3}
 ```
 
-* 错误的auth key
+* 错误的 auth key
 
 ```json
 {"status":4}
 ```
 
-* YAM没有使能
+* YAM 没有使能
 
 ```json
 {"status":5}
