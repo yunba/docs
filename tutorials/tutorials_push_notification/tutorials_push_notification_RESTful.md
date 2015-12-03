@@ -105,10 +105,24 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 * platform：该参数暂未实现。
 * time_delay：该参数暂未实现。
 * location：该参数暂未实现。
-* qos：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。详见 [官方文档](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718099)。
-* apn_json：APN 部分，请参考苹果官方说明——[Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")。
+* qos：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见 [官方文档](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718099) 或云巴知识库的 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 篇。
+<br><br>
 
+APN 部分参数举例如下，详见 [苹果官方说明](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)。
 
+```json
+"opts":	{
+	"qos": 1,
+	"time_to_live":36000,
+	"apn_json":{
+		"aps":	{
+				"alert":"yunba",
+				"badge":3,
+				"sound":"bingbong.aiff"
+			}
+	}
+}
+```
 
 ####2.3 发送状态回复
 
