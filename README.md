@@ -5,6 +5,7 @@ Yunba Documentation
 
 - 文档采用 github 兼容 markdown 格式编写。
 - 中英文中间要加空格，遇到标点、斜杠等字符时可以省略空格。例如：“Yunba 实时消息、Yunba 的 Android/iOS 消息推送。”
+- 超链接的文本的前后要加上空格。
 - 中英文标点不要混用。中文文档内容统一使用中文标点，英文文档统一使用英文标点。
 - 专用名词统一。特别是中英文翻译，使用统一的对照表。
 - API 输入参数使用表格描述。
@@ -17,40 +18,44 @@ Yunba Documentation
 
 例如：Android_QuickStart.md
 
+## 文档细节规范
+- 提到某个函数时，用：`函数名`。例如，`subscribe()`。
+- 命令行，用“>”引言表示。例如，> $ sudo easy_install pip
+- 不便透露的内容，用大写的 X 表示。例如，appkey:"XXXXXX"
+- 注意事项另起一行，这样写：**注**：XXXX。
+- 标题为 # 级别，以此类推。
+- 需要用到序号时，使用：1. 1.1 1.2  样式
 
 ## 文档目录结构
 
 ### 1. 产品介绍 ［/products］
-* **产品简介** [/products/product_briefing.md]
-* **消息推送概述** [/products/briefing_push_notification.md]
-* **实时消息概述** [/products/briefing_realtime_messaging.md]
-* **实时统计概述** [/products/briefing_analytics.md]
-* **实时在线概述** [/products/briefing_presence.md]
+* [产品简介](https://github.com/yunba/docs/blob/master/products/product_briefing.md)
+* 消息推送概述 [/products/briefing_push_notification.md]
+* 实时消息概述 [/products/briefing_realtime_messaging.md]
+* 实时统计概述 [/products/briefing_analytics.md]
+* 实时在线概述 [/products/briefing_presence.md]
 
 ### 2. 开发指南 ［/tutorials］
-* **消息推送开发指南** [/tutorials/tutorials_push_notification]
- - 消息推送开发指南之 Android 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_Android.md]
- - 消息推送开发指南之 iOS 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_iOS.md]
- - 消息推送开发指南之 C 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_C.md]
- - 消息推送开发指南之 JavaScript 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_JavaScript.md]
- - 消息推送开发指南之 Socket.io 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_SocketIO.md]
- - 消息推送开发指南之 RESTful 篇[/tutorials/tutorials_push_notification/tutorials_push_notification_RESTful.md]
-* **实时消息开发指南** [/tutorials/tutorials_realtime_messaging.md]
-* **实时统计开发指南** [/tutorials/tutorials_analytics.md]
-* **实时在线开发指南** [/tutorials/tutorials_presence.md]
+* 消息推送开发指南 [https://github.com/yunba/docs/tree/master/tutorials/tutorials_push_notification]
+* 实时消息开发指南 [/tutorials/tutorials_realtime_messaging]
+* 实时统计开发指南 [/tutorials/tutorials_analytics]
+* 实时在线开发指南 [/tutorials/tutorials_presence]
 
 ### 3. 快速入门 [/quickstart]
-* **运行 Yunba SDK Demo** [/quickstart/demo]
- - 运行 Yunba Android Demo [/quickstart/demo/Android.md]
- - 运行 Yunba iOS Demo [/quickstart/demo/iOS.md]
+* 运行 Yunba SDK Demo [/quickstart/demo]
+ - [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md)
+ - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
+ - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
+ - [运行 Yunba Socket.io Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO.md)
+ - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
 
 ### 4. SDK 手册 [/sdk]
 
 ### 5. 技术支持 [/support]
-* **FAQ** [/support/faq.md]
-* **知识库** [/support/knowledge_base]
-* **更新日志** [/support/change_log.md]
-* **技术博客** [/support/blog]
-* **开发论坛** [/support/forum]
+* [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
+* [云巴知识库](https://github.com/yunba/kb/tree/master)
+* 更新日志 [/support/change_log]
+* 技术博客 [/support/blog]
+* 开发论坛 [/support/forum]
 
 ### 6. 案例分析 [/demos]
