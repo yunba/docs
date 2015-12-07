@@ -2,13 +2,22 @@
 
 本文以 Python 为例，演示 Yunba Socket.io API 的使用。
 <br>
-本文涉及的运行环境如下：
-
+本文涉及的运行环境如下
+<br>
+Mac 平台：
 * Mac OS X 10.11.1
 * virtualenv 13.1.2
 * socketIO-client 0.6.5
+<br>
+<br>
 
-## 准备工作
+Windows 平台：
+* Windows 8.1
+* python-2.7.10
+* pip-7.1.2
+* socketIO-client 0.6.5
+
+## 准备工作——Mac 平台
 
 ###1. 安装 virtualenv
 参考 [如何安装 virtualenv](https://github.com/yunba/docs/blob/master/support/knowledge_base/Install_virtualenv.md) 一文，
@@ -38,6 +47,48 @@
 
 ###3. 注册云巴开发者账号
 打开 [云巴官方网站](http://yunba.io "云巴官方网站")，点击右上角的“注册”按钮创建账号。  
+
+## 准备工作——Windows 平台
+
+###1. 配置 python 运行环境
+
+####安装 python2.7
+下载相应版本的 msi 文件：[官网下载地址](https://www.python.org/downloads/) 。
+
+####安装 setuptools 工具
+点击并复制该文件：[setup.py](https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py) 
+，粘贴到一个新建的 py 文件。例如：D:\Python\setup.py 
+
+####安装 pip
+ [下载 pip 文件](https://pypi.python.org/pypi/pip#downloads) 并安装。打开 CMD，到安装目录下执行：
+ >python setup.py install
+
+
+####添加环境变量 path
+建议把 pip 的安装路径添加到环境变量 path 中，例如";D:\Python\Scripts"。方便以后安装其它 python 库。
+
+###2. 安装 socket.io-client
+打开 CMD，按照 [socketIO-client 官方网站](https://pypi.python.org/pypi/socketIO-client) 的说明，输入如下命令：
+<br>
+<br>
+创建一个虚拟路径:
+>virtualenv  VIRTUAL_ENV
+
+执行成功后会生成一个 VIRTUAL_ENV 文件夹。
+<br>
+<br>
+激活虚拟路径:
+
+执行CMD 进入 activate.bat 所在路径，输入
+>start activate.bat
+
+激活后，命令行的开头处会显示出虚拟环境的名称“VIRTUAL_ENV”。
+<br>
+<br>
+用下面的命令安装 socketIO-client:
+>pip install -U socketIO-client
+
+有关 virtualenv 的详细用法，请参考 [virtualenv 的官方文档](https://virtualenv.pypa.io/en/latest/userguide.html) 。
 
 ## 详细步骤
 
