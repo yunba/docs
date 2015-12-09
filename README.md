@@ -36,7 +36,7 @@ Yunba Documentation
 * 实时在线概述 [/products/briefing_presence.md]
 
 ### 2. 开发指南 ［/tutorials］
-* 消息推送开发指南 [https://github.com/yunba/docs/tree/master/tutorials/tutorials_push_notification]
+* [消息推送开发指南](https://github.com/yunba/docs/tree/master/tutorials/tutorials_push_notification)
 * 实时消息开发指南 [/tutorials/tutorials_realtime_messaging]
 * 实时统计开发指南 [/tutorials/tutorials_analytics]
 * 实时在线开发指南 [/tutorials/tutorials_presence]
@@ -45,6 +45,7 @@ Yunba Documentation
 * 运行 Yunba SDK Demo [/quickstart/demo]
  - [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md)
  - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
+ - [运行 Yunba C Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_C.md)
  - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
  - [运行 Yunba Socket.io Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO.md)
  - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
