@@ -23,11 +23,15 @@
 
 ---
 * 云巴对 MQTT 协议做了哪些扩展？
-* 请参考我们的 [Porting 文档](https://github.com/yunba/docs/blob/master/yunba_MQTT_porting.md)
+* 请参考我们的 [Porting 文档](https://github.com/yunba/docs/blob/master/yunba_MQTT_porting.md)。
 
 ---
 * 云巴有哪些产品？
 * Android、iOS 消息推送（集成 APNs），跨平台双向实时通信，实时查看统计信息，实时获取在线状态。
+
+---
+* 云巴能用在 Web 上吗？
+* 可以。云巴支持 socket.io 协议。请参考官网上的 [socket.io API](http://yunba.io/docs2/socket.io_API/)、[RESTful API](http://yunba.io/docs2/restful_Quick_Start/) 及 [JavaScript SDK](http://yunba.io/docs2/Javascript_SDK/) 文档。
 
 ---
 * 云巴系统可以用来发短信吗？
@@ -59,7 +63,7 @@
 * [云巴的离线消息是怎样的？](https://github.com/yunba/kb/blob/master/云巴的离线消息是怎样的.md)
 
 ---
-* 云巴的消息送达率是多数？
+* 云巴的消息送达率是多少？
 * 理论上送达率是百分之百。所有消息都会跟踪状态，只要终端能上线，消息一定能送达。
 
 ---
@@ -72,7 +76,7 @@
 
 ---
 * 发送的消息大小有什么限制吗？
-* 消息大小建议不要超过 2K。
+* 建议不要超过 2K。
 
 ---
 * 支持发送语音、图片、视频吗？
@@ -107,6 +111,10 @@
 * 只要订阅了就会收到。
 
 ---
+* 是不是订阅一次就可以永久有效？
+* 是。
+
+---
 * 频道的数量有限制吗？
 * 没有。
 
@@ -122,7 +130,21 @@
 * 云巴可以定点推送给某个设备吗？
 * 可以，请参考 [别名（alias）的相关文档](https://github.com/yunba/kb/blob/master/频道和别名.md)。
 
+---
+* 推送的消息出现乱码是什么原因？
+* 云巴采用二进制透传，不对消息做任何处理。如果出现乱码，请自行检查应用的编码解码程序。
 
+---
+* 使用云巴 SDK，怎样实现不同平台之间的通讯呢？
+* 在云巴官网 Portal 创建新应用，创建后得到一个 AppKey，在不同平台上使用同一个 AppKey，即可互相通讯。
+
+---
+* 不同 AppKey 之间可以互相通信吗？
+* 不可以。一个应用包名对应一个 AppKey，使用同一个 AppKey 的客户端才可以相互通信。
+
+---
+* Android SDK 不同包名可以互相通信吗？
+* 使用云巴 Android SDK，如果需要同一个 Appkey 不同包名的客户端之间能够互相通信，请把 Appkey 对应的包名发到 support@yunba.io，我们会在内部做些处理来支持。
 
 
 
