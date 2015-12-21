@@ -120,7 +120,7 @@
 
 ---
 * 离线消息的数量有限制吗？
-* 没有。
+* 最多保留 50 条。
 
 ---
 * 可以同时给多个频道推送消息吗？
@@ -168,7 +168,7 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 
 ---
 * 4. iOS SDK `subscribe()` 的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？
-* `subscribe()` 的 qos Level 限制该话题下接收到 message 的最大 qos 等级。 例如：当设置 `subscribe()` 的 qosLevel 为0，则 qos 为1 的接收消息会降级到 qos 为0。详见 [MQTT V3.1 Protocol Specification
+* `subscribe()` 的 qos Level 限制该话题下接收到 message 的最大 qos 等级。 例如：当设置 `subscribe()` 的 qosLevel 为 0，则 qos 为 1 的接收消息会降级到 qos 为 0。详见 [MQTT V3.1 Protocol Specification
 ]( http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#subscribe) 和 [QoS 的说明](https://github.com/yunba/kb/blob/master/QoS.md)。
 
 
@@ -187,5 +187,41 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 完整的设置方法参考 [iOS官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12)。
 
 
+###Android SDK
+
+
+
+---
+* 1. 当 App 退出，进程被杀死时，能接收到 Message 吗？
+* Android 端需要在后台保留进程才能接收消息；iOS 端的 APNs 在 App 退出后仍可接收消息。
+<br>
+Android 端的解决方法：增加相互拉起功能和后台守护进程，使 App 退出后仍能接收到推送消息。
+
+---
+* 2. Android 端如何设置 qos 等级？
+* `publish2()`、`publish2ToAlias()` 的 opts(JSONObject) 参数可以设置 qos。
+<br>
+附：qos 为服务质量等级。有三种取值：“0” 表示最多送达一次；“1” 表示最少送达一次；“2” 表示保证送达且仅送达一次。默认为 “1”。详见 [QoS 的说明]( http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718099)。
+
+---
+* 3. Android 端怎么设置离线消息时间？
+* 设置 `publish2()`、`publish2ToAlias()`的 opts（JSONObject） 参数；
+qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_live，可以控制离线消息在云巴服务器上保留的时间（以秒为单位）。详见： [云巴的离线消息是怎样的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 。
+
+---
+* 4. Yunba-Android-SDK 有没有设置通知栏的 API？
+* 关于设置消息通知栏，Yunba-Android-SDK 没提供相关的 API。设置方法可参考 [Android官方文档](http://developer.android.com/guide/topics/ui/notifiers/notifications.html)。
+
+
+---
+* 5. 怎么获取 Message 的 Message ID？
+* Yunba-Android-SDK 暂时没有提供获取接收消息的 Message ID 的API。
+如果需要 Message ID 等自定义内容，可以封装自定义内容到 Message 进行发送，在接收时进行解析。
+
+
+
+---
+* 6. Android 端如何断开连接，不接收消息？
+* 可以调用 [`stop()`](http://yunba.io/docs2/Android_API_Reference/#stop) 停止推送服务，使所有的 API 都失效（包括 start API）；当需要重新使用推送服务时，必须要调用 [`resume ()`](http://yunba.io/docs2/Android_API_Reference/#resume)。
 
 
