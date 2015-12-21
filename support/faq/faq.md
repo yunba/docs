@@ -147,6 +147,45 @@
 * 使用云巴 Android SDK，如果需要同一个 Appkey 不同包名的客户端之间能够互相通信，请把 Appkey 对应的包名发到 support@yunba.io，我们会在内部做些处理来支持。
 
 
+###iOS SDK
+
+---
+* 1. 如何实现 iOS 应用退出或者处于后台时可以收到推送消息？
+* 需要 [生成APNS证书](http://yunba.io/docs2/ios/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
+通过带有 ApnOption 的 `publish2()`或者默认的 `publish()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW20)。
+<br>
+**注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送；而 `publish()` 会发送默认的 APNs 消息。
+
+---
+* 2. 接收的消息，除了基本的内容（Topic 和 Message）还可以传递一些参数信息吗？
+* 开发者可以封装多个数据到 data.msg。
+
+---
+* 3. ApnOption 的 sound 和 badge 有什么作用？
+* 可在`publish2ToAlias()` 、 `publish2()` 的 ApnOption 参数设置消息通知的方式。
+alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知的铃声。
+具体参考 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW20) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
+
+---
+* 4. iOS SDK `subscribe()` 的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？
+* `subscribe()` 的 qos Level 限制该话题下接收到 message 的最大 qos 等级。 例如：当设置 `subscribe()` 的 qosLevel 为0，则 qos 为1 的接收消息会降级到 qos 为0。详见 [MQTT V3.1 Protocol Specification
+]( http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#subscribe) 和 [QoS 的说明](https://github.com/yunba/kb/blob/master/QoS.md)。
+
+
+---
+* 5. iOS 端怎么设置不接收任何消息？
+* 设置别名为空和 `unsubscribe()` 所有 Topic。
+
+---
+* 6. 当同时定义了 `publish()` 的 data 和 ApnOption 参数中 alert 的 message，消息内容将以哪个为准？
+* 以 alert 的 message 为准。当没定义 alert 时，则默认显示 `publish()` 的 data。
+
+---
+* 7. iOS 端如何设置通知方式？
+* [上传 APNs 证书](http://yunba.io/docs/#在-portal-上传apns证书以激活apn推送功能) ；
+通过 YBPublish2Option 参数的 alert 设置通知栏内容、角标和声音等，具体参考 [sdk 中关于 pushlish2 的介绍]( http://yunba.io/docs/#publish2toalias48) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 YBPublish2Option 的设置。
+完整的设置方法参考 [iOS官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12)。
+
 
 
 
