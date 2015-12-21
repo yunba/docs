@@ -151,8 +151,8 @@
 
 ---
 * 1. 如何实现 iOS 应用退出或者处于后台时可以收到推送消息？
-* 需要 [生成APNS证书](http://yunba.io/docs2/ios/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
-通过带有 ApnOption 的 `publish2()`或者默认的 `publish()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW20)。
+* 需要 [生成APNS证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
+通过带有 ApnOption 的 `publish2()`或者默认的 `publish()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 <br>
 **注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送；而 `publish()` 会发送默认的 APNs 消息。
 
@@ -164,7 +164,7 @@
 * 3. ApnOption 的 sound 和 badge 有什么作用？
 * 可在`publish2ToAlias()` 、 `publish2()` 的 ApnOption 参数设置消息通知的方式。
 alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知的铃声。
-具体参考 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW20) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
+具体参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
 
 ---
 * 4. iOS SDK `subscribe()` 的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？
@@ -182,9 +182,9 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 
 ---
 * 7. iOS 端如何设置通知方式？
-* [上传 APNs 证书](http://yunba.io/docs/#在-portal-上传apns证书以激活apn推送功能) ；
-通过 YBPublish2Option 参数的 alert 设置通知栏内容、角标和声音等，具体参考 [sdk 中关于 pushlish2 的介绍]( http://yunba.io/docs/#publish2toalias48) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 YBPublish2Option 的设置。
-完整的设置方法参考 [iOS官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12)。
+* [上传 APNs 证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能) ；
+通过 YBPublish2Option 参数的 alert 设置通知栏内容、角标和声音等，具体参考 sdk 中关于 [`pushlish2()`](http://yunba.io/docs2/iOS_API_Reference/#publish2) 的介绍 和下载 [iOS demo]( http://yunba.io/developers/) 参考 YBPublish2Option 的设置。
+完整的设置方法参考 [iOS官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 
 
 ###Android SDK
@@ -201,7 +201,7 @@ Android 端的解决方法：增加相互拉起功能和后台守护进程，使
 * 2. Android 端如何设置 qos 等级？
 * `publish2()`、`publish2ToAlias()` 的 opts(JSONObject) 参数可以设置 qos。
 <br>
-附：qos 为服务质量等级。有三种取值：“0” 表示最多送达一次；“1” 表示最少送达一次；“2” 表示保证送达且仅送达一次。默认为 “1”。详见 [QoS 的说明]( http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718099)。
+附：qos 为服务质量等级。有三种取值：“0” 表示最多送达一次；“1” 表示最少送达一次；“2” 表示保证送达且仅送达一次。默认为 “1”。详见 [QoS 的说明](https://github.com/yunba/kb/blob/master/QoS.md)。
 
 ---
 * 3. Android 端怎么设置离线消息时间？
