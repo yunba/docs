@@ -154,7 +154,7 @@
 * 需要 [生成APNS证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
 通过带有 ApnOption 的 `publish2()`或者默认的 `publish()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 <br>
-**注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送；而 `publish()` 会发送默认的 APNs 消息。
+**注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送 APNs 消息；而 `publish()` 会发送默认的 APNs 消息。
 
 ---
 * 2. 接收的消息，除了基本的内容（Topic 和 Message）还可以传递一些参数信息吗？
