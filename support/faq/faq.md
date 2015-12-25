@@ -224,4 +224,75 @@ qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_li
 * 6. Android 端如何断开连接，不接收消息？
 * 可以调用 [`stop()`](http://yunba.io/docs2/Android_API_Reference/#stop) 停止推送服务，使所有的 API 都失效（包括 start API）；当需要重新使用推送服务时，必须要调用 [`resume ()`](http://yunba.io/docs2/Android_API_Reference/#resume)。
 
+###JavaScript SDK
+
+---
+* 1. 如何获取 `publish2()` 的 opts 设置参数？
+* 可以把 opts 参数封装到 Message，在接收时进行解析。
+
+---
+* 2. 如何接收离线消息？
+* 用 [`connect_by_customid()`](http://yunba.io/docs2/Javascript_SDK/#connect_by_customid) 进行连接，
+连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。`connect()` 仅用于测试，无法接收离线消息。
+
+---
+* 3. 如何判断消息来自频道还是用户？
+* 开发者可传递 Message ID，接收时通过 Message ID 进行判断。设置 MessageID 的方法可以参考 demo 的 [mqtt_publish2 方法](https://github.com/yunba/yunba-javascript-sdk/blob/master/examples/yunba_javascript_demo.html)。
+
+---
+* 4. 用户订阅的 Topic 和设置的别名 Alias 保存在哪里？
+* 保存在云巴服务端，与 CustomID 对应。
+
+---
+* 5. JavaScript SDK 兼容哪些浏览器？
+* 支持浏览器的版本如下:
+
+   | IE  | Safari | Chrome  | Opera  | Firefox |
+   |:-----:|:-----:|:-----:|:-----:|:-----:|
+   | 7+  |  ✓   |  ✓  |  ✓   |  ✓ |
+
+   IE7 以下版本需 [配置]( https://github.com/yunba/yunba-javascript-sdk) 即可。
+
+
+---
+* 6. 如何批量订阅频道？
+* 可以将订阅频道放到数组里，循环订阅。
+
+---
+* 7. 如果只有 Web 端，无 Android 移动端，那么新建应用的包名 （必填项） 如何填？
+* 可以自定义，java 包名格式正确即可。
+
+
+
+
+###RESTful API
+
+
+---
+* 1. RESTful 如何设置离线消息保留时间？
+* "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是5天，详见： [云巴的离线消息是怎样的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 和 [RESTful API 的示例]( http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST)。
+
+---
+* 2. 加 opts 参数之后，可以用 get 请求吗？
+* get 方法不支持复杂参数，只是用来做简单测试；可以用 post 方法，具体参考 [官方文档](http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST)。同时注意请求头的设置： Content-type: application/json。
+
+---
+* 3. RESTful API 可以指定 Message ID 吗？
+* 云巴服务端随机生成 Message ID。
+
+---
+* 4. RESTful的 `publish_to_alias_batch()` API 中别名 Alias 的最大数量有限制吗？
+* 别名的数量建议在 1000 以下。
+
+---
+* 5. RESTful 的 Message 支持最大传送数据多大？
+* 建议不要超过 1k。
+
+---
+* 6. RESTful 支持 https 进行加密吗？
+* 付费用户支持 https 服务。可发邮件到 support@yunba.io 咨询。
+
+---
+* 7. 使用 RESTful API 发送消息时需要区分 Android 和 iOS 平台设备吗？
+* apn_json 参数只针对 iOS 平台的 APNs 消息。具体参考 [官方文档]( http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST) ， apn_json 参数的完整设置方法可参考 [iOS官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 
