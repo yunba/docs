@@ -20,7 +20,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 
 
 ### 如何群聊（广播）
-####先订阅话题 [`subscribe()`](http://yunba.io/docs2/Android_API_Reference/#subscribe)
+#### 订阅话题 [`subscribe()`](http://yunba.io/docs2/Android_API_Reference/#subscribe)
 
 > Code Example
 
@@ -46,7 +46,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
     );
 ```
 
-#### 再发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 
+#### 发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 
 
 > 以 `publish2()` 为例
 
@@ -81,7 +81,7 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 ```
 
 #### 自定义 Receiver 接收 Publish 消息
-在 AndroidManifest.xml 自定义 Receiver ，确保添加 MESSAGE_RECERVED_ACTION；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) 和 Android Demo 的示例。
+在 AndroidManifest.xml 自定义 Receiver ，确保添加 `<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />`；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) 和 Android Demo 的示例。
 
 >处理接收消息广播的示例
 
@@ -114,7 +114,7 @@ public class MessageReceiver extends BroadcastReceiver {
 #### 如何停止接收订阅消息
 调用 [`unsubscribe()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribe) ，将不再接收到该 Topic 下的消息。
 
-### 如何实现点对点通讯
+### 如何实现单聊（点对点通讯）
 #### 设置别名
 先在发送方和接收方设置别名： [setAlias()]( http://yunba.io/docs2/Android_API_Reference/#setAlias) ；
 再调用 [`publishToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publishToAlias) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 。
@@ -234,10 +234,9 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 
 ### 如何发送 APNs 消息
 
-使用 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 进行消息发送，必须设置 opts（JSONObject） 参数封装的 apn_json，该参数的作用和设置方法详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 。
+使用 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 进行消息发送，必须设置 opts（JSONObject） 参数封装的 apn_json 参数，该参数的作用和设置方法详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 。
 
 
-**注：** iOS 端需 [注册 APNs 证书]( http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)。APNs(Apple Push Notification Service) 消息的意义可参考 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) 。
 
 
 > Code Example
@@ -274,10 +273,12 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 );
 ```
 
+**注：** iOS 端需 [注册 APNs 证书]( http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)。APNs(Apple Push Notification Service) 消息的意义可参考 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) 。
+
 
 ### 如何监听用户上下线
 
-调用 [`subscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#subscribePresence) ，传入监听的 Topic，将会监听 Topic 下所有用户别名的上下线状态变化。任何用户的状态变化时都会对 App 发起一个 `<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" />` 的广播，需要在 AndroidManifest [自定义 Receiver]( http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver接受Publish消息) 接收该上下线广播，在主程序中进行处理。
+调用 [`subscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#subscribePresence) ，传入监听的 Topic，将会监听 Topic 下所有用户别名的上下线状态变化。任何用户的状态变化时都会对 App 发起一个 `<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" />` 的广播，需要在 AndroidManifest [自定义 Receiver]( http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver接受Publish消息) 接收该上下线广播，在主程序中进行广播的处理。
 
 > Code Example
 
@@ -302,8 +303,8 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 ```
 
 
-#### 如何取消用户上下线通知的监听
-调用 [`unsubscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribePresence) ，传入取消监听的 Topic 即可。将取消监听该 Topic 下用户的状态变化，不再接收到<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION"/>的广播。
+#### 取消用户上下线通知的监听
+调用 [`unsubscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribePresence) ，传入取消监听的 Topic 即可。将取消监听该 Topic 下用户的状态变化，不再接收到`<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION"/>` 的广播。
 
 > Code Example
 
@@ -399,4 +400,3 @@ YunBaManager.getState(getApplicationContext(), "a1",
     }
 );
 ```
-
