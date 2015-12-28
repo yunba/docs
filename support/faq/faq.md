@@ -53,6 +53,12 @@
 ### 消息推送、实时消息
 
 ---
+* [云巴 iOS 消息推送是怎样的？](https://github.com/yunba/kb/blob/master/云巴 iOS 消息推送.md)
+
+---
+* [云巴 Android 消息推送是怎样的？](https://github.com/yunba/kb/blob/master/云巴 Android 消息推送.md)
+
+---
 * 和其他公司相比，云巴的消息推送有什么不同？
 * 云巴支持双向推送，一个客户端既可以 Publish 也可以 Subscribe；而其他家的单向推送，只能 Subscribe，Publish 还需要提供新的接口。
 
@@ -120,7 +126,7 @@
 
 ---
 * 离线消息的数量有限制吗？
-* 最多保留 50 条。
+* 最多保留 50 条。如有需要，可以联系我们提高限制数量。
 
 ---
 * 可以同时给多个频道推送消息吗？
