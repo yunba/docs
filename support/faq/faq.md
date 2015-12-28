@@ -60,7 +60,7 @@
 * [云巴支持的“频道”和“别名”两种发布方式，具体是怎样的？](https://github.com/yunba/kb/blob/master/频道和别名.md)
 
 ---
-* [云巴的离线消息是怎样的？](https://github.com/yunba/kb/blob/master/云巴的离线消息是怎样的.md)
+* [云巴的离线消息是怎样的？](https://github.com/yunba/kb/blob/master/云巴的离线消息.md)
 
 ---
 * 云巴的消息送达率是多少？
@@ -120,7 +120,7 @@
 
 ---
 * 离线消息的数量有限制吗？
-* 没有。
+* 最多保留 50 条。
 
 ---
 * 可以同时给多个频道推送消息吗？
@@ -147,6 +147,154 @@
 * 使用云巴 Android SDK，如果需要同一个 Appkey 不同包名的客户端之间能够互相通信，请把 Appkey 对应的包名发到 support@yunba.io，我们会在内部做些处理来支持。
 
 
+###iOS SDK
+
+---
+* 1. 如何实现 iOS 应用退出或者处于后台时可以收到推送消息？
+* 需要 [生成APNS证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
+通过带有 ApnOption 的 `publish2()`  、 `publish2ToAlias()` 或者默认的 `publish()` 、 `publishToAlias()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+<br>
+**注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送 APNs 消息；而 `publish()` 会发送默认的 APNs 消息。
+
+---
+* 2. 接收的消息，除了基本的内容（Topic 和 Message）还可以传递一些参数信息吗？
+* 开发者可以封装多个数据到 data.msg。
+
+---
+* 3. ApnOption 的 sound 和 badge 有什么作用？
+* 可在`publish2ToAlias()` 、 `publish2()` 的 ApnOption 参数设置消息通知的方式。
+alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知的铃声。
+具体参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
+
+---
+* 4. iOS SDK `subscribe()` 的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？
+* `subscribe()` 的 qos Level 限制该话题下接收到 message 的最大 qos 等级。 例如：当设置 `subscribe()` 的 qosLevel 为 0，则 qos 为 1 的接收消息会降级到 qos 为 0。详见 [MQTT V3.1 Protocol Specification
+]( http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#subscribe) 和 [QoS 的说明](https://github.com/yunba/kb/blob/master/QoS.md)。
 
 
+---
+* 5. iOS 端怎么设置不接收任何消息？
+* 设置别名为空和 `unsubscribe()` 所有 Topic。
+
+---
+* 6. 当同时定义了 `publish()` 的 data 和 ApnOption 参数中 alert 的 message，消息内容将以哪个为准？
+* 以 alert 的 message 为准。当没定义 alert 时，则默认显示 `publish()` 的 data。
+
+---
+* 7. iOS 端如何设置通知方式？
+* [上传 APNs 证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能) ；
+通过 YBPublish2Option 参数的 alert 设置通知栏内容、角标和声音等，具体参考 sdk 中关于 [`pushlish2()`](http://yunba.io/docs2/iOS_API_Reference/#publish2) 的介绍 和下载 [iOS demo]( http://yunba.io/developers/) 参考 YBPublish2Option 的设置。
+完整的设置方法参考 [iOS官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+
+
+###Android SDK
+
+
+
+---
+* 1. 当 App 退出，进程被杀死时，能接收到 Message 吗？
+* Android 端需要在后台保留进程才能接收消息；iOS 端的 APNs 在 App 退出后仍可接收消息。
+<br>
+Android 端的解决方法：增加相互拉起功能和后台守护进程，使 App 退出后仍能接收到推送消息。
+
+---
+* 2. Android 端如何设置 qos 等级？
+* `publish2()`、`publish2ToAlias()` 的 opts(JSONObject) 参数可以设置 qos。
+<br>
+附：qos 为服务质量等级。有三种取值：“0” 表示最多送达一次；“1” 表示最少送达一次；“2” 表示保证送达且仅送达一次。默认为 “1”。详见 [QoS 的说明](https://github.com/yunba/kb/blob/master/QoS.md)。
+
+---
+* 3. Android 端怎么设置离线消息时间？
+* 设置 `publish2()`、`publish2ToAlias()`的 opts（JSONObject） 参数；
+qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_live，可以控制离线消息在云巴服务器上保留的时间（以秒为单位）。详见： [云巴的离线消息是怎样的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 。
+
+---
+* 4. YunBa Android SDK 有没有设置通知栏的 API？
+* 关于设置消息通知栏，YunBa Android SDK 没提供相关的 API。设置方法可参考 [Android官方文档](http://developer.android.com/guide/topics/ui/notifiers/notifications.html)。
+
+
+---
+* 5. 怎么获取 Message 的 Message ID？
+* YunBa Android SDK 暂时没有提供获取接收消息的 Message ID 的API。
+如果需要 Message ID 等自定义内容，可以封装自定义内容到 Message 进行发送，在接收时进行解析。
+
+
+
+---
+* 6. Android 端如何断开连接，不接收消息？
+* 可以调用 [`stop()`](http://yunba.io/docs2/Android_API_Reference/#stop) 停止推送服务，使所有的 API 都失效（包括 start API）；当需要重新使用推送服务时，必须要调用 [`resume ()`](http://yunba.io/docs2/Android_API_Reference/#resume)。
+
+###JavaScript SDK
+
+---
+* 1. 如何获取 `publish2()` 的 opts 设置参数？
+* 可以把 opts 参数封装到 Message，在接收时进行解析。
+
+---
+* 2. 如何接收离线消息？
+* 用 [`connect_by_customid()`](http://yunba.io/docs2/Javascript_SDK/#connect_by_customid) 进行连接，
+连接后的会话状态与上次连接一致（包括离线消息、已订阅的频道和别名）。`connect()` 仅用于测试，无法接收离线消息。
+
+---
+* 3. 如何判断消息来自频道还是用户？
+* 开发者可传递 Message ID，接收时通过 Message ID 进行判断。设置 MessageID 的方法可以参考 demo 的 [mqtt_publish2 方法](https://github.com/yunba/yunba-javascript-sdk/blob/master/examples/yunba_javascript_demo.html)。
+
+---
+* 4. 用户订阅的 Topic 和设置的别名 Alias 保存在哪里？
+* 保存在云巴服务端，与 CustomID 对应。
+
+---
+* 5. JavaScript SDK 兼容哪些浏览器？
+* 支持浏览器的版本如下:
+
+   | IE  | Safari | Chrome  | Opera  | Firefox |
+   |:-----:|:-----:|:-----:|:-----:|:-----:|
+   | 7+  |  ✓   |  ✓  |  ✓   |  ✓ |
+
+   IE7 以下版本需 [配置]( https://github.com/yunba/yunba-javascript-sdk) 即可。
+
+
+---
+* 6. 如何批量订阅频道？
+* 可以将订阅频道放到数组里，循环订阅。
+
+---
+* 7. 如果只有 Web 端，无 Android 移动端，那么新建应用的包名 （必填项） 如何填？
+* 可以自定义，java 包名格式正确即可。
+
+
+
+
+###RESTful API
+
+
+---
+* 1. RESTful 如何设置离线消息保留时间？
+* "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是5天，详见： [云巴的离线消息是怎样的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 和 [RESTful API 的示例]( http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST)。
+
+---
+* 2. 加 opts 参数之后，可以用 get 请求吗？
+* get 方法不支持复杂参数，只是用来做简单测试；可以用 post 方法，具体参考 [官方文档](http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST)。同时注意请求头的设置： Content-type: application/json。
+
+---
+* 3. RESTful API 可以指定 Message ID 吗？
+* 云巴服务端随机生成 Message ID。
+
+---
+* 4. RESTful的 `publish_to_alias_batch()` API 中别名 Alias 的最大数量有限制吗？
+* 别名的数量建议在 1000 以下。
+
+---
+* 5. RESTful 的 Message 支持最大传送数据多大？
+* 建议不要超过 1k。
+
+---
+* 6. RESTful 支持 https 进行加密吗？
+* 付费用户支持 https 服务。可发邮件到 support@yunba.io 咨询。
+
+---
+* 7. 使用 RESTful API 发送消息时需要区分 Android 和 iOS 平台设备吗？
+* 不需要。 
+
+   **注**：apn_json 参数只针对 iOS 平台的 APNs 消息。具体参考 [官方文档]( http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST) ， apn_json 参数的完整设置方法可参考 [iOS官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 
