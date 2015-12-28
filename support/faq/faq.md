@@ -209,13 +209,13 @@ Android 端的解决方法：增加相互拉起功能和后台守护进程，使
 qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_live，可以控制离线消息在云巴服务器上保留的时间（以秒为单位）。详见： [云巴的离线消息是怎样的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 。
 
 ---
-* 4. Yunba-Android-SDK 有没有设置通知栏的 API？
-* 关于设置消息通知栏，Yunba-Android-SDK 没提供相关的 API。设置方法可参考 [Android官方文档](http://developer.android.com/guide/topics/ui/notifiers/notifications.html)。
+* 4. YunBa Android SDK 有没有设置通知栏的 API？
+* 关于设置消息通知栏，YunBa Android SDK 没提供相关的 API。设置方法可参考 [Android官方文档](http://developer.android.com/guide/topics/ui/notifiers/notifications.html)。
 
 
 ---
 * 5. 怎么获取 Message 的 Message ID？
-* Yunba-Android-SDK 暂时没有提供获取接收消息的 Message ID 的API。
+* YunBa Android SDK 暂时没有提供获取接收消息的 Message ID 的API。
 如果需要 Message ID 等自定义内容，可以封装自定义内容到 Message 进行发送，在接收时进行解析。
 
 
