@@ -1,19 +1,19 @@
 ## Android SDK 使用指南
 ### 嵌入 Yunba Android SDK
-如果未下载 Android SDK，请先阅读 [Yunba Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/) ，嵌入 Android SDK。确保配置了  [AndroidManifest.xml]( http://yunba.io/docs2/Android_Quick_Start/#配置AndroidManifest.xml) 的添加权限、配置 AppKey、修改应用包名、添加 Service 和添加 Receiver 步骤。
+如果未下载 Android SDK，请先阅读 [Yunba Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/) ，嵌入 Android SDK。确保完成了  [AndroidManifest.xml]( http://yunba.io/docs2/Android_Quick_Start/#配置AndroidManifest.xml) 的添加权限、配置 AppKey、修改应用包名、添加 Service 和添加 Receiver 几个步骤。
 <br>
 
 ### 初始化 SDK
 进行订阅等操作之前，请先初始化 SDK，在您的 Application 子类的 OnCreate 方法中加入如下代码：
 ```java
 
-public class YunBaApplication extends Application {
-
-    public void onCreate() {
-        super.onCreate();
-        YunBaManager.start(getApplicationContext());
-    }
-}
+	public class YunBaApplication extends Application {
+	
+	    public void onCreate() {
+	        super.onCreate();
+	        YunBaManager.start(getApplicationContext());
+	    }
+	}
 ```
 YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.io/docs2/Android_API_Reference/#start) 。
 
@@ -27,23 +27,22 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 ```java
 
 	YunBaManager.subscribe(getApplicationContext(),topic,
-	  new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken asyncActionToken) {
-          DemoUtil.showToast( "Subscribe succeed : " + topic, getApplicationContext());
-        }
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-           if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-                String msg =  "Subscribe failed with error code : " + ex.getReasonCode();
-                DemoUtil.showToast(msg, getApplicationContext());
-           }
-         
-        }
-      }
-    );
+	   new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken asyncActionToken) {
+	          DemoUtil.showToast( "Subscribe succeed : " + topic, getApplicationContext());
+	        }
+	
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	           if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	                String msg =  "Subscribe failed with error code : " + ex.getReasonCode();
+	                DemoUtil.showToast(msg, getApplicationContext());
+	           }
+	        }
+	   }
+	);
 ```
 
 #### 发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 
@@ -51,33 +50,33 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 > 以 `publish2()` 为例
 
 ```java
-JSONObject opts = new JSONObject();
-JSONObject apn_json = new JSONObject();
-JSONObject aps = new JSONObject();
-aps.put("sound", "bingbong.aiff");
-aps.put("badge", 9);
-aps.put("alert", "msg from android中文");
-apn_json.put("aps", aps);
-opts.put("apn_json", apn_json);
+	JSONObject opts = new JSONObject();
+	JSONObject apn_json = new JSONObject();
+	JSONObject aps = new JSONObject();
+	aps.put("sound", "bingbong.aiff");
+	aps.put("badge", 9);
+	aps.put("alert", "msg from android中文");
+	apn_json.put("aps", aps);
+	opts.put("apn_json", apn_json);
+		
+	YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
+	    new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken asyncActionToken) {
+	            String msgLog = "Publish2 succeed : " + topic;
+	            DemoUtil.showToast(msgLog, getApplicationContext());
+	        }
 	
-YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
-    new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken asyncActionToken) {
-            String msgLog = "Publish2 succeed : " + topic;
-            DemoUtil.showToast(msgLog, getApplicationContext());
-        }
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-             if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-                String msg =  "publish2 failed with error code : " + ex.getReasonCode();
-                DemoUtil.showToast(msg, getApplicationContext());
-           }
-        }
-    }
-);
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	             if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	                String msg =  "publish2 failed with error code : " + ex.getReasonCode();
+	                DemoUtil.showToast(msg, getApplicationContext());
+	           }
+	        }
+	    }
+	);
 ```
 
 #### 自定义 Receiver 接收 Publish 消息
@@ -86,7 +85,7 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 >处理接收消息广播的示例
 
 ```java
-public class MessageReceiver extends BroadcastReceiver {
+        public class MessageReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 		    Log.i(TAG, "Action - " + intent.getAction());
@@ -134,14 +133,13 @@ public class MessageReceiver extends BroadcastReceiver {
 可调用 [`stop()`](http://yunba.io/docs2/Android_API_Reference/#stop) 停止接收消息，使所有的 API 都失效（包括 start API）；
 
 ```java
-
-    YunBaManager.stop(getApplicationContext());
+	YunBaManager.stop(getApplicationContext());
 ```
 当需要重新使用服务时，必须要调用 [`resume()`](http://yunba.io/docs2/Android_API_Reference/#resume) 。
 
 ```java
 
-    YunBaManager.resume(getApplicationContext());
+	YunBaManager.resume(getApplicationContext());
 ```
 
 **注**：当调用了 `stop()` ，设备处于离线状态，只有调用 `resume()` 才恢复服务；当恢复服务时，在保留时间 (time_to_live) 以内的离线消息可以送达。
@@ -155,42 +153,44 @@ public class MessageReceiver extends BroadcastReceiver {
 
 ```java
 
-JSONObject js = new JSONObject();
-			try {
-				js.put("user_name", userName);
-				js.put("msg", msg);
-			} catch (JSONException e) {
-			}
-			YunBaManager.publishToAlias(getApplicationContext(),userName,  js.toString(), new IMqttActionListener() {
-			public void onSuccess(IMqttToken asyncActionToken) {
+        JSONObject js = new JSONObject();
+	try {
+		js.put("user_name", userName);
+		js.put("msg", msg);
+	} catch (JSONException e) {
+	}
+	YunBaManager.publishToAlias(getApplicationContext(),userName,  js.toString(), 
+	    new IMqttActionListener() {
+		public void onSuccess(IMqttToken asyncActionToken) {
 			
-			}
+		}
 			
-			@Override
-			public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+		@Override
+		public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
 	
-			}
-			} );
+		}
+	    } 
+	);
 ```
 > 接收消息代码示例：
 
 ```java
-public class MessageReceiver extends BroadcastReceiver {	
-	@Override
-    public void onReceive(Context context, Intent intent) {
+	public class MessageReceiver extends BroadcastReceiver {	
+		@Override
+	    public void onReceive(Context context, Intent intent) {
 		if (YunBaManager.MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
-
-            String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
-            String msgJson = intent.getStringExtra(YunBaManager.MQTT_MSG);
-            try {
-                JSONObject js = new JSONObject(msgJson);
-                String message = js.optString("msg");
-                String user_name = js.optString("user_name");
-    			showMsg.append(user_name+" said, ").append(message);
-            }
-        }
+	
+	            String topic = intent.getStringExtra(YunBaManager.MQTT_TOPIC);
+	            String msgJson = intent.getStringExtra(YunBaManager.MQTT_MSG);
+	            try {
+	                JSONObject js = new JSONObject(msgJson);
+	                String message = js.optString("msg");
+	                String user_name = js.optString("user_name");
+	    			showMsg.append(user_name+" said, ").append(message);
+	            }
+	        }
+	    }
 	}
-}
 ```
 
 ### 如何发送离线消息
@@ -201,34 +201,36 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 
 ```java
 
-    JSONObject opts=new JSONObject();
-		try {
-			opts.put("qos", 1);
-			opts.put("time_to_live", 2*24*3600); //保存两天
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+        JSONObject opts=new JSONObject();
+	try {
+		opts.put("qos", 1);
+		opts.put("time_to_live", 2*24*3600); //保存两天
+	} catch (JSONException e) {
+		e.printStackTrace();
+	}
 		
-		YunBaManager.publish2(getApplicationContext(), topic, msg, opts, new IMqttActionListener() {
-			public void onSuccess(IMqttToken asyncActionToken) {
+	YunBaManager.publish2(getApplicationContext(), topic, msg, opts, 
+	   new IMqttActionListener() {
+		public void onSuccess(IMqttToken asyncActionToken) {
 
-				String msgLog = "Publish succeed : " + topic;
-				StringBuilder showMsg = new StringBuilder();
-				showMsg.append("[Demo] publish msg")
-						.append(" = ").append(msg).append(" to ")
-						.append(YunBaManager.MQTT_TOPIC).append(" = ").append(topic).append(" succeed");
-				setCostomMsg(showMsg.toString());
-				DemoUtil.showToast(msgLog, getApplicationContext());
-			}
+			String msgLog = "Publish succeed : " + topic;
+			StringBuilder showMsg = new StringBuilder();
+			showMsg.append("[Demo] publish msg")
+					.append(" = ").append(msg).append(" to ")
+					.append(YunBaManager.MQTT_TOPIC).append(" = ").append(topic).append(" succeed");
+			setCostomMsg(showMsg.toString());
+			DemoUtil.showToast(msgLog, getApplicationContext());
+		}
 			
-			@Override
-			public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-				String msg = "[Demo] Publish topic = " + topic + " failed : " + exception.getMessage();
-				setCostomMsg(msg);
-				DemoUtil.showToast(msg, getApplicationContext());
+		@Override
+		public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+			String msg = "[Demo] Publish topic = " + topic + " failed : " + exception.getMessage();
+			setCostomMsg(msg);
+			DemoUtil.showToast(msg, getApplicationContext());
 				
-			}
-		});
+		}
+	   }
+	);
 ```
 
 
@@ -243,34 +245,34 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 
 ```java
 
-JSONObject opts = new JSONObject();
-JSONObject apn_json = new JSONObject();
-JSONObject aps = new JSONObject();
-aps.put("sound", "bingbong.aiff");
-aps.put("badge", 9);
-aps.put("alert", "msg from android中文");
-apn_json.put("aps", aps);
-opts.put("apn_json", apn_json);
+	JSONObject opts = new JSONObject();
+	JSONObject apn_json = new JSONObject();
+	JSONObject aps = new JSONObject();
+	aps.put("sound", "bingbong.aiff");
+	aps.put("badge", 9);
+	aps.put("alert", "msg from android中文");
+	apn_json.put("aps", aps);
+	opts.put("apn_json", apn_json);
+		
+	YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
+	    new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken asyncActionToken) {
+	            String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
+	            String msgLog = "Publish2 succeed : " + topic;
+	            DemoUtil.showToast(msgLog, getApplicationContext());
+	        }
 	
-YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
-    new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken asyncActionToken) {
-            String topic = DemoUtil.join(asyncActionToken.getTopics(), ", ");
-            String msgLog = "Publish2 succeed : " + topic;
-            DemoUtil.showToast(msgLog, getApplicationContext());
-        }
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-             if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-                String msg =  "publish2 failed with error code : " + ex.getReasonCode();
-                DemoUtil.showToast(msg, getApplicationContext());
-           }
-        }
-    }
-);
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	             if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	                String msg =  "publish2 failed with error code : " + ex.getReasonCode();
+	                DemoUtil.showToast(msg, getApplicationContext());
+	           }
+	        }
+	    }
+	);
 ```
 
 **注：** iOS 端需 [注册 APNs 证书]( http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)。APNs(Apple Push Notification Service) 消息的意义可参考 [iOS 官方文档]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) 。
@@ -284,22 +286,22 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 
 ```java
 
-YunBaManager.subscribePresence(getApplicationContext(), "t1",
-    new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken mqttToken) {
-            DemoUtil.showToast("subscribePresence to topic succeed", getApplicationContext());
-        }
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-               String msg =  "subscribePresence failed with error code : " + ex.getReasonCode();
-               DemoUtil.showToast(msg, getApplicationContext());
-             }
-        }
-    }
-);
+	YunBaManager.subscribePresence(getApplicationContext(), "t1",
+	    new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken mqttToken) {
+	            DemoUtil.showToast("subscribePresence to topic succeed", getApplicationContext());
+	        }
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	            if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	               String msg =  "subscribePresence failed with error code : " + ex.getReasonCode();
+	               DemoUtil.showToast(msg, getApplicationContext());
+	             }
+	        }
+	    }
+	);
 ```
 
 
@@ -311,25 +313,25 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 
 ```java
 
-YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
-    new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken mqttToken) {
-            String msg = "unsubscribePresence to topic succeed ";
-            DemoUtil.showToast(msg, getApplicationContext());
-        }
-
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-              if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-               String msg =  "unsubscribePresence failed with error code : " + ex.getReasonCode();
-               DemoUtil.showToast(msg, getApplicationContext());
-             }
-        }
-    }
-);
+	YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
+	    new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken mqttToken) {
+	            String msg = "unsubscribePresence to topic succeed ";
+	            DemoUtil.showToast(msg, getApplicationContext());
+	        }
+	
+	
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	              if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	               String msg =  "unsubscribePresence failed with error code : " + ex.getReasonCode();
+	               DemoUtil.showToast(msg, getApplicationContext());
+	             }
+	        }
+	    }
+	);
 ```
 
 ### 如何获取订阅人数和用户在线状态
@@ -341,30 +343,30 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
 
 ```java
 
-YunBaManager.getAliasList(getApplicationContext(), "t1",
-    new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken mqttToken) {
-            JSONObject result = mqttToken.getResult();
-                    try {
-                         JSONArray topics = result.getJSONArray("alias");
-                         System.out.println(topics.toString());
-                    } catch (JSONException e) {
-                        
-                    }
-        }
-
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-             if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-               String msg =  "getAliasList failed with error code : " + ex.getReasonCode();
-               DemoUtil.showToast(msg, getApplicationContext());
-             }
-        }
-    }
-);
+	YunBaManager.getAliasList(getApplicationContext(), "t1",
+	    new IMqttActionListener() {
+	        @Override
+	        public void onSuccess(IMqttToken mqttToken) {
+	            JSONObject result = mqttToken.getResult();
+	                    try {
+	                         JSONArray topics = result.getJSONArray("alias");
+	                         System.out.println(topics.toString());
+	                    } catch (JSONException e) {
+	                        
+	                    }
+	        }
+	
+	
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	             if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	               String msg =  "getAliasList failed with error code : " + ex.getReasonCode();
+	               DemoUtil.showToast(msg, getApplicationContext());
+	             }
+	        }
+	    }
+	);
 ```
 #### 获取用户的在线状态
 
@@ -375,28 +377,28 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 
 ```java
 
-YunBaManager.getState(getApplicationContext(), "a1",
-    new IMqttActionListener() {
-       @Override
-       public void onSuccess(IMqttToken mqttToken) {
-            JSONObject result = mqttToken.getResult();
-                    try {
-                        String status = result.getString("status");
-                        System.out.println("status = " + status);
-                    } catch (JSONException e) {
-                        
-                    }
-        }
-
-
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-            if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-               String msg =  "getState failed with error code : " + ex.getReasonCode();
-               DemoUtil.showToast(msg, getApplicationContext());
-             }
-        }
-    }
-);
+	YunBaManager.getState(getApplicationContext(), "a1",
+	    new IMqttActionListener() {
+	       @Override
+	       public void onSuccess(IMqttToken mqttToken) {
+	            JSONObject result = mqttToken.getResult();
+	                    try {
+	                        String status = result.getString("status");
+	                        System.out.println("status = " + status);
+	                    } catch (JSONException e) {
+	                        
+	                    }
+	        }
+	
+	
+	        @Override
+	        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+	            if (exception instanceof MqttException) {
+	               MqttException ex = (MqttException)exception;
+	               String msg =  "getState failed with error code : " + ex.getReasonCode();
+	               DemoUtil.showToast(msg, getApplicationContext());
+	             }
+	        }
+	    }
+	);
 ```
