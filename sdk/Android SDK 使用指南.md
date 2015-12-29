@@ -85,7 +85,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 >处理接收消息广播的示例
 
 ```java
-        public class MessageReceiver extends BroadcastReceiver {
+     public class MessageReceiver extends BroadcastReceiver {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 		    Log.i(TAG, "Action - " + intent.getAction());
@@ -100,7 +100,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 				setCostomMsg(showMsg.toString());
 			}
 		}
-	}
+     }
 ```
 
 
@@ -153,7 +153,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 
 ```java
 
-        JSONObject js = new JSONObject();
+	JSONObject js = new JSONObject();
 	try {
 		js.put("user_name", userName);
 		js.put("msg", msg);
@@ -201,7 +201,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 
 ```java
 
-        JSONObject opts=new JSONObject();
+	JSONObject opts=new JSONObject();
 	try {
 		opts.put("qos", 1);
 		opts.put("time_to_live", 2*24*3600); //保存两天
