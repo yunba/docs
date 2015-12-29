@@ -51,6 +51,7 @@ Yunba Documentation
  - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
 
 ### 4. SDK 手册 [/sdk]
+* [Android SDK 使用指南.md](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
 
 ### 5. 技术支持 [/support]
 * [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
