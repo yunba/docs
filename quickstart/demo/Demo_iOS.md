@@ -37,7 +37,7 @@ iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 
 ![copy_app_key.png](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
 ###3. 生成 Provisioning Profile
-请参考 [生成 Provisioning Profile](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_Provisioning_Profile.md "生成 Provisioning Profile") 一文，生成 Provisioning Profile，并导入到 Xcode 中。
+请参考 [生成 Provisioning Profile](https://github.com/yunba/docs/blob/master/support/knowledge_base/Create_Provisioning_Profile.md "生成 Provisioning Profile") 一文，生成 Provisioning Profile，并导入到 Xcode 中。
 
 ###4. 运行 Yunba iOS Demo 工程
 
