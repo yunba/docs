@@ -36,7 +36,7 @@
 右击 Sample 工程，选择“设为启动项目”。
 
 
-![csharp_set_the_ project_to_launch.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/csharp_set_the_%20project_to_launch.png)
+![csharp_select_ project.png](https://github.com/yunba/docs/blob/master/image/for_quickstart/csharp_select_%20project.png)
 
 
 ###3. 运行程序
