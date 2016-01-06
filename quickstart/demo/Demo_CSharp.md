@@ -60,6 +60,14 @@
 再发布消息 `publish()`。发布成功后，使用同一 AppKey 并且已订阅该 Topic 的其它客户端将收到消息。使用同一个 AppKey 的客户端在该 Topic 下发布的消息，C# 端也将收到。
 <br><br>
 ![csharp_publishMessage.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/csharp_publishMessage.png)
-
+<br>
 
 详细的程序逻辑，请参考项目源程序。
+<br>
+
+**注**：
+<br>
+完整的 API 文档可以参考 [yunba-csharp-sdk](https://github.com/yunba/yunba-csharp-sdk) 。
+<br>
+如需清除用户信息，可删除工程 "bin/Debug" 路径下的 "*.config" 文件。
+
