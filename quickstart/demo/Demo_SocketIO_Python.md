@@ -1,15 +1,13 @@
-# 运行 Yunba Socket.io Python Demo
+# 运行 Yunba Socket.IO Python Demo
 
-本文以 Python 为例，演示 Yunba Socket.io API 的使用。
-<br>
-本文涉及的运行环境如下
-<br>
+本文以 Python 为例，演示 Yunba Socket.IO API 的使用。
+
+本文涉及的运行环境如下。
+
 Mac 平台：
 * Mac OS X 10.11.1
 * virtualenv 13.1.2
 * socketIO-client 0.6.5
-<br>
-<br>
 
 Windows 平台：
 * Windows 8.1
@@ -23,9 +21,8 @@ Windows 平台：
 参考 [如何安装 virtualenv](https://github.com/yunba/docs/blob/master/support/knowledge_base/Install_virtualenv.md) 一文，
 安装 virtualenv。安装后，可先不设置虚拟环境，根据第 2 步进行设置。
 
-###2. 安装 socket.io-client
+###2. 安装 socket.IO-client
 打开 Mac 的 Terminal，按照 [socketIO-client 官方网站](https://pypi.python.org/pypi/socketIO-client) 的说明，输入如下命令：
-<br>
 
 设置环境变量：
 >$ VIRTUAL_ENV=$HOME/.virtualenv
@@ -63,28 +60,24 @@ Windows 平台：
  [下载 pip 文件](https://pypi.python.org/pypi/pip#downloads) 并安装。打开 CMD，到安装目录下执行：
  >python setup.py install
 
-
 ####添加环境变量 path
 建议把 pip 的安装路径添加到环境变量 path 中，例如";D:\Python\Scripts"。方便以后安装其它 python 库。
 
-###2. 安装 socket.io-client
+###2. 安装 socket.IO-client
 打开 CMD，按照 [socketIO-client 官方网站](https://pypi.python.org/pypi/socketIO-client) 的说明，输入如下命令：
-<br>
-<br>
+
 创建一个虚拟路径:
 >virtualenv  VIRTUAL_ENV
 
 执行成功后会生成一个 VIRTUAL_ENV 文件夹。
-<br>
-<br>
+
 激活虚拟路径:
 
 执行CMD 进入 activate.bat 所在路径，输入
 >start activate.bat
 
 激活后，命令行的开头处会显示出虚拟环境的名称“VIRTUAL_ENV”。
-<br>
-<br>
+
 用下面的命令安装 socketIO-client:
 >pip install -U socketIO-client
 
@@ -96,13 +89,13 @@ Windows 平台：
 ###1. 申请 AppKey
 
 为了演示消息收发的功能，我们先准备好一个集成了云巴 SDK 的客户端程序，之后与 Python 的 Demo 进行通讯。
-<br>
+
 例如，就使用 Yunba Android SDK 中提供的 Demo 程序，
 其创建方法可参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文。在 Portal 上创建新应用后，会获得一个 AppKey。
 
 ###2. 创建 Python 程序
 新建一个文本文件，保存下面的 Python 示例程序。比如取名为 python_demo.py。
-将代码中的“appkey”替换为步骤 1 中获得的 AppKey。只有这两个客户端使用同一个 AppKey，才能相互通信。<br>
+将代码中的“appkey”替换为步骤 1 中获得的 AppKey。只有这两个客户端使用同一个 AppKey，才能相互通信。
 
 ```python
 from socketIO_client import SocketIO
@@ -228,9 +221,9 @@ socketIO.wait()
 
 ![socketio_client_recv.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/socketio_client_recv.png)
 
-同样地，可以通过 Android Demo 的 MAIN 标签页下的“Msg to publish”项向 python_demo 订阅的频道发送消息。<br>
+同样地，可以通过 Android Demo 的 MAIN 标签页下的“Msg to publish”项向 python_demo 订阅的频道发送消息。
 另外，在代码中可以看到，python_demo 的别名已设置为“mytestalias1”。
-可以通过 Android Demo 的 API 标签页下的 “Msg to Alias” 项发送一对一消息给 python_demo。<br>
+可以通过 Android Demo 的 API 标签页下的 “Msg to Alias” 项发送一对一消息给 python_demo。
 发送和接收的截图如下：
 
 ![socketio_to_topic.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/socketio_to_topic.png)
@@ -239,4 +232,4 @@ socketIO.wait()
 
 ![socketio_term_recv.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/socketio_term_recv.png)
 
-更多用法和功能，请参考 [socket.io API 手册](http://yunba.io/docs2/socket.io_API/)。
+更多用法和功能，请参考 [Socket.IO API 手册](http://yunba.io/docs2/socket.io_API/)。
