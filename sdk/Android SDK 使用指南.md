@@ -1,4 +1,5 @@
 ## Android SDK 使用指南
+本文介绍了 YunBa Android SDK 的使用和故障排除。
 ### 嵌入 Yunba Android SDK
 如果未下载 Android SDK，请先阅读 [Yunba Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/) ，嵌入 Android SDK。确保完成了  [AndroidManifest.xml]( http://yunba.io/docs2/Android_Quick_Start/#配置AndroidManifest.xml) 的添加权限、配置 AppKey、修改应用包名、添加 Service 和添加 Receiver 几个步骤。
 <br>
@@ -20,7 +21,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 
 
 ### 如何群聊（广播）
-#### 订阅话题 [`subscribe()`](http://yunba.io/docs2/Android_API_Reference/#subscribe)
+**订阅话题 [`subscribe()`](http://yunba.io/docs2/Android_API_Reference/#subscribe)**
 
 > Code Example
 
@@ -45,7 +46,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 	);
 ```
 
-#### 发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2) 
+**发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2)**
 
 > 以 `publish2()` 为例
 
@@ -79,7 +80,8 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 	);
 ```
 
-#### 自定义 Receiver 接收 Publish 消息
+**自定义 Receiver 接收 Publish 消息**
+<br><br>
 在 AndroidManifest.xml 自定义 Receiver ，确保添加 `<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />`；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) 和 Android Demo 的示例。
 
 >处理接收消息广播的示例
@@ -104,27 +106,39 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 ```
 
 
-#### `publish()` 和 `publish2()` 的区别
-`publish2()` 的参数比 `publish()` 多了opts (JSONObject) 参数，可用于封装 
+**`publish()` 和 `publish2()` 的区别**
+<br><br>
+`publish2()` 的参数比 `publish()` 多了 opts (JSONObject) 参数，可用于封装 
 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md) (服务质量)、[time_to_live]( https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) (离线消息保留时间)、[aps_json] (https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
 
 
 
-#### 如何停止接收订阅消息
-调用 [`unsubscribe()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribe) ，将不再接收到该 Topic 下的消息。
+**如何停止接收订阅消息**
+<br><br>
+调用 [`unsubscribe()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribe) ，传入 Topic 参数，将不再接收到该 Topic 下的消息。
 
 ### 如何实现单聊（点对点通讯）
-#### 设置别名
+**设置别名、发送**
+<br><br>
 先在发送方和接收方设置别名： [setAlias()]( http://yunba.io/docs2/Android_API_Reference/#setAlias) ；
-再调用 [`publishToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publishToAlias) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 。
-<br>
+再调用 [`publishToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publishToAlias) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 发送消息到指定的 Alias。
 
-**注**：别名唯一存在；同一台设备，如果设置新的别名将替换旧别名。详见 [频道与别名]( https://github.com/yunba/kb) 。
+<br>同一 AppKey 下别名唯一存在；同一台设备，设置的新别名将替换旧别名。详见 [频道与别名]( https://github.com/yunba/kb) 。
 <br>
-确保定义了 [接收 Message 的Receiver]( http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) ，才能接收到消息，可参考上文“自定义 Receiver 接收 Publish 消息”示例。
+可通过调用 [`getAlias()`](http://yunba.io/docs2/Android_API_Reference/#getAlias) 获取当前用户的别名。
+<br>
+**注：**<br>
+确保自定义了 [接收 Message 的Receiver]( http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) ，才能接收到消息，可参考上文“自定义 Receiver 接收 Publish 消息”示例。
+<br>
+<br>
+**如何获取当前用户(Alias)订阅的频道列表**
+<br><br>
+获取当前用户 (Alias) 所订阅的频道列表，可以调用 [`getTopicList()`](http://yunba.io/docs2/Android_API_Reference/#getTopicList)，从回调函数获得。
 
-#### `publishToAlias()` 和 `publish2ToAlias()` 的区别
-` publish2ToAlias ()` 的参数比 ` publishToAlias ()` 多了opts(JSONObject) 参数，可用于封装 
+<br>
+**`publishToAlias()` 和 `publish2ToAlias()` 的区别**
+<br><br>
+` publish2ToAlias ()` 的参数比 ` publishToAlias ()` 多了 opts(JSONObject) 参数，可用于封装 
 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md) (服务质量)、[time_to_live]( https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) (离线消息保留时间)、[aps_json] (https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
 
 
@@ -141,8 +155,9 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 
 	YunBaManager.resume(getApplicationContext());
 ```
-
-**注**：当调用了 `stop()` ，设备处于离线状态，只有调用 `resume()` 才恢复服务；当恢复服务时，在保留时间 (time_to_live) 以内的离线消息可以送达。
+如需检查推送服务是否被停止了，可调用 `isStopped()` 。
+<br><br>
+**注**：当调用了 `stop()` ，设备处于离线状态，只有调用 `resume()` 才能恢复服务；当恢复服务时，在保留时间 (time_to_live) 以内的离线消息可以送达。
 
 ### 获取消息的发送者
 如果需要在接收消息时显示消息发送者的用户名 Alias，需要在发送时把 Msg 和 Alias 封装到 Message 进行发送；在接收消息广播的 `onReceive()` 进行解析。
@@ -305,7 +320,8 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 ```
 
 
-#### 取消用户上下线通知的监听
+**取消用户上下线通知的监听**
+<br><br>
 调用 [`unsubscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribePresence) ，传入取消监听的 Topic 即可。将取消监听该 Topic 下用户的状态变化，不再接收到`<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION"/>` 的广播。
 
 > Code Example
@@ -335,7 +351,8 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 ```
 
 ### 如何获取订阅人数和用户在线状态
-#### 获取订阅人数
+**获取订阅人数**
+<br><br>
 获取某 Topic下的所有用户，可调用 [`getAliasList()`](http://yunba.io/docs2/Android_API_Reference/#getAliasList) ，传入 Topic，从回调函数获得。
 
 
@@ -368,8 +385,8 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 	    }
 	);
 ```
-#### 获取用户的在线状态
-
+**获取某用户的在线状态**
+<br><br>
 获取某用户 Alias 的在线状态，可调用 [`getState()`](http://yunba.io/docs2/Android_API_Reference/#getState) ，传入 Alias ，从回调函数获得。
 
 
@@ -402,3 +419,20 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 	    }
 	);
 ```
+<br>
+
+
+##故障排除
+### 按照步骤操作但接收不到消息
+1. 如果从未成功接收消息，一般为代码集成错误，请参考 [Yunba Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/) 和 [上文](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)，检查集成步骤。<br>
+**提示：**确保完成了 AndroidManifest.xml 的添加权限、配置 AppKey、修改应用包名、添加 Service 、添加 Receiver 和初始化 SDK 几个步骤；检查自定义 Receiver （接收消息）部分的代码,可参考 YunBa Android Demo 的 AndroidManifest.xml 和 DemoReceiver.java。
+2. 检查网络问题，在网络正常情况下为秒内延迟。网络不稳定可能导致客户端与云巴服务端的长连接断开。支持 2G，3G，4G，Wi-Fi 网络环境。
+3. 检查是否有保留后台进程，详见下文的后台进程部分。
+
+### 显示“等待来自服务器的响应时超时”
+如果 `subscribe()` 和 `publish()` 等操作未成功过，显示“等待来自服务器的响应时超时”，则一般为代码集成错误；如果是近期的故障，请检查本地网络环境。
+<br>
+### 应用退出后收不到消息
+在后台进程驻留的情况下，应用可以接收到消息。
+<br>
+当后台进程被系统杀死，则长连接断开，客户端收不到消息。解决方法：可以通过后台进程守护和进程相互拉起使 App 退出后仍能收到消息，具体可以发邮件到 support@yunba.io 进行咨询。
