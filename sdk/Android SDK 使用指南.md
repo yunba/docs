@@ -116,15 +116,15 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 **如何停止接收订阅消息**
 <br><br>
 调用 [`unsubscribe()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribe) ，传入 Topic 参数，将不再接收到该 Topic 下的消息。
-
+<br>
 ### 如何实现单聊（点对点通讯）
 <br>
 **设置别名、发送**
 <br><br>
 先在发送方和接收方设置别名： [setAlias()]( http://yunba.io/docs2/Android_API_Reference/#setAlias) ；
 再调用 [`publishToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publishToAlias) 或 [`publish2ToAlias()`](http://yunba.io/docs2/Android_API_Reference/#publish2ToAlias) 发送消息到指定的 Alias。
-
-<br>同一 AppKey 下别名唯一存在；同一台设备，设置的新别名将替换旧别名。详见 [频道与别名]( https://github.com/yunba/kb) 。
+<br>
+同一 AppKey 下别名唯一存在；同一台设备，设置的新别名将替换旧别名。详见 [频道与别名]( https://github.com/yunba/kb) 。
 <br>
 可通过调用 [`getAlias()`](http://yunba.io/docs2/Android_API_Reference/#getAlias) 获取当前用户的别名。
 <br>
@@ -135,13 +135,11 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 **如何获取当前用户(Alias)订阅的频道列表**
 <br><br>
 获取当前用户 (Alias) 所订阅的频道列表，可以调用 [`getTopicList()`](http://yunba.io/docs2/Android_API_Reference/#getTopicList)，从回调函数获得。
-
 <br><br>
 **`publishToAlias()` 和 `publish2ToAlias()` 的区别**
 <br><br>
 ` publish2ToAlias ()` 的参数比 ` publishToAlias ()` 多了 opts(JSONObject) 参数，可用于封装 
 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md) (服务质量)、[time_to_live]( https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) (离线消息保留时间)、[aps_json] (https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
-
 <br>
 ### 如何停止和恢复接收消息
 
@@ -159,7 +157,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 如需检查推送服务是否被停止了，可调用 `isStopped()` 。
 <br><br>
 **注**：当调用了 `stop()` ，设备处于离线状态，只有调用 `resume()` 才能恢复服务；当恢复服务时，在保留时间 (time_to_live) 以内的离线消息可以送达。
-
+<br>
 ### 获取消息的发送者
 如果需要在接收消息时显示消息发送者的用户名 Alias，需要在发送时把 Msg 和 Alias 封装到 Message 进行发送；在接收消息广播的 `onReceive()` 进行解析。
 
