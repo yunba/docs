@@ -45,7 +45,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 	   }
 	);
 ```
-
+<br>
 **发布消息 [`publish()`](http://yunba.io/docs2/Android_API_Reference/#publish)或 [`publish2()`](http://yunba.io/docs2/Android_API_Reference/#publish2)**
 
 > 以 `publish2()` 为例
@@ -79,7 +79,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 	    }
 	);
 ```
-
+<br>
 **自定义 Receiver 接收 Publish 消息**
 <br><br>
 在 AndroidManifest.xml 自定义 Receiver ，确保添加 `<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />`；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/#自定义Receiver在AndroidManifest.xml的配置) 和 Android Demo 的示例。
@@ -105,19 +105,20 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
      }
 ```
 
-
+<br>
 **`publish()` 和 `publish2()` 的区别**
 <br><br>
 `publish2()` 的参数比 `publish()` 多了 opts (JSONObject) 参数，可用于封装 
 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md) (服务质量)、[time_to_live]( https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) (离线消息保留时间)、[aps_json] (https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
 
-
+<br>
 
 **如何停止接收订阅消息**
 <br><br>
 调用 [`unsubscribe()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribe) ，传入 Topic 参数，将不再接收到该 Topic 下的消息。
 
 ### 如何实现单聊（点对点通讯）
+<br>
 **设置别名、发送**
 <br><br>
 先在发送方和接收方设置别名： [setAlias()]( http://yunba.io/docs2/Android_API_Reference/#setAlias) ；
@@ -135,13 +136,13 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](http://yunba.
 <br><br>
 获取当前用户 (Alias) 所订阅的频道列表，可以调用 [`getTopicList()`](http://yunba.io/docs2/Android_API_Reference/#getTopicList)，从回调函数获得。
 
-<br>
+<br><br>
 **`publishToAlias()` 和 `publish2ToAlias()` 的区别**
 <br><br>
 ` publish2ToAlias ()` 的参数比 ` publishToAlias ()` 多了 opts(JSONObject) 参数，可用于封装 
 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md) (服务质量)、[time_to_live]( https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) (离线消息保留时间)、[aps_json] (https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
 
-
+<br>
 ### 如何停止和恢复接收消息
 
 可调用 [`stop()`](http://yunba.io/docs2/Android_API_Reference/#stop) 停止接收消息，使所有的 API 都失效（包括 start API）；
@@ -319,7 +320,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 	);
 ```
 
-
+<br>
 **取消用户上下线通知的监听**
 <br><br>
 调用 [`unsubscribePresence()`](http://yunba.io/docs2/Android_API_Reference/#unsubscribePresence) ，传入取消监听的 Topic 即可。将取消监听该 Topic 下用户的状态变化，不再接收到`<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION"/>` 的广播。
@@ -351,6 +352,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 ```
 
 ### 如何获取订阅人数和用户在线状态
+<br>
 **获取订阅人数**
 <br><br>
 获取某 Topic下的所有用户，可调用 [`getAliasList()`](http://yunba.io/docs2/Android_API_Reference/#getAliasList) ，传入 Topic，从回调函数获得。
@@ -385,6 +387,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 	    }
 	);
 ```
+<br>
 **获取某用户的在线状态**
 <br><br>
 获取某用户 Alias 的在线状态，可调用 [`getState()`](http://yunba.io/docs2/Android_API_Reference/#getState) ，传入 Alias ，从回调函数获得。
