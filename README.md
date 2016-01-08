@@ -4,8 +4,8 @@ Yunba Documentation
 ## 文档风格
 
 - 文档采用 github 兼容 markdown 格式编写。
-- 中英文中间要加空格，遇到标点、斜杠等字符时可以省略空格。例如：“Yunba 实时消息、Yunba 的 Android/iOS 消息推送。”
-- 超链接的文本的前后要加上空格。
+- 英文、数字的前后要加空格，如遇到标点、斜杠等字符时可以省略空格。例如：“Yunba 实时消息、Yunba 的 Android/iOS 消息推送。”“保留 50 条。”
+- 超链接文本的前后要加上空格，遇到标点符号时省略空格。
 - 中英文标点不要混用。中文文档内容统一使用中文标点，英文文档统一使用英文标点。
 - 专用名词统一。特别是中英文翻译，使用统一的对照表。
 - API 输入参数使用表格描述。
@@ -47,12 +47,13 @@ Yunba Documentation
  - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
  - [运行 Yunba C Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_C.md)
  - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
- - [运行 Yunba Socket.io Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO.md)
+ - [运行 Yunba Socket.io Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Python.md)
+ - [运行 Yunba Socket.io Java Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Java.md)
  - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
  - [运行 Yunba C# Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_CSharp.md)
 
 ### 4. SDK 手册 [/sdk]
-* [Android SDK 使用指南.md](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
+* [Android SDK 使用指南](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
 
 ### 5. 技术支持 [/support]
 * [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
