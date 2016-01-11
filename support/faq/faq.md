@@ -152,6 +152,11 @@
 * Android SDK 不同包名可以互相通信吗？
 * 使用云巴 Android SDK，如果需要同一个 Appkey 不同包名的客户端之间能够互相通信，请把 Appkey 对应的包名发到 support@yunba.io，我们会在内部做些处理来支持。
 
+---
+* 用 Portal 和一个设备做测试时，“在线用户” 显示2个用户？
+* 因为 Portal 本身也是一个用户。
+
+
 
 ###iOS SDK
 
