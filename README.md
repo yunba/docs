@@ -47,10 +47,12 @@ Yunba Documentation
  - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
  - [运行 Yunba C Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_C.md)
  - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
+ - [运行 Yunba C# Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_CSharp.md)
  - [运行 Yunba Socket.io Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Python.md)
  - [运行 Yunba Socket.io Java Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Java.md)
+ - [运行 Yunba PHP Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_PHP.md)
  - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
- - [运行 Yunba C# Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_CSharp.md)
+
 
 ### 4. SDK 手册 [/sdk]
 * [Android SDK 使用指南](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
