@@ -2,7 +2,7 @@
 
 本文介绍如何运行 Yunba PHP SDK 中的 examples 示例程序。
 
-**提示：**此 SDK 只能在 cli 模式下以阻塞方式运行，如果只用于发布消息，推荐使用更简单的 [RESTful API](http://yunba.io/docs2/restful_Quick_Start/)。
+**提示：**此 SDK 只能在 [CLI](http://php.net/manual/zh/features.commandline.php) 模式下以阻塞方式运行，如果只用于发布消息，推荐使用更简单的 [RESTful API](http://yunba.io/docs2/restful_Quick_Start/)。
 
 本文涉及的运行环境如下：
 
