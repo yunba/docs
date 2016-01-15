@@ -49,11 +49,25 @@
 * 云巴有完整的聊天系统可直接用吗？
 * 云巴只做最底层的消息系统，发送的具体内容不做处理。
 
+### 基础问题
+
+---
+* [什么是云巴 Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal)？
+
+---
+* [如何在云巴 Portal 上创建新应用](https://github.com/yunba/kb/blob/master/Portal.md#如何在云巴-portal-上创建新应用)
+
+---
+* [什么是 AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)？
+
 
 ### 消息推送、实时消息
 
 ---
 * [云巴 iOS 消息推送是怎样的？](https://github.com/yunba/kb/blob/master/云巴 iOS 消息推送.md)
+
+---
+* [如何通过云巴实现 APNs 推送？](https://github.com/yunba/kb/blob/master/如何通过云巴实现%20APNs%20推送.md)
 
 ---
 * [云巴 Android 消息推送是怎样的？](https://github.com/yunba/kb/blob/master/云巴 Android 消息推送.md)
