@@ -1,71 +1,74 @@
 # YunBa Android SDK API 手册
 
+如果未导入 YunBa Android SDK 请参考 [YunBa Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/)。<br>
+了解 Android SDK 的具体使用方法可参考 [YunBa Android SDK 使用指南]( https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)。
+
 ## start
 
 ### 功能
-App 初始化 YunBa SDK.
+App 初始化 YunBa SDK。
 
 ### 函数原型
-  ` public static void start(Context context) ` 
+` public static void start(Context context) ` 
   
-  ` public static void start(Context context, String appkey) `
+` public static void start(Context context, String appkey) `
   
-  ` public static void start(Context context, String appkey, Map opts) `
+` public static void start(Context context, String appkey, Map opts) `
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-appkey | String | YunBa 中注册的 App Key, 如果用户已经在 AndroidManifest.xml 定义了 YUNBA_APPKEY, 此处的设置是无效的。
-opts | Map | 选项，可包含sub_key(用于获取订阅权限的密钥), pub_key(用于获取发布权限的密钥),sec_key(用于获取管理权限的密钥，切勿外泄), auth_key(用于access manager模块中权限管理的动态密钥)
+appkey | String | YunBa 中注册的 App Key，如果用户已经在 AndroidManifest.xml 定义了 [YUNBA_APPKEY]( https://github.com/yunba/kb/blob/master/AppKey.md#appkey)，此处的设置是无效的。
+opts | Map | 选项，可包含 sub_key （用于获取订阅权限的密钥），pub_key （用于获取发布权限的密钥），sec_key （用于获取管理权限的密钥，切勿外泄），auth_key （用于 access manager 模块中权限管理的动态密钥）
 
 ### Code Example
 
 ```java
-    YunBaManager.start(getApplicationContext());
+YunBaManager.start(getApplicationContext());
 ```
 
 ## subscribe
 
 ### 功能
-App 可以 `订阅` 一个或者多个 Topics, 以便可以接收来自 Topic 的 Message.
+App 可以 `订阅` 一个或者多个 Topics，以接收来自 Topic 的 Message。
 
 ### 函数原型
-`   public static void subscribe(Context context, String topic, IMqttActionListener mqttAction) `
+`public static void subscribe(Context context, String topic, IMqttActionListener mqttAction)`
 
-`	public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction) `
+`public static void subscribe(Context context, String[] topics, IMqttActionListener mqttAction)`
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，频道的作用可参考 [这里](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md)
+topics | String[] | app 订阅的频道数组列表，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
 ```java
 
-	YunBaManager.subscribe(getApplicationContext(),topic,
-	  new IMqttActionListener() {
-        @Override
-        public void onSuccess(IMqttToken asyncActionToken) {
-          String topic = DemoUtil.join(asyncActionToken.getTopics(), ",");
-          DemoUtil.showToast( "Subscribe succeed : " + topic, getApplicationContext());
-        }
+YunBaManager.subscribe(getApplicationContext(),topic,
+  new IMqttActionListener() {
+    @Override
+    public void onSuccess(IMqttToken asyncActionToken) {
+      String topic = DemoUtil.join(asyncActionToken.getTopics(), ",");
+      DemoUtil.showToast( "Subscribe succeed : " + topic, getApplicationContext());
+    }
 
-        @Override
-        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-           if (exception instanceof MqttException) {
-               MqttException ex = (MqttException)exception;
-                String msg =  "Subscribe failed with error code : " + ex.getReasonCode();
-                DemoUtil.showToast(msg, getApplicationContext());
-           }
-         
-        }
-      }
-    );
+    @Override
+    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+       if (exception instanceof MqttException) {
+           MqttException ex = (MqttException)exception;
+            String msg =  "Subscribe failed with error code : " + ex.getReasonCode();
+            DemoUtil.showToast(msg, getApplicationContext());
+       }
+     
+    }
+  }
+);
 ```
 
 
@@ -73,7 +76,7 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onF
 
 ### 功能
 
-App 可以 `取消订阅` 一个或者多个 Topics, 以便取消接收来自 Topic 的 Message.
+App 可以 `取消订阅` 一个或者多个 Topics，以取消接收来自 Topic 的 Message。
 
 ### 函数原型
 
@@ -86,9 +89,9 @@ App 可以 `取消订阅` 一个或者多个 Topics, 以便取消接收来自 To
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topics | String[] | app 订阅的频道数组列表，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -118,7 +121,8 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 ## publish
 
 ### 功能
-App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息。
+App 可以向 Topic 发送消息，那么任何 [`订阅`](https://github.com/yunba/docs/blob/master/Android_API_Reference.md#subscribe) 此 Topic 的 Client 都会接收到消息。<br>
+**注**：需 [自定义 Receiver 接收 Publish 消息](https://github.com/yunba/docs/blob/master/Android_Quick_Start.md#%E8%87%AA%E5%AE%9A%E4%B9%89-receiver-%E6%8E%A5%E5%8F%97-publish-%E6%B6%88%E6%81%AF)
 
 ### 函数原型
 
@@ -131,9 +135,9 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
 message | String | 向目标 topic 的订阅者发布的消息
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -159,12 +163,13 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
     }
 );
 ```
+**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者]( https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 ## publish2
 
 ### 功能
-App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会接受到消息，此API可以带有其他参数，如APN选项等。
-
+App 可以向 Topic 发送消息，那么任何 [`订阅`](https://github.com/yunba/docs/blob/master/Android_API_Reference.md#subscribe) 此 Topic 的 Client 都会接收到消息，此 API 可以带有其他参数，如 APN 选项等。<br>
+**注**：需 [自定义 Receiver 接收 Publish 消息](https://github.com/yunba/docs/blob/master/Android_Quick_Start.md#%E8%87%AA%E5%AE%9A%E4%B9%89-receiver-%E6%8E%A5%E5%8F%97-publish-%E6%B6%88%E6%81%AF)
 ### 函数原型
 
 
@@ -174,10 +179,11 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
 message | String | 向目标 topic 的订阅者发布的消息
-opts | JSONObject | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台，APNS等等
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+opts | JSONObject | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台，APNs 等等
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
+
 
 ### Code Example
 
@@ -212,11 +218,23 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
     }
 );
 ```
+### 扩展参数说明
+
+`publish2` 扩展参数 opts 是可选项，如果不填写参数，`publish2` 的行为与 `publish` 相似（除了 apn_json 参数）。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | number | 如果不填，默认为 1，参数设置请参考 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md)
+apn_json | dict | 如果不填，则不会发送 APN；而 `publish` 会发送默认的 APN。APN 具体请参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
+time_to_live | number | [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留时间值，单位是秒（例如 2 天 2\*24\*3600），当前默认值为 5 天
+
+
 
 ## publishToAlias
 
 ### 功能
-向用户别名发送消息, 用于实现点对点的消息发送。
+向用户别名对象发送消息，用于实现点对点的消息发送。<br>
+**注**：需要先 [`设置别名`](https://github.com/yunba/docs/blob/master/Android_API_Reference.md#setalias) 
 
 ### 函数原型
 
@@ -226,9 +244,9 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-message | String | 向目标别名的订阅者发布的消息
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+alias| String | 用户设置的 [别名信息](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)，同一 App Key 下唯一，只支持英文数字下划线，长度不超过 50 个字符
+message | String | 向设置该目标别名的对象发布的消息
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -255,10 +273,14 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
 );
 ```
 
+
+**注**：如需在接收消息时获取发送者的 Alias ，可参考上文 [`publish()`](https://github.com/yunba/docs/blob/master/Android_API_Reference.md#publish) 的补充说明。
+
 ## publish2ToAlias
 
 ### 功能
-向用户别名发送消息, 用于实现点对点的消息发送。
+向用户别名对象发送消息，用于实现点对点的消息发送，此 API 可以带有其他参数，如 APN 选项等。<br>
+**注**：需要先 [`设置别名`](https://github.com/yunba/docs/blob/master/Android_API_Reference.md#setalias) 
 
 ### 函数原型
 
@@ -268,10 +290,10 @@ YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-message | String | 向目标别名的订阅者发布的消息
-opts | JSONObject | 向目标别名的订阅者发布的消息的选项：如消息有效时间，目标平台， APNS 参数等等
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+alias| String | 用户设置的 [别名信息](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)，同一 App Key 下唯一，只支持英文数字下划线，长度不超过 50 个字符
+message | String | 向设置该目标别名的对象发布的消息
+opts | JSONObject | 向设置该目标别名的对象发布的消息的选项：如消息有效时间，目标平台，APNs 参数等等
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -306,10 +328,21 @@ YunBaManager.publish2ToAlias(getApplicationContext(), topic, msg, opts,
 );
 ```
 
+### 扩展参数说明
+
+`publish2ToAlias` 扩展参数 opts 是可选项，如果不填写参数，`publish2` 的行为与 `publish` 相似（除了 apn_json 参数）。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | number | 如果不填，默认为 1 ，参数设置请参考 [QoS]( https://github.com/yunba/kb/blob/master/QoS.md)
+apn_json | dict | 如果不填，则不会发送 APN；而 `publish` 会发送默认的 APN。APN 具体请参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
+time_to_live | number | [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留时间值，单位是秒（例如 2 天 2\*24\*3600），当前默认值为 5 天
+
+
 ## stop
 
 #### 功能
-App 可以调用此函数来停止推送服务，当推送服务被停止后，所以的 API 都会失效（包括 start API）, 当需要重新使用推送服务时，必须要调用 resume API
+App 可以调用此函数来停止云巴服务，当服务被停止后，长连接断开，所有的 API 都会失效（包括 start API），该 API 可用于 [停止接收任何消息](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF)；当需要重新连接服务时，必须调用 `resume`。
 
 ### 函数原型
 
@@ -326,14 +359,14 @@ context | Context | Android 应用上下文环境
 
 ```java
 
-    YunBaManager.stop(getApplicationContext());
+YunBaManager.stop(getApplicationContext());
 ```
 
 
 ## resume
 
 #### 功能
-App 可以调用此函数来恢复推送服务，与 stop API 相对应。
+App 可以调用此函数来恢复云巴服务，与 `stop()` 相对应。
 
 ### 函数原型
 
@@ -348,14 +381,14 @@ App 可以调用此函数来恢复推送服务，与 stop API 相对应。
 
 ```java
 
-    YunBaManager.resume(getApplicationContext());
+YunBaManager.resume(getApplicationContext());
 ```
 
 
 ## isStopped
 
 #### 功能
-App 可以调用此函数来查看推送服务是否被停止。
+App 可以调用此函数来查看云巴服务是否被停止。
 
 ### 函数原型
 
@@ -372,14 +405,14 @@ context | Context | Android 应用上下文环境
 
 ```java
 
-    YunBaManager.isStopped(getApplicationContext());
+YunBaManager.isStopped(getApplicationContext());
 ```
 
 
 ## report
 
 ### 功能
-App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等等行为。
+App  可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等行为。
 
 ### 函数原型
 
@@ -392,20 +425,20 @@ App  可以调用此函数来上报客户端的行为，如打开通知栏次数
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
 action | String | 需要统计的行为，如打开通知栏，下载资源成功等等
-data | String | 想对应 action 的附加数据，以满足统计相关的其他业务需求
+data | String | 相对应 action 的附加数据，以满足统计相关的其他业务需求
 
 
 ### Code Example
 
 ```java
 
-    YunBaManager.report(getApplicationContext(), "notifaction_opened", null,);
+YunBaManager.report(getApplicationContext(), "notifaction_opened", null);
 ```
 
 ## setAlias
 
 ### 功能
-App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
+App  可以调用此函数来绑定账号，用户名，同一 AppKey 下每个用户只能指定一个 [别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)。
 
 ### 函数原型
 
@@ -417,8 +450,8 @@ App  可以调用此函数来绑定账号，用户名，每个用户只能指定
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -446,7 +479,7 @@ YunBaManager.setAlias(getApplicationContext(), alias,
 ## getAlias
 
 ### 功能
-App  可以调用此函数来获取当前用户的别名。
+App  可以调用此函数来获取当前用户的 [别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)。
 
 ### 函数原型
 
@@ -458,7 +491,7 @@ App  可以调用此函数来获取当前用户的别名。
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -486,7 +519,7 @@ YunBaManager.getAlias(getApplicationContext(),
 ## getTopicList
 
 ### 功能
-App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表,如果输入参数 alias，则是获取目标 alias 的频道列表。
+App 可以查询用户订阅的频道列表，如果不传入参数 [alias](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)，则是获取当前用户的频道列表，如果输入参数 alias，则是获取目标 alias 的频道列表。
 
 ### 函数原型
 
@@ -502,8 +535,8 @@ App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 ### Code Example
 
@@ -538,7 +571,7 @@ YunBaManager.getTopicList(getApplicationContext(),
 ## getAliasList
 
 ### 功能
-App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
+App 可以调用此函数来获取输入 Topic 下面所有订阅用户的 [别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)。
 
 
 ### 函数原型
@@ -553,10 +586,10 @@ App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
 disableState | boolean | 结果是否排除别名状态信息
 disableAlias | boolean | 结果是否排除别名列表
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
 ### Code Example
@@ -593,7 +626,7 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 ## getState
 
 ### 功能
-根据别名来获取用用户的状态，如是否在线等信息
+根据 [别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias) 来获取用户的状态，如是否在线等信息
 
 
 ### 函数原型
@@ -607,8 +640,8 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
 ### Code Example
@@ -645,7 +678,7 @@ YunBaManager.getState(getApplicationContext(), "t1",
 ## subscribePresence
 
 ### 功能
-App  可以调用此函数来监听 Topic 下面所有的用户的别名状态的变化。所有用户的状态变化时都发起一个  <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 的广播，用户 App 的程序监听此 action 的广播就能收到相应状态的变化。
+App 可以调用此函数来监听 Topic 下面所有用户的别名在线状态的变化。所有用户的状态变化时都发起一个 `<action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" />` 的广播，用户 App 的程序监听此 action 的广播就能收到相应状态的变化通知。
 
 
 ### 函数原型
@@ -659,13 +692,12 @@ App  可以调用此函数来监听 Topic 下面所有的用户的别名状态�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
 ### Code Example
 
-> Code Example
 
 ```java
 
@@ -691,25 +723,23 @@ YunBaManager.subscribePresence(getApplicationContext(), "t1",
 ```
 
 
-### 自定义 Receive 监听状态变化的 AndroidManifest.xml 配置
+### 自定义 Receiver 监听状态变化的 AndroidManifest.xml 配置
 
-> 自定义 Receiver 处理 Publish 消息
 
 ```xml
- <receiver android:name="Your Receiver">
-              <intent-filter>
-                <action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
-                <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 
-                <category android:name="Package Name" />
-            </intent-filter>
-         </receiver>
+<receiver android:name="Your Receiver">
+        <intent-filter>
+            <action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
+            <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" /> 
+            <category android:name="Package Name" />
+        </intent-filter>
+</receiver>
 
 ```
 
 
-### 自定义 Receive 监听状态变化代码片段
+### 自定义 Receiver 监听状态变化代码片段
 
-> 自定义 Receive 监听状态变化代码片段
 
 ```java
 
@@ -733,7 +763,7 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 ## unsubscribePresence
 
 ### 功能
-与 subscribePresence 想对应， 取消监听对应 Topic 下用户状态的变化。
+与 subscribePresence 相对应，取消监听对应 Topic 下用户状态的变化。
 
 
 ### 函数原型
@@ -747,8 +777,8 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
+topic | String | app 订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
 ### Code Example
