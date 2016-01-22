@@ -1,11 +1,16 @@
 # Yunba Android SDK 快速入门
 ## 注册开发者账号
-打开 <http://yunba.io>, 点击注册创建账号。
+
+打开 <http://yunba.io>，点击注册创建账号。
+
 
 ![create_accout.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/register_account.png)
 
+
 ## 创建应用
-注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）
+
+注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）。
+
 
 ![create_application.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
 
@@ -14,16 +19,20 @@
 
 打开 <http://yunba.io/developers/> 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
 
+
 ## 导入 Android SDK
 
 下载的 yunba-sdk-release.jar 包放到项目的 libs 目录下。
 
+
 ![libs_android.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/libs_android.jpeg)
+
+
+开发工具为 Android Studio 的 Android SDK 导入步骤可参考 [Github 文档]( https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md#3-%E5%BC%95%E5%85%A5-android-demo-%E5%B7%A5%E7%A8%8B)。
+
 
 ## 配置 AndroidManifest.xml
 ### 添加权限
-
-> 添加权限
 
 ```xml
 
@@ -44,34 +53,44 @@
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-### 配置应用的 AppKey (AppKey 来自 Portal,与包名对应）
-AppKey 来自 YunBa 注册的应用，与包名对应.
+
+### 配置应用的 AppKey（AppKey 来自 Portal，与包名对应）
+[AppKey](https://github.com/yunba/kb/blob/master/AppKey.md) 来自 YunBa 注册的应用，与包名对应。
+
 
 ![appkey-pkg.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
-> 添加 Appkey
+
+**添加 Appkey**
 
 ```xml
 
 <meta-data android:name="YUNBA_APPKEY" android:value="Your Appkey" />
 
 ```
-### 修改应用包名称
-在 AndroidManifest.xml  中根据YunBa Portal 注册应用的包名替换  “Your PackageName”， 友情提示：一共有两处需要修改。
-### 添加 Service
-添加 YunBaService ，YunBa SDK 会启动一个后台的 service.
 
-> 添加 YunBaService
+
+### 修改应用包名称
+
+在 AndroidManifest.xml 中根据 YunBa Portal 注册应用的包名替换 “Your PackageName”， 友情提示：一共有两处需要修改。
+
+
+### 添加 Service
+
+添加 YunBaService，YunBa SDK 会启动一个后台的 service。
+
+
+**添加 YunBaService**
 
 ```xml
 
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
 
-### 添加 Receiver
-添加 YunBaReceiver, 用来监听网络变化等事件，确保网络切换时能重新建立长连接.
 
-> 添加 YunBaReceiver
+### 添加 Receiver
+
+添加 YunBaReceiver， 用来监听网络变化等事件，确保网络切换时能重新建立长连接。
 
 ```xml
 
@@ -83,8 +102,10 @@ AppKey 来自 YunBa 注册的应用，与包名对应.
 </receiver>
 ```
 
+
 ## 添加使用代码
-初始化 SDK 并订阅 Topic，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
+
+初始化 SDK 并订阅 [Topic](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E9%A2%91%E9%81%93topic)，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
 
 ```java
 
@@ -112,13 +133,15 @@ public class YourApp extends Application {
 }
 ```
 
-## 自定义 Receiver 接受 Publish 消息
-YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过监听相关的 Action 接受消息并处理。
+
+## 自定义 Receiver 接收 Publish 消息
+
+YunBa 系统 Publish 的消息会通过广播的形式传递给 App， App 通过监听相关的 Action 接收消息并处理。
+
 
 ### 自定义 Receiver 在 AndroidManifest.xml 的配置
 
-
- > 自定义 Receiver 接受 Publish 消息, Package Name 为当前应用程序的包名。
+自定义 Receiver 接收 Publish 消息， Package Name 为当前应用程序的包名。
 
 ```xml
 
@@ -130,9 +153,10 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 	</receiver>
 ```
 
+
 ### 自定义 Receiver 处理 Publish 消息代码示例
 
-> 自定义 Receiver 处理 Publish 消息
+自定义 Receiver 处理 Publish 消息
 
 ```java
 
@@ -155,47 +179,77 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App, App 通过�
 		DemoUtil.showNotifation(context, topic, msg);
 	}
 ```
+
+
 ## 重新编译文件
-在 Eclipse 中重新编译项目生成新的R文件，在MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
+
+在 Eclipse 中重新编译项目生成新的 R 文件，在MainActivity，DemoUtil，APIActivity，YunBaTabActivity 重新导入 R 文件。
+
+
 ![此处输入图片的描述][1]
+
+
 ![此处输入图片的描述][2]
 
+
 ## 运行程序
-运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected的 日志表示连接成功。
+
+运行 yunba-demo 程序（Run as Android application）， 如果 yunba-demo 程序出现 Connected 的日志表示连接成功。
+
 
 可能遇到的问题：
-运行程序的过程中可能会出现 requires API level 10 (current min is 8)的问题。只需要修改AndroidManifest.xml中的标签<uses-sdk>
+运行程序的过程中可能会出现 **requires API level 10 (current min is 8)** 的问题。只需要修改 AndroidManifest.xml 中的标签 `<uses-sdk>` 如下：
+
 ```
 <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="14" />
   ```
-        
+
+
 ### 程序运行主界面
+
+
 ![此处输入图片的描述][3]
-### API接口界面展示
+
+
+### API 接口界面展示
+
+
 ![此处输入图片的描述][4]
+
 
 ## 在 Portal 上发布消息
 
-客服端集成 YunBa SDK 后，打开 Portal 上应用详情页面，点击发布消息，客户端即可收到消息，如图所示:
+客户端集成 YunBa SDK 后，打开 Portal 上的应用详情页面，输入频道名称和消息内容，点击 “发送”，订阅该频道的客户端即可收到消息，如图所示:
+
 
 ![publish.png](https://raw.githubusercontent.com/yunba/docs/master/image/send_message.png)
 
+
 ## 在 Portal 查看消息发布实时报表
 
-打开应用详情页面，点击发布上报统计可以查看消息发布实时送达比，如图所示:
+打开应用详情页面，点击 “发布上报统计” 可以查看消息发布 **实时送达比**，如图所示:
+
 
 ![report.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/publish_statistic.png)
 
+
 ## 在 Portal 查看用户在线信息实时报表
 
-打开应用详情页面，点击在线用户统计可以查看当前在线用户数，用户活跃数等信息，如图所示:
+打开应用详情页面，点击 “在线用户统计” 可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
-![online.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/online_statistic.png)
 
+![online.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/Portal_online_users.png)
+
+
+**注**：
+
+Portal 的详细使用可参考 [Portal 文档][5]。
 
   [1]: https://github.com/yunba/docs/blob/master/image/gen%20R.png?raw=true
   [2]: https://raw.githubusercontent.com/yunba/docs/master/image/subR.png
   [3]: https://raw.githubusercontent.com/yunba/docs/master/image/main%20window.png
   [4]: https://raw.githubusercontent.com/yunba/docs/master/image/app%20api.png
+  [5]:https://github.com/yunba/kb/blob/master/Portal.md#portal
+
