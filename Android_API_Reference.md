@@ -292,7 +292,7 @@ mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFa
 
 ```java
 
-YunBaManager.publishToAlias(getApplicationContext(), topic, msg,
+YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
@@ -355,7 +355,7 @@ aps.put("badge", 9);
 aps.put("alert", "msg from android中文");
 apn_json.put("aps", aps);
 opts.put("apn_json", apn_json);
-YunBaManager.publish2ToAlias(getApplicationContext(), topic, msg, opts,
+YunBaManager.publish2ToAlias(getApplicationContext(), alias, msg, opts,
     new IMqttActionListener() {
         @Override
         public void onSuccess(IMqttToken asyncActionToken) {
