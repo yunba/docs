@@ -3,7 +3,7 @@
 如果未导入 YunBa Android SDK 请参考 [YunBa Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/)。
 
 
-了解 Android SDK 的具体使用方法可参考 [YunBa Android SDK 使用指南]( https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)。
+了解 Android SDK 的具体使用方法可参考 [YunBa Android SDK 使用指南](https://github.com/yunba/docs/blob/master/sdk/Android_SDK_tutorial.md)。
 
 ## start
 
@@ -188,7 +188,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者]( https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](https://github.com/yunba/docs/blob/master/sdk/Android_SDK_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2
@@ -314,7 +314,7 @@ YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者]( https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者]( https://github.com/yunba/docs/blob/master/sdk/Android_SDK_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2ToAlias
