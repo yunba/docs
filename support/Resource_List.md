@@ -1,4 +1,9 @@
 # 云巴资源列表
+
+- [云巴 GitHub](https://github.com/yunba)
+- [云巴官网](http://yunba.io)
+- [资费信息](http://yunba.io/pricing/)请详询 support@yunba.io
+
 ## 基础入门篇
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
 - [产品简介](https://github.com/yunba/docs/blob/master/products/product_briefing.md)
@@ -74,7 +79,3 @@
 **【[SDK 下载](https://github.com/yunba/yunba-php-sdk)】**
 - [API 手册](https://github.com/yunba/yunba-php-sdk/blob/master/README.md)
 - [运行 Yunba PHP Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_PHP.md)
-
-### 更多资源
-- [云巴 Github](https://github.com/yunba)
-
