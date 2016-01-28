@@ -323,3 +323,10 @@ qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_li
 
    **注**：apn_json 参数只针对 iOS 平台的 APNs 消息。具体参考 [官方文档]( http://yunba.io/docs2/restful_Quick_Start/#HTTPPOST) ， apn_json 参数的完整设置方法可参考 [iOS官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 
+
+### Socket.IO
+
+
+---
+* 使用什么版本的 Socket.IO-client？
+* Node.js 请使用 0.9.17；Python 请使用 0.6.5。
