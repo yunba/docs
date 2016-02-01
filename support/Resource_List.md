@@ -11,6 +11,7 @@
 - [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)
 - [Portal](https://github.com/yunba/kb/blob/master/Portal.md)
 - [云巴的离线消息](https://github.com/yunba/kb/blob/master/云巴的离线消息.md)
+- [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)
 - [QoS](https://github.com/yunba/kb/blob/master/QoS.md)
 
 ## 案例篇
