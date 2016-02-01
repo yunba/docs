@@ -79,6 +79,10 @@
 ---
 * [云巴支持的“频道”和“别名”两种发布方式，具体是怎样的？](https://github.com/yunba/kb/blob/master/频道和别名.md)
 
+
+---
+* [如何实时获取用户（设备）的在线状态？](https://github.com/yunba/kb/blob/master/Presence.md)
+
 ---
 * [云巴的离线消息是怎样的？](https://github.com/yunba/kb/blob/master/云巴的离线消息.md)
 
