@@ -5,6 +5,7 @@
 - [资费信息](http://yunba.io/pricing/)请详询 support@yunba.io
 
 ## 基础入门篇
+- [云巴是什么](https://github.com/yunba/kb/blob/master/云巴是什么.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
 - [产品简介](https://github.com/yunba/docs/blob/master/products/product_briefing.md)
 - [频道和别名](https://github.com/yunba/kb/blob/master/频道和别名.md)
