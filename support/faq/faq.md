@@ -31,7 +31,7 @@
 
 ---
 * 云巴能用在 Web 上吗？
-* 可以。云巴支持 socket.io 协议。请参考官网上的 [socket.io API](http://yunba.io/docs2/socket.io_API/)、[RESTful API](http://yunba.io/docs2/restful_Quick_Start/) 及 [JavaScript SDK](http://yunba.io/docs2/Javascript_SDK/) 文档。
+* 可以。云巴支持 Socket.IO 协议。请参考官网上的 [Socket.IO API](http://yunba.io/docs2/socket.io_API/)、[RESTful API](http://yunba.io/docs2/restful_Quick_Start/) 及 [JavaScript SDK](http://yunba.io/docs2/Javascript_SDK/) 文档。
 
 ---
 * 云巴系统可以用来发短信吗？
@@ -213,8 +213,8 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 * 在推送的时候可通过指定 badge 的值来改变当前的 badge（如上例）；通过``[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0]; ``可清除 badge 的值。
 
 ---
-* APNs 推送有长度限制吗？
-* 有。Payload 最大长度是 256 字节。
+* APNs 推送的 Payload 大小的上限是多少？
+* 如果使用的是 HTTP/2 的服务提供商的 API，最多允许 4096 字节；使用 Legacy binary interface 的话，最多 2048 字节。详见 [官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW2) 的描述：The maximum size allowed for a notification payload depends on which provider API you employ. When using the HTTP/2 provider API, maximum payload size is 4096 bytes. Using the legacy binary interface, maximum payload size is 2048 bytes. Apple Push Notification service (APNs) refuses any notification that exceeds the maximum size.
 
 ---
 * iOS SDK `subscribe()` 的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？
