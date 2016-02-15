@@ -180,9 +180,9 @@
 
 ---
 * 如何实现 iOS 应用退出或者处于后台时可以收到推送消息？
-* 需要 [生成APNS证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotifacation 通知，获取 device token，并通过[`storeDeviceToken（）`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 device token 到云巴服务端；
-通过带有 ApnOption 的 `publish2()`  、 `publish2ToAlias()` 或者默认的 `publish()` 、 `publishToAlias()`进行发送 APNs 消息，该参数设置详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
-<br>
+* 需要 [生成APNS证书](http://yunba.io/docs2/iOS_Quick_Start/#在Portal上传APNs证书以激活APN推送功能)；在 App 注册 remoteNotification 通知，获取 Device Token，并通过[`storeDeviceToken()`]( http://yunba.io/docs2/iOS_API_Reference/#storeDeviceToken) 函数保存 Device Token 到云巴服务端；
+通过带有 ApnOption 的 `publish2()` 、`publish2ToAlias()` 或者默认的 `publish()`、`publishToAlias()` 发送 APNs 消息，该参数设置详见云巴知识库的 [Payload](https://github.com/yunba/kb/blob/master/APNs/Payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+
 **注**：完成 APNs 注册后，`publish2()` 需要带有 ApnOption 参数才能成功发送 APNs 消息；而 `publish()` 会发送默认的 APNs 消息。
 
 ---
@@ -193,7 +193,7 @@
 * ApnOption 的 sound 和 badge 有什么作用？
 * 可在`publish2ToAlias()` 、 `publish2()` 的 ApnOption 参数设置消息通知的方式。
 alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知的铃声。
-具体参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 和下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
+具体参考云巴知识库的 [Payload](https://github.com/yunba/kb/blob/master/APNs/Payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)，或下载 [iOS demo]( http://yunba.io/developers/) 参考 ApnOption 的设置方法。
 
 ---
 * 如何自定义 iOS 推送的铃声？
