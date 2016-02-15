@@ -40,6 +40,7 @@
 - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
 - [云巴 iOS 消息推送](https://github.com/yunba/kb/blob/master/云巴%20iOS%20消息推送.md)
 - [如何通过云巴实现 APNs 推送](https://github.com/yunba/kb/blob/master/如何通过云巴实现%20APNs%20推送.md)
+- [APNs 推送的 Payload 介绍](https://github.com/yunba/kb/blob/master/APNs/Payload.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#ios-sdk)
 
 ### JavaScript
