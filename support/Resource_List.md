@@ -78,6 +78,7 @@
 ### Java
 **【[SDK 下载](https://github.com/yunba/yunba-java-sdk)】**
 - [API 手册](https://github.com/yunba/docs/blob/master/Java_API_Reference.md)
+- [运行 Yunba Java Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Java.md)
 
 ### PHP(Cli)
 **【[SDK 下载](https://github.com/yunba/yunba-php-sdk)】**
