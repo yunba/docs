@@ -1,12 +1,12 @@
-# Socket.io API
+# Socket.IO API
 
 Yunba 的 SDK 按照实现的方式，可以分为两种，一种是所谓原生 SDK，一种是基于 Socket.IO 的 SDK。
 
-例如像 Android, iOS, C 等这些原生 SDK，实现了完整的二进制协议栈，在运算能力有限、带宽有限的平台上，可以很好的工作。
+例如像 Android, iOS, C 等这些原生 SDK，实现了完整的二进制协议栈，在运算能力有限、带宽有限的平台上，可以很好地工作。
 
 另外一类像 JavaScript SDK（非 node.js)，就是基于 Socket.IO API 实现的。
 
-相对于原生 SDK，基于 Socket.io API 的 SDK 代码体积小，开发周期短，适合为小众语言快速开发 SDK。
+相对于原生 SDK，基于 Socket.IO API 的 SDK 代码体积小，开发周期短，适合为小众语言快速开发 SDK。
 
 Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的长连接通讯方式，使用起来跟原生的 Socket 一样方便，
 特别是在 Web App 开发中，使用得越来越多。
@@ -17,14 +17,18 @@ Socket.IO 是在 WebSocket 基础上开发的一种基于 HTTP 协议的长连�
 
 ## 安装 Socket.IO Client
 
-> 参考：[https://pypi.python.org/pypi/socketIO-client](https://pypi.python.org/pypi/socketIO-client)
+Python 请使用 0.6.5 版本的 [Socket.IO-client](https://pypi.python.org/pypi/socketIO-client)；Node.js 请使用 0.9.17 版本的  Socket.IO-client。
 
 ```bash
-pip install -U socketIO-client==0.5.5
+pip install -U socketIO-client==0.6.5
 ```
 
 ## init
-与 socket.io 服务器建立连接。
+### 功能
+
+与云巴 Socket.IO 服务器建立连接。
+
+### 代码示例
 
 ```python
 socketIO = SocketIO('sock.yunba.io', 3000)
@@ -33,69 +37,134 @@ socketIO = SocketIO('sock.yunba.io', 3000)
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-host | String | socket.io API server，默认值 'sock.yunba.io'
-port | number | socket.io API 端口，默认值 3000
+host | String | Socket.IO API Server，默认值 'sock.yunba.io'。
+port | Number | Socket.IO API 端口，默认值 3000。
 
 
 ## socketconnectack
-`init` 建立连接成功后的回调。
+### 功能
+
+`init`连接成功后的回调。
+
+### 代码示例
 
 ```python
-{"name":"socketconnectack","args":[{"msg":"你已经通过websocket与服务器链接上。"}]}
+{"name":"socketconnectack","args":[{"msg":"socket.io connected"}]}
 ```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+msg | String | 连接信息。
 
 ## connect
-触发 connect 命令，与 socket.io 服务器确认身份。以下2方式任选其一即可，推荐使用appkey+customid方式进行连接，可保证每次连接都能使用相同的session。
+### 功能
+
+触发 connect 命令，与 Socket.IO 服务器确认身份。以下两种方式任选其一即可，推荐使用 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) + CustomID 方式进行连接，可保证每次连接都能使用相同的 Session。
+
+### 代码示例
 
 ```python
-socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})       # 使用appkey连接
-socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'userid'})       # 直接使用自定义的会话ID进行连接
+socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92'})       # 使用 AppKey 进行连接
+socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'userid'})       # 使用 AppKey 和自定义的会话 ID 进行连接
 ```
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+appkey | String | 在云巴 Portal 申请到的应用的 AppKey。
+customid | String | 用户自定义的会话 ID。
 
 ## connack
-`connect` 成功后的回调。
+### 功能
+
+`connect`成功后的回调。
+
+### 代码示例
 
 ```python
 {"name":"connack","args":[{"success":true}, {"sessionid": "123456789XXXX"}]}
 ```
 
-## subscribe
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | Boolean | 成功返回 true，失败返回 false。
+sessionid | String | Session ID。
 
-订阅一个频道。
+## subscribe
+### 功能
+
+增加订阅一个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic)。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
+
+### 代码示例
 
 ```python
 socketIO.emit('subscribe', {'topic': 'testtopic1'})
 ```
 
-## suback
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
 
-`subscribe` 订阅成功回调。
+
+## suback
+### 功能
+
+`subscribe`订阅成功后的回调。
+
+### 代码示例
 
 ```python
 {"name":"suback","args":[{"success":true}]}
 ```
 
-## publish
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | Boolean | 成功返回 true，失败返回 false。
 
-发布一个消息。
+## publish
+### 功能
+
+向某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
+
+### 代码示例
 
 ```python
 socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ```
 
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+msg | String | 发布的内容。
+qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。默认为 1 。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
+
 ## puback
-发布 `publish`, `publish_to_alias`, `publish2`, `publish2_to_alias` 成功回调。
+### 功能
+
+`publish`、`publish_to_alias`、`publish2`和`publish2_to_alias`成功的回调。
+
+### 代码示例
 
 ```python
 {"name":"puback","args":[{"success":true, "messageId": "11842355493944946011"}]}
 ```
 
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | Boolean | 成功返回 true，失败返回 false。
+messageId | String | 消息 ID，与发布消息时的 ID 对应。如果发布时未指定，则云巴系统会生成一个 ID。
+
 ## set_alias
-
 ### 功能
-App  可以调用此函数来绑定账号，用户名，每个用户只能指定一个别名。
 
-### 函数原型
+用来设置用户名，即绑定账号。每个用户只能指定一个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+
+### 代码示例
 
 ```python
 socketIO.emit('set_alias', {'alias': 'mytestalias1'})
@@ -104,15 +173,15 @@ socketIO.emit('set_alias', {'alias': 'mytestalias1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
 
 
 ## set_alias_ack
-
 ### 功能
-设置别名成功回调。
 
-回调参数:
+`set_alias`设置别名成功后的回调。
+
+### 代码示例
 
 ```python
 {"success": true}
@@ -121,14 +190,14 @@ alias | String | 用户设置的别名信息，只支持英文数字下划线，
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-success | boolen | 设置成功返回 true，否则返回 false
+success | Boolean | 成功返回 true，失败返回 false。
 
 ## get_alias
-
 ### 功能
-App  可以调用此函数来获取当前用户的别名。
 
-### 函数原型
+获取当前用户的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+
+### 代码示例
 
 ```python
 socketIO.emit('get_alias')
@@ -137,7 +206,9 @@ socketIO.emit('get_alias')
 ## alias
 
 ### 功能
-读取别名回调。
+`get_alias`获取别名的回调。
+
+### 代码示例
 
 ```python
 {'alias': 'mytestalias1'}
@@ -146,15 +217,15 @@ socketIO.emit('get_alias')
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | string | 用户当前别名
+alias | String | 用户当前的别名。
 
 
 ## publish_to_alias
 
 ### 功能
-向用户别名发送消息, 用于实现点对点的消息发送。
+向某个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 发布消息。发布成功后，该别名的客户端会收到消息。
 
-### 函数原型
+### 代码示例
 
 ```python
 socketIO.emit('publish_to_alias', {'alias': 'mytestalias1', 'msg': "hello to alias"})
@@ -163,15 +234,15 @@ socketIO.emit('publish_to_alias', {'alias': 'mytestalias1', 'msg': "hello to ali
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
-msg | String | 向目标别名的订阅者发布的消息
+alias| String | 目标别名。只支持英文数字下划线，长度不超过 50 个字符。
+msg | String | 向目标别名发布的消息。
 
 ## get_alias_list
 
 ### 功能
-App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的别名。
+获取某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下的所有订阅者的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 列表，别名个数及状态。
 
-### 函数原型
+### 代码示例
 
 ```python
 socketIO.emit('get_alias_list', {'topic': 'testtopic1'})
@@ -180,32 +251,35 @@ socketIO.emit('get_alias_list', {'topic': 'testtopic1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | 目标频道。
 
 ## get_alias_list_ack
-`get_alias_list` 结果回调。
+`get_alias_list` 的回调。
 
-### 示例
+### 代码示例
+
 ```python
-'''succ'''
-{'data': {'alias': ['mytestalias1'], 'occupancy': 1}, 'success': True}
-'''failed'''
-{success: false, error_msg: 'Broker Error'}
+# 成功
+{'data': {'alias': ['mytestalias1'], 'occupancy': 1}, 'success': true}
+
+# 失败
+{'success': false, error_msg: 'Broker Error'}
 ```
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-success | boolean | 成功返回 true, 否则返回 false
-data.alias | List | 订阅的 `alias` 列表，success 为 true 时有效
-error_msg | String | 错误信息，success 为 false 时有效
+success | Boolean | 成功返回 true，否则返回 false。
+data.alias | List | 订阅了该 `topic` 的 `alias` 的列表，success 为 true 时有效。
+data.occupancy | Number | 订阅了该 `topic` 的 `alias` 个数，success 为 true 时有效。
+error_msg | String | 错误信息，success 为 false 时有效。
 
 ## get_topic_list
 
 ### 功能
-App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则是获取当前用户的频道列表,如果输入参数 alias，则是获取目标 alias 的频道列表。
+查询用户订阅的 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 列表。如果传入参数 alias，是获取目标用户（[别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)）的频道列表；如果不传入参数 alias，则是获取当前用户的频道列表。
 
-### 函数原型
+### 代码示例
 
 ```python
 socketIO.emit('get_topic_list', {'alias': 'mytestalias1'})
@@ -214,35 +288,37 @@ socketIO.emit('get_topic_list', {'alias': 'mytestalias1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
 
 ## get_topic_list_ack
 
 ### 功能
 `get_topic_list` 结果回调。
 
-### 示例
+### 代码示例
+
 ```python
-'''succ'''
+# 成功
 {'data': {'topics': ['testtopic2']}, 'success': True}
-'''failed'''
-{'success': False, error_msg: 'Broker Error'}
+
+# 失败
+{'success': false, error_msg: 'Broker Error'}
 ```
 
 ### 参数说明
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-success | boolean | 成功返回 true, 否则返回 false
-data.topics | List | 订阅的 `topic` 列表，success 为 true 时有效
-error_msg | String | 错误信息，success 为 false 时有效
+success | Boolean | 成功返回 true，失败返回 false。
+data.topics | List | 订阅的 `topic` 列表，success 为 true 时有效。
+error_msg | String | 错误信息，success 为 false 时有效。
 
 ## publish2
 
 ### 功能
-`publish` 升级版本，支持更多参数。目前支持的参数。
+`publish`的升级版本，支持更多参数。
 
-### 函数原型
+### 代码示例
 
 ```python
 socketIO.emit('publish2', {
@@ -260,49 +336,47 @@ socketIO.emit('publish2', {
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-msg | String | 向订阅者发布的消息
-opts | Dict | 可选项。`publish2` 扩展参数。
+topic | String | 目标频道。只支持英文数字下划线，长度不超过 50 个字符。
+msg | String | 向订阅者发布的消息。
+opts | Dict | 可选项。参考`publish2`[扩展参数](#扩展参数说明)。
 
-> 目前支持的 publish2 扩展参数
+### 扩展参数说明
 
-`publish2` 扩展参数都是可选项，如果不填写参数，`publish2` 的行为与 `publish` 一样。
+`publish2`与`publish2_to_alias`的扩展参数都是可选项。如果不填写参数，则`publish2`/`publish2_to_alias`的行为与`publish`/`publish_to_alias`一样。
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-qos | number | 如果不填，默认为 1
-apn_json | dict | 如果不填，则不会发送APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
-messageId | String | 消息 ID，64 位整型数转化成 string。如果不填，由系统自动生成
-time_to_live | number | 离线消息保留时间值，单位是秒(例如2天 2\*24\*3600)，当前默认值为5天
+qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。默认为 1 。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
+messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
+time_to_live | Number | 用来设置离线消息保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 
 ## publish2_to_alias
 
 ### 功能
-`publish2` 的 alias 版本。
+`publish_to_alias`的升级版本，支持更多参数。
 
-### 函数原型
+### 代码示例
 
 ```python
-    socketIO.emit('publish2_to_alias', {'alias': 'alias_mqttc_sub', 'msg': "hello to alias from publish2_to_alias"});
+socketIO.emit('publish2_to_alias', {'alias': 'alias_mqttc_sub', 'msg': "hello to alias from publish2_to_alias"});
 ```
 
 ### 参数说明
-* 参考 `publish_to_alias`
-* 支持 `publish2` 扩展参数
 
-## puback
-发布 `publish`, `publish_to_alias`, `publish2`, `publish2_to_alias` 成功回调。
+名称 | 类型 | 说明
+--------- | ------- | -----------
+alias | String | 目标别名。只支持英文数字下划线，长度不超过 50 个字符。
+msg | String | 向别名发布的消息。
+opts | Dict | 可选项。参考`publish2_to_alias`[扩展参数](#扩展参数说明)。
 
-```python
-{"name":"puback","args":[{"success":true, "messageId": "11842355493944946011"}]}
-```
 
 ## get_state
 
 ### 功能
-App 可以查询用户的在线状态。
+查询用户的在线状态。
 
-### 函数原型
+### 代码示例
 
 ```python
 socketIO.emit('get_state', {'alias': 'mytestalias1'})
@@ -311,38 +385,40 @@ socketIO.emit('get_state', {'alias': 'mytestalias1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 目标 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
 
 ## get_state_ack
 
 ### 功能
-`get_state` 结果回调。
+`get_state`的回调。
 
-### 示例
+### 代码示例
+
 ```python
-'''succ'''
-{'data': 'online', 'success': True}
-'''failed'''
-{'success': False, error_msg: 'Broker Error'}
+# 成功
+{'data': 'online', 'success': true}
+
+# 失败
+{'success': false, error_msg: 'Broker Error'}
 ```
 
 ### 参数说明
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-success | boolean | 成功返回 true, 否则返回 false
-data | String | 在线状态
-error_msg | String | 错误信息，success 为 false 时有效
+success | Boolean | 成功返回 true，失败返回 false。
+data | String | 在线状态。在线为 online，离线为 offline。
+error_msg | String | 错误信息，success 为 false 时有效。
 
 ## recvack
 
-> recvack 是付费服务，免费用户可能不能正常使用。
+> recvack 是付费服务，免费用户可能无法正常使用。
 
 ### 功能
 
 第一个目标用户（且不是消息发布者）收到消息给服务器回复 `puback` 后，给消息发布者发送 `recvack`，消息发布者通过这个通知，可以了解第一个收到消息的用户的 alias 和 时间戳。
 
-### 函数原型
+### 代码示例
 
 ```python
 recvack {u'data': u'{"timestamp":1411374510357,"alias":"alias_mqttc_sub"}', u'success': True, u'messageId': u'11839467508410466019'}
@@ -352,10 +428,10 @@ recvack {u'data': u'{"timestamp":1411374510357,"alias":"alias_mqttc_sub"}', u'su
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-success | boolean | 成功返回 true, 否则返回 false
-data.timestamp | number | recvack 收到的时间戳，时区为 GMT
-data.alias | String | recvack 用户的 alias
-messageId | String | 消息 ID，与 publish 时的 ID 对应
+success | Boolean | 成功返回 true，失败返回 false。
+data.timestamp | Number | recvack 收到的时间戳，时区为 GMT。
+data.alias | String | recvack 用户的 alias。
+messageId | String | 消息 ID，与 publish 时的 ID 对应。
 
 
 ## 例子
