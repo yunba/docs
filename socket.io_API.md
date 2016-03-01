@@ -373,6 +373,17 @@ msg | String | 向别名发布的消息。
 opts | Dict | 可选项。参考`publish2_to_alias`[扩展参数](#扩展参数说明)。
 
 
+### 扩展参数说明
+
+`publish2()`与`publish2_to_alias()`的扩展参数都是可选项。如果不填写参数，则`publish2()`/`publish2_to_alias()`的行为与`publish()`/`publish_to_alias()`相似，只有一点不同：`publish()`/`publish_to_alias()`会发送默认的 APN，而`publish2()`/`publish2_to_alias()`如果不填写 apn_json，则不会发送 APN。
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
+messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
+time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
+
 ## get_state
 
 ### 功能
