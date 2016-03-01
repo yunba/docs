@@ -1,7 +1,7 @@
 # Yunba JavaScript SDK 使用文档
 
 通过利用 Yunba Javascript SDK 提供的接口 API，你可以很方便地在智能手机、平板电脑、网站等终端应用上使用 Yunba 的各种消息服务。
-	
+    
 
 ## 获取 SDK
 
@@ -32,15 +32,15 @@ var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 
 ```javascript
 yunba.init(function (success) {
-	if (success) {
-		yunba.connect_by_customid('your_app_user_id', function (success, msg, sessionid) {
-			if (success) {
-				console.log('你已成功连接到消息服务器，会话ID：' + sessionid);
-			} else {
-				console.log(msg);
-			}
+    if (success) {
+        yunba.connect_by_customid('your_app_user_id', function (success, msg, sessionid) {
+            if (success) {
+                console.log('你已成功连接到消息服务器，会话ID：' + sessionid);
+            } else {
+                console.log(msg);
+            }
         });
-	}
+    }
 });
 ```
 
@@ -54,13 +54,13 @@ yunba.init(function (success) {
 
 ```javascript
 yunba.subscribe({'topic': 'my_topic'}, 
-	function (success, msg) {
-		if (success) {
-			console.log('你已成功订阅频道：my_topic');
-		} else {
-    	    console.log(msg);
-		}
-	}
+    function (success, msg) {
+        if (success) {
+            console.log('你已成功订阅频道：my_topic');
+        } else {
+            console.log(msg);
+        }
+    }
 );
 
 yunba.set_message_cb(function (data) {
@@ -75,13 +75,13 @@ yunba.set_message_cb(function (data) {
 
 ```javascript
 yunba.publish({'topic': 'my_topic', 'msg': '你好！Yunba。'},
-	function (success, msg) {
-		if (success) {
-			console.log('消息发布成功');
-		} else {
-			console.log(msg);
-		}
-	}
+    function (success, msg) {
+        if (success) {
+            console.log('消息发布成功');
+        } else {
+            console.log(msg);
+        }
+    }
 );
 ```
 
@@ -273,8 +273,8 @@ yunba.set_message_cb(function (data) {
 ```javascript
 yunba.subscribe(obj,cb)
 ```
-	
-	
+    
+    
 ### 参数说明
 
 名称 | 类型 | 说明
@@ -306,8 +306,8 @@ yunba.subscribe({'topic': 'my_topic'}, function (success, msg) {
 ```javascript
 yunba.subscribe_presence(obj,cb)
 ```
-	
-	
+    
+    
 ### 参数说明
 
 名称 | 类型 | 说明
@@ -451,14 +451,14 @@ cb    | Function | 参数可选。不管消息发布是成功或失败都会回�
 
 ### 扩展参数说明
 
-`publish2()`的扩展参数 opts 是可选项，如果不填写参数，`publish2()`的行为与`publish()`相似（除了 apn_json 参数）。
+`publish2()`与`publish2_to_alias()`的扩展参数都是可选项。如果不填写参数，则`publish2()`/`publish2_to_alias()`的行为与`publish()`/`publish_to_alias()`相似，只有一点不同：`publish()`/`publish_to_alias()`会发送默认的 APN，而`publish2()`/`publish2_to_alias()`如果不填写 apn_json，则不会发送 APN。
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
-apn_json | Dict | 如果不填，则不会发送 APN，而`publish()`会发送默认的 APNs 消息。APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
-time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md)  保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
+time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 
 
 ### 代码示例
@@ -542,14 +542,14 @@ cb    | Function | 参数可选。不管消息发布是否成功或失败都会�
 
 ### 扩展参数说明
 
-`publish2_to_alias()`扩展参数 opts 是可选项。
+`publish2()`与`publish2_to_alias()`的扩展参数都是可选项。如果不填写参数，则`publish2()`/`publish2_to_alias()`的行为与`publish()`/`publish_to_alias()`相似，只有一点不同：`publish()`/`publish_to_alias()`会发送默认的 APN，而`publish2()`/`publish2_to_alias()`如果不填写 apn_json，则不会发送 APN。
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
-apn_json | Dict | 如果不填，则不会发送 APN，而`publish()`会发送默认的 APNs 消息。APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
-time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md)  保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
+time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 
 ### 代码示例
 
