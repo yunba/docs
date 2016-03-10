@@ -248,7 +248,7 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 * 1. 当 App 退出，进程被杀死时，能接收到 Message 吗？
 * Android 端需要在后台保留进程才能接收消息；iOS 端的 APNs 在 App 退出后仍可接收消息。
 <br>
-Android 端的解决方法：增加相互拉起功能和后台守护进程，使 App 退出后仍能接收到推送消息。
+Android 端的解决方法：增加相互拉起功能和后台守护进程，使 App 退出后仍能接收到推送消息。可参考 [特殊版本的 SDK](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.3.zip)（该版本仅供测试）。
 
 ---
 * 2. Android 端如何设置 qos 等级？
