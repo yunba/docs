@@ -18,6 +18,7 @@
 
 ## 案例篇
 - [云巴智能小屋](https://github.com/yunbademo/yunba-smarthome)（附：[视频](http://www.tudou.com/programs/view/BYpGTDNi72E/)）
+- [云巴智能办公室](https://github.com/shdxiang/yunba-smartoffice)
 - [云巴聊天室](https://github.com/yunbademo/yunba-chatroom)
 - [Yo App](https://github.com/yunbademo/YunBa-Yo)
 - [更多案例](https://github.com/yunbademo)
@@ -26,8 +27,10 @@
 
 ### Android
 **【[SDK 下载](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.4.5.zip)】**
-- [API 手册](http://yunba.io/docs2/Android_API_Reference/)
-- [Android SDK 快速入门](http://yunba.io/docs2/Android_Quick_Start/)
+
+**【[后台进程互相拉起的测试版 SDK 下载](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.3.zip)】**
+- [API 手册](https://github.com/yunba/docs/blob/master/Android_API_Reference.md)
+- [Android SDK 快速入门](https://github.com/yunba/docs/blob/master/Android_Quick_Start.md)
 - [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md)
 - [Android SDK 使用指南](https://github.com/yunba/docs/blob/master/sdk/Android_SDK_tutorial.md)
 - [云巴 Android 消息推送](https://github.com/yunba/kb/blob/master/云巴%20Android%20消息推送.md)
@@ -35,8 +38,8 @@
 
 ### iOS
 **【[SDK 下载](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.6.2.zip)】**
-- [API 手册](http://yunba.io/docs2/iOS_API_Reference/)
-- [iOS SDK 快速入门](http://yunba.io/docs2/iOS_Quick_Start/)
+- [API 手册](https://github.com/yunba/docs/blob/master/iOS_API_Reference.md)
+- [iOS SDK 快速入门](https://github.com/yunba/docs/blob/master/iOS_Quick_Start.md)
 - [运行 Yunba iOS Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_iOS.md)
 - [云巴 iOS 消息推送](https://github.com/yunba/kb/blob/master/云巴%20iOS%20消息推送.md)
 - [如何通过云巴实现 APNs 推送](https://github.com/yunba/kb/blob/master/如何通过云巴实现%20APNs%20推送.md)
@@ -45,14 +48,15 @@
 
 ### JavaScript
 **【[SDK 下载](https://github.com/yunba/yunba-javascript-sdk)】**
-- [API 手册](http://yunba.io/docs2/Javascript_SDK/)
+- [API 手册](https://github.com/yunba/docs/blob/master/Javascript_SDK.md#yunba-javascript-sdk-api)
+- [JavaScript 快速入门](https://github.com/yunba/docs/blob/master/Javascript_SDK.md#yunba-javascript-sdk-使用文档)
 - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#javascript-sdk)
 
 ### C
 **【[SDK 下载](https://github.com/yunba/yunba-c-sdk)】**
-- [API 手册](http://yunba.io/docs2/C-API/)
-- [C 快速入门](http://yunba.io/docs2/C_Quick_Start/)
+- [API 手册](https://github.com/yunba/docs/blob/master/C-API.md)
+- [C 快速入门](https://github.com/yunba/docs/blob/master/C_Quick_Start.md)
 - [运行 Yunba C Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_C.md)
 
 ### Embedded C
@@ -60,13 +64,13 @@
 - [API 手册](https://github.com/yunba/docs/blob/master/Embeded-C-API.md)
 
 ### RESTful
-- [API 手册](http://yunba.io/docs2/restful_Quick_Start/)
+- [API 手册](https://github.com/yunba/docs/blob/master/restful_Quick_Start.md)
 - [运行 Yunba RESTful API Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_RESTful.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#restful-api)
 
 ### Socket.IO
 **【[Java 实现的 Socket.IO 客户端](https://github.com/yunba/yunba-socket.io-java-sdk)】**
-- [API 手册](http://yunba.io/docs2/socket.io_API/)
+- [API 手册](https://github.com/yunba/docs/blob/master/socket.io_API.md)
 - [运行 Yunba Socket.IO Python Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Python.md)
 - [运行 Yunba Socket.IO Java Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_SocketIO_Java.md)
 
