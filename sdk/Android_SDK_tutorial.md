@@ -436,4 +436,4 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 ### 应用退出后收不到消息
 在后台进程驻留的情况下，应用可以接收到消息。
 <br>
-当后台进程被系统杀死，则长连接断开，客户端收不到消息。解决方法：可以通过后台进程守护和进程相互拉起使 App 退出后仍能收到消息，具体可以发邮件到 support@yunba.io 进行咨询。
+当后台进程被系统杀死，则长连接断开，客户端收不到消息。解决方法：可以通过后台进程守护和进程相互拉起使 App 退出后仍能收到消息。请参考 [特殊版本的 SDK](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.3.zip)（该版本仅供测试）。
