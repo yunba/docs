@@ -135,7 +135,7 @@ $ php subscribe.php
 ```
 
 ```bash
-$ php subscribe.php
+$ php publish.php
 ```
 
 ```bash
