@@ -15,6 +15,7 @@
 - [云巴的离线消息](https://github.com/yunba/kb/blob/master/云巴的离线消息.md)
 - [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)
 - [QoS](https://github.com/yunba/kb/blob/master/QoS.md)
+- [多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)
 
 ## 案例篇
 - [云巴智能小屋](https://github.com/yunbademo/yunba-smarthome)（附：[视频](http://www.tudou.com/programs/view/BYpGTDNi72E/)）
