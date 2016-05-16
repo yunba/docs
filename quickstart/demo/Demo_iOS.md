@@ -26,11 +26,11 @@ iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 
 
 ![create_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
 
-输入应用的名称及 Bundle ID。同时，上传上一个步骤中生成的 iOS 开发或生产证书，并输入导出证书时所设置的证书密码（如证书导出时未设置密码，则留空即可）。
+输入应用的名称及 Bundle ID。同时，上传上一个步骤中生成的 iOS 开发或生产证书，并输入导出证书时所设置的证书密码（如证书导出时未设置密码，则留空即可）。如果您的同一个应用分为不同的版本，您也可以添加 “[多个证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)”。
 
-![tutorials_push_notification_iOS_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_create_new_app.png)
+![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_create_new_app.png)
 
-应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 Portal 申请到的 AppKey、Secret Key 等。
+应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 [Portal](https://github.com/yunba/kb/blob/master/Portal.md) 申请到的 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)、Secret Key 等。
 
 **注**：请妥善保管好您的 AppKey、Secret Key 等，不要泄露给他人。
 
