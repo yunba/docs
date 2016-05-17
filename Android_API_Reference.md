@@ -392,7 +392,7 @@ time_to_live | number | [离线消息](https://github.com/yunba/kb/blob/master/%
 
 ### 功能
 
-App 可以调用此函数来停止云巴服务，当服务被停止后，长连接断开，所有的 API 都会失效（包括 start API），该 API 可用于 [停止接收任何消息](https://github.com/yunba/docs/blob/master/sdk/Android%20SDK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF)；当需要重新连接服务时，必须调用 `resume`。
+App 可以调用此函数来停止云巴服务，当服务被停止后，长连接断开，所有的 API 都会失效（包括 start API），该 API 可用于 [停止接收任何消息](https://github.com/yunba/docs/blob/master/sdk/Android_SDK_tutorial.md#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF)；当需要重新连接服务时，必须调用 `resume`。
 
 
 ### 函数原型
