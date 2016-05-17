@@ -84,16 +84,12 @@
 
 ## 在 Portal 上传APNs证书以激活APN推送功能
 
-打开编辑应用页面，点击上传iOS开发/生产环境证书并输入相应的证书密码后可以激活APN推送功能。
+打开编辑应用页面，点击 “选择文件” 按钮，上传证书文件(*.p12)。如果证书导出时设置了密码，则需将密码填写在 “证书密码” 一栏。
 
-下方第一张图是已废弃的旧版 Portal 的上传界面。
+此外，iOS SDK 还支持 “[多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)” 功能。用户可以点击左侧的 “添加更多证书” 的按钮，上传多个证书（暂无数量限制），从而实现对同一应用的不同版本进行推送。
 
-第二张图是支持 “[多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)” 功能后的新版 Portal 界面，用户可以添加多个证书（暂无数量限制），从而实现对同一应用的不同版本进行推送。
+证书添加完成后，请点击 “更新” 按钮，保存设置。
 
-**旧版 Portal 的上传证书界面**：
-![upload_ios_cert.png](https://raw.githubusercontent.com/yunba/docs/master/image/upload_ios_cert.png)
-
-**新版 Portal 的上传证书界面**：
 ![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_create_new_app.png)
 
 ### 生成APNs证书的步骤如下：
@@ -146,14 +142,4 @@
 
 8. 制作完成后，在 Portal 上传APNs证书以激活APN推送功能
 	
-## 对iOS9云巴SDK不能正常注册的暂时解决办法
 
-打开APP的info.plist文件，在文件中加入如下键值（注意键值类型，暂时只能手动添加，没有对应的键可选）（此举是使APP能正常访问云巴的HTTP服务， 云巴将在稍后更新SDK以彻底解决此问题）:  
-
-```
-<key>NSAppTransportSecurity</key>
-<dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
-</dict>
-```
