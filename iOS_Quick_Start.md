@@ -84,9 +84,17 @@
 
 ## 在 Portal 上传APNs证书以激活APN推送功能
 
-打开编辑应用页面，点击上传iOS开发/生产环境证书并输入相应的证书密码后可以激活APN推送功能，如图所示:  
+打开编辑应用页面，点击上传iOS开发/生产环境证书并输入相应的证书密码后可以激活APN推送功能。
 
+下方第一张图是已废弃的旧版 Portal 的上传界面。
+
+第二张图是支持 “[多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)” 功能后的新版 Portal 界面，用户可以添加多个证书（暂无数量限制），从而实现对同一应用的不同版本进行推送。
+
+**旧版 Portal 的上传证书界面**：
 ![upload_ios_cert.png](https://raw.githubusercontent.com/yunba/docs/master/image/upload_ios_cert.png)
+
+**新版 Portal 的上传证书界面**：
+![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_create_new_app.png)
 
 ### 生成APNs证书的步骤如下：
 1. 打开apple开发者网站的证书管理界面<https://developer.apple.com/account/ios/certificate/>  
