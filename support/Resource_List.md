@@ -16,6 +16,7 @@
 - [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)
 - [QoS](https://github.com/yunba/kb/blob/master/QoS.md)
 - [多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)
+- [云巴服务的 IP 是不固定的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E6%9C%8D%E5%8A%A1%E7%9A%84%20IP%20%E6%98%AF%E4%B8%8D%E5%9B%BA%E5%AE%9A%E7%9A%84.md)
 
 ## 案例篇
 - [云巴智能小屋](https://github.com/yunbademo/yunba-smarthome)（附：[视频](http://www.tudou.com/programs/view/BYpGTDNi72E/)）
