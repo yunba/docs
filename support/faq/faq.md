@@ -211,7 +211,11 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 	}
 }
  ```
-
+ 
+ 如使用默认铃声，则为：
+```JSON
+ "sound":"default"
+```
 ---
 * 如何处理 badge？
 * 在推送的时候可通过指定 badge 的值来改变当前的 badge（如上例）；通过``[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0]; ``可清除 badge 的值。
