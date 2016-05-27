@@ -297,7 +297,9 @@ yunba.subscribe({'topic': 'my_topic'}, function (success, msg) {
 
 ### 功能
 
-监听某 [频道]( https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md) 下所有用户的上、下线及订阅、取消订阅该频道的事件通知。调用成功后，用户状态一旦发生变化会向 Topic + '/p' 频道发送消息。
+监听某 [频道]( https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md) 下所有用户的上、下线及订阅、取消订阅该频道的事件通知。调用成功后，可以收到所有用户的状态变化。
+
+注意：`subscribe_presence` 只能监听已经设置了 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 的客户端，未设置 别名 的客户端不会被监听。
 
 参见 [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)。
 
