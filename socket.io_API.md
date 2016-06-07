@@ -106,7 +106,7 @@ socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXXXX
 名称 | 类型 | 说明
 --------- | ------- | -----------
 topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
-messageId|String| 指定的 Message ID。与 `suback` 回应中的 messageId 相对应。
+messageId|String| 参数可选。指定的 Message ID。与 `suback` 回应中的 messageId 相对应。
 
 
 ## suback
@@ -143,7 +143,7 @@ socketIO.emit('unsubscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXX
 名称 | 类型 | 说明
 --------- | ------- | -----------
 topic | String | 取消订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
-messageId|String| 指定的 Message ID。与 `unsuback` 回应中的 messageId 相对应。
+messageId|String| 参数可选。指定的 Message ID。与 `unsuback` 回应中的 messageId 相对应。
 
 ## unsuback
 ### 功能
