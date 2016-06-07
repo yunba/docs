@@ -99,13 +99,14 @@ sessionid | String | Session ID。
 ### 代码示例
 
 ```python
-socketIO.emit('subscribe', {'topic': 'testtopic1'})
+socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXXXXXXXX'})
 ```
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+messageId|String| 指定的 Message ID。与 `suback` 回应中的 messageId 相对应。
 
 
 ## suback
@@ -116,13 +117,51 @@ topic | String | App 订阅的频道。只支持英文数字下划线，长度�
 ### 代码示例
 
 ```python
-{"name":"suback","args":[{"success":true}]}
+{"name":"suback","args":[{"success":true},{"topic":"testtopic1"},{"messageId": "XXXXXXXXXXXXXXXXXXXXX"}]}
 ```
 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
 success | Boolean | 成功返回 true，失败返回 false。
+topic |String | 订阅的频道名称。
+messageId|String|Message ID。对应 `subscribe()` 时指定的 Message ID。如未指定，则系统会自动分配一个 ID。 
+
+
+## unsubscribe
+### 功能
+
+取消对某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 的订阅。成功取消后，就不会再收到来自该频道的消息。
+
+### 代码示例
+
+```python
+socketIO.emit('unsubscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXXXXXXXX'})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | 取消订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+messageId|String| 指定的 Message ID。与 `unsuback` 回应中的 messageId 相对应。
+
+## unsuback
+### 功能
+
+`unsubscribe()`订阅成功后的回调。
+
+### 代码示例
+
+```python
+{"name":"unsuback","args":[{"success":true}, {"topic":"testtopic1"}, {"messageId": "XXXXXXXXXXXXXXXXXXXXX"}]}
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+success | Boolean | 成功返回 true，失败返回 false。
+topic |String | 取消订阅的频道名称。
+messageId|String|Message ID。对应 `unsubscribe()` 时指定的 Message ID。如未指定，则系统会自动分配一个 ID。 
 
 ## publish
 ### 功能
