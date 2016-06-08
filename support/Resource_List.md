@@ -26,6 +26,8 @@
 - [Yo App](https://github.com/yunbademo/YunBa-Yo)
 - [更多案例](https://github.com/yunbademo)
 
+
+
 ## SDK 与文档
 
 ### Android
@@ -49,12 +51,24 @@
 - [APNs 推送的 Payload 介绍](https://github.com/yunba/kb/blob/master/APNs/Payload.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#ios-sdk)
 
+---
+
+- [使用 iOS SDK，上传了 APNs 证书，但应用在后台时却收不到 APNs 通知？](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_APNs_error.md)
+
+
 ### JavaScript
 **【[SDK 下载](https://github.com/yunba/yunba-javascript-sdk)】**
 - [API 手册](https://github.com/yunba/docs/blob/master/Javascript_SDK.md#yunba-javascript-sdk-api)
 - [JavaScript 快速入门](https://github.com/yunba/docs/blob/master/Javascript_SDK.md#yunba-javascript-sdk-使用文档)
 - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#javascript-sdk)
+
+---
+
+- [JS SDK 连接失败怎么办？](https://github.com/yunba/docs/blob/master/support/troubleshooting/JS_SDK_disconnect.md)
+- [官网后台的管理页面（Portal）显示连接断开了怎么办？](https://github.com/yunba/docs/blob/master/support/troubleshooting/JS_SDK_disconnect.md)
+
+
 
 ### C
 **【[SDK 下载](https://github.com/yunba/yunba-c-sdk)】**
@@ -91,3 +105,7 @@
 **【[SDK 下载](https://github.com/yunba/yunba-php-sdk)】**
 - [API 手册](https://github.com/yunba/yunba-php-sdk/blob/master/README.md)
 - [运行 Yunba PHP Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_PHP.md)
+
+
+
+
