@@ -7,6 +7,7 @@
 
 ## 基础入门篇
 - [云巴是什么](https://github.com/yunba/kb/blob/master/云巴是什么.md)
+- [云巴快速入门教程](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
 - [产品简介](https://github.com/yunba/docs/blob/master/products/product_briefing.md)
 - [Pub/Sub 模型](https://github.com/yunba/kb/blob/master/PubSub.md)
