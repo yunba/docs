@@ -4,6 +4,7 @@
 - [云巴官网](http://yunba.io)
 - [资费信息](http://yunba.io/pricing/)请详询 support@yunba.io
 - [Feature List](https://github.com/yunba/kb/blob/master/feature_list.md)
+- [服务协议](https://github.com/yunba/kb/blob/master/Terms.md)
 
 ## 基础入门篇
 - [云巴是什么](https://github.com/yunba/kb/blob/master/云巴是什么.md)
