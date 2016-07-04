@@ -82,7 +82,7 @@ App 在真机上运行起来后，可以通过左右拨动，切换到不同的�
 
 **其中，在 Demo App 内，向右拨动至最后一页，打开 Enable APNs 的开关，才能收到 APNs 的消息。**
 
-![ios_YunbaDemo_apns_btn.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_YunbaDemo_apns_btn.png)
+![ios_enable_apns.PNG](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_enable_apns.PNG)
 
 
 ###5. 订阅和发布
@@ -98,11 +98,10 @@ App 在真机上运行起来后，可以通过左右拨动，切换到不同的�
 ![tutorials_push_notification_iOS_publish.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_publish.png)
 
 
-App 运行时会收到内部消息：
+App 在前台运行时会收到内部消息：
 
-![tutorials_push_notification_iOS_recvmsg.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_recvmsg.png)
+![ios_new_msg.PNG](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_new_msg.PNG)
 
 
-App 未运行时会收到推送通知：
-
-![tutorials_push_notification_iOS_push.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_push.png)
+App 在后台运行时会收到推送通知：
+![ios_bg_msg.PNG](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_bg_msg.PNG)
