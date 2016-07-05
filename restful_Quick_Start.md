@@ -116,6 +116,7 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXX
 * `publish_to_alias_batch`
 * `publish_async`
 * `publish_check`
+* `query_topic_size`
 
 其中，`publish`、`publish_to_alias`、`publish_to_alias_batch`和`publish_async`可以带 opts 参数，带上参数后，就相当于 `publish2`、`publish2_to_alias`、`publish2_to_alias_batch`和`publish2_async`。
 
@@ -175,6 +176,40 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_asy
 ```bash
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
 ```
+
+### `query_topic_size`
+
+使用这个 API，可以通过指定不同的 `topic_query_type` 参数，来获取某个 Topic 的全部订阅数目、在线用户数、或者离线用户数。
+成功会返回数值，失败会返回错误描述。详见下方示例代码。
+
+|`topic_query_type`|所返回的内容|
+|:--:|:--|
+|"total"|某个 Topic 的全部订阅数 |
+|"online"|某个 Topic 的在线用户数 |
+|"offline"|某个 Topic 的离线用户数 |
+
+* 获取某个 Topic 的全部订阅数 ：
+
+```
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"total"}' http://abj-rest-test1:8181
+```
+
+* 获取某个 Topic 的在线用户数：
+
+```
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"online"}' http://abj-rest-test1:8181
+```
+
+* 获取某个 Topic 的离线用户数：
+```
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"offline"}' http://abj-rest-test1:8181
+```
+
+成功后，会返回所获取的数值，如下。失败的返回值请参考下文。
+```
+{"status":0,"num":"9"}
+```
+
 
 
 ## 发送状态回复
