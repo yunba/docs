@@ -179,6 +179,8 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 
 ### `query_topic_size`
 
+**注**：`query_topic_size` 接口目前尚未正式上线，文中出现的请求代码仅做示范之用。如果您有试用的需求，请联系 support@yunba.io。
+
 使用这个 API，可以通过指定不同的 `topic_query_type` 参数，来获取某个 Topic 的全部订阅数目、在线用户数、或者离线用户数。
 成功会返回数值，失败会返回错误描述。详见下方示例代码。
 
@@ -191,18 +193,18 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 * 获取某个 Topic 的全部订阅数 ：
 
 ```
-curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"total"}' http://abj-rest-test1:8181
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":<your appkey>, "seckey":<your seckey>, "topic":"yunba_debug_tool", "topic_query_type":"total"}' http://rest.yunba.io:8080
 ```
 
 * 获取某个 Topic 的在线用户数：
 
 ```
-curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"online"}' http://abj-rest-test1:8181
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":<your appkey>, "seckey":<your seckey>, "topic":"yunba_debug_tool", "topic_query_type":"online"}' http://rest.yunba.io:8080
 ```
 
 * 获取某个 Topic 的离线用户数：
 ```
-curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":"5520a2887e353f5814e10b62", "seckey":"sec-SoronfkrzKCk0CJkD1hTqrINtFGVNH705CXvetQNH4L1T98G", "topic":"yunba_debug_tool", "topic_query_type":"offline"}' http://abj-rest-test1:8181
+curl -l -H "Content-type: application/json" -X POST -d '{"method":"query_topic_size", "appkey":<your appkey>, "seckey":<your seckey>, "topic":"yunba_debug_tool", "topic_query_type":"offline"}' http://rest.yunba.io:8080
 ```
 
 成功后，会返回所获取的数值，如下。失败的返回值请参考下文。
