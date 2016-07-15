@@ -4,19 +4,21 @@
 - [云巴官网](http://yunba.io)
 - [资费信息](http://yunba.io/pricing/)请详询 support@yunba.io
 - [Feature List](https://github.com/yunba/kb/blob/master/feature_list.md)
-- [服务协议](https://github.com/yunba/kb/blob/master/Terms.md)
 
-## 基础入门篇
+## 产品介绍
 - [云巴是什么](https://github.com/yunba/kb/blob/master/云巴是什么.md)
 - [云巴快速入门教程](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)
-- [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
 - [产品简介](https://github.com/yunba/docs/blob/master/products/product_briefing.md)
+- [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)
+
+
+## 概念解释
+- [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md)
 - [Pub/Sub 模型](https://github.com/yunba/kb/blob/master/PubSub.md)
 - [频道和别名](https://github.com/yunba/kb/blob/master/频道和别名.md)
 - [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)
 - [Portal](https://github.com/yunba/kb/blob/master/Portal.md)
 - [云巴的离线消息](https://github.com/yunba/kb/blob/master/云巴的离线消息.md)
-- [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)
 - [QoS](https://github.com/yunba/kb/blob/master/QoS.md)
 - [多证书](https://github.com/yunba/kb/blob/master/%E5%A4%9A%E8%AF%81%E4%B9%A6.md)
 - [云巴服务的 IP 是不固定的](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E6%9C%8D%E5%8A%A1%E7%9A%84%20IP%20%E6%98%AF%E4%B8%8D%E5%9B%BA%E5%AE%9A%E7%9A%84.md)
@@ -54,7 +56,6 @@
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#ios-sdk)
 
 ---
-
 - [使用 iOS SDK，上传了 APNs 证书，但应用在后台时却收不到 APNs 通知？](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_APNs_error.md)
 
 
@@ -64,12 +65,9 @@
 - [JavaScript 快速入门](https://github.com/yunba/docs/blob/master/Javascript_SDK.md#yunba-javascript-sdk-使用文档)
 - [运行 Yunba JavaScript Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_JavaScript.md)
 - [FAQ](https://github.com/yunba/docs/blob/master/support/faq/faq.md#javascript-sdk)
-
 ---
-
 - [JS SDK 连接失败怎么办？](https://github.com/yunba/docs/blob/master/support/troubleshooting/JS_SDK_disconnect.md)
 - [官网后台的管理页面（Portal）显示连接断开了怎么办？](https://github.com/yunba/docs/blob/master/support/troubleshooting/JS_SDK_disconnect.md)
-
 
 
 ### C
