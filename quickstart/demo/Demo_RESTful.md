@@ -35,7 +35,7 @@
 
 * `publish`方法：
 
-在 Mac 的 Terminal 下，输入下面的 curl 命令，将会向名为“news”的 topic 发送一条消息，消息内容是“good news”。
+在 Mac 的 Terminal 下，输入下面的 curl 命令，将会向名为“news”的 topic 发送一条消息，消息内容是“good_news”。
 由于 Android SDK Demo 程序在步骤 1 中曾订阅过“news”，它将收到这条消息。
 
 ```bash
