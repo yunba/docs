@@ -39,7 +39,7 @@
 由于 Android SDK Demo 程序在步骤 1 中曾订阅过“news”，它将收到这条消息。
 
 ```bash
-$ curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXXXXXXXXXXXXXXX&seckey=sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&topic=news&msg="good news""
+$ curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXXXXXXXXXXXXXXX&seckey=sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&topic=news&msg="good_news""
 
 ```
 发送后，会看到如下格式的返回值以及 Message ID，详见文末的状态参数说明。
