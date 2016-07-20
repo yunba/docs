@@ -39,7 +39,7 @@ http://rest.yunba.io:8080?method=<method>&appkey=<app-key>&seckey=<secret-key>&t
 **示例**
 
 ```bash
-$curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXXXXXXXXXXXXXXX&seckey=sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&topic=news&msg="good news""
+$curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXXXXXXXXXXXXXXX&seckey=sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&topic=news&msg="good_news""
 ```
 请将 appkey 和 seckey 替换为您的 AppKey 和 Secret Key，即可运行。
 
