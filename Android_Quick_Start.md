@@ -240,7 +240,7 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App， App 通�
 打开应用详情页面，点击 “在线用户统计” 可以查看当前在线用户数，用户活跃数等信息，如图所示:
 
 
-![online.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/Portal_online_users.png)
+![online.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/online_statistic.png)
 
 
 **注**：
