@@ -90,7 +90,7 @@
 
 证书添加完成后，请点击 “更新” 按钮，保存设置。
 
-![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_create_new_app.png)
+![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_add_cert_to_portal.png)
 
 ### 生成APNs证书的步骤如下：
 1. 打开apple开发者网站的证书管理界面<https://developer.apple.com/account/ios/certificate/>  

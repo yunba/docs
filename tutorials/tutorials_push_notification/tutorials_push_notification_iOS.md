@@ -20,9 +20,13 @@
 ![create_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/create_app.png)
 
 
-输入应用的名称及 Bundle ID。同时，上传 iOS 开发或生产证书并输入相应的证书密码，以激活苹果推送通知服务。
+输入应用的名称及 Bundle ID。
 
 ![tutorials_push_notification_iOS_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_tutorials/tutorials_push_notification_iOS_create_new_app.png)
+
+同时，上传 iOS 开发或生产证书并输入相应的证书密码，以激活苹果推送通知服务。
+
+![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_add_cert_to_portal.png)
 
 应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 Portal 申请到的 AppKey。 
 
