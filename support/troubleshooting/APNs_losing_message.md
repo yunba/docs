@@ -5,13 +5,14 @@
 
 1. 原来装上的 demo 都可以正常收消息，新 build 进去的就收不到消息了；
 
-2. 即使是可以正常工作的 demo 有时也会出现大量的、无规律的丢失 APNs 的消息。
+2. 即使是可以正常工作的 demo 有时也会出现大量的、无规律的丢失 APNs 消息的现象。
 
 ## 分析过程
 ### 信息总结
 先总结一下所有的信息：
 
 1. APNs 的收发消息的原理：
+
 	1.1 设备会和 APNs 服务器建立一个 TLS 链接，app 会通过这个链接向 APNs 发送一个 http/2 request 来请求 device token，APNs 服务器在确认了设备的 device certificate 之后才会向其返回 apnsToken。device token 是向 APNs 传输的关键。
 
 	1.2 http/2 的 POST 请求中包含 path、version、container 和 environment 参数；POST 作为一个 JSON dictionary，其中包含一个 apnsEnvironment key 的参数来指明 APNs 的环境，它有两个值，分别为 production 和 development。对应的即为相应的 APNs push notification 的生产和开发证书。这个 POST 请求是由设备发出的。APNs 会在 response 中返回 apsapnsEnvironment，apnsToken 和 webcourierURL。
@@ -39,7 +40,7 @@
 
 * 为什么会有大量丢消息的现象呢，原因可能和我们根据 apsEnvironment 自动选择证书的策略有关：当一个 provisioning profile 同时包含生产和开发两个证书时，用户可能会同时在 portal 上传了一份包含在该 provisioning profile 的有效证书和不包含在该 profile 内的无效证书，我们在自动选择的时候可能会选中那份无效的证书，导致消息无法送达。我在验证的时候使用无效证书的时候会全都收不到，所以可能还要继续研究这个问题。
 
-* 还有一点需要注意的事是在 Xcode 中因为没有 provisioning profile 而无法编译时如果选择了 fix issue，Xcode 创建的 provisioning profile 并不时常管用，有时可以正常工作，大部分时间又不可以，所以建议还是自己在 code signing 里选择正确的 provisioning profile。
+* 还有一点需要注意的事是在 Xcode 中因为没有 provisioning profile 而无法编译时如果选择了 fix issue，Xcode 会尝试为你创建一份 provisioning profile，但是它创建的 provisioning profile 并不时常管用，有时可以正常工作，大部分时间又不可以，所以建议还是自己在 code signing 里选择正确的 provisioning profile。
 
 ## reference
 * [CreateTokens](https://developer.apple.com/library/ios/documentation/DataManagement/Conceptual/CloutKitWebServicesReference/CreateTokens/CreateTokens.html)
