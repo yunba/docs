@@ -38,7 +38,7 @@ BUILD SUCCESSFUL
 ## 详细步骤
 
 ###1. 在云巴 Portal 上创建新应用
-[在云巴 Portal 上创建新应用](https://github.com/yunba/kb/blob/master/Portal.md#如何在云巴-portal-上创建新应用)，并获得一个 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey)。
+在云巴 [Portal](http://yunba.io/docs2/portal) 上创建新应用，并获得一个 [AppKey](http://yunba.io/docs2/appkey)。
 
 ###2. 修改 APPKEY
 将 src/YunBaDemo.java 里的 APPKEY 改为上一步骤中自己创建的 AppKey。
@@ -48,9 +48,9 @@ final MqttAsyncClient mqttAsyncClient = MqttAsyncClient.createMqttClient("XXXXXX
 
 ###3. 运行
 
-在 [YunBaDemo.java](https://github.com/yunba/yunba-java-sdk/blob/master/src/YunBaDemo.java) 中，给出了 [初始化](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#createmqttclient)、[连接云巴服务器](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#connect)，以及成功连接后的 [订阅 Topic](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#subscribe)、
-[向 Topic 发布消息](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#publish)、[设置 Alias](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#setalias)、[向 Alias 发布消息](https://github.com/yunba/docs/blob/master/Java_API_Reference.md#publishtoalias)的示例。
+在 [YunBaDemo.java](https://github.com/yunba/yunba-java-sdk/blob/master/src/YunBaDemo.java) 中，给出了 [初始化](http://yunba.io/docs2/java_api#createmqttclient)、[连接云巴服务器](http://yunba.io/docs2/java_api#connect)，以及成功连接后的 [订阅 Topic](http://yunba.io/docs2/java_api#subscribe)、
+[向 Topic 发布消息](http://yunba.io/docs2/java_api#publish)、[设置 Alias](http://yunba.io/docs2/java_api#setalias)、[向 Alias 发布消息](http://yunba.io/docs2/java_api#publishtoalias)的示例。
 
-可直接运行 Demo 客户端，进行消息收发的测试。客户端运行后，可以 [通过 Portal 向该客户端发布消息](https://github.com/yunba/kb/blob/master/Portal.md#利用云巴-portal-发布消息)，或通过集成其他的 [云巴 SDK](https://github.com/yunba/docs/blob/master/support/Resource_List.md#sdk-与文档) 来与之通信。
+可直接运行 Demo 客户端，进行消息收发的测试。客户端运行后，可以通过 [Portal](http://yunba.io/docs2/portal) 向该客户端发布消息，或通过集成其他的云巴 SDK 来与之通信。
 
-更多说明，请参考 [Java API 文档](https://github.com/yunba/docs/blob/master/Java_API_Reference.md)。
+更多说明，请参考 [Java API 文档](http://yunba.io/docs2/java_api)。

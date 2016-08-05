@@ -1,4 +1,4 @@
-## 生成 Provisioning Profile
+# 生成 Provisioning Profile
 
 本节以“开发”类型的 Provisioning Profile 为例，介绍如何生成 Provisioning Profile，并导入 Xcode 中。
 

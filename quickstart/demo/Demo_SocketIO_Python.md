@@ -91,7 +91,7 @@ Windows 平台：
 为了演示消息收发的功能，我们先准备好一个集成了云巴 SDK 的客户端程序，之后与 Python 的 Demo 进行通讯。
 
 例如，就使用 Yunba Android SDK 中提供的 Demo 程序，
-其创建方法可参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文。在 Portal 上创建新应用后，会获得一个 AppKey。
+其创建方法可参考 [运行 Yunba Android Demo](http://yunba.io/docs2/android_demo) 一文。在 Portal 上创建新应用后，会获得一个 AppKey。
 
 ###2. 创建 Python 程序
 新建一个文本文件，保存下面的 Python 示例程序。比如取名为 python_demo.py。

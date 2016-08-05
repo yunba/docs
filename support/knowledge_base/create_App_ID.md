@@ -1,5 +1,5 @@
-##**新建 App ID 的步骤**
----
+# 新建 App ID 的步骤
+
 
 
 1. 打开 Apple 开发者网站的 [Identifer 管理界面](https://developer.apple.com/account/ios/identifiers/bundle/bundleList.action "Identifer 管理界面")，并用您的苹果开发者账号登录；

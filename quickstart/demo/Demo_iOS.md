@@ -18,7 +18,7 @@
 ## 详细步骤
 
 ###1. 生成 APNs 证书
-iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 APNs 证书的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_APNs_certificate.md "生成 APNs 证书的步骤") 一文，生成 APNs 证书。
+iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 APNs 证书的步骤](http://yunba.io/docs2/create_apns_certificate) 一文，生成 APNs 证书。
 
 ###2. 在云巴 Portal 上创建新应用
 
@@ -34,14 +34,14 @@ iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 
 
 ![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/for_quickstart/ios_add_cert_to_portal.png)
 
-应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 [Portal](https://github.com/yunba/kb/blob/master/Portal.md) 申请到的 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)、Secret Key 等。
+应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 [Portal](http://yunba.io/docs2/portal) 申请到的 [AppKey](http://yunba.io/docs2/appkey)、Secret Key 等。
 
 **注**：请妥善保管好您的 AppKey、Secret Key 等，不要泄露给他人。
 
 ![copy_app_key.png](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
 
 ###3. 生成 Provisioning Profile
-请参考 [生成 Provisioning Profile](https://github.com/yunba/docs/blob/master/support/knowledge_base/Create_Provisioning_Profile.md "生成 Provisioning Profile") 一文，生成 Provisioning Profile，并导入到 Xcode 中。
+请参考 [生成 Provisioning Profile](http://yunba.io/docs2/create_provisioning_profile) 一文，生成 Provisioning Profile，并导入到 Xcode 中。
 
 ###4. 运行 Yunba iOS Demo 工程
 
@@ -78,7 +78,6 @@ iOS SDK Demo 的代码已经实现了订阅、接收等逻辑，您无需添加�
 
 * 编译时，可能会遇到 Failed to code sign “YunbaDemo” 的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_code_sign_error.md "相关文章") 解决。
 * iOS Demo 真机调试时可能遇到“不包含 Bitcode”的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_bitcode_error.md "相关文章") 解决。
-* 云巴 SDK 1.5.2 以及 1.5.2 之前的版本在 iOS 9 上无法正常注册，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/SDK_registration_problem_on_iOS9.md "相关文章") 解决。
 
 **4.6. 运行**
 

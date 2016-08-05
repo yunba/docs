@@ -1,13 +1,13 @@
-## **生成 APNs 证书的步骤**
----
+# 生成 APNs 证书的步骤
 
-### **准备工作**
+
+## 准备工作
 
 1. 制作 APNs 证书时，需要一个 CSR（CertificateSigningRequest.certSigningRequest）文件，来使新生成的推送证书与私钥相匹配。CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_CSR_file.md "新建 CSR 文件的步骤")。
 
 2. 如果您还没有创建 App ID，请参考 [新建 App ID 的步骤](https://github.com/yunba/docs/blob/master/support/knowledge_base/create_App_ID.md "新建 App ID 的步骤") 一文，创建一个 App ID，并为 App 开启 Push Notification 功能。如果已经创建过了，可跳过此步，只需在设置页面中确认该 App 已开启了 Push Notification 功能即可。**注意，这里的 App ID 不可以使用通配符。**
 
-### **详细步骤**
+## 详细步骤
 
 1. 打开 Apple 开发者网站的 [证书管理界面](https://developer.apple.com/account/ios/certificate "证书管理界面")，并用您的苹果开发者账号登录；
 
@@ -47,4 +47,6 @@
 
 	![export_p12_password.png](https://raw.githubusercontent.com/yunba/docs/master/image/export_p12_password.png)
 
-至此，APNs 证书生成完毕。<br>在 Yunba 的 Portal 页面创建新应用时，在 iOS 开发/生产证书处上传这份个人信息交换（.p12）即可。
+至此，APNs 证书生成完毕。
+
+在 Yunba 的 Portal 页面创建新应用时，在 iOS 开发/生产证书处上传这份个人信息交换（.p12）即可。

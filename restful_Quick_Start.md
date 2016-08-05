@@ -12,8 +12,8 @@
 注册账号成功后，页面跳转到 “我的应用列表” 界面。点击 “我的应用” --> “创建新应用”，输入 “应用名称” 和 “应用包名”。
 
 
-创建成功后，会获得与 “应用包名”一一对应的 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md)，可在 “应用详情” 页面查看。
-在下文的示例中，将 appkey 和 seckey 替换为您从 [Portal](https://github.com/yunba/kb/blob/master/Portal.md) 获取到的 AppKey 和 Secret Key，即可运行。
+创建成功后，会获得与 “应用包名”一一对应的 [AppKey][3]，可在 “应用详情” 页面查看。
+在下文的示例中，将 appkey 和 seckey 替换为您从 [Portal][4] 获取到的 AppKey 和 Secret Key，即可运行。
 
 
 **注**：请妥善保管好您的 AppKey 和 Secret Key，不要泄露给他人。
@@ -88,11 +88,11 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXX
 
 **参数说明：**
 * `time_to_live`：用来设置离线消息保留多久。单位为秒（例如，“3600”代表1小时），默认值为 5 天，最大不超过 15 天。
-* `qos`：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见云巴知识库的 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 篇。
+* `qos`：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见云巴知识库的 [QoS][11] 篇。
 * `platform`、`time_delay` 和 `location` 参数暂未实现。
 
 
-下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)。
+下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档][8]。
 
 ```json
 "opts":	{
@@ -214,3 +214,13 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 ```json
 {"status":5, "alias":"XXXXXXXXXXXXXXXXXXXXXXX-test", "error": "alias not found"}
 ```
+
+
+[3]: http://yunba.io/docs2/appkey
+[4]: http://yunba.io/docs2/portal
+[5]: http://yunba.io/docs2/topic_and_alias#%E9%A2%91%E9%81%93topic
+[6]: http://yunba.io/docs2/topic_and_alias#%E5%88%AB%E5%90%8Dalias
+[8]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html
+[11]: http://yunba.io/docs2/qos
+
+

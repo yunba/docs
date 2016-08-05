@@ -52,7 +52,7 @@ Mac 平台：
 本文以 [Yunba PHP SDK](https://github.com/yunba/yunba-php-sdk) 的 subscribe.php 和 publish.php 为例，演示 PHP SDK 的使用。
 
 ###1. 在云巴 Portal 上创建新应用
-请参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文中的该步骤的做法，获得一个 AppKey。
+请参考 [运行 Yunba Android Demo](http://yunba.io/docs2/android_demo) 一文中的该步骤的做法，获得一个 AppKey。
 
 ###2. 引入 API 库
 
@@ -78,7 +78,7 @@ $yunba = new Yunba(array(
 ```
 **2. 订阅**
 
-可定义 topic、qos 等参数，参数含义可参考 [云巴知识库](https://github.com/yunba/kb) 和 [官网](http://yunba.io/developers/) 。代码示例如下：
+可定义 [topic](http://yunba.io/docs2/topic_and_alias#%E9%A2%91%E9%81%93topic)、[qos](http://yunba.io/docs2/qos) 等参数。代码示例如下：
 
 ```
 //订阅topic1

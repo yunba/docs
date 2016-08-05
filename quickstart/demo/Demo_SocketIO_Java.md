@@ -23,7 +23,7 @@
 ## 详细步骤
 
 ###1. 在云巴 Portal 上创建新应用
-请参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 
+请参考 [运行 Yunba Android Demo](http://yunba.io/docs2/android_demo) 
 一文中的该步骤的做法，获得一个 AppKey。
 
 ###2. 修改 APPKEY

@@ -4,7 +4,7 @@
 ## MQTTClient_setup_with_appkey
 
 ### 功能
-用 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) 获取注册信息。使用该函数时，每次用户都会获得新的注册信息，包括 Client ID、Username、Password 和 Device ID。
+用 [AppKey][3] 获取注册信息。使用该函数时，每次用户都会获得新的注册信息，包括 Client ID、Username、Password 和 Device ID。
 
 ###函数原型
 `int MQTTClient_setup_with_appkey(char* appkey, REG_info *info)`
@@ -12,7 +12,7 @@
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 在云巴 [Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal) 申请到的应用的 AppKey。
+appkey | char* | 在云巴 [Portal][4] 申请到的应用的 AppKey。
 info | REG_info* | 保存获取到的注册信息。
 
 ### 返回值
@@ -27,7 +27,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTClient_setup_with_appkey_and_deviceid
 
 ### 功能
-用 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) 和 Device ID 获取注册信息。
+用 [AppKey][3] 和 Device ID 获取注册信息。
 
 当 deviceid 参数为 NULL 时，云巴会返回一个 deviceid 给用户，用户需自行保存该 deviceid，供下次调用该函数时使用。
 用户也可以使用自己的 deviceid，但必须保证其唯一性。
@@ -39,7 +39,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 在云巴 [Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal) 申请到的应用的 AppKey。
+appkey | char* | 在云巴 [Portal][4] 申请到的应用的 AppKey。
 deviceid | char* | 用户自定义的 Device ID。
 info | REG_info* | 保存获取到的注册信息。
 
@@ -55,7 +55,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTSubscribe
 ### 功能
 
-增加订阅一个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic)。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
+增加订阅一个 [频道][5]。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
 
 ### 函数原型
 `int MQTTSubscribe(Client*, const char*, enum QoS);`
@@ -79,7 +79,7 @@ rc = MQTTSubscribe(client, "rocket", QOS1);
 ## MQTTUnsubscribe
 
 ### 功能
-取消对某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 的订阅。成功取消后，就不会再收到来自该频道的消息。
+取消对某个 [频道][5] 的订阅。成功取消后，就不会再收到来自该频道的消息。
 
 ### 函数原型
 `int MQTTUnsubscribe(Client*, const char*);`
@@ -101,7 +101,7 @@ rc = MQTTUnsubscribe(client, "rocket");
 ## MQTTPublish
 
 ### 功能
-向某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
+向某个 [频道][5] 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
 
 ### 函数原型
 `int MQTTPublish (Client*, const char*, MQTTMessage*)`
@@ -127,7 +127,7 @@ rc = MQTTPublish(&c, topic, &M);
 ## MQTTPublishToAlias
 
 ### 功能
-向某个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 发布消息。发布成功后，该别名的客户端会收到消息。
+向某个 [别名][6] 发布消息。发布成功后，该别名的客户端会收到消息。
 
 ### 函数原型
 `int MQTTPublishToAlias(Client* c, const char* alias, void *payload, int payloadlen)`
@@ -152,7 +152,7 @@ rc = MQTTPublishToAlias(&c, "alias", "test", strlen("test"));
 ## MQTTSetAlias
 
 ### 功能
-用来设置用户名，即绑定账号。每个用户只能指定一个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+用来设置用户名，即绑定账号。每个用户只能指定一个 [别名][6]。
 
 ### 函数原型
 `int MQTTSetAlias(Client*, const char*);`
@@ -175,7 +175,7 @@ int ret = MQTTSetAlias(client, "000000018302");
 ## MQTTGetAlias
 
 ### 功能
-获取当前用户的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+获取当前用户的 [别名][6]。
 
 通过设置`MQTTSetCallBack`的参数——回调函数`extendedmessageHandler`——来获取相关信息。
 
@@ -199,7 +199,7 @@ int ret = MQTTGetAlias(client, "0");
 
 ## MQTTGetStatus
 ### 功能
-查询目标用户（[别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)）的在线状态。
+查询目标用户（[别名][6]）的在线状态。
 
 通过设置`MQTTSetCallBack`的参数——回调函数`extendedmessageHandler`——来获取相关信息。
 
@@ -224,7 +224,7 @@ int ret = MQTTGetStatus(client, "000000018302");
 ## MQTTGetAliasList
 
 ### 功能
-获取某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下的所有订阅者的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 列表。
+获取某 [频道][5] 下的所有订阅者的 [别名][6] 列表。
 
 通过设置`MQTTSetCallBack`的参数——回调函数`extendedmessageHandler`——来获取相关信息。
 
@@ -249,7 +249,7 @@ int ret = MQTTGetAliasList(client, "rocket");
 ## MQTTGetTopic
 
 ### 功能
-获取某个用户所订阅的 [频道](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md)。
+获取某个用户所订阅的 [频道][5]。
 
 通过设置`MQTTSetCallBack`的参数——回调函数`extendedmessageHandler`——来获取相关信息。
 
@@ -370,3 +370,11 @@ handle | Client* | 客户端句柄指针。
 ```c
 MQTTDisconnect(&c);
 ```
+
+[1]: http://yunba.io/docs2/yunba_offline_message
+[2]: http://yunba.io/docs2/presence
+[3]: http://yunba.io/docs2/appkey
+[4]: http://yunba.io/docs2/portal
+[5]: http://yunba.io/docs2/topic_and_alias#%E9%A2%91%E9%81%93topic
+[6]: http://yunba.io/docs2/topic_and_alias#%E5%88%AB%E5%90%8Dalias
+[11]: http://yunba.io/docs2/qos

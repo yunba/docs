@@ -28,7 +28,7 @@
 ![libs_android.jpeg](https://raw.githubusercontent.com/yunba/docs/master/image/libs_android.jpeg)
 
 
-开发工具为 Android Studio 的 Android SDK 导入步骤可参考 [Github 文档]( https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md#3-%E5%BC%95%E5%85%A5-android-demo-%E5%B7%A5%E7%A8%8B)。
+开发工具为 Android Studio 的 Android SDK 导入步骤可参考 [Demo 运行文档](http://yunba.io/docs2/android_demo)。
 
 
 ## 配置 AndroidManifest.xml
@@ -55,7 +55,7 @@
 
 
 ### 配置应用的 AppKey（AppKey 来自 Portal，与包名对应）
-[AppKey](https://github.com/yunba/kb/blob/master/AppKey.md) 来自 YunBa 注册的应用，与包名对应。
+[AppKey](http://yunba.io/docs2/appkey) 来自 YunBa 注册的应用，与包名对应。
 
 
 ![appkey-pkg.jpg](https://raw.githubusercontent.com/yunba/docs/master/image/copy_app_key.png)
@@ -105,7 +105,7 @@
 
 ## 添加使用代码
 
-初始化 SDK 并订阅 [Topic](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E9%A2%91%E9%81%93topic)，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
+初始化 SDK 并订阅 [Topic][6]，请在您的 Application 子类的 OnCreate 方法中加入如下代码：
 
 ```java
 
@@ -251,5 +251,6 @@ Portal 的详细使用可参考 [Portal 文档][5]。
   [2]: https://raw.githubusercontent.com/yunba/docs/master/image/subR.png
   [3]: https://raw.githubusercontent.com/yunba/docs/master/image/main%20window.png
   [4]: https://raw.githubusercontent.com/yunba/docs/master/image/app%20api.png
-  [5]:https://github.com/yunba/kb/blob/master/Portal.md#portal
-
+  [5]: http://yunba.io/docs2/portal
+  [6]: http://yunba.io/docs2/topic_and_alias#%E9%A2%91%E9%81%93topic
+  [7]: http://yunba.io/docs2/topic_and_alias#%E5%88%AB%E5%90%8Dalias

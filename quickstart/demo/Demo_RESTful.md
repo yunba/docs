@@ -1,7 +1,7 @@
 # 运行 Yunba RESTful API Demo
 
 本文演示云巴的 RESTful API 的使用。
-<br>
+
 本文涉及的运行环境如下：
 
 * Mac OS X 10.11.1
@@ -18,13 +18,13 @@
 ###1. 申请 AppKey
 
 在演示 RESTful API 的范例之前，我们先准备好一个集成了云巴 SDK 的客户端程序，用来收消息。
-<br>
+
 例如，就使用 Yunba Android SDK 中提供的 Demo 程序，
-其创建方法可参考 [运行 Yunba Android Demo](https://github.com/yunba/docs/blob/master/quickstart/demo/Demo_Android.md) 一文。
+其创建方法可参考 [运行 Yunba Android Demo](http://yunba.io/docs2/android_demo) 一文。
 创建完成后，可在 Portal 的应用详情页面，获得 AppKey 和 Secret Key。
-<br>
+
 鉴于后文的描述中，会向 Android SDK Demo 发消息，这里可以提前做一些设置。
-<br>如，订阅“news”，将 Android 客户端的别名（alias）设置为 Jack。
+如，订阅“news”，将 Android 客户端的别名（alias）设置为 Jack。
 
 ###2. RESTful API 用法示例
 
@@ -87,7 +87,7 @@ http://rest.yunba.io:8080?method=publish_to_alias&appkey=XXXXXXXXXXXXXXXXXXXXXXX
 * APN 
 
 APN 部分，请参考苹果官方说明——[Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW12 "A")。
-<br>
+
 如果在 opts 中没有出现 apn_json 项时，就不会发送 APN。
 
 #####2.2.2 API 示例

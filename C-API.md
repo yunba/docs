@@ -23,7 +23,7 @@ printf("used:%s, %s\n", version->name, version->value);
 ## MQTTClient_setup_with_appkey
 
 ### 功能
-用 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) 获取注册信息。使用该函数时，每次用户都会获得新的注册信息，包括 Client ID、Username、Password 和 Device ID。
+用 [AppKey][3] 获取注册信息。使用该函数时，每次用户都会获得新的注册信息，包括 Client ID、Username、Password 和 Device ID。
 
 ### 函数原型
 `int MQTTClient_setup_with_appkey(char* appkey, REG_info *info)`
@@ -31,7 +31,7 @@ printf("used:%s, %s\n", version->name, version->value);
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 在云巴 [Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal) 申请到的应用的 AppKey。
+appkey | char* | 在云巴 [Portal][4] 申请到的应用的 AppKey。
 info | REG_info* | 保存获取到的注册信息。
 
 ### 返回值
@@ -46,7 +46,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTClient_setup_with_appkey_and_deviceid
 
 ### 功能
-用 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) 和 Device ID 获取注册信息。
+用 [AppKey][3] 和 Device ID 获取注册信息。
 
 当 deviceid 参数为 NULL 时，云巴会返回一个 deviceid 给用户，用户需自行保存该 deviceid，供下次调用该函数时使用。
 用户也可以使用自己的 deviceid，但必须保证其唯一性。
@@ -57,7 +57,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 在云巴 [Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal) 申请到的应用的 AppKey。
+appkey | char* | 在云巴 [Portal][4] 申请到的应用的 AppKey。
 deviceid | char* | 用户自定义的 Device ID。
 info | REG_info* | 保存获取到的注册信息。
 
@@ -73,7 +73,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ## MQTTClient_get_host
 
 ### 功能
-通过 [AppKey](https://github.com/yunba/kb/blob/master/AppKey.md#appkey) 获取 host 的信息。
+通过 [AppKey][3] 获取 host 的信息。
 
 ### 函数原型
 `int MQTTClient_get_host(char *appkey, char* url)`
@@ -81,7 +81,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-appkey | char* | 在云巴 [Portal](https://github.com/yunba/kb/blob/master/Portal.md#portal) 申请到的应用的 AppKey。
+appkey | char* | 在云巴 [Portal][4] 申请到的应用的 AppKey。
 url | char* | 保存获取到的 host 信息。
 
 ### 返回值
@@ -96,7 +96,7 @@ int res = MQTTClient_get_host(appkey, url);
 ## MQTTClient_subscribe
 
 ### 功能
-增加订阅一个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic)。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
+增加订阅一个 [频道][5]。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
 
 ### 函数原型
 `int MQTTClient_subscribe(MQTTClient handle, char* topic);`
@@ -118,7 +118,7 @@ rc = MQTTClient_subscribe(client, "rocket");
 ## MQTTClient_unsubscribe
 
 ### 功能
-取消对某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 的订阅。成功取消后，就不会再收到来自该频道的消息。
+取消对某个 [频道][5] 的订阅。成功取消后，就不会再收到来自该频道的消息。
 
 ### 函数原型
 `int MQTTClient_unsubscribe(MQTTClient handle, char* topic);`
@@ -140,9 +140,9 @@ rc = MQTTClient_unsubscribe(client, "rocket");
 ## MQTTClient_presence
 
 ### 功能
-监听某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下用户行为的事件通知，事件包括上线、下线、订阅频道和取消订阅频道。
+监听某 [频道][5] 下用户行为的事件通知，事件包括上线、下线、订阅频道和取消订阅频道。
 
-参见 [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)。
+参见 [云巴的实时在线][2]。
 
 ### 函数原型
 `int MQTTClient_presence(MQTTClient handle, char* topic);`
@@ -164,9 +164,9 @@ rc = MQTTClient_presence(client, "rocket");
 ## MQTTClient_unpresence
 
 ### 功能
-取消监听某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下用户行为的事件通知，事件包括上线、下线、订阅频道和取消订阅频道。
+取消监听某 [频道][5] 下用户行为的事件通知，事件包括上线、下线、订阅频道和取消订阅频道。
 
-参见 [云巴的实时在线](https://github.com/yunba/kb/blob/master/Presence.md)。
+参见 [云巴的实时在线][2]。
 
 ### 函数原型
 `int MQTTClient_unpresence(MQTTClient handle, char* topic);`
@@ -188,7 +188,7 @@ rc = MQTTClient_unpresence(client, "rocket");
 ## MQTTClient_publish
 
 ### 功能
-向某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
+向某个 [频道][5] 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
 
 ### 函数原型
 `int MQTTCient_publish(MQTTClient handle, char* topicName, int data_len, void *data)`
@@ -232,10 +232,10 @@ opt | CJSON * | [扩展参数](#扩展参数说明)，可以带 apn_json，time_
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](https://github.com/yunba/kb/blob/master/QoS.md) 的说明。
-apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](https://github.com/yunba/kb/blob/master/APNs/Payload.md)。
+qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS][11] 的说明。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档][8] 及云巴 [相关文档][9]。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
-time_to_live | Number | 用来设置 [离线消息](https://github.com/yunba/kb/blob/master/%E4%BA%91%E5%B7%B4%E7%9A%84%E7%A6%BB%E7%BA%BF%E6%B6%88%E6%81%AF.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
+time_to_live | Number | 用来设置 [离线消息][1] 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 
 
 ### 返回值
@@ -256,7 +256,7 @@ printf("publish2 status:%i\n", ret);
 ## MQTTClient_publish_to_alias
 
 ### 功能
-向某个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 发布消息。发布成功后，该别名的客户端会收到消息。
+向某个 [别名][6] 发布消息。发布成功后，该别名的客户端会收到消息。
 
 ### 函数原型
 `int MQTTClient_publish_to_alias(MQTTClient handle, char* alias, int data_len, void* data);`
@@ -314,7 +314,7 @@ printf("publish2_alas status:%i\n", ret);
 ## MQTTClient_publish_json
 
 ### 功能
-向某个 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 发布 JSON 格式的消息。成功发布后，所有订阅此频道的客户端都会收到消息。
+向某个 [频道][5] 发布 JSON 格式的消息。成功发布后，所有订阅此频道的客户端都会收到消息。
 
 ### 函数原型
 `int MQTTClient_publish_json(MQTTClient handle, char* topicName, cJSON* data)`
@@ -341,7 +341,7 @@ cJSON_Delete(data);
 ## MQTTClient_set_alias
 
 ### 功能
-用来设置用户名，即绑定账号。每个用户只能指定一个 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+用来设置用户名，即绑定账号。每个用户只能指定一个 [别名][6]。
 
 **将`MQTTClient_set_alias()`的`alias`参数设置为空字符串即可取消别名。**
 
@@ -365,7 +365,7 @@ int ret = MQTTClient_set_alias(client, "000000018302");
 ## MQTTClient_get_alias
 
 ### 功能
-获取当前用户的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias)。
+获取当前用户的 [别名][6]。
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 ```json
@@ -394,7 +394,7 @@ int ret = MQTTClient_get_alias(client, "0");
 ## MQTTClient_get_status
 
 ### 功能
-查询目标用户（[别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)）的在线状态。
+查询目标用户（[别名][6]）的在线状态。
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 
@@ -427,7 +427,7 @@ int ret = MQTTClient_get_status(client, "000000018302");
 ## MQTTClient_get_status2
 
 ### 功能
-查询目标用户（[别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias)）的在线状态。是`MQTTClient_get_status()`的升级版本，其返回的状态信息中，会包含目标别名的名称。 
+查询目标用户（[别名][6]）的在线状态。是`MQTTClient_get_status()`的升级版本，其返回的状态信息中，会包含目标别名的名称。 
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 ```json
@@ -459,7 +459,7 @@ int ret = MQTTClient_get_status2(client, "000000018302");
 ## MQTTClient_get_aliaslist
 
 ### 功能
-获取某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下的所有订阅者的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 列表。
+获取某 [频道][5] 下的所有订阅者的 [别名][6] 列表。
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 ```json
@@ -488,7 +488,7 @@ int ret = MQTTClient_get_aliaslist(client, "rocket");
 ## MQTTClient_get_aliaslist2
 
 ### 功能
-获取某 [频道](https://github.com/yunba/kb/blob/master/频道和别名.md#频道topic) 下的所有订阅者的 [别名](https://github.com/yunba/kb/blob/master/频道和别名.md#别名alias) 列表。是`MQTTClient_get_aliaslist()`的升级版本，其返回的状态信息中，会包含目标频道的名称。 
+获取某 [频道][5] 下的所有订阅者的 [别名][6] 列表。是`MQTTClient_get_aliaslist()`的升级版本，其返回的状态信息中，会包含目标频道的名称。 
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 ```json
@@ -517,7 +517,7 @@ int ret = MQTTClient_get_aliaslist2(client, "mytopic");
 ## MQTTClient_get_topic
 
 ### 功能
-获取某个用户所订阅的 [频道](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md)。
+获取某个用户所订阅的 [频道][5]。
 
 通过设置`MQTTClient_setCallbacks()`的 [最后一个参数](https://github.com/yunba/yunba-c-sdk/blob/master/src/MQTTClient.c#L639) ——回调函数`MQTTClient_extendedCmdArrive`——来获得相关信息，可能的信息包括：
 ```json
@@ -547,9 +547,9 @@ int ret = MQTTClient_get_topic(client, "000000018302");
 ## MQTTClient_get_topiclist2
 
 ### 功能
-获取某个用户所订阅的 [频道](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md)。
+获取某个用户所订阅的 [频道][5]。
 是`MQTTClient_get_topic()`的升级版本，其返回的状态信息中，会包含目标 
-[别名](https://github.com/yunba/kb/blob/master/%E9%A2%91%E9%81%93%E5%92%8C%E5%88%AB%E5%90%8D.md#%E5%88%AB%E5%90%8Dalias) 的名称。
+[别名][6] 的名称。
 
 ### 函数原型
 `int MQTTClient_get_topiclist2(MQTTClient handle, char* parameter);`
@@ -687,3 +687,16 @@ handle | MQTTClient* | 客户端句柄的指针。
 ```c
 MQTTClient_destroy(&client);
 ```
+
+
+[1]: http://yunba.io/docs2/yunba_offline_message
+[2]: http://yunba.io/docs2/presence
+[3]: http://yunba.io/docs2/appkey
+[4]: http://yunba.io/docs2/portal
+[5]: http://yunba.io/docs2/topic_and_alias#%E9%A2%91%E9%81%93topic
+[6]: http://yunba.io/docs2/topic_and_alias#%E5%88%AB%E5%90%8Dalias
+[8]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html
+[9]: http://yunba.io/docs2/ios_apns_payload
+[11]: http://yunba.io/docs2/qos
+
+
