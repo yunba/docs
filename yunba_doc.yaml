@@ -1,0 +1,233 @@
+- name: 快速入门
+  docs: 
+    - name: 云巴是什么
+      markdown: kb/云巴是什么.md
+      url: yunba_introduction
+      show: true
+      release: true
+    - name: 常见问题解答（FAQ）
+      markdown: support/faq/faq.md
+      url: faq
+      show: true
+      release: true
+    - name: 云巴快速入门教程
+      markdown: kb/云巴快速入门教程.md
+      url: yunba_quick_start_guide
+      show: true
+      release: true
+
+- name: 功能介绍
+  docs: 
+    - name: 频道和别名
+      markdown: kb/频道和别名.md
+      url: topic_and_alias
+      show: true
+      release: true
+    - name: AppKey
+      markdown: kb/AppKey.md
+      url: appkey
+      show: true
+      release: true
+    - name: Portal
+      markdown: kb/Portal.md
+      url: portal
+      show: true
+      release: true
+    - name: 云巴的实时在线
+      markdown: kb/Presence.md
+      url: presence
+      show: true
+      release: true
+    - name: 云巴的离线消息
+      markdown: kb/云巴的离线消息.md
+      url: yunba_offline_message
+      show: true
+      release: true
+    - name: QoS
+      markdown: kb/QoS.md
+      url: qos
+      show: true
+      release: true
+    - name: 多证书
+      markdown: kb/多证书.md
+      url: multi_certs
+      show: true
+      release: true
+    - name: 云巴服务的 IP 是不固定的
+      markdown: kb/云巴服务的 IP 是不固定的.md
+      url: yunba_ip_unfixed
+      show: true
+      release: true
+
+- name: Android
+  docs: 
+    - name: 云巴 Android 消息推送
+      markdown: kb/云巴 Android 消息推送.md
+      url: yunba_android_messaging
+      show: true
+      release: true
+    - name: Android SDK 快速入门
+      markdown: Android_Quick_Start.md
+      url: Android_Quick_Start
+      show: true
+      release: true
+    - name: Android SDK API 手册
+      markdown: Android_API_Reference.md
+      url: Android_API_Reference
+      show: true
+      release: true
+    - name: 运行 Yunba Android Demo
+      markdown: quickstart/demo/Demo_Android.md
+      url: android_demo
+      show: true 
+      release: true
+    - name: Android SDK 使用指南
+      markdown: sdk/Android_SDK_tutorial.md
+      url: android_tutorial
+      show: true
+      release: true
+
+
+- name: iOS
+  docs: 
+    - name: 云巴 iOS 消息推送
+      markdown: kb/云巴 iOS 消息推送.md
+      url: yunba_ios_messaging
+      show: true
+      release: true
+    - name: iOS SDK 快速入门
+      markdown: iOS_Quick_Start.md
+      url: iOS_Quick_Start
+      show: true
+      release: true
+    - name: iOS SDK API 手册
+      markdown: iOS_API_Reference.md
+      url: iOS_API_Reference
+      show: true
+      release: true
+    - name: 运行 Yunba iOS Demo
+      markdown: quickstart/demo/Demo_iOS.md
+      url: ios_demo
+      show: true 
+      release: true
+    - name: 如何通过云巴实现 APNs 推送
+      markdown: kb/如何通过云巴实现 APNs 推送.md
+      url: ios_apns_guide
+      show: true 
+      release: true
+    - name: 生成 APNs 证书的步骤
+      markdown: support/knowledge_base/create_APNs_certificate.md
+      url: create_apns_certificate
+      show: true 
+      release: true
+    - name: 新建 App ID 的步骤
+      markdown: support/knowledge_base/create_App_ID.md
+      url: create_app_id
+      show: true 
+      release: true
+    - name: 新建 CSR 文件的步骤
+      markdown: support/knowledge_base/create_CSR_file.md
+      url: create_csr_file
+      show: true 
+      release: true
+    - name: 生成 Provisioning Profile
+      markdown: support/knowledge_base/Create_Provisioning_Profile.md
+      url: create_provisioning_profile
+      show: true 
+      release: true
+    - name: APNs 推送的 Payload 介绍
+      markdown: kb/APNs/Payload.md
+      url: ios_apns_payload
+      show: true
+      release: true
+
+- name: JavaScript
+  docs: 
+    - name: 使用手册
+      markdown: Javascript_SDK.md
+      url: Javascript_SDK
+      show: true
+      release: true
+    - name: 运行 Yunba JavaScript Demo
+      markdown: quickstart/demo/Demo_JavaScript.md
+      url: js_demo
+      show: true 
+      release: true
+
+
+- name: C 和 Embedded C
+  docs: 
+    - name: 快速入门
+      markdown: C_Quick_Start.md
+      url: C_Quick_Start
+      show: true
+      release: true
+    - name: C SDK API 手册
+      markdown: C-API.md
+      url: C-API
+      show: true
+      release: true
+    - name: Embedded C API 手册
+      markdown: Embeded-C-API.md
+      url: embedded_c_api
+      show: true
+      release: true
+    - name: 运行 Yunba C Demo
+      markdown: quickstart/demo/Demo_C.md
+      url: c_demo
+      show: true 
+      release: true
+
+
+- name: RESTful
+  docs: 
+    - name: API 手册
+      markdown: restful_Quick_Start.md
+      url: restful_Quick_Start
+      show: true
+      release: true
+
+
+- name: Socket.IO
+  docs: 
+    - name: API 手册
+      markdown: socket.io_API.md
+      url: socket.io_API
+      show: true
+      release: true
+    - name: 运行 Yunba Socket.IO Python Demo
+      markdown: quickstart/demo/Demo_SocketIO_Python.md
+      url: demo_socketio_python
+      show: true 
+      release: true
+    - name: 运行 Yunba Socket.IO Java Demo
+      markdown: quickstart/demo/Demo_SocketIO_Java.md
+      url: demo_socketio_java
+      show: true 
+      release: true
+- name: C Sharp
+  docs: 
+    - name: 运行 Yunba C Sharp Demo
+      markdown: quickstart/demo/Demo_CSharp.md
+      url: demo_csharp
+      show: true 
+      release: true
+- name: Java
+  docs: 
+    - name: API 手册
+      markdown: Java_API_Reference.md
+      url: java_api
+      show: true
+      release: true
+    - name: 运行 Yunba Java Demo
+      markdown: quickstart/demo/Demo_Java.md
+      url: demo_java
+      show: true 
+      release: true
+- name: PHP(Cli)
+  docs: 
+    - name: 运行 Yunba PHP Demo
+      markdown: quickstart/demo/Demo_PHP.md
+      url: demo_php
+      show: true 
+      release: true
