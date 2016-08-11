@@ -366,9 +366,10 @@ qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_li
 
 答： 支持浏览器的版本如下:
 
-   | IE  | Safari | Chrome  | Opera  | Firefox |
-   |:-----:|:-----:|:-----:|:-----:|:-----:|
-   | 7+  |  ✓   |  ✓  |  ✓   |  ✓ |
+| IE  | Safari | Chrome  | Opera  | Firefox |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| 7+  |  ✓   |  ✓  |  ✓   |  ✓ |
+
 
 IE7 以下版本需 [配置](https://github.com/yunba/yunba-javascript-sdk) 即可。
 
