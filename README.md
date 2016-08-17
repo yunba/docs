@@ -36,7 +36,7 @@ Yunba Documentation
   - 第二部分是所用在的类型，如：cert、demo、troubleshooting、sdk 和 portal；
   - 第三部分是描述这个图片所进行的行为，要简洁、直观，限定在五个英文单词内，并用"_"连接。
 
-`例如：productpng_demo_quote_stock'`
+`例如：productpng_demo_quote_stock`
 
 ## 图片标注规则
 
