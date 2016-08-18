@@ -4,7 +4,7 @@
 
 ## 概述
 
-### 1. 通过“频道”进行一对多的消息发布
+### 通过“频道”进行一对多的消息发布
 
 ![productpng_kb_publish2topic.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_publish2topic.png)
 
@@ -12,7 +12,7 @@
 - `Publisher 1` 向 `Topic A`发布消息，则 `Subscriber 1` 可以收到；
 - `Publisher 2` 向 `Topic B` 发布消息，则 `Subscriber 2` 和 `Subscriber 3` 可以收到。
 
-### 2. 通过“别名”进行一对一通信
+### 通过“别名”进行一对一通信
 
 ![productpng_kb_publish2alias.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_publish2alias.png)
 
@@ -23,7 +23,7 @@
 ## 频道（Topic）
 
 
-### 1. 什么是频道
+### 什么是频道
 
 在电视广播中，高频影像信号和伴音信号占有一定宽度的频带，叫频道。有了不同的频道，就可以将资讯分门别类地输送给不同的目标受众。云巴的频道（Topic）也是类似的概念。
 
@@ -31,8 +31,7 @@
 
 简而言之，频道名称是用来让发布者和订阅者区分不同频道的标识符。云巴的频道名称只支持英文、数字和下划线，长度不超过 50 个字符。
 
-
-### 2. 频道的特点
+### 频道的特点
 
 * 同一个 [AppKey](product_kb_app_key.md) 下，可以创建多个频道，暂无上限。
 * 多个用户可以订阅同一个频道；一个用户也可以订阅多个频道。
@@ -42,6 +41,10 @@
 * 消息的发布者并不一定需要订阅频道。
 * 某个频道在第一次被订阅时，会被自动创建。
 
+ > **最佳实践：为了充分利用云巴服务器的性能、提升通信质量，我们建议用户不要频繁进行 subscribe / unsubscribe 的操作。**
+ <br>用户在进行系统架构时，如果能合理地设计 Topic 数量和订阅关系，云巴服务器就能够有效地缓存客户端的路由信息，从而加快通信时的寻址速度，提高通信质量。
+ 相反地，如果用户把 Topic 当作临时资源来使用（尽管目前暂无限制），则会加重服务器负载，导致通信质量的下降。
+ 
 ### 3. 相关 API
 下面以 JavaScript SDK 为例，介绍一下与频道相关的 API。
 
