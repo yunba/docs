@@ -1,5 +1,78 @@
-# Docs
-Yunba Documentation
+# Yunba Documentation
+
+## 资源列表
+
+- 快速入门
+  - [云巴是什么](product_kb_whats_yunba.md)
+  - [常见问题解答（FAQ）](product_faq.md)
+  - [云巴快速入门教程](product_kb_yunba_quick_start.md)
+
+- 案例
+  - [云巴视频直播弹幕](https://github.com/yunbademo/yunba-live-video) 
+  - [云巴智能小屋](https://github.com/yunbademo/yunba-smarthome) 
+  - [云巴智能办公室](https://github.com/yunbademo/yunba-smartoffice)
+  - [云巴多屏互动](https://github.com/yunbademo/yunba-multi-screen) 
+  - [云巴聊天室](https://github.com/yunbademo/yunba-chatroom)  
+  - [云巴 Yo](https://github.com/yunbademo/YunBa-Yo)
+  - [更多案例](https://github.com/yunbademo) 
+
+- 功能介绍
+  - [频道和别名](product_kb_topic_and_alias.md)
+  - [AppKey](product_kb_app_key.md)
+  - [Portal](product_kb_portal.md)
+  - [云巴的实时在线](product_kb_presence.md)
+  - [云巴的离线消息](product_kb_offline_message.md)
+  - [QoS](product_kb_qos.md)
+  - [云巴服务的 IP 是不固定的](product_kb_yunba_unfixed_ip.md)
+
+- Android
+  - [云巴 Android 消息推送](android_kb_android_push.md)
+  - [Android SDK 快速入门](android_sdk_quick_start.md)
+  - [Android SDK API 手册](android_sdk_api_manual.md)
+  - [Android SDK 使用指南](android_sdk_tutorial.md)
+  - [运行 Yunba Android Demo](android_demo_quick_start.md)
+
+- iOS
+  - [云巴 iOS 消息推送](ios_kb_ios_push.md)
+  - [iOS SDK 快速入门](ios_sdk_quick_start.md)
+  - [iOS SDK API 手册](ios_sdk_api_manual.md)
+  - [运行 Yunba iOS Demo](ios_demo_quick_start.md)
+  - [如何通过云巴实现 APNs 推送](ios_kb_apns_implementation.md)
+  - [生成 APNs 证书的步骤](ios_kb_create_apns_certificate.md)
+  - [新建 App ID 的步骤](ios_kb_create_app_id.md)
+  - [新建 CSR 文件的步骤](ios_kb_create_csr_file.md)
+  - [生成 Provisioning Profile](ios_kb_create_provisioning_profile.md)
+  - [APNs 推送的 Payload 介绍](ios_kb_payload.md)
+  - [多证书](ios_kb_multiple_certificates.md)
+
+- JavaScript
+  - [JavaScript SDK 快速入门](js_sdk_quick_start.md)
+  - [JavaScript SDK API 手册](js_sdk_api_manual.md)
+  - [运行 Yunba JavaScript Demo](js_demo_quick_start.md)
+
+- C 和 Embedded C
+  - [快速入门](c_sdk_quick_start.md)
+  - [C SDK API 手册](c_sdk_api_manual.md)
+  - [Embedded C API 手册](embeddedc_sdk_api_manual.md)
+  - [运行 Yunba C Demo](c_demo_quick_start.md)
+
+- RESTful
+  - [API 手册](restful_api_api_manual.md)
+
+- Socket.IO
+  - [API 手册](socketio_api_api_manual.md)
+  - [运行 Yunba Socket.IO Python Demo](socketiopython_demo_quick_start.md)
+  - [运行 Yunba Socket.IO Java Demo](SocketIOjava_demo_quick_start.md)
+
+- C Sharp
+ -  [运行 Yunba C Sharp Demo](csharp_demo_quick_start.md)
+ 
+- Java
+  - [API 手册](java_sdk_api_manual.md)
+  - [Yunba Java Demo](java_demo_quick_start.md)
+
+- PHP(Cli)
+  - [运行 Yunba PHP Demo](php_demo_quick_start.md)
 
 ## 文档风格
 
