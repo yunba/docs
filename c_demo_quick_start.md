@@ -90,20 +90,30 @@ int main(int argc, char** argv)
 ### - Linux & OS X
 
 ###1. make
-使用 make 来生成可执行文件，本 demo 包含一份 makefile，在 makefile 所在的路径下执行`make`，成功后会在 /yunba-c-sdk-master/build/output/sample/ 下生成 stdouta\_demo 和 stdinpub\_present 两个可执行文件。*注意在使用 make 的时候如果你的电脑有多于一个的 C 标准库，就需要在 make 的时候加上`-stdlib=libstdc++`来选择标准库，否则会产生错误。*
+使用 make 来生成可执行文件，本 demo 包含一份 makefile，在 makefile 所在的路径下执行`make`，成功后会在 yunba-c-sdk/build/output/sample/ 下生成 stdouta\_demo 和 stdinpub\_present 两个可执行文件。Linux 用户在`make`后还要进行`make install`，将依赖库文件移动到系统目录中去。
+
+*注意：由于本demo没有针对OS X做适配，所以 OS X 用户在`make`后需要手动将 yunba-c-sdk/build/output/ 中的所有依赖库移动到 yunba-c-sdk/build/output/samples 中*
 
 ###2. 执行
 使用 bash 或其它命令行工具进入可执行文件的路径，然后执行该程序。
 
-###3. 'stdinpub\_present'的使用
-stdinpub\_present 的使用方法是 `stdinpub\_present <topic name> --appkey <appkey> --deviceid <deviceid> --retained --qos <qos> --delimiter <delimiter>`。`<topic name>`和`<appkey>`是必须的，其余为可选项，不填的话使用默认值，其中`<deviceid>`可以使用已有的，没有的话系统会自动给您分配一个，用以在后台区分用户；`retained`默认关闭，打开后可以收到自己发送的消息；`<delimiter>`为分隔符，打出该字符后会发送该字符前的字符，默认为`\n`。
+###3. `stdinpub_present`的使用
+`stdinpub_present` 的使用方法是 `stdinpub_present <topic name> --appkey <appkey> --deviceid <deviceid> --retained --qos <qos> --delimiter <delimiter>`。`<topic name>`和`<appkey>`是必须的，其余为可选项，不填的话使用默认值，其中`<deviceid>`可以使用已有的，没有的话系统会自动给您分配一个，用以在后台区分用户；`retained`默认关闭，打开后可以收到自己发送的消息；`<delimiter>`为分隔符，打出该字符后会发送该字符前的字符，默认为`\n`。
 
 	- 示例：`./stdinpub_present test --appkey XXXXXXXXXXXXXXXXXXXXXXXX --retained`
 
 ###4. 结果
-运行成功后会订阅该频道，并向该频道发送一个消息，您可以在 Portal 中看到。还会向服务器询问该 topic 的 aliaslist、topic 和 status 的信息，获取完以后当您按回车之后会发送在分割符`<delimiter>`之前的字符。
+运行成功后会订阅你填写的频道，并向该频道发送一个消息，获得 Client-ID 和 password。您可以在 Portal 中看到。还会向服务器询问该 topic 的 aliaslist、topic 和 status 的信息，服务器会向你返回一个获取完以后当您按回车之后会把在分割符`<delimiter>`之前的字符推送到频道去。
 
-###5. 'stdouta\_demo'的使用
-stdouta\_demo 的使用方法与 stdinpub\_present 类似，只是没有了向服务器查询的过程。
+###5. `stdouta_demo`的使用
+`stdouta_demo` 的使用方法与 stdinpub\_present 类似，只是没有订阅 present。
 
 	- 示例：`./stdouta_demo tttest --appkey XXXXXXXXXXXXXXXXXXXXXXXX`
+
+###6. 结果
+运行成功后会订阅你填写的频道，并向该频道发送一个推送消息，获得 Client-ID 和 password。之后程序会维持这个链接，在命令行中输入消息的内容并按 Enter 后会把分割符`<delimiter>`之前的字符推送到频道去。
+
+### 附：demo 的功能
+- stdouta\_present 可以订阅一个频道，并向该频道发送一个推送消息，同时会订阅该频道的 present 消息，查询该频道的 aliaslist、topic 和 status。向云巴服务器发送 device ID(如果没有服务器会给您返回一个)，并请求 Client-ID 和 password。程序之后会维持这个链接，在命令行中输入消息的内容并按 Enter 后会发送分割符`<delimiter>`之前的字符。
+
+- stdouta\_demo 可以订阅一个频道，并向该频道发送一个推送消息，向云巴服务器发送 device ID(如果没有服务器会给您返回一个)，并请求 Client-ID 和 password。发送完毕后会维持这个链接，在命令行中输入消息的内容并按 Enter 后会发送分割符`<delimiter>`之前的字符。
