@@ -9,7 +9,7 @@
 
 ## 创建应用
 
-注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名（包名为 Java 标准包名规范）。
+注册账号成功跳转到我的应用界面，点击“创建应用”，输入应用名称和包名（包名为 Java 标准包名规范）。
 
 
 ![productpng_portal_creat_application.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_creat_app.png)

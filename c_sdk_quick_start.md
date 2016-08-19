@@ -6,7 +6,7 @@
 ![create_accout.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_register_account.png)
 
 ## 创建应用
-注册账号成功跳转到我的应用界面，点击我的应用 --> 创建新应用，输入应用名称和包名
+注册账号成功跳转到我的应用界面，点击“创建应用”，输入应用名称和包名
 
 ![productpng_portal_creat_application.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_creat_app.png)
 

@@ -22,7 +22,7 @@ iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 
 
 ###2. 在云巴 Portal 上创建新应用
 
-打开 [云巴官方网站](https://yunba.io)，登录，点击 我的应用 --> 创建新应用。
+打开 [云巴官方网站](https://yunba.io)，登录，点击 “创建应用”。
 
 ![productpng_portal_creat_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_creat_app.png)
 

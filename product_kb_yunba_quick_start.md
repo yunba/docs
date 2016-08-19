@@ -8,7 +8,7 @@
 
 ## 第二步 创建新应用
 
-登录后，点击界面右上角 “我的应用 --> 创建新应用”，填写应用名称、应用包名等内容。详见 [Portal 的说明文档](product_kb_portal.md)。
+登录后，点击界面右上角 “创建应用”，填写应用名称、应用包名等内容。详见 [Portal 的说明文档](product_kb_portal.md)。
 
 获得应用的 [AppKey](product_kb_app_key.md)。
 
