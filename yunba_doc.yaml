@@ -239,8 +239,8 @@
       show: true 
       release: true
     - name: 运行 Yunba Socket.IO Java Demo
-      markdown: SocketIOjava_demo_quick_start.md
-      url: SocketIOjava_demo_quick_start
+      markdown: socketiojava_demo_quick_start.md
+      url: socketiojava_demo_quick_start
       show: true 
       release: true
     - name: Socket.IO 常见问题解答（FAQ）
