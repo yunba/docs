@@ -175,7 +175,7 @@
   show: true
   release: true
   docs: 
-    - name: 快速入门
+    - name: C SDK 快速入门
       markdown: c_sdk_quick_start.md
       url: c_sdk_quick_start
       show: true
@@ -201,7 +201,7 @@
   show: true
   release: true
   docs: 
-    - name: API 手册
+    - name: RESTful API 手册
       markdown: restful_api_api_manual.md
       url: restful_api_api_manual
       show: true
@@ -212,7 +212,7 @@
   show: true
   release: true
   docs: 
-    - name: API 手册
+    - name: Socket.IO API 手册
       markdown: socketio_api_api_manual.md
       url: socketio_api_api_manual
       show: true
@@ -227,6 +227,7 @@
       url: socketiojava_demo_quick_start
       show: true 
       release: true
+
 - name: C Sharp
   show: true
   release: true
@@ -236,11 +237,12 @@
       url: csharp_demo_quick_start
       show: true 
       release: true
+
 - name: Java
   show: true
   release: true
   docs: 
-    - name: API 手册
+    - name: Java SDK API 手册
       markdown: java_sdk_api_manual.md
       url: java_sdk_api_manual
       show: true
@@ -250,6 +252,7 @@
       url: java_demo_quick_start
       show: true 
       release: true
+
 - name: PHP(Cli)
   show: true
   release: true
