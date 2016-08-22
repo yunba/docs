@@ -87,8 +87,11 @@
       url: android_demo_quick_start
       show: true 
       release: true
-
-
+    - name: Android SDK 常见问题解答（FAQ）
+      markdown: android_faq.md
+      url: android_faq
+      show: true 
+      release: true
 
 - name: iOS
   show: true
@@ -149,6 +152,11 @@
       url: ios_kb_multiple_certificates
       show: true
       release: true
+    - name: iOS SDK 常见问题解答（FAQ）
+      markdown: ios_faq.md
+      url: ios_faq
+      show: true 
+      release: true
 
 - name: JavaScript
   show: true
@@ -169,7 +177,11 @@
       url: js_demo_quick_start
       show: true 
       release: true
-
+    - name: JavaScript SDK 常见问题解答（FAQ）
+      markdown: js_faq.md
+      url: js_faq
+      show: true 
+      release: true
 
 - name: C 和 Embedded C
   show: true
@@ -206,7 +218,11 @@
       url: restful_api_api_manual
       show: true
       release: true
-
+    - name: RESTful API 常见问题解答（FAQ）
+      markdown: restful_faq.md
+      url: restful_faq
+      show: true 
+      release: true
 
 - name: Socket.IO
   show: true
@@ -225,6 +241,11 @@
     - name: 运行 Yunba Socket.IO Java Demo
       markdown: SocketIOjava_demo_quick_start.md
       url: SocketIOjava_demo_quick_start
+      show: true 
+      release: true
+    - name: Socket.IO 常见问题解答（FAQ）
+      markdown: socketio_faq.md
+      url: socketio_faq
       show: true 
       release: true
 

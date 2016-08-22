@@ -74,11 +74,6 @@ iOS SDK Demo 的代码已经实现了订阅、接收等逻辑，您无需添加�
 
 至此，编译运行即可。
 
-**注**：
-
-* 编译时，可能会遇到 Failed to code sign “YunbaDemo” 的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_code_sign_error.md "相关文章") 解决。
-* iOS Demo 真机调试时可能遇到“不包含 Bitcode”的错误，请参考 [相关文章](https://github.com/yunba/docs/blob/master/support/troubleshooting/iOS_YunbaDemo_bitcode_error.md "相关文章") 解决。
-
 **4.6. 运行**
 
 App 在真机上运行起来后，可以通过左右拨动，切换到不同的功能展示页面。
