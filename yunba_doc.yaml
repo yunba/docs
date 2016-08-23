@@ -7,14 +7,14 @@
       url: product_kb_whats_yunba
       show: true
       release: true
-    - name: 常见问题解答（FAQ）
-      markdown: product_faq.md
-      url: product_faq
-      show: true
-      release: true
     - name: 云巴快速入门教程
       markdown: product_kb_yunba_quick_start.md
       url: product_kb_yunba_quick_start
+      show: true
+      release: true
+    - name: 产品常见问题解答
+      markdown: product_faq.md
+      url: product_faq
       show: true
       release: true
 
@@ -87,7 +87,7 @@
       url: android_demo_quick_start
       show: true 
       release: true
-    - name: Android SDK 常见问题解答（FAQ）
+    - name: Android SDK 常见问题解答
       markdown: android_faq.md
       url: android_faq
       show: true 
@@ -152,7 +152,7 @@
       url: ios_kb_multiple_certificates
       show: true
       release: true
-    - name: iOS SDK 常见问题解答（FAQ）
+    - name: iOS SDK 常见问题解答
       markdown: ios_faq.md
       url: ios_faq
       show: true 
@@ -177,7 +177,7 @@
       url: js_demo_quick_start
       show: true 
       release: true
-    - name: JavaScript SDK 常见问题解答（FAQ）
+    - name: JavaScript SDK 常见问题解答
       markdown: js_faq.md
       url: js_faq
       show: true 
@@ -218,7 +218,7 @@
       url: restful_api_api_manual
       show: true
       release: true
-    - name: RESTful API 常见问题解答（FAQ）
+    - name: RESTful API 常见问题解答
       markdown: restful_faq.md
       url: restful_faq
       show: true 
@@ -243,7 +243,7 @@
       url: socketiojava_demo_quick_start
       show: true 
       release: true
-    - name: Socket.IO 常见问题解答（FAQ）
+    - name: Socket.IO API 常见问题解答
       markdown: socketio_faq.md
       url: socketio_faq
       show: true 

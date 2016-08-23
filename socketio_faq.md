@@ -1,4 +1,4 @@
-# Socket.IO 常见问题解答（FAQ）
+# Socket.IO API 常见问题解答
 
 
 <a name="1"></a>1. **使用什么版本的 Socket.IO-client？**

@@ -44,11 +44,8 @@ IE7 以下版本需 [配置](https://github.com/yunba/yunba-javascript-sdk) 即�
 
 答：
 * 请 [Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) 一下 sock.yunba.io，如果网络异常，请自行排查网络故障；
-
 * 如果网络正常，可能是浏览器兼容性的问题，可以换其他的浏览器试试（如，Chrome，Firefox）；
-
 * 如果问题还没得到解决，可以打开浏览器的 Debug 窗口（如，Chrome 可以按 F12 打开 Debug 窗口），看看错误信息是什么，并反馈给我们。
-
 例如，下图是出错时的 Debug 窗口截图，可以看出错误原因是：reg failed
 
 ![jspng_faq_browser_debug.png](https://raw.githubusercontent.com/yunba/docs/master/image/jspng_faq_browser_debug.png)

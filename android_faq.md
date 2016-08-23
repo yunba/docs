@@ -1,4 +1,4 @@
-# Android SDK 常见问题解答（FAQ）
+# Android SDK 常见问题解答
 
 
 <a name="1"></a>1. **当 App 退出，进程被杀死时，能接收到 Message 吗？**

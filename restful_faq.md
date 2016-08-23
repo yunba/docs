@@ -1,9 +1,9 @@
-# RESTful API 常见问题解答（FAQ）
+# RESTful API 常见问题解答
 
 
 <a name="1"></a>1. **RESTful 如何设置离线消息保留时间？**
 
-答： "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是5天，详见： [云巴的离线消息](product_kb_offline_message.md) 和 [RESTful API 的示例](restful_api_api_manual.md#HTTPPOST)。
+答： "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是 5 天，详见： [云巴的离线消息](product_kb_offline_message.md) 和 [RESTful API 的示例](restful_api_api_manual.md#HTTPPOST)。
 
 ---
 <a name="2"></a>2. **加 opts 参数之后，可以用 get 请求吗？**
@@ -23,7 +23,7 @@
 ---
 <a name="5"></a>5. **RESTful 的 Message 支持最大传送数据多大？**
 
-答： 建议不要超过 1k。
+答： 建议不要超过 1KB。
 
 ---
 <a name="6"></a>6. **使用 RESTful API 发送消息时需要区分 Android 和 iOS 平台设备吗？**
