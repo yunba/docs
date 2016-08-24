@@ -75,14 +75,11 @@
   release: true
 
 - name: Android
+  markdown: android_kb_android_push.md
+  url: android_kb_android_push
   show: true
   release: true
   docs: 
-    - name: 云巴 Android 消息推送
-      markdown: android_kb_android_push.md
-      url: android_kb_android_push
-      show: true
-      release: true
     - name: Android SDK 快速入门
       markdown: android_sdk_quick_start.md
       url: android_sdk_quick_start
@@ -110,14 +107,11 @@
       release: true
 
 - name: iOS
+  markdown: ios_kb_ios_push.md
+  url: ios_kb_ios_push
   show: true
   release: true
   docs: 
-    - name: 云巴 iOS 消息推送
-      markdown: ios_kb_ios_push.md
-      url: ios_kb_ios_push
-      show: true
-      release: true
     - name: iOS SDK 快速入门
       markdown: ios_sdk_quick_start.md
       url: ios_sdk_quick_start
