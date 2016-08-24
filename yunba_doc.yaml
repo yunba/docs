@@ -58,6 +58,22 @@
       show: true
       release: true
 
+- name: 案例文档
+  show: true
+  release: false
+  docs: 
+    - name: 如何用云巴实现弹幕功能
+      markdown: product_demo_bullet.md
+      url: product_demo_bullet
+      show: true
+      release: true
+
+- name: 云巴实时通信最佳实践
+  markdown: product_best_practice.md
+  url: product_best_practice 
+  show: true
+  release: true
+
 - name: Android
   show: true
   release: true
