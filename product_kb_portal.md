@@ -36,7 +36,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 
 ![androidpng_demo_notification.png](https://raw.githubusercontent.com/yunba/docs/master/image/androidpng_demo_notification.png)
 
-### 通过 publish2 向频道发布消息
+### 通过 Publish2 向频道发布消息
 
 此外，Portal 还提供了通过 Publish2 发布消息的功能。
 
@@ -93,3 +93,8 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 点击 **频道用户列表**，可查看应用（[AppKey](product_kb_app_key.md)） 下某个 [频道](product_kb_topic_and_alias.md) 的收听用户别名列表。
 
 
+## 云巴 Portal 的设备状态查询
+
+![productpng_portal_alias_state.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_alias_state.png)
+
+输入设备 [别名](Product_KB_TopicAndAlias) 后，可以查看该设备的 UID、当前的在线/离线状态，以及最近一次上线的时间。
