@@ -60,7 +60,7 @@
 
 - name: 案例文档
   show: true
-  release: false
+  release: true
   docs: 
     - name: 如何用云巴实现弹幕功能
       markdown: product_demo_bullet.md
@@ -75,11 +75,14 @@
   release: true
 
 - name: Android
-  markdown: android_kb_android_push.md
-  url: android_kb_android_push
   show: true
   release: true
   docs: 
+    - name: 云巴 Android 消息推送
+      markdown: android_kb_android_push.md
+      url: android_kb_android_push
+      show: true
+      release: true
     - name: Android SDK 快速入门
       markdown: android_sdk_quick_start.md
       url: android_sdk_quick_start
@@ -107,11 +110,14 @@
       release: true
 
 - name: iOS
-  markdown: ios_kb_ios_push.md
-  url: ios_kb_ios_push
   show: true
   release: true
   docs: 
+    - name: 云巴 iOS 消息推送
+      markdown: ios_kb_ios_push.md
+      url: ios_kb_ios_push
+      show: true
+      release: true
     - name: iOS SDK 快速入门
       markdown: ios_sdk_quick_start.md
       url: ios_sdk_quick_start
@@ -136,22 +142,22 @@
       markdown: ios_kb_create_apns_certificate.md
       url: ios_kb_create_apns_certificate
       show: true 
-      release: true
+      release: false
     - name: 新建 App ID 的步骤
       markdown: ios_kb_create_app_id.md
       url: ios_kb_create_app_id
       show: true 
-      release: true
+      release: false
     - name: 新建 CSR 文件的步骤
       markdown: ios_kb_create_csr_file.md
       url: ios_kb_create_csr_file
       show: true 
-      release: true
+      release: false
     - name: 生成 Provisioning Profile
       markdown: ios_kb_create_provisioning_profile.md
       url: ios_kb_create_provisioning_profile
       show: true 
-      release: true
+      release: false
     - name: APNs 推送的 Payload 介绍
       markdown: ios_kb_payload.md
       url: ios_kb_payload
