@@ -45,7 +45,7 @@
  <br>用户在进行系统架构时，如果能合理地设计 Topic 数量和订阅关系，云巴服务器就能够有效地缓存客户端的路由信息，从而加快通信时的寻址速度，提高通信质量。
  相反地，如果用户把 Topic 当作临时资源来使用（尽管目前暂无限制），则会加重服务器负载，导致通信质量的下降。
  
-### 3. 相关 API
+### 相关 API
 下面以 JavaScript SDK 为例，介绍一下与频道相关的 API。
 
 * [`subscribe`](js_sdk_api_manual.md#subscribe) 用来订阅某个频道。订阅频道是增加逻辑，不会影响到现有的订阅情况。
@@ -56,27 +56,27 @@
 * [`publish2`](js_sdk_api_manual.md#publish2) 是 `publish` 的升级版本，支持更多参数。
 * [`get_topic_list`](js_sdk_api_manual.md#get_topic_list) 用来查询用户订阅的频道列表。
 
-### 4. 应用场景
+### 应用场景
 频道主要用于一对多发布的场景。服务端和客户端分别集成了云巴的 SDK 后，客户端调用 `subscribe` 订阅某个 Topic，服务端调用`publish`向该 Topic 发布消息，那么，所有订阅了该 Topic 的客户端都会收到消息。
 
 
 ## 别名（Alias）
 
 
-### 1. 什么是别名
+### 什么是别名
 
 MQTT 里没有别名的概念。云巴的别名（Alias），是为连接云巴的设备绑定账号，避免直接使用内部的 UID。
 
 与 Topic 一样，Alias 也只支持英文、数字和下划线，长度不超过 50 个字符。
 
-### 2. 别名的特点
+### 别名的特点
 * 别名与客户端是一一对应的关系。
 * 同一个 Appkey 下，不允许存在重复的别名。
 * 别名的设置采用的是覆盖的方式，新设置的别名会覆盖旧的别名。
 * 将别名设置为空字符串，即可清除别名。
 * 目前，云巴支持同一个账号（别名）在不同的终端上登录，但不支持多终端同时登录。
 
-### 3. 相关 API
+### 相关 API
 下面以 JavaScript SDK 为例，介绍一下与别名相关的 API。
 
 * [`set_alias`](js_sdk_api_manual.md#set_alias) 用来设置别名。
@@ -86,7 +86,7 @@ MQTT 里没有别名的概念。云巴的别名（Alias），是为连接云巴�
 * [`publish_to_alias`](js_sdk_api_manual.md#publish_to_alias) 向用户别名发送消息。
 * [`publish2_to_alias`](js_sdk_api_manual.md#publish2_to_alias) 是 `publish_to_alias` 的升级版本，支持更多参数。
 
-### 4.应用场景
+### 应用场景
 在一对一发布的场景中，不同的客户端集成了云巴的 SDK 后，分别通过调用`set_alias`设置自己的别名，就可以用`publish_to_alias`互相收发消息，进行点对点的通信。
 
 

@@ -102,4 +102,5 @@ App 在前台运行时会收到内部消息：
 
 
 App 在后台运行时会收到推送通知：
+
 ![iospng_demo_bar_message.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_demo_bar_message.png)

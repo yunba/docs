@@ -24,7 +24,7 @@
 
 ### HTTP GET
 
-**重要提示：GET 方法仅供测试，实际应用中请使用 POST 方法。**
+**重要提示：GET 方法仅供测试，实际应用中请使用 POST 方法。（[GET 与 POST 的比较](http://www.w3school.com.cn/tags/html_ref_httpmethods.asp)）**
 
 **格式**
 
