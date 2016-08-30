@@ -90,7 +90,7 @@ Presence 的实质是，对 [频道](product_kb_topic_and_alias.md) 下所有用
 * [`subscribe_presence`](js_sdk_api_manual.md#subscribe_presence) 用来监听某个频道下所有用户的别名状态的变化。
 * [`unsubscribe_presence`](js_sdk_api_manual.md#unsubscribe_presence) 用来取消对某频道下用户别名状态变化的监听。
 
-以云巴 [JavaScript SDK Demo](https://yunba.io/docs2/js_demo) 为例。假设频道 news 下有一个名为 defy 的用户，下线后又立刻上线；后有一个名为 cat 的用户订阅了 news 频道，之后又立刻取消订阅。如果通过 `subscribe_presence` 订阅了 news，就可以实时获取到 defy 和 cat 的状态变化。
+以云巴 [JavaScript SDK Demo](java_demo_quick_start.md) 为例。假设频道 news 下有一个名为 defy 的用户，下线后又立刻上线；后有一个名为 cat 的用户订阅了 news 频道，之后又立刻取消订阅。如果通过 `subscribe_presence` 订阅了 news，就可以实时获取到 defy 和 cat 的状态变化。
 打印信息如下：
 
 * 来自频道：news/p   消息内容：{"action":"offline","alias":"defy","timestamp":1454321557378}

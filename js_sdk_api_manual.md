@@ -401,7 +401,7 @@ cb    | Function | 参数可选。不管消息发布是成功或失败都会回�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html 及云巴 [相关文档]https://yunba.io/docs2/ios_apns_payload)。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](ios_kb_payload.md)。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
 time_to_live | Number | 用来设置 [离线消息](product_kb_offline_message.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 
@@ -442,7 +442,7 @@ yunba.publish_to_alias(obj, cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | Object | 参数必选。obj 含有四个属性字段，分别为 目标别名（obj.alias:string）、消息体（obj.msg:string）、MessageId（obj.messageId:number/string） 和 [消息级别](https://github.com/yunba/kb/blob/master/QoS.md)（obj.qos:number）。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过 50 个字符。obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
+obj    | Object | 参数必选。obj 含有四个属性字段，分别为 目标别名（obj.alias:string）、消息体（obj.msg:string）、MessageId（obj.messageId:number/string） 和 [消息级别](product_kb_qos.md)（obj.qos:number）。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过 50 个字符。obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 cb    | Function | 参数可选。不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
@@ -492,7 +492,7 @@ cb    | Function | 参数可选。不管消息发布是否成功或失败都会�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html 及云巴 [相关文档]https://yunba.io/docs2/ios_apns_payload)。
+apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) 及云巴 [相关文档](ios_kb_payload.md)。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
 time_to_live | Number | 用来设置 [离线消息](product_kb_offline_message.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
 

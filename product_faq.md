@@ -34,7 +34,7 @@
 ---
 <a name="6"></a>6. **云巴对 MQTT 协议做了哪些扩展？**
 
-答： 请参考我们的 [Porting 文档](https://github.com/yunba/docs/blob/master/yunba_MQTT_porting.md)。
+答： 请参考我们的 [Porting 文档](product_kb_mqtt_porting.md)。
 
 ---
 <a name="7"></a>7. **云巴有哪些产品？**

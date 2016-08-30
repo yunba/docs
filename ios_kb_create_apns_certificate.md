@@ -5,7 +5,7 @@
 
 1. 制作 APNs 证书时，需要一个 CSR（CertificateSigningRequest.certSigningRequest）文件，来使新生成的推送证书与私钥相匹配。CSR 文件的新建步骤请参考 [新建 CSR 文件的步骤](ios_kb_create_csr_file.md)。
 
-2. 如果您还没有创建 App ID，请参考 [新建 App ID 的步骤](ios_kb_create_app.md) 一文，创建一个 App ID，并为 App 开启 Push Notification 功能。如果已经创建过了，可跳过此步，只需在设置页面中确认该 App 已开启了 Push Notification 功能即可。**注意，这里的 App ID 不可以使用通配符。**
+2. 如果您还没有创建 App ID，请参考 [新建 App ID 的步骤](ios_kb_create_app_id.md) 一文，创建一个 App ID，并为 App 开启 Push Notification 功能。如果已经创建过了，可跳过此步，只需在设置页面中确认该 App 已开启了 Push Notification 功能即可。**注意，这里的 App ID 不可以使用通配符。**
 
 ## 详细步骤
 
@@ -36,7 +36,7 @@
 
 	![iospng_cert_download_certifcate.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_cert_download_certifcate.png)
 
-7. 证书下载后，双击打开证书文件（*.cer）使之加入到钥匙串中。如遇到“不能修改‘System Roots’钥匙串”的警告，请参考 [相关文档](https://github.com/yunba/docs/blob/master/support/troubleshooting/APNs_certificate_key_chain_warning.md "相关文档") 解决。
+7. 证书下载后，双击打开证书文件（*.cer）使之加入到钥匙串中。如遇到“不能修改‘System Roots’钥匙串”的警告，请参考 [相关文档](ios_faq.md#10) 解决。
 
 
 8. 将证书导出为“个人信息交换（.p12）”格式。如遇到“个人信息交换（.p12）”的选项为灰色不可选状态，请您再次确认您的 APNs 证书是否是严格按照上述步骤进行生成的，建议删除重新做一次。

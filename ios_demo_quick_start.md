@@ -18,7 +18,7 @@
 ## 详细步骤
 
 ###1. 生成 APNs 证书
-iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 APNs 证书的步骤](https://yunba.io/docs2/create_apns_certificate) 一文，生成 APNs 证书。
+iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 APNs 证书的步骤](ios_kb_create_apns_certificate.md) 一文，生成 APNs 证书。
 
 ###2. 在云巴 Portal 上创建新应用
 

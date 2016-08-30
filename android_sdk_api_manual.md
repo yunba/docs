@@ -184,7 +184,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](https://yunba.io/docs2/android_tutorial#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2
@@ -310,7 +310,7 @@ YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](https://yunba.io/docs2/android_tutorial#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2ToAlias
@@ -388,7 +388,7 @@ time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时�
 
 ### 功能
 
-App 可以调用此函数来停止云巴服务，当服务被停止后，长连接断开，所有的 API 都会失效（包括 start API），该 API 可用于 [停止接收任何消息](https://yunba.io/docs2/android_tutorial#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF)；当需要重新连接服务时，必须调用`resume`。
+App 可以调用此函数来停止云巴服务，当服务被停止后，长连接断开，所有的 API 都会失效（包括 start API），该 API 可用于 [停止接收任何消息](android_sdk_tutorial.md#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E5%92%8C%E6%81%A2%E5%A4%8D%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF)；当需要重新连接服务时，必须调用`resume`。
 
 
 ### 函数原型

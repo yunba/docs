@@ -57,7 +57,11 @@
       url: product_kb_yunba_unfixed_ip
       show: true
       release: true
-
+    - name: 云巴对 MQTT 协议的调整
+      markdown: product_kb_mqtt_porting.md
+      url: product_kb_mqtt_porting
+      show: true
+      release: false
 - name: 案例文档
   show: true
   release: true
