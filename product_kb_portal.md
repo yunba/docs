@@ -50,7 +50,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 ### 通过 Publish 向别名发布消息
 
 
-如果客户端通过 `SetAlias` 设置了[别名](Product_KB_TopicAndAlias)，用户还可以通过 Portal 向客户端的别名发布消息：
+如果客户端通过 `SetAlias` 设置了[别名](product_kb_topic_and_alias.md)，用户还可以通过 Portal 向客户端的别名发布消息：
 
 ![productpng_portal_publish_to_alias.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish_to_alias.png)
 
@@ -86,7 +86,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 - 一段时间内的在线用户数：该时间段内持续在线（connected）的用户数量。如：“在线用户数/小时” 的单位表示该小时内持续在线，未断开与云巴的长连接的用户数量。
 - 一段时间内的活跃用户数：该时间段内进行过上线操作的用户数量（不一定持续在线）。如：“活跃用户数/小时” 的单位表示该小时内进行过上线操作，即连接过云巴服务的用户数量。
 
-**注**：如果订阅了该 Topic 但未设置用户 [别名](Product_KB_TopicAndAlias)（Alias），则在 “在线用户”和“频道用户列表” 都不进行显示。
+**注**：如果订阅了该 Topic 但未设置用户 [别名](product_kb_topic_and_alias.md)（Alias），则在 “在线用户”和“频道用户列表” 都不进行显示。
 
 ### 频道用户列表
 
@@ -97,4 +97,4 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 
 ![productpng_portal_alias_state.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_alias_state.png)
 
-输入设备 [别名](Product_KB_TopicAndAlias) 后，可以查看该设备的 UID、当前的在线/离线状态，以及最近一次上线的时间。
+输入设备 [别名](product_kb_topic_and_alias.md) 后，可以查看该设备的 UID、当前的在线/离线状态，以及最近一次上线的时间。

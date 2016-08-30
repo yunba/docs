@@ -442,7 +442,7 @@ None
 ## storeDeviceToken
 
 ### 功能
-App 将 Device Token 存储在 YunBa 的云端，即可[通过 YunBa 发送 APNs 通知](iOS_KB_APNsImplementation)。
+App 将 Device Token 存储在 YunBa 的云端，即可[通过 YunBa 发送 APNs 通知](ios_kb_apns_implementation.md)。
 
 
 ### 函数原型
