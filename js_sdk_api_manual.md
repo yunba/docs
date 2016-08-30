@@ -17,7 +17,7 @@ obj.server | String | 参数可选。服务器的地址。
 obj.port | Number | 参数可选。服务器的端口。如果使用 SSL/TLS 方式进行连接，则`port`为`443`；否则，`port`为`3000`。
 obj.appkey | String | 参数必选。应用标识，即，用户在云巴 [Portal](product_kb_portal.md) 上创建应用获取到的 [AppKey](product_kb_app_key.md)。
 
-**注**：
+>**注**：
 
 1. 如`obj.server`中未指定`https://`或`http://`，Socket.IO-Client 会根据当前页面的协议, 选择使用 https 或 http 进行连接。在这种情况下，用户需要注意选择合适的`port`。使用 SSL/TLS 方式进行连接，则`port`为`443`；否则，`port`为`3000`。
 
@@ -112,7 +112,7 @@ yunba.connect(function (success, msg) {
 
 **同时使用多个相同 customid 进行连接时只有一个连接是有效的。**
 
-**注**：customid 和 alias 没有任何关系，如果想通过 customid 发消息，还需要将 alias 设置为 customid。参见`set_alias()`。
+>**注**：customid 和 alias 没有任何关系，如果想通过 customid 发消息，还需要将 alias 设置为 customid。参见`set_alias()`。
 
 
 ### 基本使用
@@ -345,7 +345,7 @@ yunba.unsubscribe_presence({'topic': 'my_topic'}, function (success, msg) {
 
 向某个 [频道](product_kb_topic_and_alias.md) 发布消息。成功发布后，所有订阅此频道的客户端都会收到消息。
 
-**注**：接收端需要先通过`subscribe()`订阅该频道。
+>**注**：接收端需要先通过`subscribe()`订阅该频道。
 
 
 ### 基本使用
@@ -429,7 +429,7 @@ yunba.publish2({
 
 向某个 [别名](product_kb_topic_and_alias.md) 发布消息。发布成功后，该别名的客户端会收到消息。用于实现点对点的消息发送。
 
-**注**：接收方需要先通过`setAlias()`设置别名。
+>**注**：接收方需要先通过`setAlias()`设置别名。
 
 
 ### 基本使用
@@ -468,7 +468,7 @@ yunba.publish_to_alias({
 
 `publish_to_alias()`的升级版本，支持更多参数。
 
-**注**：接收方需要先通过`setAlias()`设置 [别名](product_kb_topic_and_alias.md)。
+>**注**：接收方需要先通过`setAlias()`设置 [别名](product_kb_topic_and_alias.md)。
 
 
 ### 基本使用

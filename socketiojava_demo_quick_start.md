@@ -36,7 +36,7 @@ private static String APPKEY = "XXXXXXXXXXXXXXXXXXXXXXX";
 ###3. 导入 socketio.jar
 在 Eclipse 中，将 socketio.jar 导入到该工程的 Build Path 下。
 
-**注**：对于这个 Demo 来说，工程里包含了 src 目录，因此不导入 socketio.jar 也可以使用。
+>**注**：对于这个 Demo 来说，工程里包含了 src 目录，因此不导入 socketio.jar 也可以使用。
 
 ###4. 运行
 
@@ -53,7 +53,7 @@ public void onConnAck(JSONObject json) throws Exception {
 代码修改好后，在 Eclipse 的 Package Explorer 面板中，右击 examples 文件夹下的 BasicExample.java，选择 Run as --> Java Application。
 应用运行后，可以看到 Console 中打印的日志，包含建立连接、消息收发、心跳包等信息。
 
-**注**：默认情况下，基于 Socket.IO 的 SDK 的心跳为 30 秒一次。
+>**注**：默认情况下，基于 Socket.IO 的 SDK 的心跳为 30 秒一次。
 
 ```bash
 一月 05, 2016 3:42:59 下午 io.socket.IOConnection transportMessage

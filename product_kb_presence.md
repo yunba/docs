@@ -82,7 +82,7 @@ Presence 的实质是，对 [频道](product_kb_topic_and_alias.md) 下所有用
 例如，某用户（客户端）通过调用 `subscribe_presence("news")` 来监控 news 频道下的 Presence 消息。
 调用成功后，云巴系统会自动为该客户端订阅一个名为 news/p 的频道，并将 news 频道的所有的 Presence 消息发给 news/p，让用户可以实时掌控该频道所有的 Presence 消息。
 
-**注**：在调用 Presence API 时，系统自动为用户订阅的 Topic + '/p' 是一个特殊的频道，不会出现在用户实际的订阅列表中。
+>**注**：在调用 Presence API 时，系统自动为用户订阅的 Topic + '/p' 是一个特殊的频道，不会出现在用户实际的订阅列表中。
 
 ### 5. 相关 API
 下面以 [JavaScript SDK](https://github.com/yunba/yunba-javascript-sdk) 为例，介绍一下与频道相关的 API。

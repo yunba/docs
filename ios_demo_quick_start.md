@@ -36,7 +36,7 @@ iOS Demo 程序会用到 APNs，因此，在运行之前，请先参考 [生成 
 
 应用信息填好以后，点击页面下方的“创建应用”按钮，会来到“应用详情”页面。这里可以看到从 [Portal](product_kb_portal.md) 申请到的 [AppKey](product_kb_app_key.md)、Secret Key 等。
 
-**注**：请妥善保管好您的 AppKey、Secret Key 等，不要泄露给他人。
+>**注**：请妥善保管好您的 AppKey、Secret Key 等，不要泄露给他人。
 
 ![productpng_portal_copy_app_key.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_copy_app_key.png)
 

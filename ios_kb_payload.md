@@ -48,7 +48,7 @@
 | loc-args | array of strings | 待显示于 loc-key 中的格式化字符处的字符串变量的值。参见 [Localized Formatted Strings](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW7) 章节。 |
 | launch-image | string | App bundle 中的某张图片的文件名。文件扩展名可有可无。用于用户按下某动作按钮或滑动滑条运行后的启动图片。如未指定，则系统要么使用之前的截图，要么使用 App 的 Info.plist 文件中的 UILaunchImageFile 键指定的图片，亦或是 Default.png。这个属性是在 iOS 4.0 中加入的。|
 
-**注**：如果想让设备 “原封不动” 地展现一个带有 Close 和 View 的通知消息，那就直接指定通知的内容。如果只有一个 body 属性，就不要把 alert 指定成字典。
+>**注**：如果想让设备 “原封不动” 地展现一个带有 Close 和 View 的通知消息，那就直接指定通知的内容。如果只有一个 body 属性，就不要把 alert 指定成字典。
 
 ## 配置静默通知
 
@@ -64,7 +64,7 @@ aps 字典也可以包含 content-available 属性。其值为 1 时，远程通
 
 下面给出几个负载的例子，来解释表格 5-1 中的属性的实际应用。键名带有 acme 的属性是自定义负载数据的例子。
 
-**注**：为了便于阅读，示例中加入了空格和换行。在实际使用时，去掉这些空格和换行符，可以减小负载体积、提高网络性能。
+>**注**：为了便于阅读，示例中加入了空格和换行。在实际使用时，去掉这些空格和换行符，可以减小负载体积、提高网络性能。
 
 ### 例 1
 下面的负载是一个 aps 字典，带有一个简单的推荐样式的通知消息，有默认的通知按钮（Close 和 View）。通知的值使用的是字符串，而不是字典。该负载还包含一个自定义的数组的属性。

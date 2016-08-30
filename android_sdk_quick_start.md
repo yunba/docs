@@ -243,7 +243,7 @@ YunBa 系统 Publish 的消息会通过广播的形式传递给 App， App 通�
 ![online.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_online_statistic.png)
 
 
-**注**：
+>**注**：
 
 Portal 的详细使用可参考 [Portal 文档](product_kb_portal.md)。
 

@@ -85,7 +85,7 @@
 - 文档的图片使用 Github URL：https://raw.githubusercontent.com/yunba/docs/master/image/xxx.png
 - 提到某个函数时，用：`函数名`。例如，`subscribe()`。
 - 不便透露的内容，用大写的 X 表示。例如，appkey:"XXXXXX"。
-- 注意事项另起一行，这样写：**注**：XXXX。
+- 注意事项另起一行，并用引用的方式写：**注**：XXXX。
 - 文档标题为 # 级别，以此类推。
 - 需要用到序号时，使用：1. 1.1 1.2 样式。
 - 添加代码的首行统一顶格，其余行则遵守代码格式。

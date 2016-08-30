@@ -30,4 +30,4 @@
 
 答： 不需要。 
 
-**注**：apn_json 参数只针对 iOS 平台的 APNs 消息。具体参考 [官方文档](restful_api_api_manual.md#HTTPPOST)，apn_json 参数的完整设置方法可参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+>**注**：apn_json 参数只针对 iOS 平台的 APNs 消息。具体参考 [官方文档](restful_api_api_manual.md#HTTPPOST)，apn_json 参数的完整设置方法可参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。

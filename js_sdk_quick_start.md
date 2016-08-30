@@ -50,7 +50,7 @@ yunba.init(function (success) {
 如果你想接收一个频道的消息，你得先使用`subscribe()`方法订阅该 [频道](product_kb_topic_and_alias.md)，
 然后用`set_message_cb()`方法设置收到消息时调用的回调函数来接收消息。
 
-**注**：`subscribe()`的前提是客户端已经成功连上服务器。为了确保在连接成功以后再进行订阅，可以将`subscribe()`写到`connect_by_customid()`的回调函数中，在 success 时才执行。
+>**注**：`subscribe()`的前提是客户端已经成功连上服务器。为了确保在连接成功以后再进行订阅，可以将`subscribe()`写到`connect_by_customid()`的回调函数中，在 success 时才执行。
 
 ```javascript
 yunba.subscribe({'topic': 'my_topic'}, 

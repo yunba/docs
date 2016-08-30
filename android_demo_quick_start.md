@@ -57,7 +57,7 @@ Yunba Android Demo 的应用包名（PackageName）为："io.yunba.example"。
 
 ![androidpng_sdk_as_mainfest_package.png](https://raw.githubusercontent.com/yunba/docs/master/image/androidpng_sdk_as_mainfest_package.png)
 
-**注**：之所以先修改 Package Name，再引入 Android Studio 进行编译，
+>**注**：之所以先修改 Package Name，再引入 Android Studio 进行编译，
 是因为 Android Studio 不像 Eclipse 那样，只在 Manifest 里面定义 Package Name 等内容。
 如果先引入再修改的话，还会涉及其他地方的修改。这里不再赘述。
 

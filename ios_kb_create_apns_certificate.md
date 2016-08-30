@@ -19,7 +19,7 @@
 
 	![iospng_cert_choose_type.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_cert_choose_type.png)
 
-	**注**：如果你的系统中没有中间签名证书，则需要下载并安装到你的系统中：
+	>**注**：如果你的系统中没有中间签名证书，则需要下载并安装到你的系统中：
 
 	![iospng_cert_before_create_certificate.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_cert_before_create_certificate.png)
 

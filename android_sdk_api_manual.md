@@ -139,7 +139,7 @@ YunBaManager.unsubscribe(getApplicationContext(), topic,
 App 可以向 Topic 发送消息，那么同一应用（AppKey）下任何`subscribe`（订阅）此 Topic 的 Client 都会接收到消息。
 
 
-**注**：需自定义 Receiver 接收 Publish 消息，可参考 [Android SDK 快速入门](android_sdk_quick_start.md)。
+>**注**：需自定义 Receiver 接收 Publish 消息，可参考 [Android SDK 快速入门](android_sdk_quick_start.md)。
 
 
 ### 函数原型
@@ -184,7 +184,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+>**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2
@@ -194,7 +194,7 @@ YunBaManager.publish(getApplicationContext(), topic, msg,
 App 可以向 Topic 发送消息，那么同一应用（AppKey）下任何`subscribe`（订阅）此 Topic 的 Client 都会接收到消息，此 API 可以带有其他参数，如 APN 选项等。
 
 
-**注**：需自定义 Receiver 接收 Publish 消息，可参考 [Android SDK 快速入门](android_sdk_quick_start.md)
+>**注**：需自定义 Receiver 接收 Publish 消息，可参考 [Android SDK 快速入门](android_sdk_quick_start.md)
 
 
 ### 函数原型
@@ -266,7 +266,7 @@ time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时�
 向用户 [别名](product_kb_topic_and_alias.md) 对象发送消息，用于实现点对点的消息发送。
 
 
-**注**：需要先`setAlias`进行别名设置
+>**注**：需要先`setAlias`进行别名设置
 
 
 ### 函数原型
@@ -310,7 +310,7 @@ YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
 ```
 
 
-**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
+>**注**：如果需要在接收消息时获取发送者 Alias，可在发送时将 Alias 封装到 Message。可参考 YunBa Android SDK 使用指南中的 [获取消息发送者](android_sdk_tutorial.md#%E8%8E%B7%E5%8F%96%E6%B6%88%E6%81%AF%E7%9A%84%E5%8F%91%E9%80%81%E8%80%85)。
 
 
 ## publish2ToAlias
@@ -320,7 +320,7 @@ YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
 向用户别名对象发送消息，用于实现点对点的消息发送，此 API 可以带有其他参数，如 APN 选项等。
 
 
-**注**：需要先`setAlias`进行别名设置
+>**注**：需要先`setAlias`进行别名设置
 
 
 ### 函数原型

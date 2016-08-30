@@ -16,7 +16,7 @@
 在下文的示例中，将 appkey 和 seckey 替换为您从 [Portal](product_kb_portal.md) 获取到的 AppKey 和 Secret Key，即可运行。
 
 
-**注**：请妥善保管好您的 AppKey 和 Secret Key，不要泄露给他人。
+>**注**：请妥善保管好您的 AppKey 和 Secret Key，不要泄露给他人。
 
 ![productpng_portal_creat_application.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_creat_app.png)
 

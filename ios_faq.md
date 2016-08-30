@@ -7,7 +7,7 @@
 * 在 App 注册 remoteNotification 通知，获取 Device Token，并通过[`storeDeviceToken()`](ios_sdk_api_manual.md#storeDeviceToken)函数保存 Device Token 到云巴服务端；
 * 通过带有 ApnOption 的`publish2()`、`publish2ToAlias()`或者默认的`publish()`、`publishToAlias()`发送 APNs 消息，该参数设置详见云巴知识库的 [Payload](ios_kb_payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
 
-**注**：`publish2()`需要带有 ApnOption 参数才能成功发送 APNs 消息；而`publish()`会发送默认的 APNs 消息。
+>**注**：`publish2()`需要带有 ApnOption 参数才能成功发送 APNs 消息；而`publish()`会发送默认的 APNs 消息。
 
 ---
 <a name="2"></a>2. **接收的消息，除了基本的内容（Topic 和 Message）还可以传递一些参数信息吗？**
