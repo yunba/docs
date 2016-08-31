@@ -1,6 +1,6 @@
 # 云巴对 MQTT 协议的调整
 
-##　扩展 Message ID
+## 扩展 Message ID
 
 MQTT 目前定义的 Message ID 为 16 bit，对于一个设计容量极大的系统，很快会面临 Message ID 重复的问题，对系统设计、数据统计带来很多麻烦。 因而我们把 Message ID 扩展为 64 bit。
 
