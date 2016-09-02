@@ -1,10 +1,10 @@
-## 实时在线（Presence）
+# 实时在线（Presence）
 
-### 1. Presence 的由来
+## 1. Presence 的由来
 
 在 MQTT 协议中，并没有提供用户上、下线等行为的消息通知。于是，我们利用 MQTT 现有的一些特性，设计了 Presence。
 
-### 2. 什么是 Presence
+## 2. 什么是 Presence
 
 实时在线（Presence）是云巴提供的实时获取某个频道下所有用户（[别名](product_kb_topic_and_alias.md)）的上、下线通知以及订阅、取消订阅该频道的通知。
 
@@ -23,11 +23,11 @@
 用户可以通过为客户端设置不同的 “[别名](product_kb_topic_and_alias.md)” 来唯一标识客户端。
 
 
-### 3. Presence 举例
+## 3. Presence 举例
 
 
 
-#### 例一
+### 例一
 
 请先看一个最简单的场景，初步了解 “Join/Leave/Online/Offline” 四种消息的含义：
 
@@ -45,7 +45,7 @@
 ![productpng_kb_presence_on_offline.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_presence_on_offline.png)
 
 
-#### 例二
+### 例二
 
 前文有提到，Presence 消息仅对设置了 别名 的客户端有效。
 
@@ -75,7 +75,7 @@
 * **Presence 消息的订阅者本身并不要求有别名**
 >上例中，别名为 Alex 的客户端和未设置别名的 UID 1003 或 1004 都可以收到 Presence 消息；
 
-### 4. Presence 的原理
+## 4. Presence 的原理
 
 Presence 的实质是，对 [频道](product_kb_topic_and_alias.md) 下所有用户 [别名](product_kb_topic_and_alias.md) 的状态的订阅。成功订阅后，Topic 下的任何用户别名的状态一旦发生变化，都会向 Topic + '/p' 频道发送消息。
 
@@ -84,7 +84,7 @@ Presence 的实质是，对 [频道](product_kb_topic_and_alias.md) 下所有用
 
 >**注**：在调用 Presence API 时，系统自动为用户订阅的 Topic + '/p' 是一个特殊的频道，不会出现在用户实际的订阅列表中。
 
-### 5. 相关 API
+## 5. 相关 API
 下面以 [JavaScript SDK](https://github.com/yunba/yunba-javascript-sdk) 为例，介绍一下与频道相关的 API。
 
 * [`subscribe_presence`](js_sdk_api_manual.md#subscribe_presence) 用来监听某个频道下所有用户的别名状态的变化。

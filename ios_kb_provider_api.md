@@ -1,7 +1,7 @@
+# APNs Provider API
+
 这篇文档对应 Apple 2016-03-21 更新的 [APNs Provider API](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/APNsProviderAPI.html)。
 请以官方开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
-
-## APNs Provider API
 
 借助苹果推送通知服务的 APNs Provider API 可以向你的 iOS、tvOS、OS X、苹果手表（通过 iOS）发送远程通知。这个 API 基于 HTTP/2 网络协议。每次的数据来往都始于一个 POST 请求，带有一个 JSON 负载，由你从你的 Provider 的服务器发往 APNs。之后，APNs 会把通知发给你的某个特定用户机器的 App。
 
@@ -21,7 +21,7 @@ Data com.yourcompany.yourexampleapp.complication
 Data complication
 ```
 
-### Connections
+## Connections
 
 发推送通知的第一步是与相应的 APNs 服务器建立连接：
 * 开发服务器：api.development.push.apple.com:443
@@ -35,7 +35,7 @@ Data complication
 在每个与 APNs 服务器建立的连接上，可以同时有多个“流”（每个多路复用的请求响应称为一个“流”）。“流”的数量取决于服务器的负载能力，所以没有一个确切的数字。
 不要在你的“流”中发送 HTTP/2 PRIORITY，因为会被 APNs 服务器忽略掉。
 
-### Best Practices for Managing Connections
+## Best Practices for Managing Connections
 
 确保在发送多个推送通知时，始终保持与 APNs 的连接；不要不停地打开、关闭连接。APNs 会把短时间内的频繁断连视为拒绝服务的攻击。除非你能确定一个连接在很长一段时间内都空闲，否则应尽量保持连接的打开状态。假如你每天只发一个通知，那么每天都新建连接也是可以的。
 
@@ -44,16 +44,16 @@ Data complication
 你可以用 HTTP/2 PING 来检测连接是否畅通。
 
 
-### Termination
+## Termination
 
 APNs 通过发送一条 GOAWAY，来终结一个已经建立的 HTTP/2 连接。GOAWAY 帧的负载 JSON 数据中，含有一个原因代码，指明连接终止的原因。表 6-6 列出了原因代码可能的取值。
 正常的请求失败不会导致连接的终止。
 
-### Notification API
+## Notification API
 
 APNs Provider API 包含一个请求和一个回应，配置好后通过 HTTP/2 POST 命令发送。通过 Request，向 APNs 服务器发送一个推送通知，用 Response 来判断请求的处理结果。
 
-### Request
+## Request
 
 用请求，来向某个特定用户设备发送一条通知。
 
@@ -92,7 +92,7 @@ APNs 会忽略掉不在表格 6-2 中的头部。
 
 你的消息的 body 内容是 JSON 字典对象，包含有通知的数据。body 数据不可以被压缩，最大 4KB（4096 字节）。body 内容中所包含的键值的信息，详见《The Remote Notification Payload》。
 
-### Response
+## Response
 
 格式如表 6-3 所示。
 
@@ -159,7 +159,7 @@ APNs 会忽略掉不在表格 6-2 中的头部。
 |ServiceUnavailable|The service is unavailable.|
 |MissingTopic|The apns-topic header of the Request was not specified and was required. The apns-topic header is mandatory when the client is connected using a certificate that supports multiple topics.|
 
-### Examples
+## Examples
 
 **表单 6-1 单一 topic 的证书的 Request 示例**
 ```

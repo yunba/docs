@@ -1,7 +1,7 @@
+# 远程通知的负载部分
+
 为了便于大家理解 APNs 的 Payload 的用法，本文翻译了 iOS 官方开发文档的 [The Remote Notification Payload](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 章节的部分内容。
 由于专业术语的翻译可能会引起理解上的偏差，请以 iOS 官方开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
-
-# 远程通知的负载部分
 
 每个远程推送通知都带有一个负载（Payload）。其内容包括系统提醒（alert）用户的方式以及任意的自定义数据。负载大小的上限取决于你使用的 API。如果使用的是 HTTP/2 的服务提供商的 API，最多允许 4096 字节；如使用 Legacy binary interface，则最多 2048 字节。如果内容超出了这个最大值，会被 APNs 服务器拒收。
 

@@ -1,11 +1,11 @@
-## 如何通过云巴实现 APNs 推送
+# 如何通过云巴实现 APNs 推送
 
-### 概述
+## 概述
 熟悉 iOS 开发的朋友们都知道，实现 APNs 推送的前提是：告诉苹果的 Push 服务器推送消息的去向——即，发往哪个应用（即应用证书）、哪台机器（即 Device Token）。
 
 因而，[云巴的 iOS 消息推送](ios_kb_ios_push.md) 也有同样必不可少的前提步骤：上传 APNs 推送证书到云巴 Portal 相应的应用界面、获取 Device Token 并保存到云巴服务器。
 
-### 详细步骤
+## 详细步骤
 如果在集成云巴 iOS SDK 同时，希望激活 APNs 推送功能，具体应该怎么做呢？
 
 - [生成 APNs 证书](ios_kb_create_apns_certificate.md)。
