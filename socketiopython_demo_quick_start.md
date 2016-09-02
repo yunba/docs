@@ -83,6 +83,8 @@ Windows 平台：
 新建一个文本文件，保存下面的 Python 示例程序。比如取名为 python_demo.py。
 将代码中的“appkey”替换为步骤 1 中获得的 AppKey。只有这两个客户端使用同一个 AppKey，才能相互通信。
 
+**注**：下文给出的 AppKey 功能受限，仅供文档举例使用。
+
 ```python
 from socketIO_client import SocketIO
 import logging
@@ -90,7 +92,7 @@ logging.basicConfig(level=logging.INFO)
 
 def on_socket_connect_ack(args):
     print 'on_socket_connect_ack', args
-    socketIO.emit('connect_v2', {'appkey': 'XXXXXXXXXXXXXXXXXXXXXXXX', 'customid': 'python_demo'})
+    socketIO.emit('connect_v2', {'appkey': '567a4a754407a3cd028aaf6b', 'customid': 'python_demo'})
 
 def on_connack(args):
     print 'on_connack', args

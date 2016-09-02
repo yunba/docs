@@ -43,8 +43,9 @@ BUILD SUCCESSFUL
 ###2. 修改 APPKEY
 将 src/YunBaDemo.java 里的 APPKEY 改为上一步骤中自己创建的 AppKey。
 ```java
-final MqttAsyncClient mqttAsyncClient = MqttAsyncClient.createMqttClient("XXXXXXXXXXXXXXXXXXXXXXX");
+final MqttAsyncClient mqttAsyncClient = MqttAsyncClient.createMqttClient("567a4a754407a3cd028aaf6b");
 ```
+**注**：上文给出的 AppKey 功能受限，仅供文档举例使用。
 
 ###3. 运行
 

@@ -82,7 +82,7 @@ customid | String | 用户自定义的会话 ID。
 ### 代码示例
 
 ```python
-{"name":"connack","args":[{"success":true}, {"sessionid": "123456789XXXX"}]}
+{"name":"connack","args":[{"success":true}, {"sessionid": "567a4a754407a3cd028aaf6b-f02bf150-c653-4557-973f-8526b078d736"}]}
 ```
 
 ### 参数说明
@@ -99,7 +99,7 @@ sessionid | String | Session ID。
 ### 代码示例
 
 ```python
-socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXXXXXXXX'})
+socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'11833652203486491112'})
 ```
 
 ### 参数说明
@@ -117,7 +117,7 @@ messageId|String| 参数可选。指定的 Message ID。与 `suback` 回应中�
 ### 代码示例
 
 ```python
-{"name":"suback","args":[{"success":true},{"topic":"testtopic1"},{"messageId": "XXXXXXXXXXXXXXXXXXXXX"}]}
+{"name":"suback","args":[{"success":true},{"topic":"testtopic1"},{"messageId": "11833652203486491112"}]}
 ```
 
 ### 参数说明
@@ -136,7 +136,7 @@ messageId|String|Message ID。对应 `subscribe()` 时指定的 Message ID。如
 ### 代码示例
 
 ```python
-socketIO.emit('unsubscribe', {'topic': 'testtopic1', 'messageId':'XXXXXXXXXXXXXXXXXXXX'})
+socketIO.emit('unsubscribe', {'topic': 'testtopic1', 'messageId':'11833652203486491112'})
 ```
 
 ### 参数说明
@@ -153,7 +153,7 @@ messageId|String| 参数可选。指定的 Message ID。与 `unsuback` 回应中
 ### 代码示例
 
 ```python
-{"name":"unsuback","args":[{"success":true}, {"topic":"testtopic1"}, {"messageId": "XXXXXXXXXXXXXXXXXXXXX"}]}
+{"name":"unsuback","args":[{"success":true}, {"topic":"testtopic1"}, {"messageId": "11833652203486491112"}]}
 ```
 
 ### 参数说明

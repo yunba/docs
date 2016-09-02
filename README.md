@@ -84,8 +84,12 @@
 - API 输入参数使用表格描述。
 - 文档的图片使用 Github URL：https://raw.githubusercontent.com/yunba/docs/master/image/xxx.png
 - 提到某个函数时，用：`函数名`。例如，`subscribe()`。
-- 不便透露的内容，用大写的 X 表示。例如，appkey:"XXXXXX"。
-- 注意事项另起一行，并用引用的方式写：**注**：XXXX。
+- 代码示例中涉及到 AppKey、SecKey、Message ID、Session ID 时，使用统一的示例（代码示例较长，ID 必须变化的情况除外）：
+  - AppKey：567a4a754407a3cd028aaf6b
+  - SecKey：sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS
+  - Message ID：11833652203486491112
+  - Session ID：567a4a754407a3cd028aaf6b-f02bf150-c653-4557-973f-8526b078d736
+- 注意事项另起一行，并用引用的方式写：**注**：……。
 - 文档标题为 # 级别，以此类推。
 - 需要用到序号时，使用：1. 1.1 1.2 样式。
 - 添加代码的首行统一顶格，其余行则遵守代码格式。

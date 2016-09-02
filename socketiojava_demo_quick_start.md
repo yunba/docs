@@ -30,7 +30,7 @@
 在 Eclipse 中导入 yunba-socket.io-java-sdk 工程，将 examples/basic/BasicExample.java 里的 APPKEY 改为上一步中自己创建的 AppKey。
 
 ```java
-private static String APPKEY = "XXXXXXXXXXXXXXXXXXXXXXX";
+private static String APPKEY = "567a4a754407a3cd028aaf6b";
 ```
 
 ###3. 导入 socketio.jar
@@ -64,7 +64,7 @@ Connection established
 Server triggered event 'socketconnectack'
 onSocketConnectAck
 一月 05, 2016 3:42:59 下午 io.socket.IOConnection sendPlain
-信息: > 5:::{"args":[{"appkey":"XXXXXXXXXXXXXXXXXX","customid":"f02bf150-c653-4557-973f-8526b078d736"}],"name":"connect"}
+信息: > 5:::{"args":[{"appkey":"567a4a754407a3cd028aaf6b","customid":"f02bf150-c653-4557-973f-8526b078d736"}],"name":"connect"}
 一月 05, 2016 3:43:01 下午 io.socket.IOConnection transportMessage
 信息: < 5:::{"name":"connack","args":[{"success":true,"sessionid":"567a4a754407a3cd028aaf6b-f02bf150-c653-4557-973f-8526b078d736"}]}
 Server triggered event 'connack'

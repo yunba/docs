@@ -39,9 +39,9 @@ http://rest.yunba.io:8080?method=<method>&appkey=<app-key>&seckey=<secret-key>&t
 **示例**
 
 ```bash
-$curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXXXXXXXXXXXXXXX&seckey=sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX&topic=news&msg="good_news""
+$curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a754407a3cd028aaf6b&seckey=sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS&topic=news&msg="good_news""
 ```
-请将 appkey 和 seckey 替换为您的 AppKey 和 Secret Key，即可运行。
+**注**：上文给出的 AppKey 和 SecretKey 功能受限，仅供文档举例使用。
 
 ### HTTP POST 
 
@@ -131,7 +131,7 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=XXXXXXXXXX
 用于向指定的频道（topic）发送消息，所有订阅了该频道的客户端都可以收到消息。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
 ```
 
 ### `publish_to_alias`
@@ -139,7 +139,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish", "
 用于向指定的别名（alias）发送一对一的消息。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "alias":"test", "msg":"message from RESTful API", "opts":{"time_to_live":20000}}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias", "appkey": "567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "alias":"test", "msg":"message from RESTful API", "opts":{"time_to_live":20000}}' http://rest.yunba.io:8080
 ```
 
 ### `publish_to_alias_batch`
@@ -150,13 +150,13 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 例如，我们向别名为 Jack 和 Rose 的客户端同时发送消息。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias_batch", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "aliases":["Jack","Rose"], "msg":"good news", "opts":{"time_to_live": 20}}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_alias_batch", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "aliases":["Jack","Rose"], "msg":"good news", "opts":{"time_to_live": 20}}' http://rest.yunba.io:8080
 ```
 
 发送后，返回如下。参考文末的返回状态说明可以看出，给 Jack 的消息发送成功了。但由于该 AppKey 下并不存在别名为 Rose 的客户端，向 Rose 发的消息发送失败了。
 
 ```bash
-{"status":0,"results":{"Jack":{"status":0,"messageId":512625795122860032},"Rose":{"status":5,"alias":"XXXXXXXXXXXXXXXXXXXXXXX-Rose","error":"alias not found"}}}
+{"status":0,"results":{"Jack":{"status":0,"messageId":512625795122860032},"Rose":{"status":5,"alias":"567a4a754407a3cd028aaf6b-Rose","error":"alias not found"}}}
 ```
 
 ### `publish_async`
@@ -165,7 +165,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 在向 Topic 下的单个用户发送消息时，速度很快，使用同步调用即可。而当 Topic 下拥有数目庞大的订阅用户时，应使用异步调用。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
 ```
 
 ### `publish_check`
@@ -173,7 +173,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_asy
 在使用方法 `publish_async` 发布消息后，可以使用 `publish_check` 进行检查。需要注意的是，"msg"参数需填上 `publish_async` 调用后返回的 messageId 的值。
 
 ```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"XXXXXXXXXXXXXXXXXXXXXXX", "seckey":"sec-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
+$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
 ```
 
 
@@ -212,6 +212,6 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 **没有找到 Alias**
  
 ```json
-{"status":5, "alias":"XXXXXXXXXXXXXXXXXXXXXXX-test", "error": "alias not found"}
+{"status":5, "alias":"567a4a754407a3cd028aaf6b-test", "error": "alias not found"}
 ```
 

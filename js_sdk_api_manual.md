@@ -26,12 +26,14 @@ obj.appkey | String | 参数必选。应用标识，即，用户在云巴 [Porta
 ### 代码示例
 
 ```javascript
-var yunba = new Yunba({server: 'http://sock.yunba.io', port: 3000, appkey: 'XXXXXXXXXXXXXXXXXXXXXX'});
+var yunba = new Yunba({server: 'http://sock.yunba.io', port: 3000, appkey: '567a4a754407a3cd028aaf6b'});
 ```
 ```javascript
 //使用 SSL/TLS 方式连接：
-var yunba = new Yunba({server: 'https://sock.yunba.io', port: 443, appkey: 'XXXXXXXXXXXXXXXXXXXXXX'});
+var yunba = new Yunba({server: 'https://sock.yunba.io', port: 443, appkey: '567a4a754407a3cd028aaf6b'});
 ```
+
+**注**：上文给出的 AppKey 功能受限，仅供文档举例使用。
 
 ## init
 

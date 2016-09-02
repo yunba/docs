@@ -67,7 +67,7 @@ int main(int argc, char** argv)
 //  if (opts.verbose)
 //		printf("URL is %s\n", url);
 
-	char a[200] = "XXXXXXXXXXXXXXXX";   //填上你在步骤 1 中申请到的 AppKey。
+	char a[200] = "567a4a754407a3cd028aaf6b";   //请替换为你在步骤 1 中申请到的 AppKey。
 	char b[200] = "news";               //填上 Topic 的名称，如，“news”。
 //	strcpy(topic, argv[1]);
 
@@ -100,7 +100,7 @@ int main(int argc, char** argv)
 ###3. `stdinpub_present`的使用
 `stdinpub_present` 的使用方法是 `stdinpub_present <topic name> --appkey <appkey> --deviceid <deviceid> --retained --qos <qos> --delimiter <delimiter>`。`<topic name>`和`<appkey>`是必须的，其余为可选项，不填的话使用默认值，其中`<deviceid>`可以使用已有的，没有的话系统会自动给您分配一个，用以在后台区分用户；`retained`默认关闭，打开后可以收到自己发送的消息；`<delimiter>`为分隔符，打出该字符后会发送该字符前的字符，默认为`\n`。
 
-	- 示例：`./stdinpub_present test --appkey XXXXXXXXXXXXXXXXXXXXXXXX --retained`
+	- 示例：`./stdinpub_present test --appkey 567a4a754407a3cd028aaf6b --retained`
 
 ###4. 结果
 运行成功后会订阅你填写的频道，并向该频道发送一个消息，获得 Client-ID 和 password。您可以在 Portal 中看到。还会向服务器询问该 topic 的 aliaslist、topic 和 status 的信息，服务器会向你返回一个获取完以后当您按回车之后会把在分割符`<delimiter>`之前的字符推送到频道去。
@@ -108,7 +108,7 @@ int main(int argc, char** argv)
 ###5. `stdouta_demo`的使用
 `stdouta_demo` 的使用方法与 stdinpub\_present 类似，只是没有订阅 present。
 
-	- 示例：`./stdouta_demo tttest --appkey XXXXXXXXXXXXXXXXXXXXXXXX`
+	- 示例：`./stdouta_demo tttest --appkey 567a4a754407a3cd028aaf6b`
 
 ###6. 结果
 运行成功后会订阅你填写的频道，并向该频道发送一个推送消息，获得 Client-ID 和 password。之后程序会维持这个链接，在命令行中输入消息的内容并按 Enter 后会把分割符`<delimiter>`之前的字符推送到频道去。
