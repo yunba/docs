@@ -112,6 +112,11 @@
       url: android_faq
       show: true 
       release: true
+    - name: 故障排除
+      markdown: android_sdk_troubuleshooting.md
+      url: android_sdk_troubuleshooting
+      show: true
+      release: true
 
 - name: iOS
   show: true
