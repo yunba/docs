@@ -301,7 +301,7 @@
 
 - name: PHP(Cli)
   show: true
-  release: false
+  release: true
   docs: 
     - name: 运行 Yunba PHP Demo
       markdown: php_demo_quick_start.md
