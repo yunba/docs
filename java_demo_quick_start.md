@@ -7,7 +7,6 @@
 * Mac OS X 10.11.2
 * bash 3.2.57
 * Eclipse 4.5.1
-* [Apache Ant 1.9.6](https://ant.apache.org/index.html)
 
 ## 准备工作
 
@@ -17,21 +16,8 @@
 ###2. 下载云巴 Java SDK
 下载 [yunba-java-sdk](https://github.com/yunba/yunba-java-sdk)，并解压。
 
-###3. 编译生成 jar
-在终端下，进入 SDK 所在的目录，用 ant 编译生成 SDK 的 jar 文件。
-```bash
-$ ant sdkjar
-```
-运行命令后，会根据 build.xml 的内容，在 SDK 的 dist 文件夹下生成出 yunba-java-sdk.jar 文件。
-```bash
-sdkjar:
-      [jar] Building jar: /yunba-java-sdk-master/dist/yunba-java-sdk.jar
-
-BUILD SUCCESSFUL
-```
-
-###4. 导入工程和 jar
-打开 Eclipse，新建一个空白的 Java 工程，拖入 YunBaDemo.java 文件。此时会出现大量报错，只需导入上一个步骤中生成的 yunba-java-sdk.jar 文件即可解决。步骤如下。
+###3. 导入工程和 jar
+打开 Eclipse，新建一个空白的 Java 工程，拖入 YunBaDemo.java 文件。此时会出现大量报错，只需导入下载的 SDK 包里的 yunba-java-sdk.jar 文件即可解决。步骤如下。
 
 右击工程名称，选择 Properties --> Java Build Path，在 Libraries 标签页下选择 Add External JARs，然后在弹出的窗口中，指定 yunba-java-sdk.jar 文件。
 
