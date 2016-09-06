@@ -113,8 +113,8 @@
       show: true 
       release: true
     - name: 故障排除
-      markdown: android_sdk_troubuleshooting.md
-      url: android_sdk_troubuleshooting
+      markdown: android_sdk_troubleshooting.md
+      url: android_sdk_troubleshooting
       show: true
       release: true
 
