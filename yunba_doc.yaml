@@ -286,7 +286,7 @@
 
 - name: Java
   show: true
-  release: true
+  release: false
   docs: 
     - name: Java SDK API 手册
       markdown: java_sdk_api_manual.md
