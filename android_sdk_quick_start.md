@@ -63,8 +63,8 @@
 
 **添加 Appkey**
 
+在`<application>......</application>`中加入
 ```xml
-
 <meta-data android:name="YUNBA_APPKEY" android:value="Your Appkey" />
 
 ```
@@ -82,15 +82,15 @@
 
 **添加 YunBaService**
 
+在`<application...> ... </application>`标签内加入以下Service
 ```xml
-
 <service android:name="io.yunba.android.core.YunBaService"> </service>
 ```
 
 
 ### 添加 Receiver
 
-添加 YunBaReceiver， 用来监听网络变化等事件，确保网络切换时能重新建立长连接。
+同样地，在`<application...> ... </application>`内添加 YunBaReceiver， 用来监听网络变化等事件，确保网络切换时能重新建立长连接。
 
 ```xml
 
