@@ -10,21 +10,26 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 
 ## 如何在云巴 Portal 上创建新应用
 
-- 打开[云巴官方网站](https://yunba.io)，注册并登录。
-- 登录后，会进入 Yunba Portal 界面，点击右上角 “创建应用”。
-- 逐一填写应用信息。其中，“应用名称” 和 “应用包名” 是必填项。对于 Android 应用来说，“应用包名” 一项需要填写 “Android” 应用包名。见下图。
-- 对于 iOS 应用，在 “iOS 开发/生产证书” 处上传 iOS 开发/生产证书（*.p12）。如果证书导出时有设置密码，需要在 “开发/生产证书密码” 项填上证书的密码。
-- 创建完成后，查看 “应用信息” 页面，可以看到应用的 AppKey、Secret Key 等。**请妥善保管好您的 AppKey、Secret Key 等应用信息，不要在群聊等公众场合下泄露。**
+如图所示：
 
 ![productpng_portal_creat_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_creat_new_app.png)
+
+- 打开[云巴官方网站](https://yunba.io)，注册并登录。
+- 登录后，点击网页右上角的用户名，会进入 Yunba Portal 主界面，点击右上角 “创建应用”。
+- 逐一填写应用信息。其中，“应用名称” 和 “应用包名” 是必填项。对于 Android 应用来说，“应用包名” 一项需要填写 “Android” 应用包名。见下图。
+- 对于 iOS 应用，在 “iOS 开发/生产证书” 处上传 iOS 开发/生产证书（*.p12）。如果证书导出时有设置密码，需要在 “开发/生产证书密码” 项填上证书的密码。
+- 应用信息填写完成后，点击 “确定”，会调转到 “应用列表” 界面。点击应用的 “应用名” 或右侧的 “管理” 按钮，可以打开该应用的管理页面。
+- 在 “应用详情” - “基本信息” 页，可以看到应用的 AppKey、Secret Key 等。**请妥善保管好您的 AppKey、Secret Key 等应用信息，不要在群聊等公众场合下泄露。**
+- 在 “应用详情” - “RESTful API Quick Demo” 页，我们给出了通过 RESTful API 的 `Publish` 和 `Publish_to_alias` 向 Portal 发消息的示例。为了方便演示，我们将 Portal 客户端订阅了 `yunba_curl_demo` [频道](product_kb_topic_and_alias.md)，并将其 [别名](product_kb_topic_and_alias.md) 设置为 `yunba_curl_demo_alias` 用户只需要复制并发送页面上给出的 [cURL](https://curl.haxx.se/docs/manpage.html) 命令，就可以看到消息收发的效果。如下图所示：
+
+![productpng_portal_restful_demo.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_restful_demo.png)
 
 
 ## 利用云巴 Portal 发布消息
 
 ### 通过 Publish 向频道发布消息
 
-
-客户端集成 YunBa SDK 后，打开 Portal 上应用详情页面，可以向客户端 `subscribe` 的 [频道](product_kb_topic_and_alias.md)（Topic）发布消息，客户端即可收到消息，如图所示:
+可以向客户端 `subscribe` 的 [频道](product_kb_topic_and_alias.md)（Topic）发布消息，客户端即可收到消息，如图所示:
 
 ![productpng_portal_publish_to_topic.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish_to_topic.png)
 
