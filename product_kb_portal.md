@@ -66,14 +66,22 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 ![productpng_portal_publish2_to_alias.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish2_to_alias.png)
 
 
-### 查看 Portal 上发布的历史消息
+### 在 Portal 上查看消息历史
 
-点击 **历史消息** 可查看在 Portal 上发布的历史消息。
+点击 **消息历史** 可查看使用此 appkey 发送的所有消息（包括你在 Portal 上发送的消息）。
+
+点击 **Portal 发送的消息** 可以查看在 Portal 上发送的消息。
+
+![productpng_portal_portal_publish_history](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_portal_publish_history.png)
+
+点击 **所有消息** 可以查看使用此 appkey 发送的所有消息。支持按时间、频道或别名过滤消息。
+
+![productpng_portal_publish_history](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish_history.png)
 
 
 ## 云巴 Portal 的发布上报统计
-
-![report.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish_statistic.png)
+productpng_portal_publish_statistic.png
+![report.png](https://raw.githubusercontent.com/yunba/docs/master/image/)
 
 如图所示，可查看该应用（[AppKey](product_kb_app_key.md)） 下的消息发布和送达情况。
 
