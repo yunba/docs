@@ -82,11 +82,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](android_sdk_a
 
 **自定义 Receiver 接收 Publish 消息**
 
-<<<<<<< HEAD
-在 AndroidManifest.xml 自定义 Receiver ，确保添加 `<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />`到自定义 Receiver的 <intent-filter>中；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](android_sdk_quick_start.md#自定义Receiver在AndroidManifest.xml的配置) 和 Android Demo 的示例。
-=======
 在 AndroidManifest.xml 自定义 Receiver ，确保添加 `<action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />`；在主程序中进行接收消息广播的处理。具体参考 [Android SDK 快速入门](android_sdk_quick_start.md#自定义-receiver-在-androidmanifestxml-的配置) 和 Android Demo 的示例。
->>>>>>> 9098d3e1fae10e25ce7389b0301a79652bcda287
 
 >处理接收消息广播的示例
 
