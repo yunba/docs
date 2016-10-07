@@ -58,7 +58,7 @@
 
 - 打开菜单栏的 Edit - Find - Replace in Path，将其他出现 example 的地方替换为 test；
 
-至此，包名修改完成
+至此，包名修改完成。
 
 ### 4. 替换 AppKey
 
