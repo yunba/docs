@@ -92,4 +92,14 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 
 
 
+---
+<a name="12"></a>12. **为什么升级 iOS 后，收不到 APNs 了？**
+
+答：可能是升级后 Device Token 改变造成的。建议按照[苹果官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html)的建议，每次启动应用时检查 Device Token 并发送到服务器。
+
+> **苹果官方文档**：The device token is your key to sending push notifications to your app on a specific device. Device tokens can change, so your app needs to reregister every time it is launched and pass the received token back to your server. If you fail to update the device token, remote notifications might not make their way to the user’s device. Device tokens always change when the user restores backup data to a new device or computer or reinstalls the operating system. When migrating data to a new device or computer, the user must launch your app once before remote notifications can be delivered to that device.
+
+
+
+
 
