@@ -264,13 +264,13 @@
       show: true
       release: true
     - name: 运行 Yunba Socket.IO Python Demo
-      markdown: socketiopython_demo_quick_start.md
-      url: socketiopython_demo_quick_start
+      markdown: socketio_python_demo_quick_start.md
+      url: socketio_python_demo_quick_start
       show: true 
       release: true
     - name: 运行 Yunba Socket.IO Java Demo
-      markdown: socketiojava_demo_quick_start.md
-      url: socketiojava_demo_quick_start
+      markdown: socketio_java_demo_quick_start.md
+      url: socketio_java_demo_quick_start
       show: true 
       release: true
     - name: Socket.IO API 常见问题解答
