@@ -13,7 +13,7 @@
 打开 [云巴官方网站](https://yunba.io)，点击右上角的“注册”按钮创建账号。  
 
 ###2. 下载云巴 iOS SDK
-打开 [云巴开发者页面](https://yunba.io/developers)，下载最新版本的 iOS SDK。iOS SDK 包含 Demo 程序和开发者所需嵌入的 lib 库以及头文件。
+打开 [云巴开发者页面](https://yunba.io/downloads)，下载最新版本的 iOS SDK。iOS SDK 包含 Demo 程序和开发者所需嵌入的 lib 库以及头文件。
 
 ## 详细步骤
 

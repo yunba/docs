@@ -16,7 +16,7 @@
 
 你可以使用下面命令去获得 SDK
 
-打开 [开发者资源页面](https://yunba.io/developers/) 下载 C SDK。
+打开 [开发者资源页面](https://yunba.io/downloads/) 下载 C SDK。
 
 ##怎么开始
 ###1.添加 lib 以及 header 到 Makefile：

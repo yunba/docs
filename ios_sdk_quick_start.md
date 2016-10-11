@@ -12,7 +12,7 @@
 
 ## 下载 iOS SDK
 
-打开 [开发者资源页面](https://yunba.io/developers/>) 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。  
+打开 [开发者资源页面](https://yunba.io/downloads/>) 下载 iOS SDK， iOS SDK 包含 DEMO 程序和开发者所需嵌入的 lib 库以及头文件。  
 
 ## 导入 iOS SDK
 

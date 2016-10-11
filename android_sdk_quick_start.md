@@ -17,7 +17,7 @@
 
 ## 下载 Android SDK
 
-打开 [云巴开发者页面](https://yunba.io/developers/) 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
+打开 [云巴开发者页面](https://yunba.io/downloads/) 下载 Android SDK， Android SDK 包含 DEMO 程序和开发者所需嵌入的 jar 包。
 
 
 ## 导入 Android SDK
