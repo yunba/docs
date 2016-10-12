@@ -182,6 +182,11 @@
       url: ios_kb_multiple_certificates
       show: true
       release: true
+    - name: iOS 10 更新的影响
+      markdown: ios_kb_ios_10_impact.md
+      url: ios_kb_ios_10_impact
+      show: true 
+      release: true  
     - name: iOS SDK 常见问题解答
       markdown: ios_faq.md
       url: ios_faq
