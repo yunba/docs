@@ -22,13 +22,12 @@ Apple 发布 iOS 10，带来了一系列的 [新特性](https://developer.apple.
 
 ```
 - (void)registerRemoteNotification {
-    // register for remote notification(APNs)     注册APNs，申请获取device token
+    // register for remote notification(APNs)     注册 APNs，申请获取 device token
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) 
     {
         UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + 
-         UNAuthorizationOptionBadge  completionHandler:^(BOOL granted, NSError * _Nullable error) 
-         {
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound + UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error) {
             granted ? NSLog(@"author success!") : NSLog(@"author failed!");
         }];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -37,18 +36,12 @@ Apple 发布 iOS 10，带来了一系列的 [新特性](https://developer.apple.
              [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings
-                                                                             settingsForTypes:(UIUserNotificationTypeSound | 
-                                                                             UIUserNotificationTypeAlert | 
-                                                                             UIUserNotificationTypeBadge) categories:nil]];
+                                                                             settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
     else
     {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:( UIRemoteNotificationTypeBadge | 
-                                                                                UIRemoteNotificationTypeSound |
-                                                                                UIRemoteNotificationTypeAlert)];
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
 }
 ```
-
-
