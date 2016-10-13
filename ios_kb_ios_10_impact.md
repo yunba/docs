@@ -9,11 +9,16 @@ Apple 发布 iOS 10，带来了一系列的 [新特性](https://developer.apple.
 
 由于 iOS 10 舍弃了部分原有的 API，用户在运行云巴 iOS Demo（1.7.3）时，会出现 Warning。
 
-例如，授权接收通知的逻辑（authorization API）被舍弃，需要使用 UNUserNotification。
+例如，授权接收通知的逻辑（authorization API）被舍弃，需要使用 UNUserNotificationCenter。
 
-我们针对 iOS 的不同版本对云巴 iOS Demo 中的`registerRemoteNotification`作了如下修改。为了兼容旧的版本，Demo 中的 Warning 暂时无法全部消除。
+我们针对 iOS 的不同版本对云巴 iOS Demo 中的`registerRemoteNotification`作了修改（详见下方代码）。为了兼容旧的版本，Demo 中的 Warning 暂时无法全部消除。
 
-另：经测试，在 iOS 升级为 10 以后，云巴 iOS Demo 不进行任何修改，使用原有 API 也可以正常编译运行、正常接收推送。**部分开发者升级后收不到 APNs，可能是 Device Token 改变引起的。请参考 [iOS FAQ 第 12 条](https://yunba.io/docs/ios_faq#12)**。
+另：经测试，在 iOS 升级为 10 以后，云巴 iOS Demo 不进行任何修改，使用原有 API 也可以正常编译运行、正常接收推送。**部分设备升级后收不到 APNs，可能是 Device Token 改变引起的。请参考 [iOS FAQ 第 12 条](https://yunba.io/docs/ios_faq#12)**。
+
+```
+@import UserNotifications;
+```
+
 
 ```
 - (void)registerRemoteNotification {
