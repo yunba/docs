@@ -15,12 +15,12 @@ Apple 发布 iOS 10，带来了一系列的 [新特性](https://developer.apple.
 
 另：经测试，在 iOS 升级为 10 以后，云巴 iOS Demo 不进行任何修改，使用原有 API 也可以正常编译运行、正常接收推送。**部分设备升级后收不到 APNs，可能是 Device Token 改变引起的。请参考 [iOS FAQ 第 12 条](https://yunba.io/docs/ios_faq#12)**。
 
-```
+```objective-c
 @import UserNotifications;
 ```
 
 
-```
+```objective-c
 - (void)registerRemoteNotification {
     // register for remote notification(APNs)     注册 APNs，申请获取 device token
     
