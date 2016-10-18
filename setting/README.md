@@ -51,7 +51,7 @@
      * `show/release` 未使用该字段
 
 ####newDownloads.json文件
-
+SDK下载页面配置json。请严格按照格式改动配置文件。
 
 ####字段说明
 * 整个json是一个对象数组。对象格式如下：
