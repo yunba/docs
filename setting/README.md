@@ -108,12 +108,12 @@
 
      * `versionDetail` 版本描述，格式：`数组`，用数组来区分每一个不同的特性。如['sdk特性1','sdk特性2','sdk特性3']，若为空，请设置[""]
 
-*  `revisionHistory` SDK下载页面的历史版本div
+*  `revisionHistory` SDK下载页面的历史版本div,若为空，请设置 `"revisionHistory":[]`
 
      * `versionNum` SDK的版本号
 
      * `versionUrl/githubUrl/downloadUrl` 未使用
 
-     * `versionDetail` 版本描述，格式：`数组`，用数组来区分每一个不同的特性。如['sdk特性1','sdk特性2','sdk特性3']，若为空，请设置[""]
+     * `versionDetail` 版本描述，格式：`数组`，用数组来区分每一个不同的特性。如['sdk特性1','sdk特性2','sdk特性3']，若为空，请设置`"versionDetail":[""]`
 
 
