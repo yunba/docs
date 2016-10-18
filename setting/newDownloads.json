@@ -1,0 +1,195 @@
+[{
+    "sdkName": "Android",
+    "display": "block",
+    "latestVersion": [{
+        "versionUrl": "/docs2/android_sdk_api_manual",
+        "downloadUrl":"https://github.com/yunba/yunba-sdk-releases/raw/master/Android/YunBa-Android-sdk-1.8.0-beta.zip",
+        "githubUrl":"",
+        "versionNum": "Release 1.8.0-beta",
+        "versionDetail": [
+            "支持小米推送、华为推送"
+        ]
+    }],
+    "revisionHistory": [{
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.4.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.4",
+        "versionDetail": [
+            "与 1.6.3 版本相同，增加了 so 文件。"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.3.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.3",
+        "versionDetail": ["后台进程相互拉起的特殊版本 SDK。"]
+    }, {
+        "versionUrl": "/docs2/android_sdk_api_manual",
+        "downloadUrl":"https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.4.5.zip",
+        "githubUrl":"",
+        "versionNum": "Release 1.4.5",
+        "versionDetail": [
+            ""
+        ]
+    }]
+}, {
+    "sdkName": "iOS",
+    "display": "none",
+    "latestVersion": [{
+        "versionUrl": "/docs2/ios_sdk_api_manual",
+        "downloadUrl":"https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.3.zip",
+        "githubUrl":"",
+        "versionNum": "Release 1.7.3",
+        "versionDetail": [
+            "修复一个内存申请过多导致的问题",
+            "修复demo中的显示错误",
+            "修复网络状况较差时长时间connnect无返回的问题"
+        ]
+    }],
+    "revisionHistory": [{
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.1.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.7.1",
+        "versionDetail": [
+            "解决1.7.0版本在飞行模式下的assert crash bug"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.0.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.7.0",
+        "versionDetail": [
+            "优化SDK在IPv6-only网络下的链接状况",
+            "针对新版本iOS做出链接优化",
+            "增加iOS 9.3支持"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.6.4.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.4",
+        "versionDetail": [
+            "修复在网络状况反复失效时造成的token上传错误",
+            "修复一个demo显示错位的问题",
+            "修复预编译头文件编译告警"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.6.3.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.3",
+        "versionDetail": [
+            "修复一个网络层的bug",
+            "修复Xcode7下的无效编译告警",
+            "加快SDK链接速度"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.6.2.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.2",
+        "versionDetail": [
+            "增加API timeout和heartbeat的启动参数选项",
+            "修复一个网络层的bug",
+            "修复一个demo显示错误",
+            "增加API超时后的网络检查"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.6.0.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.6.0",
+        "versionDetail": [
+            "修改注册请求，适配iOS9 ATS",
+            "重构demo",
+            "在断链通知中增加链接断开原因",
+            "增加apns界面及apns通知处理"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.5.2.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.5.2",
+        "versionDetail": [
+            "允许setAlias参数为空（unset alias）",
+            "增加iOS 8.4支持"
+        ]
+    }, {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.5.1.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 1.5.1",
+        "versionDetail": [
+            "增加GetStateV2/GetAliasListV2/GetTopicListV2 API",
+            "增加带有ttl参数的publish2 API",
+            "增加iOS8.3支持"
+        ]
+    }]
+}, {
+    "sdkName": "JavaScript",
+    "display": "none",
+    "latestVersion": [{
+        "versionUrl": "/docs2/js_sdk_api_manual",
+        "downloadUrl":"https://github.com/yunba/yunba-javascript-sdk/archive/2.0.3.zip",
+        "githubUrl":"https://github.com/yunba/yunba-javascript-sdk",
+        "versionNum": "Release 2.0.3",
+        "versionDetail": [
+            "修复了 get_alias_list、get_topic_list、get_state 接口批量操作时可能存在的 callback 回调问题"
+        ]
+    }],
+    "revisionHistory": [{
+        "versionUrl": "https://github.com/yunba/yunba-javascript-sdk/archive/2.0.2.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 2.0.2",
+        "versionDetail": [
+            "修正了例子中低版本 IE 浏览器判断注释的问题"
+        ]
+    }, {
+        "versionUrl": "https://github.com/yunba/yunba-javascript-sdk/archive/2.0.1.zip",
+        "versionNum": "Release 2.0.1",
+        "versionDetail": [
+            "没有功能上的更新，只是修正了例子中的 JS SDK 文件名"
+        ]
+    }, {
+        "versionUrl": "https://github.com/yunba/yunba-javascript-sdk/archive/2.0.0.zip",
+        "downloadUrl":"",
+        "versionNum": "Release 2.0.1",
+
+        "versionDetail": [
+            "全新的 JS SDK 版本，更多的接口，强大的支持了 IE 7+ 浏览器"
+        ]
+    }]
+
+}, {
+    "sdkName": "Java Over Socket.IO",
+    "display": "none",
+    "latestVersion": [{
+        "versionUrl": "/docs2/java_sdk_api_manual",
+        "downloadUrl":"https://github.com/yunba/yunba-socket.io-java-sdk/archive/master.zip",
+        "githubUrl":"https://github.com/yunba/yunba-socket.io-java-sdk",
+        "versionNum": "Release 1.0.0",
+        "versionDetail": [
+            "初始版本"
+        ]
+    }],
+    "revisionHistory": []
+}, {
+    "sdkName": "PHP",
+    "display": "none",
+    "latestVersion": [{
+        "versionUrl": "/docs2/php_demo_quick_start",
+        "downloadUrl":"https://github.com/yunba/yunba-php-sdk/archive/master.zip",
+        "githubUrl":"https://github.com/yunba/yunba-php-sdk",
+        "versionNum": "Release 0.0.1",
+        "versionDetail": [
+            "demo 版本，仅提供订阅和发布消息功能，仅支持Cli模式下运行"
+        ]
+    }],
+    "revisionHistory": []
+
+}, {
+    "sdkName": "C",
+    "display": "none",
+    "latestVersion": [{
+        "versionUrl": "/docs2/c_sdk_api_manual",
+        "downloadUrl":"https://github.com/yunba/yunba-c-sdk/archive/master.zip",
+        "githubUrl":"https://github.com/yunba/yunba-c-sdk",
+        "versionNum": "Release 1.0.0",
+        "versionDetail": [
+            "初始版本"
+        ]
+    }],
+    "revisionHistory": []
+}]
