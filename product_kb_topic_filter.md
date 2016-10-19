@@ -6,7 +6,7 @@
 
 ## 频道分级符
 
-我们用 “/”（U+002F）表示`频道分级符`（Topic level separator）。借助`频道分级符`给频道分级，可以形成一个层次清晰的频道树。
+我们用 /（U+002F）表示`频道分级符`（Topic level separator）。借助`频道分级符`给频道分级，可以形成一个层次清晰的频道树。
 
 含有`频道分级符`的频道称为`多级频道`。例如，sports/ballgame/baseball/play1 就是一个四级频道。
 
@@ -18,7 +18,7 @@
 
 ### 多级通配符
 
-`多级通配符`（Multi-level wildcard）用 “#”（U+0023）表示，用于匹配任意层级的频道（包含 0 级）。它只能出现在`频道过滤器`的最后一级，且出现时必须占据该层级。
+`多级通配符`（Multi-level wildcard）用 #（U+0023）表示，用于匹配任意层级的频道（包含 0 级）。它只能出现在`频道过滤器`的最后一级，且出现时必须占据该层级。
 
 * 正确示例：sports/# 可以匹配 sports、sports/ballgame、sports/ballgame/baseball 等。
 
@@ -28,7 +28,7 @@
 
 ### 单级通配符
 
-`单级通配符`（Single level wildcard）用 “+”（U+002B）表示。它可以出现在`频道过滤器`的任意一级，且出现时必须占据该层级。`单级通配符`只能匹配其所在的那一级。
+`单级通配符`（Single level wildcard）用 +（U+002B）表示。它可以出现在`频道过滤器`的任意一级，且出现时必须占据该层级。`单级通配符`只能匹配其所在的那一级。
 
 
 * 正确示例：ballgame/+/player1 可以匹配 ballgame/baseball/player1、ballgame/basketball/player1 等；
@@ -40,7 +40,7 @@
 
 ## 频道过滤器
 
-在订阅频道时，用于指定目标频道的那串字符串中如含有`频道通配符`（“#”、“+”），则称之为`频道过滤器`（Topic Filter），否则称为`频道名称`（Topic Name）。
+在订阅频道时，用于指定目标频道的那串字符串中如含有`频道通配符`（#、+），则称之为`频道过滤器`（Topic Filter），否则称为`频道名称`（Topic Name）。
 
 例如，sports/ballgame/baseball 是`频道名称`，而 ballgame/+/player1、sports/# 是`频道过滤器`。 
 
