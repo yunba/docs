@@ -33,7 +33,7 @@
 
 ### 频道过滤器
 
-在订阅频道时，用于指定频道的字符串中如含有`[频道通配符](product_kb_topic_filter.md#频道通配符)`（#、+），则称之为`[频道过滤器](product_kb_topic_filter.md)`。
+在订阅频道时，用于指定频道的字符串中如含有 [频道通配符](product_kb_topic_filter.md#频道通配符)（#、+），则称之为 [频道过滤器](product_kb_topic_filter.md)。
 
 ### 频道的特点
 
