@@ -29,7 +29,7 @@
 
 在 MQTT 3.1 协议中，对 Topic Name（又叫 Subject 或 Channel）是这样描述的：The topic name is the key that identifies the information channel to which payload data is published. Subscribers use the key to identify the information channels on which they want to receive published information.
 
-简而言之，`频道名称`是用来让发布者和订阅者区分不同频道的标识符。云巴的`频道名称`支持英文、数字、正斜杠（[频道分级符](product_kb_topic_filter.md#频道分级符)）和下划线，长度不超过 50 个字符。
+简而言之，频道名称 是用来让发布者和订阅者区分不同频道的标识符。云巴的 频道名称 支持英文、数字、正斜杠（[频道分级符](product_kb_topic_filter.md#频道分级符)）和下划线，长度不超过 50 个字符。
 
 ### 频道过滤器
 
@@ -73,9 +73,9 @@
 
 ### 什么是别名
 
-客户端连到云巴服务器后，会被分配一个唯一的 UID，云巴内部用 UID 来标识 [AppKey](product_kb_app_key.md) 下的不同客户端。由于 UID 是一串毫无规律的字符串，在实际应用中难以辨识，于是我们引入了“别名”的概念。用户可以为每个客户端设置一个有意义的名字——别名，我们会将客户端的别名与客户端的 UID 进行绑定，让用户可以通过别名来标识客户端，进行一对一通信。
+客户端连到云巴服务器后，会被分配一个唯一的 UID，云巴内部用 UID 来标识 [AppKey](product_kb_app_key.md) 下的不同客户端。由于 UID 是一串毫无规律的字符串，在实际应用中难以辨识，于是我们引入了 别名 的概念。用户可以为每个客户端设置一个有意义的名字——别名，我们会将客户端的 别名 与客户端的 UID 进行绑定，让用户可以通过 别名 来标识客户端，进行一对一通信。
 
-与 Topic 一样，Alias 也只支持英文、数字和下划线，长度不超过 50 个字符。
+别名 只支持英文、数字和下划线，长度不超过 50 个字符。
 
 ### 别名的特点
 * 别名与客户端是一一对应的关系。
