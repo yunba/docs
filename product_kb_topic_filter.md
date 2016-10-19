@@ -20,9 +20,9 @@
 
 多级通配符（Multi-level wildcard）用 #（U+0023）表示，用于匹配任意层级的频道（包含 0 级）。它只能出现在 频道过滤器 的最后一级，且出现时必须占据该层级。
 
-* 正确示例：sports/# 可以匹配 sports、sports/ballgame、sports/ballgame/baseball 等。
+* 正确示例：sports/# 可以匹配 sports、sports/ballgame、sports/ballgame/baseball 等；
 
-* 正确示例：# 可以匹配 sports、news、sports/ballgame/baseball 等任意的频道。
+* 正确示例：# 可以匹配 sports、news、sports/ballgame/baseball 等任意等级的频道；
 
 * 错误示例：sports/ballgame# 和 sports/ballgame/#/baseball 都是错误的。
 
@@ -34,6 +34,8 @@
 * 正确示例：ballgame/+/player1 可以匹配 ballgame/baseball/player1、ballgame/basketball/player1 等；
 
 * 正确示例：ballgame/baseball/+ 可以匹配 ballgame/baseball/player1、ballgame/baseball/player2  等；
+
+* 正确示例：+ 可以匹配 sports、news 等频道；
 
 * 错误示例：sports+ 是错误的。
 
