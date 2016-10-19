@@ -23,13 +23,17 @@
 ## 频道（Topic）
 
 
-### 什么是频道
-
 在电视广播中，高频影像信号和伴音信号占有一定宽度的频带，叫频道。有了不同的频道，就可以将资讯分门别类地输送给不同的目标受众。云巴的频道（Topic）也是类似的概念。
+
+### 频道名称
 
 在 MQTT 3.1 协议中，对 Topic Name（又叫 Subject 或 Channel）是这样描述的：The topic name is the key that identifies the information channel to which payload data is published. Subscribers use the key to identify the information channels on which they want to receive published information.
 
-简而言之，频道名称是用来让发布者和订阅者区分不同频道的标识符。云巴的频道名称只支持英文、数字和下划线，长度不超过 50 个字符。
+简而言之，`频道名称`是用来让发布者和订阅者区分不同频道的标识符。云巴的`频道名称`支持英文、数字、正斜杠（[频道分级符](product_kb_topic_filter.md#频道分级符)）和下划线，长度不超过 50 个字符。
+
+### 频道过滤器
+
+在订阅频道时，用于指定频道的字符串中如含有`[频道通配符](product_kb_topic_filter.md#频道通配符)`（#、+），则称之为`[频道过滤器](product_kb_topic_filter.md)`。
 
 ### 频道的特点
 
@@ -40,12 +44,15 @@
 * 只要没有取消订阅某个频道，永远都可以收到这个频道的消息。
 * 消息的发布者并不一定需要订阅频道。
 * 某个频道在第一次被订阅时，会被自动创建。
+* 频道名称对大小写敏感。
+
 
  > **最佳实践：为了充分利用云巴服务器的性能、提升通信质量，我们建议用户不要频繁进行 subscribe / unsubscribe 的操作。**
  <br>用户在进行系统架构时，如果能合理地设计 Topic 数量和订阅关系，云巴服务器就能够有效地缓存客户端的路由信息，从而加快通信时的寻址速度，提高通信质量。
  相反地，如果用户把 Topic 当作临时资源来使用（尽管目前暂无限制），则会加重服务器负载，导致通信质量的下降。
  
 ### 相关 API
+
 下面以 JavaScript SDK 为例，介绍一下与频道相关的 API。
 
 * [`subscribe`](js_sdk_api_manual.md#subscribe) 用来订阅某个频道。订阅频道是增加逻辑，不会影响到现有的订阅情况。
@@ -57,7 +64,8 @@
 * [`get_topic_list`](js_sdk_api_manual.md#get_topic_list) 用来查询用户订阅的频道列表。
 
 ### 应用场景
-频道主要用于一对多发布的场景。服务端和客户端分别集成了云巴的 SDK 后，客户端调用 `subscribe` 订阅某个 Topic，服务端调用`publish`向该 Topic 发布消息，那么，所有订阅了该 Topic 的客户端都会收到消息。
+
+频道主要用于一对多发布的场景。服务端和客户端分别集成了云巴的 SDK 后，客户端调用`subscribe`订阅某个 Topic，服务端调用`publish`向该 Topic 发布消息，那么，所有订阅了该 Topic 的客户端都会收到消息。
 
 
 ## 别名（Alias）
@@ -75,6 +83,7 @@
 * 别名的设置采用的是覆盖的方式，新设置的别名会覆盖旧的别名。
 * 将别名设置为空字符串，即可清除别名。
 * 目前，云巴支持同一个账号（别名）在不同的终端上登录，但不支持多终端同时登录。
+* 别名对大小写敏感。
 
 ### 相关 API
 下面以 JavaScript SDK 为例，介绍一下与别名相关的 API。
@@ -87,6 +96,7 @@
 * [`publish2_to_alias`](js_sdk_api_manual.md#publish2_to_alias) 是 `publish_to_alias` 的升级版本，支持更多参数。
 
 ### 应用场景
+
 在一对一发布的场景中，不同的客户端集成了云巴的 SDK 后，分别通过调用`set_alias`设置自己的别名，就可以用`publish_to_alias`互相收发消息，进行点对点的通信。
 
 
