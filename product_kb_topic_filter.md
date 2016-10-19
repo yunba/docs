@@ -22,7 +22,7 @@
 
 * 正确示例：sports/# 可以匹配 sports、sports/ballgame、sports/ballgame/baseball 等。
 
-* 正确示例：# 可以匹配 sports、sports/ballgame、sports/ballgame/baseball 等任意的频道。
+* 正确示例：# 可以匹配 sports、news、sports/ballgame/baseball 等任意的频道。
 
 * 错误示例：sports/ballgame# 和 sports/ballgame/#/baseball 都是错误的。
 
