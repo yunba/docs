@@ -30,7 +30,7 @@
 
 ### 1. 引入 SDK
 
-Yunba JavaScript SDK 依赖于 Socket.IO，所以要确保 Socket.IO 被先引入。 
+Yunba JavaScript SDK 依赖于 Socket.IO，所以要先引入 Socket.IO。 
 请参考（SDK 中的）Demo 分别引入 Socket.IO 和 yunba-js-sdk。
 
 ### 2. 创建 Yunba 实例

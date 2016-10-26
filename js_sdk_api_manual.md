@@ -224,7 +224,8 @@ yunba.subscribe(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- |  -----------
-obj | Object |  参数必选。obj 包含 obj.topic 和 obj.qos 两个字段。obj.topic 表示准备收听的频道；obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
+obj.topic | String| 参数必选。表示准备收听的 [频道](product_kb_topic_and_alias.md)。
+obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 cb  | Function | 参数可选。收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg。
 
 
@@ -259,7 +260,8 @@ yunba.subscribe_presence(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- |  -----------
-obj | Object |  参数必选。obj 包含 obj.topic 和 obj.qos 两个字段。obj.topic 表示准备收听的频道；obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
+obj.topic | String| 参数必选。表示准备收听的 [频道](product_kb_topic_and_alias.md)。
+obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 cb  | Function | 参数可选。收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg。
 
 
@@ -292,7 +294,7 @@ yunba.unsubscribe(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj | Object | 参数必选。目前版本只要求 obj 包含一个属性字段为 topic，即准备取消收听的 [频道](product_kb_topic_and_alias.md)。
+obj.topic | String| 参数必选。表示准备取消收听的 [频道](product_kb_topic_and_alias.md)。
 cb | Function | 参数可选。取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg。
 
 
@@ -326,7 +328,7 @@ yunba.unsubscribe_presence(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj | Object | 参数必选。目前版本只要求 obj 包含一个 topic 字段，即准备取消收听的频道。
+obj.topic | String| 参数必选。表示准备取消收听的 [频道](product_kb_topic_and_alias.md)。
 cb | Function | 参数可选。取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg。
 
 
@@ -360,7 +362,10 @@ yunba.publish(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | Object | 参数必选。obj 含有四个属性字段，分别为 目标 [频道](product_kb_topic_and_alias.md)（obj.topic:string）、消息体（obj.msg:string）、MessageId（obj.messageId:number/string）和 [消息级别](product_kb_qos.md)（obj.qos:number），其中 obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
+obj.topic | String| 参数必选。表示目标 [频道](product_kb_topic_and_alias.md)。
+obj.msg | String | 参数必选。表示消息体。
+obj.messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
+obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 cb    | Function | 参数可选。不管消息发布是成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
@@ -392,7 +397,9 @@ yunba.publish2(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | Object | 参数必选。obj 含有三个属性字段，分别为要发送的目标 [频道](product_kb_topic_and_alias.md)（obj.topic:string）、消息体（obj.msg:string）和 [扩展参数](#扩展参数说明)（obj.opts:dict）。
+obj.topic | String| 参数必选。表示目标 [频道](product_kb_topic_and_alias.md)。
+obj.msg | String | 参数必选。表示消息体。
+obj.opts | Dict | [扩展参数](#扩展参数说明)。
 cb    | Function | 参数可选。不管消息发布是成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
@@ -444,7 +451,10 @@ yunba.publish_to_alias(obj, cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | Object | 参数必选。obj 含有四个属性字段，分别为 目标别名（obj.alias:string）、消息体（obj.msg:string）、MessageId（obj.messageId:number/string） 和 [消息级别](product_kb_qos.md)（obj.qos:number）。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过 50 个字符。obj.qos 为可选，表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
+obj.alias | String| 参数必选。表示目标 [别名](product_kb_topic_and_alias.md)。
+obj.msg | String | 参数必选。表示消息体。
+obj.messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
+obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 cb    | Function | 参数可选。不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
@@ -483,7 +493,9 @@ yunba.publish2_to_alias(obj,cb)
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj    | Object | 参数必选。obj 含有三个属性字段，分别为 目标别名（obj.alias:string）、消息体（obj.msg:string） 和 [扩展参数](#扩展参数说明)（obj.opts:dict）。其中 obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过 50 个字符。
+obj.alias | String| 参数必选。表示目标 [别名](product_kb_topic_and_alias.md)。
+obj.msg | String | 参数必选。表示消息体。
+obj.opts | Dict | [扩展参数](#扩展参数说明)。
 cb    | Function | 参数可选。不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
@@ -536,7 +548,7 @@ yunba.set_alias(alias, cb);
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-obj  | Object | 参数必选。obj 含有一个属性字段，为要设置的 别名（obj.alias:string）。obj.alias 为用户设置的别名信息，只支持英文、数字和下划线，长度不超过 50 个字符。
+obj.alias | String| 参数必选。表示所指定的 [别名](product_kb_topic_and_alias.md)。
 cb   | Function | 参数可选。无论 alias 是否设置成功都会回调此函数。传递回的参数有 data。data.success 值为 true 表示 alias 设置成功，否则为失败。如果失败，则返回错误消息 data.msg。
 
 
