@@ -8,32 +8,73 @@
 * 华为使用的是透传，小米用的是通知栏，所以在小米机型上会有收到两条通知栏消息的情况；
 * 需要应用开启自启动权限。
 
-## 准备工作
 
-### 小米推送
+第三方推送的集成包含五个步骤：
+
+* 创建第三方应用
+* 在云巴 Portal 上设置第三方推送
+* 云巴服务接入
+* 第三方推送开发设置
+
+## 1、创建第三方应用
+
+在集成之前，需要先在小米、华为平台创建应用。
+
+### 自动创建应用
+
+**为了极大地提高集成效率，云巴推出了“自动创建应用”的功能，免去了注册小米、华为账号的繁琐步骤。**详见后面的描述。
+
+### 自行创建应用
+
+对于希望自己创建应用的开发者们，可前往小米、华为 Portal 创建应用：
+
 * 进入[小米开放平台官网](http://dev.xiaomi.com/console/)，注册账号，选择`应用服务`->`小米推送`，进入小米推送服务，启用小米推送需要在小米控制台添加你的应用名和包名，然后获取小米推送的 AppID 和 AppKey，同时在项目中集成小米 SDK；可以参照小米的[启用指南](http://dev.xiaomi.com/doc/?p=1621)。
 
-### 华为推送
 * 进入[华为开发者联盟](http://developer.huawei.com/cn/consumer)，注册账号，根据[官方教程](http://developer.huawei.com/cn/consumer/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E#2.2_.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)设置接入华为推送服务，集成华为 SDK，然后就可以在云巴中使用华为推送了。可以参考华为的[接入说明](http://developer.huawei.com/cn/consumer/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E#2_.E5.9C.A8.E5.BC.80.E5.8F.91.E8.80.85.E8.81.94.E7.9B.9F.E4.B8.8A.E5.BC.80.E9.80.9A.E5.8D.8E.E4.B8.BA.E6.8E.A8.E9.80.81.E6.9D.83.E7.9B.8A)。
 
-### 云巴服务
-参考我们的[快速接入文档](https://yunba.io/docs2/android_sdk_quick_start)快速设置接入云巴服务；如果你已经接入云巴服务，可以直接开始在云巴中集成小米和华为推送。
 
-#### 在 portal 上设置
+## 2、在云巴 Portal 上设置第三方推送
 
-1. 进入 portal 页面，在应用列表中找到需要接入厂商推送的应用，点击`厂商推送`。
+
+### 启用第三方推送
+
+* 进入云巴 Portal 页面，新建应用，或在应用列表中找到需要接入第三方推送的应用，点击右侧的`第三方推送`。
+
 ![applist](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_applist.png)
 
-2. 在选项中选择小米或华为，在`是否启用`处选择`是`，填写在小米推送中[注册](http://dev.xiaomi.com/doc/?p=1621)使用的主包名和获取的 AppSecret;同理，如果需要启用华为推送，则选择`华为`选项，并填写在华为推送中[注册](http://developer.huawei.com/cn/consumer/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E#2.2_.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)时使用的应用包名和获得的 APP ID 以及 APP SECRET。然后点击保存。
+* 在选项中选择小米或华为，在`是否启用`处选择`是`。
+
+
+### 选择应用来源
+
+* 自动创建应用
+
+如图所示，用户只需选择`自动创建应用`并保存，云巴就会立刻代替用户进行小米或华为应用的申请，并在申请成功后，将获取到的 AppID、AppKey 等应用信息显示在当前页面上。
+
+![appsource](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_appsource.png)
+
+* 自行创建应用
+
+如果用户选择`自行创建应用`，需将自己注册的小米、华为应用的应用信息填写到云巴 Portal 中。
+
+对于[小米应用](http://dev.xiaomi.com/doc/?p=1621)，需填写的内容包括：应用包名、AppID、AppKey、AppSecret；
+对于[华为应用](http://developer.huawei.com/cn/consumer/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E#2.2_.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)，需填写的内容包括：应用包名、AppID、AppSecret；
+
 ![xiaomi_setup](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_xiaomi_setup.png)
 ![huawei_setup](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_huawei_setup.png)
 
-## 设置步骤
+## 3、云巴服务接入
+
+请参考我们的[快速接入文档](https://yunba.io/docs2/android_sdk_quick_start)快速设置接入云巴服务；如果你已经接入云巴服务，可以直接开始在云巴中集成小米和华为推送。
+
+## 4、第三方推送开发设置
 
 ### 设置 AndroidManifest.xml
+
 在[设置了云巴推送](https://yunba.io/docs2/android_sdk_quick_start)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。
 
-#### 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置：
+
+* 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置：
 
 (1) 在`<manifest>......</manifest>`中添加以下代码来添加 permission，注意*app包名要替换成自己的包名*:
 
@@ -48,15 +89,15 @@
 
 ```xml
 <service
-	android:name="com.xiaomi.push.service.XMJobService"
-	android:enabled="true"
-	android:exported="false"
-	android:permission="android.permission.BIND_JOB_SERVICE"
-	android:process=":pushservice" />
+    android:name="com.xiaomi.push.service.XMJobService"
+    android:enabled="true"
+    android:exported="false"
+    android:permission="android.permission.BIND_JOB_SERVICE"
+    android:process=":pushservice" />
 <service
-	android:name="com.xiaomi.push.service.XMPushService"
-	android:enabled="true"
-	android:process=":pushservice" />
+    android:name="com.xiaomi.push.service.XMPushService"
+    android:enabled="true"
+    android:process=":pushservice" />
 <service
     android:name="com.xiaomi.mipush.sdk.PushMessageHandler"
     android:enabled="true"
@@ -95,7 +136,7 @@
 </receiver>
 ```
 
-#### 对于华为推送，需要在 AndroidManifest.xml 中进行以下设置：
+* 对于华为推送，需要在 AndroidManifest.xml 中进行以下设置：
 
 在`<application>......</application>`中添加 service 和 receiver：
 
@@ -151,6 +192,7 @@
 要启用第三方推送，要在[初始化云巴服务](https://yunba.io/docs2/android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`，**对于小米推送，还要额外调用`YunBaManager.setXMRegister(String appid,String appkey)`**。
 
 #### 代码示例
+
 * 启用小米和华为推送
 
 ```java
@@ -165,12 +207,23 @@ YunBaManager.start(getApplicationContext());
 YunBaManager.setThirdPartyEnable(getApplicationContext(), true);
 YunBaManager.start(getApplicationContext());
 ```
+
+
+完成以上设置后，就可以连接小米、华为设备进行运行测试了。
+
+注意，为了确保应用被杀后能被推送拉起，还需要**在小米、华为手机中打开应用的自启动权限**。具体菜单如下：
+
+* 小米手机：设置 - 授权管理 - 自启动管理
+
+* 华为手机：设置 - 权限管理 - 权限 - 自启动管理
+
+
 ## 备注：权限列表
 
-* 这里云巴需要的其他权限，可以在[快速接入云巴服务](https://yunba.io/docs2/android_sdk_quick_start)中找到，供对照：
+* 这里是云巴需要的其他权限，可以在[快速接入云巴服务](https://yunba.io/docs2/android_sdk_quick_start)中找到，供对照：
 
 ```xml
-<uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.INTERNET" />
    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
