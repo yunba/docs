@@ -27,6 +27,11 @@
       url: product_kb_topic_and_alias
       show: true
       release: true
+    - name: 频道过滤器
+      markdown: product_kb_topic_filter.md
+      url: product_kb_topic_filter
+      show: true
+      release: true
     - name: AppKey
       markdown: product_kb_app_key.md
       url: product_kb_app_key
