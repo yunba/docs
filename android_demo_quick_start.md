@@ -66,9 +66,15 @@
 
 ### 5. 小米推送相关内容
 
-有关小米、华为推送集成的详细内容，可查看 [第三方推送集成指南](android_sdk_third_part_push.md)。
+有关小米、华为推送集成的详细内容，可查看 [第三方推送集成指南](android_sdk_third_part_push.md)。这里以小米推送为例，进行简要的说明。
 
 #### 5.1 创建小米应用
+
+![productpng_portal_third_push_appsource.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_appsource.png)
+
+如图所示，用户可以借助云巴提供的“自动创建应用”的功能，委托云巴进行小米或华为应用的申请。申请成功后，获取到的 AppID、AppKey 等应用信息将显示在当前页面上。
+
+对于希望自己创建应用的开发者们，可前往小米、华为 Portal 创建应用：
 
 - 登录小米开发者账号，在 Portal 上新建应用，填写在本例中的应用包名：io.yunba.test；
 - 进入小米开放平台下的消息推送模块；
