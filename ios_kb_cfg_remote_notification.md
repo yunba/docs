@@ -5,11 +5,9 @@
 
 借助远程通知服务，可以向用户即时推送最新的消息，且无需担心用户是否正在使用该应用。远程通知功能的大部分程序都运行在你公司的服务器上，应用方面也需要做如下配置：
 
-* 1. 打开应用的推送通知（Push Notification）功能；
-
-* 2. 在应用的启动代码中注册 APNs；
-
-* 3. 实现远程通知的处理代码；
+* 打开应用的推送通知（Push Notification）功能；
+* 在应用的启动代码中注册 APNs；
+* 实现远程通知的处理代码；
 
 关于远程通知在服务器方面的配置方法，请参考 [APNs 概述](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 
@@ -19,10 +17,10 @@
 
 **任务**
 
-* 1. 在工程导航中选择你的工程；
-* 2. 在编辑器的 TARGETS 中选择你的应用；
-* 3. 点击右侧的 Capability 标签页；
-* 4. 打开推送通知（Push Notification）功能权限；
+* 在工程导航中选择你的工程；
+* 在编辑器的 TARGETS 中选择你的应用；
+* 点击右侧的 Capability 标签页；
+* 打开推送通知（Push Notification）功能权限；
 
 按上面的做法，Xcode 就会把所需的权限加进你的工程中。
 
@@ -36,8 +34,7 @@ User Notification 框架把所有涉及到本地和远程通知相关的操作�
 
 具体来说，可以用同样的方法处理下面的事情：
 
-* 如果应用在前台运行，可以直接收通知，并静默该通知。
-
+* 如果应用在前台运行，可以直接收通知，并静默该通知；
 * 如果应用在后台，且未运行：
     * 可以在用户选择了一个与通知有关的自定义操作时做出响应；
     * 可以在用户忽略掉通知，或者登录了应用时做出响应；
