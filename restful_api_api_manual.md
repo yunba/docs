@@ -214,4 +214,4 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_che
 ```json
 {"status":5, "alias":"567a4a754407a3cd028aaf6b-test", "error": "alias not found"}
 ```
-
+**[常见问题](restful_faq.md)**
