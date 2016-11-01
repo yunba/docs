@@ -1,4 +1,4 @@
-#故障排除
+# 故障排除
 ## 按照步骤操作但接收不到消息
 1. 如果从未成功接收消息，一般为代码集成错误，请参考 [Yunba Android SDK 快速入门](android_sdk_quick_start.md)，检查集成步骤。
 **提示：**确保完成了 AndroidManifest.xml 的添加权限、配置 AppKey、修改应用包名、添加 Service 、添加 Receiver 和初始化 SDK 几个步骤；检查自定义 Receiver （接收消息）部分的代码,可参考 YunBa Android Demo 的 AndroidManifest.xml 和 DemoReceiver.java。
