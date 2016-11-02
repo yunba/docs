@@ -4,6 +4,9 @@
 
 为了满足这种话题分级管理、筛选订阅的需求，云巴实现了 MQTT v3.1.1 协议中的 [Topic Filter](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718106)（即，频道过滤器），客户端可以借助这一功能实现对不同层级的 [频道](product_kb_topic_and_alias.md) 的筛选订阅。本文将先介绍与之相关的 频道分级符、频道通配符 的概念，再给出 频道过滤器 的说明。
 
+> 注意：Android、iOS SDK 尚未支持该功能，近期会上线。
+
+
 ## 频道分级符
 
 我们用 /（U+002F）表示 频道分级符（Topic level separator）。借助 频道分级符 给频道分级，可以形成一个层次清晰的频道树。
