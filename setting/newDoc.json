@@ -43,6 +43,12 @@
             "url": "js_demo_quick_start",
             "show": true,
             "release": true
+        }, {
+            "name": "JavaScript SDK 常见问题解答",
+            "markdown": "js_faq.md",
+            "url": "js_faq",
+            "show": true,
+            "release": true
         }]
     }, {
         "name": "iOS",
@@ -79,15 +85,39 @@
             "show": true,
             "release": true
         }, {
-            "name": "APNs 推送的 Payload 介绍",
+            "name": "【翻译】远程通知的负载部分",
             "markdown": "ios_kb_payload.md",
             "url": "ios_kb_payload",
+            "show": true,
+            "release": true
+        }, {
+            "name": "【翻译】APNs Provider API",
+            "markdown": "ios_kb_provider_api.md.md",
+            "url": "ios_kb_provider_api",
+            "show": true,
+            "release": true
+        }, {
+            "name": "【翻译】配置远程通知服务",
+            "markdown": "ios_kb_cfg_remote_notification.md",
+            "url": "ios_kb_cfg_remote_notification",
             "show": true,
             "release": true
         }, {
             "name": "多证书",
             "markdown": "ios_kb_multiple_certificates.md",
             "url": "ios_kb_multiple_certificates",
+            "show": true,
+            "release": true
+        }, {
+            "name": "iOS 10 更新的影响",
+            "markdown": "ios_kb_ios_10_impact.md",
+            "url": "ios_kb_ios_10_impact",
+            "show": true,
+            "release": true
+        }, {
+            "name": "iOS SDK 常见问题解答",
+            "markdown": "ios_faq.md",
+            "url": "ios_faq",
             "show": true,
             "release": true
         }]
@@ -123,6 +153,24 @@
             "name": "运行 Yunba Android Demo",
             "markdown": "android_demo_quick_start.md",
             "url": "android_demo_quick_start",
+            "show": true,
+            "release": true
+        }, {
+            "name": "第三方推送集成指南",
+            "markdown": "android_sdk_third_part_push.md",
+            "url": "android_sdk_third_part_push",
+            "show": true,
+            "release": true
+        }, {
+            "name": "Android 故障排除",
+            "markdown": "android_sdk_troubleshooting.md",
+            "url": "android_sdk_troubleshooting",
+            "show": true,
+            "release": true
+        }, {
+            "name": "Android 常见问题解答",
+            "markdown": "android_faq.md",
+            "url": "android_faq",
             "show": true,
             "release": true
         }]
@@ -188,6 +236,12 @@
             "url": "socketio_java_demo_quick_start",
             "show": true,
             "release": true
+        }, {
+            "name": "Socket.IO 常见问题解答",
+            "markdown": "socketio_faq.md",
+            "url": "socketio_faq",
+            "show": true,
+            "release": true
         }]
     },{
         "name": "其他",
@@ -226,13 +280,13 @@
                 "show": true,
                 "release": true
             }, {
-                "name": "Android SDK 相关",
+                "name": "Android SDK 常见问题解答",
                 "markdown": "android_faq.md",
                 "url": "android_faq",
                 "show": true,
                 "release": true
             }, {
-                "name": "iOS SDK 相关",
+                "name": "iOS SDK 常见问题解答",
                 "markdown": "ios_faq.md",
                 "url": "ios_faq",
                 "show": true,
