@@ -122,7 +122,7 @@
       url: android_faq
       show: true 
       release: true
-    - name: 故障排除
+    - name: Android SDK 故障排除
       markdown: android_sdk_troubleshooting.md
       url: android_sdk_troubleshooting
       show: true
@@ -177,9 +177,19 @@
       url: ios_kb_create_provisioning_profile
       show: true 
       release: false
-    - name: APNs 推送的 Payload 介绍
+    - name: 【翻译】远程通知的负载部分
       markdown: ios_kb_payload.md
       url: ios_kb_payload
+      show: true
+      release: true
+    - name: 【翻译】APNs Provider API
+      markdown: ios_kb_provider_api.md
+      url: ios_kb_provider_api
+      show: true
+      release: true
+    - name: 【翻译】配置远程通知服务
+      markdown: ios_kb_cfg_remote_notification.md
+      url: ios_kb_cfg_remote_notification
       show: true
       release: true
     - name: 多证书

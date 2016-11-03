@@ -162,13 +162,13 @@
             "show": true,
             "release": true
         }, {
-            "name": "Android 故障排除",
+            "name": "Android SDK 故障排除",
             "markdown": "android_sdk_troubleshooting.md",
             "url": "android_sdk_troubleshooting",
             "show": true,
             "release": true
         }, {
-            "name": "Android 常见问题解答",
+            "name": "Android SDK 常见问题解答",
             "markdown": "android_faq.md",
             "url": "android_faq",
             "show": true,
