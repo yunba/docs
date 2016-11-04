@@ -2,8 +2,6 @@
 
 本文介绍如何运行 [yunba-socket.io-java-sdk](https://github.com/yunba/yunba-socket.io-java-sdk) 中的 Demo。Yunba 的 SDK 按照实现的方式，可以分为两种，一种是所谓原生 SDK，一种是基于 Socket.IO 的 SDK。Yunba Socket.IO Java SDK 是基于 Socket.IO 的 SDK。
 
-**对于 Java 开发者，推荐使用云巴的 [Java SDK](https://github.com/yunba/yunba-java-sdk)。**
-
 本文涉及的运行环境如下：
 
 * Mac OS X 10.11.2
