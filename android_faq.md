@@ -7,6 +7,8 @@
 
 Android 端的解决方法：增加相互拉起功能和后台守护进程，使 App 退出后仍能接收到推送消息。可下载并参考 [特殊版本的 SDK](https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.3.zip)（该版本仅供测试）。
 
+对于 Android 5.0 以上版本的系统，请使用 Android 最新的 SDK，参考我们的[第三方集成指南](android_sdk_third_part_push.md)，集成小米、华为推送。
+
 ---
 <a name="2"></a>2. **Android 端如何设置 qos 等级？**
 
@@ -36,3 +38,11 @@ qos 设置为 1 或 2，就能够保证离线消息的送达；设置 time_to_li
 <a name="6"></a>6. **Android 端如何断开连接，不接收消息？**
 
 答： 可以调用[`stop()`](android_sdk_api_manual.md#stop)停止推送服务，使所有的 API 都失效（包括 start API）；当需要重新使用推送服务时，必须要调用[`resume ()`](android_sdk_api_manual.md#resume)。
+
+
+<a name="7"></a>7. **云巴的第三方推送，小米可以和华为一样只有透传没有通知栏么？**
+
+答： 我们目前的第三方推送主要目的是：在自己应用被杀死的情况下提供一种拉起应用的方式。基于这个目的：
+- 小米官方要求用通知栏消息才可以接受消息（详见 [小米文档](http://dev.xiaomi.com/doc/p=7674/index.html) 问题 8）；
+- 华为则是透传和通知栏就可以拉起应用；
+

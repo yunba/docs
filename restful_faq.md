@@ -36,3 +36,10 @@
 <a name="7"></a>7. **为什么 RESTful API 没有 subscribe（订阅）的 API？**
 
 答： 因为 RESTful 请求不是一个长连接，如果要实现 subscribe API，可以考虑使用 [Socket.IO API](socketio_api_api_manual.md)。
+
+---
+<a name="8"></a>8. **RESTful API 是否支持 https？**
+
+答： 付费用户支持。
+
+
