@@ -117,6 +117,11 @@
       url: android_demo_quick_start
       show: true 
       release: true
+    - name: 多包名
+      markdown: android_kb_multiple_package.md
+      url: android_kb_multiple_package
+      show: true
+      release: true
     - name: Android SDK 常见问题解答
       markdown: android_faq.md
       url: android_faq
