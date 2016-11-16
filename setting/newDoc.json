@@ -150,15 +150,21 @@
             "show": true,
             "release": true
         }, {
+            "name": "第三方推送集成指南",
+            "markdown": "android_sdk_third_part_push.md",
+            "url": "android_sdk_third_part_push",
+            "show": true,
+            "release": true
+        },  {
             "name": "运行 Yunba Android Demo",
             "markdown": "android_demo_quick_start.md",
             "url": "android_demo_quick_start",
             "show": true,
             "release": true
         }, {
-            "name": "第三方推送集成指南",
-            "markdown": "android_sdk_third_part_push.md",
-            "url": "android_sdk_third_part_push",
+            "name": "多包名",
+            "markdown": "android_kb_multiple_package.md",
+            "url": "android_kb_multiple_package",
             "show": true,
             "release": true
         }, {
