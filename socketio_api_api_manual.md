@@ -40,6 +40,14 @@ socketIO = SocketIO('sock.yunba.io', 3000)
 host | String | Socket.IO API Server，默认值 'sock.yunba.io'。
 port | Number | Socket.IO API 端口，默认值 3000。
 
+>**注**：
+
+1. 如`obj.server`中未指定`https://`或`http://`，Socket.IO-Client 会根据当前页面的协议, 选择使用 https 或 http 进行连接。在这种情况下，用户需要注意选择合适的`port`。使用 SSL/TLS 方式进行连接，则`port`为`443`；否则，`port`为`3000`。
+
+2. 如果想使用 SSL/TLS 方式连接，则`obj.server`请填写`https://sock.yunba.io`、`port`使用`443`。
+
+3. 免费用户可以试用 RESTful 和 Socket.IO 的加密链路，实际生产使用需要付费。
+
 
 ## socketconnectack
 ### 功能
