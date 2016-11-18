@@ -261,13 +261,17 @@
                 "release": true
             }, {
                 "name": "【 PHP(Cli) 】运行 Yunba PHP Demo",
-
                 "markdown": "php_demo_quick_start.md",
                 "url": "php_demo_quick_start",
                 "show": true,
                 "release": true
+            }, {
+                "name": "参数说明",
+                "markdown": "product_kb_param.md",
+                "url": "product_kb_param",
+                "show": true,
+                "release": true
             }
-
         ]
     }, {
         "name": "常见问题",
