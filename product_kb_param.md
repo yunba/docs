@@ -26,6 +26,8 @@
 
 - `topics`数组的元素个数不超过 100。
 
+- `/p`是 [Presence](product_kb_presence.md) 的保留字（例如，`subscribe("t/p")`相当于`subscribe_presence("t")`）。为了避免混淆，建议避免在`topic`参数中使用`/p`字符，如需订阅某频道的 Presence，可直接调用 Presence 相关的 API。
+
 ## alias
 
 `alias` 用来表示 [别名](product_kb_topic_and_alias.md)。
