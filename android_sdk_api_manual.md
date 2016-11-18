@@ -51,8 +51,8 @@ App 可以`订阅`一个或者多个 [频道](product_kb_topic_and_alias.md)(Top
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符
-topics | String[] | App 订阅的频道数组列表，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
+topics | String[] | App 订阅的频道数组列表，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -101,8 +101,8 @@ App 可以`取消订阅`一个或者多个 [频道](product_kb_topic_and_alias.m
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
-topics | String[] | App 订阅的频道数组列表，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
+topics | String[] | App 订阅的频道数组列表，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -153,7 +153,7 @@ App 可以向 Topic 发送消息，那么同一应用（AppKey）下任何`subsc
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
 message | String | 向目标 topic 的订阅者发布的消息
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
@@ -207,7 +207,7 @@ App 可以向 Topic 发送消息，那么同一应用（AppKey）下任何`subsc
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
 message | String | 向目标 topic 的订阅者发布的消息
 opts | JSONObject | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台，APNs 等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
@@ -259,7 +259,7 @@ apn_json | dict | 如果不填，则不会发送 iOS 端的 APNs 消息；而`pu
 time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时间值，单位是秒（例如 2 天 2\*24\*3600），当前默认值为 5 天
 
 
-## publishToAlias
+## publishToAlias 
 
 ### 功能
 
@@ -279,7 +279,7 @@ time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias| String | 用户设置的别名信息，同一 AppKey 下唯一，只支持英文数字下划线，长度不超过 50 个字符
+alias| String | 用户设置的别名信息，同一 AppKey 下唯一，取值范围详见 [参数说明](product_kb_param.md#alias)
 message | String | 向设置该目标别名的对象发布的消息
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
@@ -333,7 +333,7 @@ YunBaManager.publishToAlias(getApplicationContext(), alias, msg,
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias| String | 用户设置的 [别名](product_kb_topic_and_alias.md) 信息，同一 AppKey 下唯一，只支持英文数字下划线，长度不超过 50 个字符
+alias| String | 用户设置的 [别名](product_kb_topic_and_alias.md) 信息，同一 AppKey 下唯一，取值范围详见 [参数说明](product_kb_param.md#alias)
 message | String | 向设置该目标别名的对象发布的消息
 opts | JSONObject | 向设置该目标别名的对象发布的消息的选项：如消息有效时间，目标平台，APNs 参数等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
@@ -510,7 +510,7 @@ App 可以调用此函数来绑定账号，用户名，同一应用（AppKey）�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -601,7 +601,7 @@ App 可以查询用户`订阅`的 [频道](product_kb_topic_and_alias.md) 列表
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -654,7 +654,7 @@ App 可以调用此函数来获取输入 Topic 下面所有`订阅`用户的 [�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
 disableState | boolean | 结果是否排除别名状态信息
 disableAlias | boolean | 结果是否排除别名列表
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
@@ -708,7 +708,7 @@ YunBaManager.getAliasList(getApplicationContext(), "t1",
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -760,7 +760,7 @@ App 可以订阅某个频道上的用户的上、下线 及 订阅（或取消�
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 
@@ -842,7 +842,7 @@ else if(YunBaManager.PRESENCE_RECEIVED_ACTION.equals(intent.getAction())) {
 名称 | 类型 | 说明
 --------- | ------- | -----------
 context | Context | Android 应用上下文环境
-topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，topic 只支持英文数字下划线，长度不超过 50 个字符，数组的长度不超过 100
+topic | String | App 订阅的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess，失败回调 onFailure
 
 

@@ -100,8 +100,8 @@ App 可以订阅一个或者多个 Topics, 以便可以接收来自 Topic 的 Me
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道，取值范围详见 [参数说明](product_kb_param.md#topic)
+topics | String[] | app 订阅的的频道数组列表，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -140,8 +140,8 @@ App 可以取消订阅一个或者多个 Topics, 以便取消接收来自 Topic 
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
-topics | String[] | app 订阅的的频道数组列表，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道，取值范围详见 [参数说明](product_kb_param.md#topic)
+topics | String[] | app 订阅的的频道数组列表，取值范围详见 [参数说明](product_kb_param.md#topic)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -181,7 +181,7 @@ App 可以向 Topic 发送消息, 那么任何订阅此 Topic 的 Client 都会�
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道，取值范围详见 [参数说明](product_kb_param.md#topic)
 message | String | 向目标 topic 的订阅者发布的消息
 opts | Map | 向目标 topic 的订阅者发布的消息的选项：如消息有效时间，目标平台等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
@@ -222,7 +222,7 @@ mqttAsyncClient.publish(topic, msg, new IMqttActionListener() {
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias| String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias| String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 message | String | 向目标别名的订阅者发布的消息
 opts | Map | 向目标别名的订阅者发布的消息的选项：如消息有效时间，目标平台等等
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
@@ -291,7 +291,7 @@ App  可以调用此函数来绑定账号，用户名，每个用户只能指定
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -373,7 +373,7 @@ App 可以查询用户订阅的频道列表，如果不传入参数 alias， 则
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 ### Code Example
@@ -421,7 +421,7 @@ App  可以调用此函数来获取订阅输入 Topic 下面所有的用户的�
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | app 订阅的的频道，topic 只支持英文数字下划线，长度不超过50个字符,数组的长度不超过100
+topic | String | app 订阅的的频道，取值范围详见 [参数说明](product_kb_param.md#topic)
 disableState | boolean | 结果是否排除别名状态信息
 disableAlias | boolean | 结果是否排除别名列表
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
@@ -473,7 +473,7 @@ mqttAsyncClient.getAliasList("t1",
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过50个字符
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)
 mqttAction | IMqttActionListener | 成功会回调 onSuccess， 失败回调 onFailure
 
 

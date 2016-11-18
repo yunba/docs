@@ -6,7 +6,7 @@
 ### 功能
 用 [AppKey](product_kb_app_key.md) 获取注册信息。使用该函数时，每次用户都会获得新的注册信息，包括 Client ID、Username、Password 和 Device ID。
 
-###函数原型
+### 函数原型
 `int MQTTClient_setup_with_appkey(char* appkey, REG_info *info)`
 
 ### 参数说明
@@ -65,7 +65,7 @@ printf("Get reg info: client_id:%s,username:%s,password:%s, devide_id:%s\n", my_
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient| 客户端句柄。
-topic | char* | App 订阅的频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | App 订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 qos | enum | 参看 MQTTClient.h 定义。
 
 ### 返回值
@@ -88,7 +88,7 @@ rc = MQTTSubscribe(client, "rocket", QOS1);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | Client* | 客户端句柄。
-topic | const char* | App 取消订阅的频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | const char* | App 取消订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): SUCCESS 说明操作成功。详细请查看 MQTTClient.h 中定义的返回码。
@@ -136,7 +136,7 @@ rc = MQTTPublish(&c, topic, &M);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | Client* | 客户端句柄。
-alias | char* | 目标别名。
+alias | char* | 目标别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 payload | void* | 消息指针。
 payloadlen | int | 消息内容的长度。
 
@@ -162,7 +162,7 @@ rc = MQTTPublishToAlias(&c, "alias", "test", strlen("test"));
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-alias  | char* | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
+alias  | char* | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 ### 返回值
 * (int): SUCCESS 说明操作成功。详细请查看 MQTTClient.h 中定义的返回码。
@@ -236,7 +236,7 @@ int ret = MQTTGetStatus(client, "000000018302");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | Client* | 客户端句柄。
-parameter | char* | 目标频道。
+parameter | char* | 目标频道。[参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): SUCCESS 说明操作成功。详细请查看 MQTTClient.h 中定义的返回码。
@@ -260,7 +260,7 @@ int ret = MQTTGetAliasList(client, "rocket");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | Client* | 客户端句柄。
-parameter | char* | 目标用户的别名。
+parameter | char* | 目标用户的别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 ### 返回值
 * (int): SUCCESS 说明操作成功。详细请查看 MQTTClient.h 中定义的返回码。

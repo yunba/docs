@@ -105,7 +105,7 @@ socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'1183365220348649
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | String | App 订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 messageId|String| 参数可选。指定的 Message ID。与 `suback` 回应中的 messageId 相对应。
 
 
@@ -142,7 +142,7 @@ socketIO.emit('unsubscribe', {'topic': 'testtopic1', 'messageId':'11833652203486
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | 取消订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | String | 取消订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 messageId|String| 参数可选。指定的 Message ID。与 `unsuback` 回应中的 messageId 相对应。
 
 ## unsuback
@@ -177,7 +177,7 @@ socketIO.emit('publish', {'topic': 'channel1', 'msg': 'hello, Yunba', 'qos': 1})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | App 订阅的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | String | App 订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 msg | String | 发布的内容。
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 
@@ -214,7 +214,7 @@ socketIO.emit('set_alias', {'alias': 'mytestalias1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
+alias | String | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 
 ## set_alias_ack
@@ -275,7 +275,7 @@ socketIO.emit('publish_to_alias', {'alias': 'mytestalias1', 'msg': "hello to ali
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias| String | 目标别名。只支持英文数字下划线，长度不超过 50 个字符。
+alias| String | 目标别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 msg | String | 向目标别名发布的消息。
 
 ## get_alias_list
@@ -292,7 +292,7 @@ socketIO.emit('get_alias_list', {'topic': 'testtopic1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | 目标频道。
+topic | String | 目标频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ## get_alias_list_ack
 `get_alias_list()`的回调。
@@ -329,7 +329,7 @@ socketIO.emit('get_topic_list', {'alias': 'mytestalias1'})
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
+alias | String | 目标别名，取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 ## get_topic_list_ack
 
@@ -377,7 +377,7 @@ socketIO.emit('publish2', {
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-topic | String | 目标频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | String | 目标频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 msg | String | 向订阅者发布的消息。
 opts | Dict | 可选项。参考`publish2()`[扩展参数](#扩展参数说明)。
 
@@ -407,7 +407,7 @@ socketIO.emit('publish2_to_alias', {'alias': 'alias_mqttc_sub', 'msg': "hello to
 
 名称 | 类型 | 说明
 --------- | ------- | -----------
-alias | String | 目标别名。只支持英文数字下划线，长度不超过 50 个字符。
+alias | String | 目标别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 msg | String | 向别名发布的消息。
 opts | Dict | 可选项。参考`publish2_to_alias`[扩展参数](#扩展参数说明)。
 

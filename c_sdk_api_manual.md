@@ -105,7 +105,7 @@ int res = MQTTClient_get_host(appkey, url);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient| 客户端句柄。
-topic | char* | App 订阅的频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | App 订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。
@@ -127,7 +127,7 @@ rc = MQTTClient_subscribe(client, "rocket");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | App 取消订阅的频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | App 取消订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。
@@ -151,7 +151,7 @@ rc = MQTTClient_unsubscribe(client, "rocket");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | 目标用户所在的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | 目标用户所在的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。
@@ -175,7 +175,7 @@ rc = MQTTClient_presence(client, "rocket");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | App 希望取消订阅的对象所在的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | App 希望取消订阅的对象所在的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。
@@ -197,7 +197,7 @@ rc = MQTTClient_unpresence(client, "rocket");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | 订阅的主题，取值范围详见 [参数说明](product_kb_param.md#topic)。
 data_len | int | 消息内容的长度。
 data | void* | 消息指针。
 
@@ -223,7 +223,7 @@ rc = MQTTClient_publish(client, topic, data_len, buf);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | 订阅的主题，topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | 订阅的主题，取值范围详见 [参数说明](product_kb_param.md#topic)。
 payloadlen | int | payload 的长度。
 payload | void* | payload 的内容。
 opt | CJSON * | [扩展参数](#扩展参数说明)，可以带 apn_json，time_to_live 等参数。
@@ -265,7 +265,7 @@ printf("publish2 status:%i\n", ret);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-alias | char* | 目标别名。
+alias | char* | 目标别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 data_len | int | 消息内容的长度。
 data | void* | 消息指针。
 
@@ -290,7 +290,7 @@ rc = MQTTClient_publish_to_alias(client, "Hello_alias", strlen("test"), "test");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-alias | const char* | 目标别名。
+alias | const char* | 目标别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 payloadlen | int | payload 的长度。
 payload | void* | payload 内容。
 opt | CJSON * | [扩展参数](#扩展参数说明)，可以带 apn_json，time_to_live 等参数。
@@ -323,7 +323,7 @@ printf("publish2_alas status:%i\n", ret);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-topic | char* | 目标频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | char* | 目标频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 data | cJSON* | JSON 包。
 
 ### 返回值
@@ -352,7 +352,7 @@ cJSON_Delete(data);
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-alias  | char* | 用户设置的别名信息，只支持英文数字下划线，长度不超过 50 个字符。
+alias  | char* | 用户设置的别名信息，取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。
@@ -565,7 +565,7 @@ int ret = MQTTClient_get_topic(client, "000000018302");
 名称 | 类型 | 说明
 --------- | ------- | -----------
 handle | MQTTClient | 客户端句柄。
-parameter | char* | 目标用户的别名。
+parameter | char* | 目标用户的别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 
 ### 返回值
 * (int): MQTTCLIENT_SUCCESS 说明操作成功。详细请查看 [yunba.h](https://github.com/yunba/yunba-c-sdk/blob/master/src/yunba.h) 中定义的返回码。

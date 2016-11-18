@@ -43,7 +43,7 @@ if (succ) {
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 订阅的频道。topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 订阅的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 qosLevel | NSString* | 服务质量等级。具体参考 [QoS](product_kb_qos.md) 说明。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
 
@@ -72,7 +72,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 取消订阅的频道，topic 只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 取消订阅的频道，取值范围详见 [参数说明](product_kb_param.md#topic)。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
 
 ### 返回值
@@ -102,7 +102,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 发布消息的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 发布消息的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 data | NSData* | 待发布的消息。
 option | YBPublishOption* | 选项。可包含 [QoS](product_kb_qos.md) 和 retained（暂未支持）属性。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
@@ -134,7 +134,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 发布消息的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 发布消息的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 data | NSData* | 待发布的消息。
 option | YBPublish2Option* | 选项。可包含 YBApnOption 和 timeToLive 属性。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
@@ -167,7 +167,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-alias | NSString* | 目标用户的别名。只支持英文数字下划线，长度不超过 50 个字符。
+alias | NSString* | 目标用户的别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 data | NSData* | 待发布的消息。
 option | YBPublishOption* | 选项，可包含 [QoS](product_kb_qos.md) 和 retained （暂未支持）属性。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
@@ -197,7 +197,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-alias | NSString* | 目标用户的别名。只支持英文数字下划线，长度不超过 50 个字符。
+alias | NSString* | 目标用户的别名。取值范围详见 [参数说明](product_kb_param.md#alias)。
 data | NSData* | 待发布的消息。
 option | YBPublish2Option* | 选项。可包含 YBApnOption 和 timeToLive 属性。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
@@ -227,7 +227,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 订阅的目标用户所在的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 订阅的目标用户所在的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
 
 ### 返回值
@@ -255,7 +255,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | App 希望取消订阅的对象所在的频道。只支持英文数字下划线，长度不超过 50 个字符。
+topic | NSString* | App 希望取消订阅的对象所在的频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果的成功与否；通过 NSError *error 获取错误信息。
 
 ### 返回值
@@ -285,7 +285,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-topic | NSString* | 目标频道。
+topic | NSString* | 目标频道。取值范围详见 [参数说明](product_kb_param.md#topic)。
 disableState | BOOL | 结果是否排除别名状态信息。
 disableAlias | BOOL | 结果是否排除别名列表。
 arrayCountResultBlock | YBArrayCountResultBlock | API 回调接口。可通过 NSError *error 判断结果成功与否，并获取错误信息；通过 NSArray *resArray 获取别名及状态列表；通过 size_t resCount 获取别名数量。
@@ -317,7 +317,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-alias | NSString* | 目标用户的 [别名](product_kb_topic_and_alias.md) 。
+alias | NSString* | 目标用户的 [别名](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#alias)。
 arrayResultBlock | YBArrayResultBlock | API 回调接口。可通过 NSError *error 判断结果成功与否，并获取错误信息；通过 NSArray *res 获取频道列表。
 
 ### 返回值
@@ -367,7 +367,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-alias | NSString* | 目标用户的 [别名](product_kb_topic_and_alias.md) 。
+alias | NSString* | 目标用户的 [别名](product_kb_topic_and_alias.md) ，取值范围详见 [参数说明](product_kb_param.md#alias)。
 stringResultBlock | YBStringResultBlock | API 回调接口。可通过 NSError *error 判断结果成功与否，并获取错误信息。
 
 ### 返回值
@@ -395,7 +395,7 @@ None
 ### 参数说明
 名称 | 类型 | 说明
 --------- | ------- | ----
-alias | NSString* | 用户设置的别名信息。只支持英文数字下划线，长度不超过 50 个字符。
+alias | NSString* | 用户设置的别名信息。取值范围详见 [参数说明](product_kb_param.md#alias)。
 resultBlock | YBResultBlock | API 回调接口。可通过返回的 BOOL succ 判断结果成功与否；通过 NSError *error 获取错误信息。
 
 ### 返回值
