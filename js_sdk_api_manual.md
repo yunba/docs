@@ -23,6 +23,8 @@ obj.appkey | String | 参数必选。应用标识，即，用户在云巴 [Porta
 
 2. 如果想使用 SSL/TLS 方式连接，则`obj.server`请填写`https://sock.yunba.io`、`port`使用`443`。
 
+3. 免费用户可以试用 RESTful 和 Socket.IO 的加密链路，实际生产使用需要付费。
+
 ### 代码示例
 
 ```javascript

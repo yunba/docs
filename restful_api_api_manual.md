@@ -176,6 +176,13 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_asy
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
 ```
 
+## 支持 https
+
+云巴对付费用户支持 https。目前，免费用户可以试用 RESTful 和 socket.IO 的加密链路，实际生产使用需要付费。
+
+**注意，使用 SSL/TLS 方式进行连接，port 为 443；否则，port 为 3000。**
+
+
 
 ## 发送状态回复
 
