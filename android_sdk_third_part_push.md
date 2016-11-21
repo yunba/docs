@@ -6,7 +6,7 @@
 
 * **集成上述 SDK 后，云巴可以保证将消息送达小米和华为网关，但是小米和华为自身推送链路的稳定性依赖于小米和华为，我们集成第三方推送更多是作为一个保活的策略。**
 * 云巴会自动识别这两类机型，所以在使用第三方推送时不影响其它型号手机接收推送；
-* 华为使用的是透传，小米用的是通知栏，所以在小米机型上会有收到两条通知栏消息的情况；
+* 华为使用的是透传，小米用的是通知栏，所以在小米机型上会有收到两条通知栏消息的情况，**（点击[这里](https://yunba.io/docs/android_faq)了解我们为什么这么做）**；
 * 需要应用开启自启动权限。
 
 ---
@@ -75,8 +75,9 @@
 
 ### 设置 AndroidManifest.xml
 
-在[设置了云巴推送](https://yunba.io/docs2/android_sdk_quick_start)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。
+在[设置了云巴推送](https://yunba.io/docs2/android_sdk_quick_start)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。注意用户需要自行引入第三方推送的 jar 包，云巴第三方推送使用的 jar 包可以在小米和华为的官网上下载，也可以在我们的 demo 程序中的 libs 中找到。如下图所示：
 
+![androidpng_thirdpart_jar_path](https://raw.githubusercontent.com/yunba/docs/master/image/androidpng_thirdpart_jar_path.png)
 
 * 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置：
 
