@@ -1,6 +1,9 @@
 # APNs Provider API
 
-这篇文档对应 Apple 2016-03-21 更新的 [APNs Provider API](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/APNsProviderAPI.html)。
+这篇翻译对应 Apple 2016-03-21 更新的 APNs Provider API 一文。
+
+该文档于 2016-9-20 更新为：[Communicating with APNs](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW2)
+
 请以官方开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
 
 借助苹果推送通知服务的 APNs Provider API 可以向你的 iOS、tvOS、OS X、苹果手表（通过 iOS）发送远程通知。这个 API 基于 HTTP/2 网络协议。每次的数据来往都始于一个 POST 请求，带有一个 JSON 负载，由你从你的 Provider 的服务器发往 APNs。之后，APNs 会把通知发给你的某个特定用户机器的 App。
