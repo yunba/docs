@@ -2,7 +2,7 @@
 
 这篇翻译对应 Apple 2016-03-21 更新的 APNs Provider API 一文。
 
-该文档于 2016-9-20 更新为：[Communicating with APNs](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW2)
+该文档于 2016-9-20 更新为：[Communicating with APNs](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#//apple_ref/doc/uid/TP40008194-CH11-SW1)
 
 请以官方开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
 
