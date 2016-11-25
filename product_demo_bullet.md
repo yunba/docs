@@ -2,8 +2,9 @@
 
 在云巴官网的[《视频直播弹幕互动》][1]案例中，介绍了为什么云巴非常适合应用于视频直播的弹幕、点赞等场景。
 
-本文主要介绍如何用云巴来实现弹幕功能。
+本文主要介绍如何使用云巴的 JavaScript SDK 来实现弹幕功能（可参考案例的 [GitHub][5] 页）。
 
+如果你想实现 iOS 系统的视频直播 App，可参考云巴 iOS 视频直播弹幕案例的 [GitHub][9] 页。
 
 ## 第一步 注册账号
 
@@ -111,7 +112,7 @@ yunba.publish({
 
 ```
 
-更详细的代码，请参考案例的 [Github][5] 页。
+更详细的代码示例，请参考该案例的 [GitHub][5] 页，以及 iOS 视频直播 App Demo 的 [GitHub][9] 页。
 
 [1]: http://yunba.io/usercases/livevideo/
 [2]: http://yunba.io/developers/
@@ -121,4 +122,4 @@ yunba.publish({
 [6]: https://github.com/yunba/yunba-javascript-sdk
 [7]: https://github.com/yunba
 [8]: http://yunba.io
-
+[9]: https://github.com/yunbademo/yunba-live-ios-demo
