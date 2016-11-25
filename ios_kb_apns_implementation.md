@@ -11,7 +11,7 @@
 - [生成 APNs 证书](ios_kb_create_apns_certificate.md)。
 - 打开 [云巴官方网站](https://yunba.io)，点击右上角的“注册”按钮创建云巴开发者账号。
 - 在 [Portal 上创建新应用](product_kb_portal.md#如何在云巴-portal-上创建新应用)，并**上传开通了 Push Notification 功能的 iOS 开发或生产证书**。
-- 打开 [云巴开发者页面](https://yunba.io/downloads)，下载最新版本的 iOS SDK，并导入到 App 的 Xcode 工程中。
+- 打开 [云巴开发者页面](https://yunba.io/downloads/)，下载最新版本的 iOS SDK，并导入到 App 的 Xcode 工程中。
 - [生成 Provisioning Profile](ios_kb_create_provisioning_profile.md)，并导入到 Xcode 中。
 - 配置 Xcode 中的 Bundle ID 和 Code Signing。
 - 代码处理（详见 iOS SDK 中的 YunBaDemo）：

@@ -10,7 +10,7 @@
 ## 准备工作
 
 ###1. 下载云巴 JavaScript SDK
-打开 [云巴开发者页面](https://yunba.io/downloads)，下载最新版本的 JavaScript SDK。
+打开 [云巴开发者页面](https://yunba.io/downloads/)，下载最新版本的 JavaScript SDK。
 
 ###2. 注册云巴开发者账号
 打开 [云巴官方网站](https://yunba.io)，点击右上角的“注册”按钮创建账号。  

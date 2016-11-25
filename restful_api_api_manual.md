@@ -92,7 +92,7 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 * `platform`、`time_delay` 和 `location` 参数暂未实现。
 
 
-下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)。
+下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
 
 ```json
 "opts":	{

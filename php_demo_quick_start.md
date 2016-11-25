@@ -45,7 +45,7 @@ Mac 平台：
 
 安装 PHP 及 PHP 的 cURL 依赖。
 
-注意，从 PHP 4.0.2 起，只需安装 libcurl，即可在 PHP 中使用 cURL 的函数。详细说明请参考：[PHP 手册](http://php.net/manual/en/curl.requirements.php) 及 [PHP/CURL 说明](http://curl.haxx.se/libcurl/php/)。
+注意，从 PHP 4.0.2 起，只需安装 libcurl，即可在 PHP 中使用 cURL 的函数。详细说明请参考：[PHP 手册](http://php.net/manual/en/curl.requirements.php)。
 
 
 ## 详细步骤

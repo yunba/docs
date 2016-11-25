@@ -5,7 +5,7 @@
 答：
 * 需要生成 APNs 证书；
 * 在 App 注册 remoteNotification 通知，获取 Device Token，并通过[`storeDeviceToken()`](ios_sdk_api_manual.md#storedevicetoken)函数保存 Device Token 到云巴服务端；
-* 通过带有 ApnOption 的`publish2()`、`publish2ToAlias()`或者默认的`publish()`、`publishToAlias()`发送 APNs 消息，该参数设置详见云巴知识库的 [Payload](ios_kb_payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+* 通过带有 ApnOption 的`publish2()`、`publish2ToAlias()`或者默认的`publish()`、`publishToAlias()`发送 APNs 消息，该参数设置详见云巴知识库的 [Payload](ios_kb_payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
 
 >**注**：`publish2()`需要带有 ApnOption 参数才能成功发送 APNs 消息；而`publish()`会发送默认的 APNs 消息。
 
@@ -20,7 +20,7 @@
 答： 可在`publish2ToAlias()`、`publish2()`的 ApnOption 参数设置消息通知的方式。
 alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知的铃声。
 
-具体参考云巴知识库的 [Payload](ios_kb_payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)，或参考 iOS demo 中有关 ApnOption 的设置方法。
+具体参考云巴知识库的 [Payload](ios_kb_payload.md) 一文，以及 [iOS 官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)，或参考 iOS demo 中有关 ApnOption 的设置方法。
 
 ---
 <a name="4"></a>4. **如何自定义 iOS 推送的铃声？**
@@ -68,7 +68,7 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 
 答： 上传 APNs 证书；通过 YBPublish2Option 参数的 alert 设置通知栏内容、角标和声音等，具体参考 sdk 中关于[`pushlish2()`](ios_sdk_api_manual.md#publish2)的介绍，也可以下载并参考 iOS demo 中 YBPublish2Option 的设置。
 
-完整的设置方法请参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+完整的设置方法请参考 [iOS 官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
 
 ---
 <a name="10"></a>10. **使用苹果电脑来生成 APNs 证书，在双击打开证书文件（*.cer）时，遇到“不能修改“System Roots”钥匙串”的提示**

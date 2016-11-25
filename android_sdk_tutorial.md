@@ -109,7 +109,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](android_sdk_a
 **`publish()` 和 `publish2()` 的区别**
 
 `publish2()` 的参数比 `publish()` 多了 opts (JSONObject) 参数，可用于封装 
-[QoS](product_kb_qos.md) (服务质量)、[time_to_live](product_kb_offline_message.md) (离线消息保留时间)、[aps_json](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
+[QoS](product_kb_qos.md) (服务质量)、[time_to_live](product_kb_offline_message.md) (离线消息保留时间)、[aps_json](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) (设置 APNs 消息的通知方式) 。
 
 
 
@@ -139,7 +139,7 @@ YunBaManager.start API 详细说明参考 [Android SDK API 手册](android_sdk_a
 **`publishToAlias()` 和 `publish2ToAlias()` 的区别**
 
 ` publish2ToAlias ()` 的参数比 ` publishToAlias ()` 多了 opts(JSONObject) 参数，可用于封装 
-[QoS](product_kb_qos.md) (服务质量)、[time_to_live](product_kb_offline_message.md)(离线消息保留时间)、[aps_json](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) (设置 APNs 消息的通知方式) 。
+[QoS](product_kb_qos.md) (服务质量)、[time_to_live](product_kb_offline_message.md)(离线消息保留时间)、[aps_json](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) (设置 APNs 消息的通知方式) 。
 
 ## 如何停止和恢复接收消息
 
@@ -250,7 +250,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 
 ## 如何发送 APNs 消息
 
-使用 [`publish2()`](android_sdk_api_manual.md#publish2) 或 [`publish2ToAlias()`](android_sdk_api_manual.md#publish2toalias) 进行消息发送，必须设置 opts（JSONObject） 参数封装的 apn_json 参数，该参数的作用和设置方法详见 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1) 。
+使用 [`publish2()`](android_sdk_api_manual.md#publish2) 或 [`publish2ToAlias()`](android_sdk_api_manual.md#publish2toalias) 进行消息发送，必须设置 opts（JSONObject） 参数封装的 apn_json 参数，该参数的作用和设置方法详见 [iOS 官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) 。
 
 
 
@@ -289,7 +289,7 @@ qos 设置为 1 或 2，保证离线消息的送达，默认为 1；设置 time_
 	);
 ```
 
-**注：** iOS 端需 [注册 APNs 证书](ios_sdk_quick_start.md#在-portal-上传apns证书以激活apn推送功能)。APNs(Apple Push Notification Service) 消息的意义可参考 [iOS 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) 。
+**注：** iOS 端需 [注册 APNs 证书](ios_sdk_quick_start.md#在-portal-上传apns证书以激活apn推送功能)。APNs(Apple Push Notification Service) 消息的意义可参考 [iOS 官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1) 。
 
 
 ## 如何监听用户上下线

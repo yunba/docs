@@ -1,7 +1,10 @@
 # 远程通知的负载部分
 
-为了便于大家理解 APNs 的 Payload 的用法，本文翻译了 iOS 官方开发文档的 [The Remote Notification Payload](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) 章节的部分内容。
-由于专业术语的翻译可能会引起理解上的偏差，请以 iOS 官方开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
+为了便于大家理解 APNs 的 Payload 的用法，本文翻译了 iOS 官方开发文档的 The Remote Notification Payload 章节的部分内容。
+
+然而原文链接已失效，iOS 官方已经将文档更新为 [Payload Key Reference](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) 
+
+本文尚未比对哪些内容有更新，仅供参考。请以 iOS 官方最新开发文档为准。文档如有任何谬误不妥之处，欢迎指正。
 
 每个远程推送通知都带有一个负载（Payload）。其内容包括系统提醒（alert）用户的方式以及任意的自定义数据。负载大小的上限取决于你使用的 API。如果使用的是 HTTP/2 的服务提供商的 API，最多允许 4096 字节；如使用 Legacy binary interface，则最多 2048 字节。如果内容超出了这个最大值，会被 APNs 服务器拒收。
 
@@ -31,7 +34,7 @@
 | badge | number | App 图标的徽标上显示的数字。如果不带该属性，则当前徽标值不变。将该属性的值设为 0 可清除徽标。 |
 | sound | string | App bundle 或 App data container 的 Library/Sounds 文件夹内的音频文件的名称。这里的音频会在收到通知时播放。如果音频文件不存在或音频的值为 default，则会播放默认的音频。该音频必须是系统兼容的音频格式，详见 [Preparing Custom Alert Sounds](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html#//apple_ref/doc/uid/TP40008194-CH4-SW10) 章节。 |
 | content-available | number | 将该键设为 1 则表示有新的可用内容。带上这个键值，意味着你的 App 在后台启动了或恢复运行了，[application:didReceiveRemoteNotification:fetchCompletionHandler:](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/index.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:) 被调用了。 |
-| category | string | 为了定义一些自定义的动作，你需要创建 [UIMutableUserNotificationCategory](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIMutableUserNotificationCategory_class/index.html#//apple_ref/occ/cl/UIMutableUserNotificationCategory) 对象。而这个 category 的值即为该对象的 identifier 属性。参考 [Registering Your Actionable Notification Type](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW26) 章节，了解更多自定义动作的用法。|
+| category | string | 为了定义一些自定义的动作，你需要创建 [UIMutableUserNotificationCategory](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIMutableUserNotificationCategory_class/index.html#//apple_ref/occ/cl/UIMutableUserNotificationCategory) 对象。而这个 category 的值即为该对象的 identifier 属性。参考 [Configuring Categories and Actionable Notifications](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html#//apple_ref/doc/uid/TP40008194-CH4-SW26) 章节，了解更多自定义动作的用法。|
 
 表格 5-2 列出了 alert 字典的键和预期的值。
 
@@ -122,7 +125,7 @@ aps 字典也可以包含 content-available 属性。其值为 1 时，远程通
 ```
 
 ### 例 5
-本例的负载使用 category 键来指定一组通知的动作（[Registering Your Actionable Notification Types](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html#//apple_ref/doc/uid/TP40008194-CH103-SW26) 章节中有更多有关 categories 的介绍）。
+本例的负载使用 category 键来指定一组通知的动作。
 ```JSON
 {
    "aps" : {

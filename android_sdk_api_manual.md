@@ -255,7 +255,7 @@ YunBaManager.publish2(getApplicationContext(), topic, msg, opts,
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | number | 如果不填，默认为 1，参数设置请参考 [QoS](product_kb_qos.md)
-apn_json | dict | 如果不填，则不会发送 iOS 端的 APNs 消息；而`publish`会发送默认的 APNs 消息。APNs 具体可参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
+apn_json | dict | 如果不填，则不会发送 iOS 端的 APNs 消息；而`publish`会发送默认的 APNs 消息。APNs 具体可参考：[Apple 官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)
 time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时间值，单位是秒（例如 2 天 2\*24\*3600），当前默认值为 5 天
 
 
@@ -380,7 +380,7 @@ YunBaManager.publish2ToAlias(getApplicationContext(), alias, msg, opts,
 名称 | 类型 | 说明
 --------- | ------- | -----------
 qos | number | 如果不填，默认为 1 ，参数设置请参考 [QoS](product_kb_qos.md)
-apn_json | dict | 如果不填，则不会发送 iOS 端的 APNs 消息；而`publish`会发送默认的 APNs 消息。APNs 具体可参考：[Apple 官方文档](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)
+apn_json | dict | 如果不填，则不会发送 iOS 端的 APNs 消息；而`publish`会发送默认的 APNs 消息。APNs 具体可参考：[Apple 官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)
 time_to_live | number | [离线消息](product_kb_offline_message.md) 保留时间值，单位是秒（例如 2 天 2\*24\*3600），当前默认值为 5 天
 
 

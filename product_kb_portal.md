@@ -46,7 +46,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 此外，Portal 还提供了通过 Publish2 发布消息的功能。
 
 - 点击 **更多选项** 可设置 [离线消息](product_kb_offline_message.md) 保留时间（Time To Live）、[QoS](product_kb_qos.md) 值 和 Message ID（如果不填则由系统自动生成）
-- 可设置 **APN JSON** 发送 APNs 消息，发送 APNs 消息的方法具体可参考 [如何通过云巴实现 APNs 推送](ios_kb_apns_implementation.md) 和 [APNs 参数设置](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+- 可设置 **APN JSON** 发送 APNs 消息，发送 APNs 消息的方法具体可参考 [如何通过云巴实现 APNs 推送](ios_kb_apns_implementation.md) 和 [APNs 参数设置](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
 
 ![productpng_portal_publish2_to_topic.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish2_to_topic.png)
 
@@ -66,7 +66,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 类似地，也可以通过 Publish2 发布消息，带更多的参数，如下图。设置了该别名的客户端会收到消息。
 
 - 点击 **更多选项** 可设置 [离线消息](product_kb_offline_message.md) 保留时间（Time To Live）、[QoS](product_kb_qos.md) 值 和 Message ID（如果不填则由系统自动生成）
-- 可设置 **APN JSON** 发送 APNs 消息，发送 APNs 消息的方法具体可参考 [如何通过云巴实现 APNs 推送](ios_kb_apns_implementation.md) 和 [APNs 参数设置](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/TheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH107-SW1)。
+- 可设置 **APN JSON** 发送 APNs 消息，发送 APNs 消息的方法具体可参考 [如何通过云巴实现 APNs 推送](ios_kb_apns_implementation.md) 和 [APNs 参数设置](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
 
 ![productpng_portal_publish2_to_alias.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish2_to_alias.png)
 
