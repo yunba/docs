@@ -51,7 +51,7 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 <a name="6"></a>6. **iOS SDK`subscribe()`的 qosLevel 参数，和 YBPublish2Option 的 qos 这两个参数有什么区别？**
 
 答：`subscribe()`的 qos Level 限制该话题下接收到 message 的最大 qos 等级。 例如：当设置`subscribe()`的 qosLevel 为 0，则 qos 为 1 的接收消息会降级到 qos 为 0。详见 [MQTT V3.1 Protocol Specification
-]( http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#subscribe) 和 [QoS](product_kb_qos.md) 的说明。
+](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html#subscribe) 和 [QoS](product_kb_qos.md) 的说明。
 
 ---
 <a name="7"></a>7. **iOS 端怎样设置不接收任何消息？**
@@ -95,7 +95,7 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 ---
 <a name="12"></a>12. **为什么升级 iOS 后，收不到 APNs 了？**
 
-答：可能是升级后 Device Token 改变造成的。建议按照[苹果官方文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/IPhoneOSClientImp.html)的建议，每次启动应用时检查 Device Token 并发送到服务器。
+答：可能是升级后 Device Token 改变造成的。建议按照苹果官方文档的建议，每次启动应用时检查 Device Token 并发送到服务器。
 
 > **苹果官方文档**：The device token is your key to sending push notifications to your app on a specific device. Device tokens can change, so your app needs to reregister every time it is launched and pass the received token back to your server. If you fail to update the device token, remote notifications might not make their way to the user’s device. Device tokens always change when the user restores backup data to a new device or computer or reinstalls the operating system. When migrating data to a new device or computer, the user must launch your app once before remote notifications can be delivered to that device.
 
