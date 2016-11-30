@@ -53,9 +53,6 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 请求的 JSON 格式及参数说明如下。
 
 
-**其中，opts 为可选项。如果在 opts 中没有出现 apn_json 项，就不会发送 APN。**
-
-
 同样地，在使用 `publish_to_alias` 时，请用 "alias":<alias> 替换 "topic":<topic> 即可。
 
 ```json
@@ -87,9 +84,14 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 ```
 
 **参数说明：**
+
 * `time_to_live`：用来设置离线消息保留多久。单位为秒（例如，“3600”代表1小时），默认值为 5 天，最大不超过 15 天。
 * `qos`：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见云巴知识库的 [QoS](product_kb_qos.md) 篇。
 * `platform`、`time_delay` 和 `location` 参数暂未实现。
+* `opts` 为可选项。
+	- 如果不带有 opts 参数，会发送默认的 APN。
+	- 如果带有 opts 参数，且 opts 中出现了 apn_json (aps) 项，就会发送 APN。
+	- **如果带有 opts 参数，且 opts 中没有出现 apn_json (aps) 项，就不会发送 APN。**
 
 
 下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
