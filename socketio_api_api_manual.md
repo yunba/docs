@@ -104,10 +104,18 @@ sessionid | String | Session ID。
 
 增加订阅一个 [频道](product_kb_topic_and_alias.md)。成功订阅后，App 可以收到来自该频道的消息。新增订阅不会影响已有的订阅。
 
+如需订阅某频道的 [Presence](product_kb_presence.md)，只需在频道名称的字符串末尾加上`'/p'`即可。详见下方示例。
+
 ### 代码示例
 
 ```python
+# 订阅频道 testtopic1 的消息
 socketIO.emit('subscribe', {'topic': 'testtopic1', 'messageId':'11833652203486491112'})
+```
+
+```python
+# 订阅频道 testtopic1 下的 Presence 消息
+socketIO.emit('subscribe', {'topic': 'testtopic1/p', 'messageId':'11842355493944946011'})
 ```
 
 ### 参数说明
