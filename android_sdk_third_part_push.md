@@ -194,7 +194,9 @@
 ```
 ### 初始化设置
 
-要启用第三方推送，要在[初始化云巴服务](https://yunba.io/docs2/android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`，**对于小米推送，还要额外调用`YunBaManager.setXMRegister(String appid,String appkey)`**。
+要启用第三方推送，要在[初始化云巴服务](https://yunba.io/docs2/android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`。
+
+**重要：对于小米推送，还要额外调用`YunBaManager.setXMRegister(String appid, String appkey)` 详见下方代码示例。**
 
 #### 代码示例
 
@@ -202,7 +204,7 @@
 
 ```java
 YunBaManager.setThirdPartyEnable(getApplicationContext(), true);
-YunBaManager.setXMRegister("0000000000000000000","0000000000000");
+YunBaManager.setXMRegister(<your_xiaomi_appid>,<your_xiaomi_appkey>);
 YunBaManager.start(getApplicationContext());
 ```
 
