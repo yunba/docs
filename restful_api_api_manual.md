@@ -65,17 +65,12 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 
 	"opts":	{
 				"time_to_live":<number>,
-				"platform":<number>,
-				"time_delay":<number>,
-				"location":<string>,
 				"qos":<number>,
 				"apn_json":	{
 								"aps":	{
 											"alert":<string>,
 											"badge":<number>,
 											"sound":<string>,
-											"priority":<number>,
-											"expiration":<number>,
 											"content-available":<number>
 								}
 				}
@@ -87,7 +82,6 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 
 * `time_to_live`：用来设置离线消息保留多久。单位为秒（例如，“3600”代表1小时），默认值为 5 天，最大不超过 15 天。
 * `qos`：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见云巴知识库的 [QoS](product_kb_qos.md) 篇。
-* `platform`、`time_delay` 和 `location` 参数暂未实现。
 * `opts` 为可选项。
 	- 如果不带有 opts 参数，会发送默认的 APN。
 	- 如果带有 opts 参数，且 opts 中出现了 apn_json (aps) 项，就会发送 APN。
