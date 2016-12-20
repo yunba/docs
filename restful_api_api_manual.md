@@ -111,7 +111,6 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 * `publish_to_alias`
 * `publish_to_alias_batch`
 * `publish_async`
-* `publish_check`
 
 其中，`publish`、`publish_to_alias`、`publish_to_alias_batch`和`publish_async`可以带 opts 参数，带上参数后，就相当于 `publish2`、`publish2_to_alias`、`publish2_to_alias_batch`和`publish2_async`。
 
@@ -164,13 +163,6 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
 ```
 
-### `publish_check`
-
-在使用方法 `publish_async` 发布消息后，可以使用 `publish_check` 进行检查。需要注意的是，"msg"参数需填上 `publish_async` 调用后返回的 messageId 的值。
-
-```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
-```
 
 ## 支持 https
 
