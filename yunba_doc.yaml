@@ -67,6 +67,12 @@
       url: product_kb_mqtt_porting
       show: true
       release: false
+    - name: 云巴特色
+      markdown: product_kb_yunba_charitic.md
+      url: product_kb_yunba_charitic
+      show: true
+      release: false 
+      
 - name: 案例文档
   show: true
   release: true
