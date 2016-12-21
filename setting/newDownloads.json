@@ -169,7 +169,7 @@
         "githubUrl":"https://github.com/yunba/yunba-socket.io-java-sdk",
         "versionNum": "Release 1.0.0",
         "versionDetail": [
-            "初始版本"
+            "初始版本, Java sdk 目前重构的第一版的 sdk 已经开发测试，欢迎在我们的 Github 上下载"
         ]
     }],
     "revisionHistory": []
