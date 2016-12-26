@@ -89,7 +89,7 @@
 
 此外，iOS SDK 还支持 “[多证书](ios_kb_multiple_certificates.md)” 功能。用户可以点击左侧的 “添加更多证书” 的按钮，上传多个证书（暂无数量限制），从而实现对同一应用的不同版本进行推送。
 
-证书添加完成后，请点击 “更新” 按钮，保存设置。
+证书添加完成后，请点击 “提交” 按钮，保存设置。
 
 ![ios_create_new_app.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_portal_add_certificate.png)
 
