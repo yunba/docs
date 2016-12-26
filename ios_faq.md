@@ -81,12 +81,18 @@ alert 设置消息通知栏的内容；badge 设置角标；sound 设置通知�
 
 答：
 * 请确认一下是否在云巴 Portal 的该应用页面下正确地上传了 APNs 证书；
+* 确保上传到云巴的证书是和你的 App 关联的有效证书，而且需要带上证书的 RSA 密钥；
+* 确保 App 的 provisioning profile 包含这个证书和这个设备；
+* Xcode 8 及以上的版本需要在项目的 Capabilities 页面中打开 Push Notification 的按钮（如下图所示）；
 * 请确认应用是否开启了接收 APNs；
 * 请通过查看日志打印或 store Device Token 回调的返回值的方式来确认 Device Token 是否上传成功了；
 * 集成 SDK 所使用的 AppKey 是否是 Portal 中该应用的 AppKey；
 * 请确认 Xcode 里填入的 bundle id 与在 Apple Portal 上的创建的证书的 bundle id 是否一致；
 * 另外还需注意：`publish()` 或 `publish_to_alias()` 会发送默认的 APNs 通知，
 而 `publish2()` 或 `publish2_to_alias()`，则**必须在 opts 里填写 apn_json，才会发送 APNs 通知**。
+
+![iospng_xcode_capabilities_enable_push.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_xcode_capabilities_enable_push.png)
+
 
 最后，如果问题依然没有得到解决，请将您的 Appkey 用私聊或邮件（support@yunba.io）的方式发给我们，我们会尽快协助您找出原因。
 

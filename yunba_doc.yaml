@@ -7,6 +7,11 @@
       url: product_kb_whats_yunba
       show: true
       release: true
+    - name: 云巴特色
+      markdown: product_kb_yunba_charitic.md
+      url: product_kb_yunba_charitic
+      show: true
+      release: true 
     - name: 云巴快速入门教程
       markdown: product_kb_yunba_quick_start.md
       url: product_kb_yunba_quick_start
@@ -67,6 +72,8 @@
       url: product_kb_mqtt_porting
       show: true
       release: false
+
+      
 - name: 案例文档
   show: true
   release: true

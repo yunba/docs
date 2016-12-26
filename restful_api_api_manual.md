@@ -65,17 +65,12 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 
 	"opts":	{
 				"time_to_live":<number>,
-				"platform":<number>,
-				"time_delay":<number>,
-				"location":<string>,
 				"qos":<number>,
 				"apn_json":	{
 								"aps":	{
 											"alert":<string>,
 											"badge":<number>,
 											"sound":<string>,
-											"priority":<number>,
-											"expiration":<number>,
 											"content-available":<number>
 								}
 				}
@@ -87,7 +82,6 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 
 * `time_to_live`：用来设置离线消息保留多久。单位为秒（例如，“3600”代表1小时），默认值为 5 天，最大不超过 15 天。
 * `qos`：用来设置服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为 1 。详见云巴知识库的 [QoS](product_kb_qos.md) 篇。
-* `platform`、`time_delay` 和 `location` 参数暂未实现。
 * `opts` 为可选项。
 	- 如果不带有 opts 参数，会发送默认的 APN。
 	- 如果带有 opts 参数，且 opts 中出现了 apn_json (aps) 项，就会发送 APN。
@@ -117,7 +111,6 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 * `publish_to_alias`
 * `publish_to_alias_batch`
 * `publish_async`
-* `publish_check`
 
 其中，`publish`、`publish_to_alias`、`publish_to_alias_batch`和`publish_async`可以带 opts 参数，带上参数后，就相当于 `publish2`、`publish2_to_alias`、`publish2_to_alias_batch`和`publish2_async`。
 
@@ -170,13 +163,6 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
 ```
 
-### `publish_check`
-
-在使用方法 `publish_async` 发布消息后，可以使用 `publish_check` 进行检查。需要注意的是，"msg"参数需填上 `publish_async` 调用后返回的 messageId 的值。
-
-```bash
-$ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_check", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"<message-id>"}' http://rest.yunba.io:8080
-```
 
 ## 支持 https
 

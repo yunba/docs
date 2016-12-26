@@ -44,6 +44,15 @@
     "display": "none",
     "latestVersion": [{
         "versionUrl": "/docs2/ios_sdk_api_manual",
+        "downloadUrl":"https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.4.zip",
+        "githubUrl":"",
+        "versionNum": "Release 1.7.4",
+        "versionDetail": [
+            "支持通配符"
+        ]
+    }],
+    "revisionHistory": [{
+        "versionUrl": "/docs2/ios_sdk_api_manual",
         "downloadUrl":"https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.3.zip",
         "githubUrl":"",
         "versionNum": "Release 1.7.3",
@@ -52,8 +61,7 @@
             "修复demo中的显示错误",
             "修复网络状况较差时长时间connnect无返回的问题"
         ]
-    }],
-    "revisionHistory": [{
+    },{
         "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/iOS/YunBa-iOS-sdk-1.7.1.zip",
         "downloadUrl":"",
         "versionNum": "Release 1.7.1",
@@ -169,7 +177,7 @@
         "githubUrl":"https://github.com/yunba/yunba-socket.io-java-sdk",
         "versionNum": "Release 1.0.0",
         "versionDetail": [
-            "初始版本"
+            "初始版本, Java sdk 目前重构的第一版的 sdk 已经开发测试，欢迎在我们的 Github 上下载"
         ]
     }],
     "revisionHistory": []
