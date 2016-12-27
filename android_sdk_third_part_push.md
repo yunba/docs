@@ -1,5 +1,26 @@
 # 第三方推送集成指南
 
+> 2016.12.27 更新: 小米、华为推送现统一使用在通知栏弹出通知的方式，类似 APNs 的做法，无需设置应用自启动，通知会强制弹出来。目前 RESTful 的已经上线，做法如下。
+- RESTful 的`publish`、`publish_to_alias`、`publish_to_alias_batch`的`opts`参数中增加了`third_party_push`字段。如果携带该字段，就会发送小米通知、华为通知，否则就不会发。参考下方示例。
+- 通知的标题由`notification_title`字段指定，内容由 `notification_content`字段指定。
+- 发布消息时，如果应用被杀或在后台，都会弹出这条通知；如果应用在前台，小米手机不会弹出这个通知，华为则一直会弹出。
+
+```json
+{
+	"method":<method>, 
+	"appkey":<app-key>, 
+	"seckey":<secret-key>, 
+	"topic":<topic>, 
+	"msg":<message>,
+	"opts":{
+				"third_party_push": {
+					"notification_title":"通知的标题",
+					"notification_content":"通知的内容"
+           } 
+	}
+}
+```
+
 > 2016.12.16 更新: 
 小米推送目前采用下面的推送方案，这个方案以后会继续兼容。下一个版本会针对小米推送提供接口参数，请持续关注。
 - 小米推送只能通过 publish2 的 APNs 的 alert 字段来发（对于 RESTful API，即为携带 opts 且 APNs 的 alert 字段不为空的 publish）；
