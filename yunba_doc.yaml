@@ -57,6 +57,11 @@
       url: product_kb_offline_message
       show: true
       release: true
+    - name: 权限管理
+      markdown: product_kb_access_manager.md
+      url: product_kb_access_manager
+      show: true
+      release: true      
     - name: QoS
       markdown: product_kb_qos.md
       url: product_kb_qos
