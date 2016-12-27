@@ -10,6 +10,8 @@ QoS，全称为 Quality of Service，即服务质量。在 MQTT 协议中，QoS 
 * “QoS = 1”: At least once. Acknowledged delivery. （保证至少送达一次。）
 * “QoS = 2”: Exactly once. Assured delivery. （保证送达，且仅送达一次。）
 
+> **最佳实践：近期，云巴 QoS 2 的逻辑正在优化中，建议使用 QoS 1，可以考虑在客户端层面进行去重处理。**
+
 ## 不同 QoS 等级下的消息流
 
 ### QoS = 0
@@ -34,7 +36,7 @@ QoS 为 1 时，消息会带 Message ID。
 |客户端|消息以及消息流向|服务器|
 |:----:|:----:|:----:|
 | QoS = 0<br>DUP = 0<br>Message ID = x| -- PUBLISH --> | 存储消息<br>向订阅者发布消息<br>删除消息 |
-|丢弃消息| <-- PUBACK -- | |
+|丢弃消息| <-- PUBACK -- | - |
 
 ### QoS = 2
 QoS 2 级是 QoS 1 级的升级版，也是消息传输的最高等级。
