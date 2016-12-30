@@ -57,11 +57,11 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
 - method：yam_grant
 - 字段含义和返回值说明参见文末
 
-例如，下面的请求，会将 AppKey 为 `58072d1fd69873332db470a6` 的 App 的所有 Topic 都设置为可读可写，持续 100 秒。相当于暂时废除了权限管理。
+例如，下面的请求，会将 AppKey 为 `567a4a754407a3cd028aaf6b` 的 App 的所有 Topic 都设置为可读可写，持续 100 秒。相当于暂时废除了权限管理。
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_grant",
     "r":1,
@@ -69,6 +69,15 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
     "ttl":100
 }
 ```
+
+请求成功会返回 0，错误返回值参见文末。
+
+```json
+{
+    "status":0,
+}
+```
+
 ### 查看权限
 
 - 所需字段：`appkey`、`seckey`、`method`
@@ -81,13 +90,13 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
 }
 ```
 
-返回内容：
+请求成功会返回 0，错误返回值参见文末。
 
 ```json
 {
@@ -108,11 +117,11 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
 - method：yam_grant
 - 字段含义和返回值说明参见文末
 
-例如，下面的请求会将 Appkey 为 `58072d1fd69873332db470a6` 的 App 下的 `news` 频道设置为所有人可读。但并不是所有人可写。
+例如，下面的请求会将 Appkey 为 `567a4a754407a3cd028aaf6b` 的 App 下的 `news` 频道设置为所有人可读。但并不是所有人可写。
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_grant",
     "topic":"news",
@@ -121,6 +130,14 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
     "ttl":100
 }
 ```
+请求成功会返回 0，错误返回值参见文末。
+
+```json
+{
+    "status":0,
+}
+```
+
 ### 查看权限
 
 - 所需字段：`appkey`、`seckey`、`method`、`topic`
@@ -133,14 +150,14 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method": "yam_audit",
     "topic":  "news",
 }
 ```
 
-返回内容：
+请求成功会返回 0，错误返回值参见文末。
 
 ```json
 {
@@ -168,7 +185,7 @@ Token 用来控制指定 Topic 的读写权限。
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_grant",
     "topic":"news",
@@ -179,7 +196,7 @@ Token 用来控制指定 Topic 的读写权限。
 }
 ```
 
-上述请求会将返回一个 Token，该 Token 可以在 AppKey 为 `58072d1fd69873332db470a6` 的 App 下对名为 news 的 Topic 进行读操作。成功时返回如下：
+上述请求会将返回一个 Token，该 Token 可以在 AppKey 为 `567a4a754407a3cd028aaf6b` 的 App 下对名为 news 的 Topic 进行读操作。成功时返回如下：
 
 ```json
 {
@@ -215,7 +232,7 @@ Token 用来控制指定 Topic 的读写权限。
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_grant",
     "topic":"another_topic",
@@ -226,6 +243,13 @@ Token 用来控制指定 Topic 的读写权限。
 }
 ```
 
+请求成功会返回 0，错误返回值参见文末。
+
+```json
+{
+    "status":0,
+}
+```
 ### 查看权限
 
 - 所需字段：`appkey`、`seckey`、`method`、`topic`、`token`
@@ -238,7 +262,7 @@ Token 用来控制指定 Topic 的读写权限。
 
 ```json
 {
-    "appkey": "58072d1fd69873332db470a6",
+    "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
     "topic":"news",
