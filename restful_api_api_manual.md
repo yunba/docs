@@ -73,7 +73,11 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 											"sound":<string>,
 											"content-available":<number>
 								}
-				}
+				},
+				"third_party_push": {
+								"notification_title":"你好", 
+								"notification_content":"云巴推送"
+								}
 	}
 }
 ```
@@ -86,6 +90,7 @@ $curl  --request GET "http://rest.yunba.io:8080?method=publish&appkey=567a4a7544
 	- 如果不带有 opts 参数，会发送默认的 APN。
 	- 如果带有 opts 参数，且 opts 中出现了 apn_json (aps) 项，就会发送 APN。
 	- **如果带有 opts 参数，且 opts 中没有出现 apn_json (aps) 项，就不会发送 APN。**
+	- **如果不带 opts 或 opts 中没有 third_party_push 项，就不会发送小米／华为推送。**
 
 
 下面是一个带有 `apn_json` 的 `opts` 参数示例，详细的参数说明请参考 [APNs 的官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1)。
