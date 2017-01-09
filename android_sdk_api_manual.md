@@ -870,6 +870,32 @@ YunBaManager.unsubscribePresence(getApplicationContext(), "t1",
     }
 );
 ```
+## report
 
+### 功能
+
+上报统计信息给云巴后台，用户可以自定义 action，调用这个 API 后，云巴后台会记录相应的 action 被触发的次数。开发者可以在后台查询（注：暂未开放查询）
+
+
+### 函数原型
+
+`public static void report(Context context, String action, String data)`
+
+
+### 参数说明
+
+名称 | 类型 | 说明
+--------- | ------- | -----------
+context | Context | Android 应用上下文环境
+action | String | 上报的操作
+data | String | 进行操作的 topic
+
+
+### Code Example
+
+```java
+
+YunBaManager.report(context, action, data);
+```
 
 
