@@ -1,51 +1,37 @@
 # 第三方推送集成指南
 
-> 2016.12.27 更新: 小米、华为推送现统一使用在通知栏弹出通知的方式，类似 APNs 的做法。用户无需设置应用自启动，通知会强制弹出。目前 RESTful 的已经上线，做法如下。其他 SDK 还未上线。
-- RESTful 的`publish`、`publish_to_alias`、`publish_to_alias_batch`的`opts`参数中增加了`third_party_push`字段。如果携带该字段，就会发送小米通知、华为通知，否则就不会发。参考下方示例。
-- 通知的标题由`notification_title`字段指定，内容由 `notification_content`字段指定。
-- 发布消息时，如果应用被杀或在后台，都会弹出这条通知；如果应用在前台，小米手机不会弹出这个通知，华为则一直会弹出。
-
-```json
-{
-	"method":<method>, 
-	"appkey":<app-key>, 
-	"seckey":<secret-key>, 
-	"topic":<topic>, 
-	"msg":<message>,
-	"opts":{
-				"third_party_push": {
-					"notification_title":"通知的标题",
-					"notification_content":"通知的内容"
-           } 
-	}
-}
-```
-
-> 2016.12.16 更新: 
-小米推送目前采用下面的推送方案，这个方案以后会继续兼容。下一个版本会针对小米推送提供接口参数，请持续关注。
-- 小米推送只能通过 publish2 的 APNs 的 alert 字段来发（对于 RESTful API，即为携带 opts 且 APNs 的 alert 字段不为空的 publish）；
-- 如果不用 publish2，或者使用不带 alert 字段的 publish2，则不会发小米的第三方推送；
-- 通知的标题栏会显示“新消息”三个字，而内容就是 alert 字段的内容；
-
-
 ---
-[云巴](https://yunba.io/) Android SDK 从 v1.8.0 起支持小米、华为推送，通过在这两款机型上发通知的方式，实现杀掉 App 也收到推送的效果。
+[云巴](https://yunba.io/) Android SDK 从 v1.8.0 起支持小米、华为推送，通过向这两类手机发通知的方式，实现杀掉 App 也能收到推送的效果。
 
-注意：
+用户无需设置“应用自启动”，第三方推送通道的通知会强制弹出。
 
-* **集成上述 SDK 后，云巴可以保证将消息送达小米和华为网关，但是小米和华为自身推送链路的稳定性依赖于小米和华为，我们集成第三方推送更多目的是弹出通知，引导用户打开应用。**
+App 被杀的情况下，收到第三方推送通道的通知并不会将 App 唤醒，这个通知栏消息的作用仅仅是引导用户进行点击。当用户点击后，才会打开 App。
+
+
+开发者按照本指南进行集成，并在推送时带上第三方推送的专用字段`thrid_party_push`，即可实现如下效果（在小米、华为自身推送链路正常的状态下）：
+
+| | 第三方推送通道的通知  | 云巴通道的消息 |
+|:-----|:-----|:-----|
+| App 在前台 | 小米手机不会弹出，华为会弹出 | 可以收到，应用开发者可以选择是否弹出通知|
+| App 在后台 | 小米、华为都会弹出 | 可以收到，应用开发者可以选择是否弹出通知|
+| App 被杀  | 小米、华为都会弹出 | 收不到 |
+
+
+**注意：**
+* **云巴可以保证将消息送达小米和华为网关，但是小米和华为自身推送链路的稳定性依赖于小米和华为（我们测试时发现，在华为手机上有时会收不到这条通知）；**
 * 云巴会自动识别这两类机型，所以在使用第三方推送时不影响其它型号手机接收推送；
-* **华为使用的是透传，小米用的是通知栏，所以在小米机型上会有收到两条通知栏消息的情况，原因可以参考 Android FAQ 的问题 [7](https://yunba.io/docs/android_faq#7) 和 [9](https://yunba.io/docs/android_faq#9)**；
-* 不需要应用开启自启动权限。
+* 不需要打开“应用自启动”权限；
+* **应用未被杀的情况下，可以收到“云巴通道的消息”。如果应用开发者选择弹出通知，那么加上“第三方推送通道的通知”，就可能会出现两条通知栏的现象，参见上方表格以及 [FAQ](android_faq#9)**；
 
 ---
 
-第三方推送的集成包含四个步骤：
+第三方推送的集成和使用包含五个步骤：
 
 * 创建第三方应用
 * 在云巴 Portal 上设置第三方推送
 * 云巴服务接入
 * 第三方推送开发设置
+* 使用特殊字段进行推送
 
 下面依次介绍：
 
@@ -221,9 +207,10 @@
         android:value="\u0032\u0037\u0030\u0035" />
 </receiver>
 ```
+
 ### 初始化设置
 
-要启用第三方推送，要在[初始化云巴服务](https://yunba.io/docs2/android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`。
+要启用第三方推送，要在[初始化云巴服务](android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`。
 
 **重要：对于小米推送，还要额外调用`YunBaManager.setXMRegister(String appid, String appkey)` 详见下方代码示例。**
 
@@ -247,6 +234,31 @@ YunBaManager.start(getApplicationContext());
 
 完成以上设置后，就可以连接小米、华为设备进行运行测试了。
 
+
+## 5、使用特殊字段进行推送
+
+在完成上述的集成步骤后，用户还需要在推送时使用指定的字段。
+目前只支持通过 RESTful 发送第三方推送，做法如下，详见 [RESTful 文档](restful_api_api_manual)。其他 SDK 还未上线。
+
+- 我们在 RESTful 的`publish`、`publish_to_alias`、`publish_to_alias_batch`的`opts`参数中增加了`third_party_push`字段。如果推送时携带该字段，就会发送小米通知、华为通知，否则就不会发。参考下方示例（再次重申，带上该字段就会发通知，但是客户端否能收到通知，还要依赖小米、华为自身的推送链路）。
+- 通知的标题由`notification_title`字段指定，内容由 `notification_content`字段指定。
+- 发布消息时，如果应用被杀或在后台，都会弹出这条通知；如果应用在前台，小米手机不会弹出这个通知，华为则一直会弹出。
+
+```json
+{
+    "method":<method>, 
+    "appkey":<app-key>, 
+    "seckey":<secret-key>, 
+    "topic":<topic>, 
+    "msg":<message>,
+    "opts":{
+                "third_party_push": {
+                    "notification_title":"通知的标题",
+                    "notification_content":"通知的内容"
+           } 
+    }
+}
+```
 
 ## 备注：权限列表
 
