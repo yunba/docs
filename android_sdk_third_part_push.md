@@ -1,6 +1,5 @@
 # 第三方推送集成指南
 
----
 [云巴](https://yunba.io/) Android SDK 从 v1.8.0 起支持小米、华为推送，通过向这两类手机发通知的方式，实现杀掉 App 也能收到推送的效果。
 
 用户无需设置“应用自启动”，第三方推送通道的通知会强制弹出。
@@ -21,7 +20,7 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 * **云巴可以保证将消息送达小米和华为网关，但是小米和华为自身推送链路的稳定性依赖于小米和华为（我们测试时发现，在华为手机上有时会收不到这条通知）；**
 * 云巴会自动识别这两类机型，所以在使用第三方推送时不影响其它型号手机接收推送；
 * 不需要打开“应用自启动”权限；
-* **应用未被杀的情况下，可以收到“云巴通道的消息”。如果应用开发者选择弹出通知，那么加上“第三方推送通道的通知”，就可能会出现两条通知栏的现象，参见上方表格以及 [FAQ](android_faq#9)**；
+* **应用未被杀的情况下，可以收到“云巴通道的消息”。如果应用开发者选择弹出通知，那么加上“第三方推送通道的通知”，就可能会出现两条通知栏的现象，参见上方表格以及 [FAQ 问题 9](android_faq.md#9)**；
 
 ---
 
@@ -84,13 +83,13 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 ## 3、云巴服务接入
 
-请参考我们的[快速接入文档](https://yunba.io/docs2/android_sdk_quick_start)快速设置接入云巴服务；如果你已经接入云巴服务，可以直接开始在云巴中集成小米和华为推送。
+请参考我们的[快速接入文档](android_sdk_quick_start.md)快速设置接入云巴服务；如果你已经接入云巴服务，可以直接开始在云巴中集成小米和华为推送。
 
 ## 4、第三方推送开发设置
 
 ### 设置 AndroidManifest.xml
 
-在[设置了云巴推送](https://yunba.io/docs2/android_sdk_quick_start)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。注意用户需要自行引入第三方推送的 jar 包，云巴第三方推送使用的 jar 包可以在小米和华为的官网上下载，也可以在我们的 demo 程序中的 libs 中找到。如下图所示：
+在[设置了云巴推送](android_sdk_quick_start.md)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。注意用户需要自行引入第三方推送的 jar 包，云巴第三方推送使用的 jar 包可以在小米和华为的官网上下载，也可以在我们的 demo 程序中的 libs 中找到。如下图所示：
 
 ![androidpng_thirdpart_jar_path](https://raw.githubusercontent.com/yunba/docs/master/image/androidpng_thirdpart_jar_path.png)
 
@@ -210,7 +209,7 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 ### 初始化设置
 
-要启用第三方推送，要在[初始化云巴服务](android_sdk_api_manual#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`。
+要启用第三方推送，要在[初始化云巴服务](android_sdk_api_manual.md#start)**之前**调用这个 API：`YunBaManager.setThirdPartyEnable(getApplicationContext(), true)`。
 
 **重要：对于小米推送，还要额外调用`YunBaManager.setXMRegister(String appid, String appkey)` 详见下方代码示例。**
 
@@ -238,7 +237,7 @@ YunBaManager.start(getApplicationContext());
 ## 5、使用特殊字段进行推送
 
 在完成上述的集成步骤后，用户还需要在推送时使用指定的字段。
-目前只支持通过 RESTful 发送第三方推送，做法如下，详见 [RESTful 文档](restful_api_api_manual)。其他 SDK 还未上线。
+目前只支持通过 RESTful 发送第三方推送，做法如下，详见 [RESTful 文档](restful_api_api_manual.md)。其他 SDK 还未上线。
 
 - 我们在 RESTful 的`publish`、`publish_to_alias`、`publish_to_alias_batch`的`opts`参数中增加了`third_party_push`字段。如果推送时携带该字段，就会发送小米通知、华为通知，否则就不会发。参考下方示例（再次重申，带上该字段就会发通知，但是客户端否能收到通知，还要依赖小米、华为自身的推送链路）。
 - 通知的标题由`notification_title`字段指定，内容由 `notification_content`字段指定。
@@ -262,7 +261,7 @@ YunBaManager.start(getApplicationContext());
 
 ## 备注：权限列表
 
-* 这里是云巴需要的其他权限，可以在[快速接入云巴服务](https://yunba.io/docs2/android_sdk_quick_start)中找到，供对照：
+* 这里是云巴需要的其他权限，可以在[快速接入云巴服务](android_sdk_quick_start.md)中找到，供对照：
 
 ```xml
    <uses-permission android:name="android.permission.INTERNET" />
