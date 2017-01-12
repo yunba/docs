@@ -86,7 +86,7 @@ Portal，即 “门户”。云巴的 Portal 是用户应用的管理入口，�
 
 ## 云巴 Portal 的发布上报统计
 productpng_portal_publish_statistic.png
-![report.png](https://raw.githubusercontent.com/yunba/docs/master/image/)
+![report.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_publish_statistic.png)
 
 如图所示，可查看该应用（[AppKey](product_kb_app_key.md)） 下的消息发布和送达情况。
 
