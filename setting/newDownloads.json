@@ -16,7 +16,7 @@
         "githubUrl":"",
         "versionNum": "Release 1.8.0-beta",
         "versionDetail": [
-            "支持小米推送、华为推送"
+            "支持华为等厂商推送"
         ]
     }, {
         "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.6.4.zip",
