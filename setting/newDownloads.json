@@ -3,14 +3,22 @@
     "display": "block",
     "latestVersion": [{
         "versionUrl": "/docs2/android_sdk_api_manual",
-        "downloadUrl":"https://github.com/yunba/yunba-sdk-releases/raw/master/Android/YunBa-Android-sdk-1.8.4.zip",
+        "downloadUrl":"https://github.com/yunba/yunba-sdk-releases/raw/master/Android/YunBa-Android-sdk-1.8.5.zip",
         "githubUrl":"",
+        "versionNum": "Release 1.8.5",
+        "versionDetail": [
+            ""
+        ]
+    }],
+    "revisionHistory": [
+        {
+        "versionUrl": "https://raw.githubusercontent.com/yunba/yunba-sdk-releases/master/Android/YunBa-Android-sdk-1.8.4.zip",
+        "downloadUrl":"",
         "versionNum": "Release 1.8.4",
         "versionDetail": [
             "支持通配符"
         ]
-    }],
-    "revisionHistory": [{
+    },         {
         "versionUrl": "/docs2/android_sdk_api_manual",
         "downloadUrl":"https://github.com/yunba/yunba-sdk-releases/raw/master/Android/YunBa-Android-sdk-1.8.0-beta.zip",
         "githubUrl":"",
