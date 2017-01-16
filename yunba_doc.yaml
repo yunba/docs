@@ -88,7 +88,17 @@
       url: product_demo_bullet
       show: true
       release: true
-
+      
+- name: 云巴产品计费规则
+  show: true
+  release: true
+  docs: 
+    - name: 云巴产品计费规则
+      markdown: product_kb_pricing_details.md
+      url: product_kb_pricing_details
+      show: true
+      release: true
+      
 - name: 云巴实时通信最佳实践
   markdown: product_best_practice.md
   url: product_best_practice 
