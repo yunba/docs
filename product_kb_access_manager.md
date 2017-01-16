@@ -205,7 +205,7 @@ Token 用来控制指定 Topic 的读写权限。
 
 格式如下：
 
-`,yam` + <your-token> + `_` + <your-topic>`
+`,yam` + `<your-token>` + `_` + `<your-topic>`
 
 例如，名为 news 的`topic`，携带`token`为`OKHIKNNH1250skadfKDJFE`进行读写，则：
 
