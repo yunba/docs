@@ -11,10 +11,11 @@
 
 云巴的权限管理采用了白名单模式。**开启权限管理功能后（目前还不支持在 Portal 进行开关），用户客户端的所有的订阅（读）、发布（写）操作都默认被禁止，只有被用户的服务器授权才能进行操作。**
 
-我们提供了如下三个层级的权限管理，通过 RESTful 请求的方式进行使用。
+我们提供了如下四个层级的权限管理，通过 RESTful 请求的方式进行使用。
 - App 层级
 - Topic 层级
 - Token 层级
+- UID 层级
 
 所控制的权限包括：
 - 读权限 "r"，即 `subscribe`、`unsubscribe`
@@ -205,7 +206,7 @@ Token 用来控制指定 Topic 的读写权限。
 
 格式如下：
 
-`,yam` + `<your-token>` + `_` + `<your-topic>`
+`,yam` + <your-token> + `_` + <your-topic>`
 
 例如，名为 news 的`topic`，携带`token`为`OKHIKNNH1250skadfKDJFE`进行读写，则：
 
@@ -275,6 +276,67 @@ Token 用来控制指定 Topic 的读写权限。
 }
 ```
 
+## UID 层级
+
+### 申请权限
+
+UID 层级的权限控制可以管理某个客户端对某个客户端的订阅和发布权限。
+**注意：我们推荐使用 Token 层级的权限控制。请在不得不使用 UID 层级权限控制的情况下，再进行使用。**
+
+- 所需字段：`appkey`、`seckey`、`method`、`topic`、`uid`、`r`、`w`、`ttl`
+- method：yam_grant
+- 字段含义和返回值说明参见文末
+
+例如，下面的请求，会为`uid` 为 `2865426748170763392` 的这个客户端新增 `the_other_topic` 这个 Topic 的读权限。
+
+```json
+{
+    "appkey": "567a4a754407a3cd028aaf6b",
+    "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
+    "method":"yam_grant",
+    "topic":"the_other_topic",
+    "uid":"2865426748170763392",
+    "r":1,
+    "w":0,
+    "ttl":100
+}
+```
+请求成功会返回 0，错误返回值参见文末。
+
+```json
+{
+    "status":0,
+}
+```
+### 查看权限
+
+- 所需字段：`appkey`、`seckey`、`method`、`topic`、`uid`
+- method: yam_audit
+- 字段含义和返回值说明参见文末
+
+通过这个`yam_audit`方法，可以获取某个 `uid` 对某个 Topic 所具有的读写权限情况。
+
+例如：
+
+```json
+{
+    "appkey": "567a4a754407a3cd028aaf6b",
+    "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
+    "method":"yam_audit",
+    "topic":"news",
+    "uid":"2865426748170763392",
+}
+```
+
+返回内容：
+
+```json
+{
+    "status": 0,
+    "r" :1,
+    "w" :0
+}
+```
 ---
 
 - **字段含义**
