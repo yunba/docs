@@ -5,7 +5,7 @@
 
 <a name="1"></a>1. **云巴是如何收费的？**
 
-答： 请发邮件到：support@yunba.io 咨询。
+答： 请参考 [价格页面](https://yunba.io/pricing/)、[定价规则](product_kb_pricing_details.md)，以及相关 [Blog](http://blog.yunba.io/yun-ba-yunba-io-xin-jie-ge-fang-an-ji-jiang-shang-xian/)。
 
 ---
 <a name="2"></a>2. <a name=""></a>. **免费版每秒 20 条信息，超出后会怎样？**
@@ -163,11 +163,6 @@ this.publish(app.chatroomTopic, data);
 <a name=31></a>31. **发布的消息可以撤回吗？**
 
 答： 目前不支持撤回。
-
----
-<a name=32></a>32. **是否保证消息按顺序送达？**
-
-答： 不保证。
 
 ---
 <a name=33></a>33. **发布消息前必须先订阅频道吗？**
