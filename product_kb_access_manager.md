@@ -15,12 +15,12 @@
 - App 层级
 - Topic 层级
 - Token 层级
-- UID 层级
+- Alias 层级
 
 所控制的权限包括：
-- 读权限 "r"，即 `subscribe`、`unsubscribe`
-- 写权限 "w"，包括 `publish`、`publish_to_alias`、`publish2`、`publish2_to_alias`、`setAlias`
-
+- (必选)读权限 "r"，即 `subscribe`、`unsubscribe`
+- (必选)写权限 "w"，包括 `publish`、`publish_to_alias`、`publish2`、`publish2_to_alias`、`setAlias`
+- (可选)读权限 "p"，即、`subscribe_presence`、`unsubscribe_presence`
 
 ![productpng_access_manager_process.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_access_manager_process.png)
 
@@ -273,29 +273,30 @@ Token 用来控制指定 Topic 的读写权限。
 	"status": 0,
 	"r" :1,
 	"w" :0
+	"p" :0
 }
 ```
 
-## UID 层级
+## Alias 层级
 
 ### 申请权限
 
-UID 层级的权限控制可以管理某个客户端对某个客户端的订阅和发布权限。
-**注意：我们推荐使用 Token 层级的权限控制。请在不得不使用 UID 层级权限控制的情况下，再进行使用。**
+Alias 层级的权限控制可以管理某个别名的读写权限，即是否允许设置为某别名、是否允许对某别名发消息。
 
-- 所需字段：`appkey`、`seckey`、`method`、`topic`、`uid`、`r`、`w`、`ttl`
+**注意：`alias`和`topic`是同一个层级的概念，两者不可以同时出现。**
+
+- 所需字段：`appkey`、`seckey`、`method`、`alias`、`r`、`w`、`ttl`
 - method：yam_grant
 - 字段含义和返回值说明参见文末
 
-例如，下面的请求，会为`uid` 为 `2865426748170763392` 的这个客户端新增 `the_other_topic` 这个 Topic 的读权限。
+例如，下面的请求，会将`jack`这个`alias`设置为可读不可写。任何人都可以将自己的别名设置为`jack`；但不允许任何人给`jack`发消息。
 
 ```json
 {
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_grant",
-    "topic":"the_other_topic",
-    "uid":"2865426748170763392",
+    "alias":"jack",
     "r":1,
     "w":0,
     "ttl":100
@@ -310,11 +311,11 @@ UID 层级的权限控制可以管理某个客户端对某个客户端的订阅�
 ```
 ### 查看权限
 
-- 所需字段：`appkey`、`seckey`、`method`、`topic`、`uid`
+- 所需字段：`appkey`、`seckey`、`method`、`alias`
 - method: yam_audit
 - 字段含义和返回值说明参见文末
 
-通过这个`yam_audit`方法，可以获取某个 `uid` 对某个 Topic 所具有的读写权限情况。
+通过这个`yam_audit`方法，可以获取某个 `alias` 的权限情况。
 
 例如：
 
@@ -323,8 +324,7 @@ UID 层级的权限控制可以管理某个客户端对某个客户端的订阅�
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
-    "topic":"news",
-    "uid":"2865426748170763392",
+    "alias":"jack",
 }
 ```
 
@@ -348,6 +348,7 @@ seckey | 应用的 Secret Key，可以在 Portal 中查看。
 method | 请求的方法
 r | 读权限，即 `subscribe`、`unsubscribe`。取值 1 表示允许，0 表示禁止
 w | 写权限，包括 `publish`、`publish_to_alias`、`publish2`、`publish2_to_alias`、`setAlias`。取值 1 表示允许，0 表示禁止
+p | 读 Presence 的权限，即 `subscribe_presence`、`unsubscribe_presence`
 ttl | 即 time to live，权限的有效期限，单位为秒。0 表示永久有效。**注意：权限的有效期始终按照最后一次请求时的 ttl 来计算计算。**
 
 - **返回值说明**
