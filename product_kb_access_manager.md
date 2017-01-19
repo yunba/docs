@@ -88,7 +88,7 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
 {
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
-    "method":"yam_audit",
+    "method":"yam_audit"
 }
 ```
 
@@ -149,7 +149,7 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method": "yam_audit",
-    "topic":  "news",
+    "topic":  "news"
 }
 ```
 
@@ -262,7 +262,7 @@ Token 用来控制指定 Topic 的读写权限。
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
     "topic":"news",
-    "token":"342251e5c3f547f24c91e9a97356ae1f",
+    "token":"342251e5c3f547f24c91e9a97356ae1f"
 }
 ```
 
@@ -324,7 +324,7 @@ Alias 层级的权限控制可以管理某个别名的读写权限，即是否�
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
-    "alias":"jack",
+    "alias":"jack"
 }
 ```
 
