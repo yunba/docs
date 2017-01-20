@@ -9,7 +9,13 @@
 
 **应用开发者需要建立自己的权限管理服务器**，一面向云巴请求权限，一面将不同的权限授予其不同的用户。开启权限管理后，用户的所有 Pub/Sub 等操作都会需要经过云巴权限管理模块的核查，认证成功后才会执行。
 
-云巴的权限管理采用了白名单模式。**开启权限管理功能后（目前还不支持在 Portal 进行开关），用户客户端的所有的订阅（读）、发布（写）操作都默认被禁止，只有被用户的服务器授权才能进行操作。**
+
+权限管理的特点：
+- 云巴的权限管理采用白名单模式。
+- **用户在 Portal 开启权限管理功能后，用户客户端的所有的订阅（读）、发布（写）操作都默认被禁止，只有被用户的服务器授权才能进行操作。**
+- 读写权限被禁止后，用户进行发布相关操作时，会超时。而进行订阅相关的操作时，服务器会返回 QoS 为 0 的 ACK，但订阅操作本身也是失败的。
+- **在 Portal 开、关权限管理后，需要等待 10 分钟才能在服务器端生效。**
+- 关闭 Portal 的权限管理开关后，之前申请的权限依然会保存在云巴服务器，在重新打开开关后可以继续使用。
 
 我们提供了如下四个层级的权限管理，通过 RESTful 请求的方式进行使用。
 - App 层级
@@ -18,9 +24,9 @@
 - Alias 层级
 
 所控制的权限包括：
-- (必选)读权限 "r"，即 `subscribe`、`unsubscribe`
+- (必选)读权限 "r"，即 `subscribe`
 - (必选)写权限 "w"，包括 `publish`、`publish_to_alias`、`publish2`、`publish2_to_alias`、`setAlias`
-- (可选)读权限 "p"，即、`subscribe_presence`、`unsubscribe_presence`
+- (可选)读权限 "p"，即、`subscribe_presence`
 
 ![productpng_access_manager_process.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_access_manager_process.png)
 
@@ -53,7 +59,7 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
 - method：yam_grant
 - 字段含义和返回值说明参见文末
 
-例如，下面的请求，会将 AppKey 为 `567a4a754407a3cd028aaf6b` 的 App 的所有 Topic 都设置为可读可写，持续 100 秒。相当于暂时废除了权限管理。
+例如，下面的请求，会将 AppKey 为 `567a4a754407a3cd028aaf6b` 的 App 的所有 Topic 都设置为可读可写，持续 1000 秒。相当于暂时废除了权限管理。
 
 ```json
 {
@@ -62,7 +68,7 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
     "method":"yam_grant",
     "r":1,
     "w":1,
-    "ttl":100
+    "ttl":1000
 }
 ```
 
@@ -111,7 +117,7 @@ App 层级的权限控制的是整个 App 内所有 Topic 的订阅和发布权�
 
 Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 Topic 进行读写权限的限制。申请权限时，需要带 `appkey`、`seckey`和`topic`参数。
 
-- 所需字段：`appkey`、`seckey`、`method`、`topic`、`r`、`w`、`ttl`
+- 所需字段：`appkey`、`seckey`、`method`、`topic`、`r`、`w`、`p`(可选)、`ttl`
 - method：yam_grant
 - 字段含义和返回值说明参见文末
 
@@ -125,7 +131,8 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
     "topic":"news",
     "r":1,
     "w":0,
-    "ttl":100
+    "p":1,
+    "ttl":0
 }
 ```
 请求成功会返回 0，错误返回值参见文末。
@@ -160,8 +167,9 @@ Topic 层级比 App 层级更细，可以申请对 App 内的某一个或多个 
 ```json
 {
 	"status": 0,
-	"r" :0,
-	"w" :1
+	"r" :1,
+	"w" :0,
+    "p" :1
 }
 ```
 
@@ -190,7 +198,7 @@ Token 用来控制指定 Topic 的读写权限。
     "token":"",
     "r":1,
     "w":0,
-    "ttl":100
+    "ttl":0
 }
 ```
 
@@ -204,11 +212,11 @@ Token 用来控制指定 Topic 的读写权限。
 ```
 ### 使用 Token
 
-申请成功后，在进行相关 Topic 的`subscribe`、`unsubscribe`和`publish`操作时，必须使用带有`token`的`topic`，否则，操作会被禁止。
+申请成功后，在进行相关 Topic 的`subscribe`和`publish`操作时，必须使用带有`token`的`topic`，否则，操作会被禁止。
 
 格式如下：
 
-`,yam` + <your-token> + `_` + <your-topic>`
+`,yam` + `<your-token>` + `_` + `<your-topic>`
 
 例如，名为 news 的`topic`，携带`token`为`OKHIKNNH1250skadfKDJFE`进行读写，则：
 
@@ -237,7 +245,7 @@ Token 用来控制指定 Topic 的读写权限。
     "token":"342251e5c3f547f24c91e9a97356ae1f",
     "r":1,
     "w":0,
-    "ttl":100
+    "ttl":0
 }
 ```
 
@@ -301,7 +309,7 @@ Alias 层级的权限控制可以管理某个别名的读写权限，即是否�
     "alias":"jack",
     "r":1,
     "w":0,
-    "ttl":100
+    "ttl":0
 }
 ```
 请求成功会返回 0，错误返回值参见文末。
@@ -348,9 +356,9 @@ Alias 层级的权限控制可以管理某个别名的读写权限，即是否�
 appkey | 应用的 AppKey，可以在 Portal 中查看。
 seckey | 应用的 Secret Key，可以在 Portal 中查看。
 method | 请求的方法
-r | 读权限，即 `subscribe`、`unsubscribe`。取值 1 表示允许，0 表示禁止
+r | 读权限，即 `subscribe`。取值 1 表示允许，0 表示禁止
 w | 写权限，包括 `publish`、`publish_to_alias`、`publish2`、`publish2_to_alias`、`setAlias`。取值 1 表示允许，0 表示禁止
-p | 读 Presence 的权限，即 `subscribe_presence`、`unsubscribe_presence`。取值 1 表示允许，0 表示禁止
+p | 读 Presence 的权限，即 `subscribe_presence`。取值 1 表示允许，0 表示禁止
 ttl | 即 time to live，权限的有效期限，单位为秒。0 表示永久有效。**注意：权限的有效期始终按照最后一次请求时的 ttl 来计算计算。**
 
 - **返回值说明**
@@ -360,4 +368,4 @@ ttl | 即 time to live，权限的有效期限，单位为秒。0 表示永久�
 0| success|成功
 1| invalidate parameter|参数错误
 2| internal error | 内部错误
-3| not permitted| 未开启权限管理，或正在开启权限管理
+3| not permitted| 未开启权限管理，或正在开启权限管理，或请求超时
