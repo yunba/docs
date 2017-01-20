@@ -326,7 +326,7 @@ Alias 层级的权限控制可以管理某个别名的读写权限，即是否�
     "appkey": "567a4a754407a3cd028aaf6b",
     "seckey": "sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS",
     "method":"yam_audit",
-    "alias":"jack"
+    "alias":"jack"
 }
 ```
 
@@ -359,6 +359,5 @@ ttl | 即 time to live，权限的有效期限，单位为秒。0 表示永久�
 ------- | ------- | -------
 0| success|成功
 1| invalidate parameter|参数错误
-2| not pemitted| 没有开启权限管理
-3| internal error | 内部错误
-
+2| internal error | 内部错误
+3| not permitted| 未开启权限管理，或正在开启权限管理
