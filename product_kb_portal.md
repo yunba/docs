@@ -125,8 +125,8 @@ productpng_portal_publish_statistic.png
 ![productpng_portal_apps.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_apps.png)
 
 - 应用自出现第一个日活开始（第一个设备接入云巴服务器），就会按照 30 个自然日为单位进行周期性结算，并自动生成账单；在 Portal 的应用列表页面会显示账单生成日的倒计时（参考上图左侧的卡片）。
-- 随着日活的增长，应用会自动升级（详见 [价格页面](https://yunba.io/pricing/)）：当日活超过 100 时，会由免费版本自动升级为基础 A 档；超过 1000 时，升级为基础 B 档；超过 5000 时，会升级为基础 C 档；超过 10000，则需要联系商务开通专业版套餐。
-- 账单生成后，系统会自动进行扣费；如果扣费时余额不足，应用会进入欠费状态（参考上图中间的卡片），用户需要在 20 天内登录 Portal 的“我的账单”页面手动进行缴费，否则，应用会进入免费版受限状态（参考上图右侧的卡片），详见 [计费规则](https://yunba.io/docs/product_kb_pricing_details)。
+- 随着日活的增长，应用会自动升级（详见 [价格页面](https://yunba.io/pricing/)）：当日活超过 100 时，会由免费版本自动升级为基础 A 档；超过 1000 时，升级为基础 B 档；超过 5000 时，会升级为基础 C 档；超过 10000，则需要联系商务开通专业版。
+- 账单生成后，系统会自动进行扣费，如果扣费时余额不足，应用会进入欠费状态（参考上图中间的卡片）；用户需要在 20 天内登录 Portal 的“我的账单”页面手动进行缴费，否则，应用会进入免费版受限状态（参考上图右侧的卡片）；详见 [计费规则](https://yunba.io/docs/product_kb_pricing_details)。
 
 ### 我的账单
 
