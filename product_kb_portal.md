@@ -120,9 +120,9 @@ productpng_portal_publish_statistic.png
 
 ### 应用列表
 
-![productpng_portal_apps.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_apps.png)
-
 如图所示，用户在“应用列表”页，可以查看各个应用的日活和消息量（数值会有五分钟左右的延迟），不同的日活对应的档次也显示在应用卡片上。
+
+![productpng_portal_apps.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_apps.png)
 
 - 应用自出现第一个日活开始（第一个设备接入云巴服务器），就会按照 30 个自然日为单位进行周期性结算，并自动生成账单；在 Portal 的应用列表页面会显示账单生成日的倒计时（参考上图左侧的卡片）。
 - 随着日活的增长，应用会自动升级（详见 [价格页面](https://yunba.io/pricing/)）：当日活超过 100 时，会由免费版本自动升级为基础 A 档；超过 1000 时，升级为基础 B 档；超过 5000 时，会升级为基础 C 档；超过 10000，则需要联系商务开通专业版套餐。
