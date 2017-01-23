@@ -111,3 +111,34 @@ productpng_portal_publish_statistic.png
 ![productpng_portal_alias_state.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_alias_state.png)
 
 输入设备 [别名](product_kb_topic_and_alias.md) 后，可以查看该设备的 UID、当前的在线/离线状态，以及最近一次上线的时间。
+
+## 应用账单管理
+
+云巴在 2017 年年初，上线了针对免费版和基础版用户的 [新的价格方案](http://blog.yunba.io/yun-ba-yunba-io-xin-jie-ge-fang-an-ji-jiang-shang-xian/)（详见 [价格页面](https://yunba.io/pricing/) 和 [计费规则](https://yunba.io/docs/product_kb_pricing_details)）。
+
+云巴 Portal 也相应做出了调整。
+
+### 应用列表
+
+![productpng_portal_apps.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_apps.png)
+
+如图所示，用户在“应用列表”页，可以查看各个应用的日活和消息量（数值会有五分钟左右的延迟），不同的日活对应的档次也显示在应用卡片上。
+
+- 应用自出现第一个日活开始（第一个设备接入云巴服务器），就会按照 30 个自然日为单位进行周期性结算，并自动生成账单；在 Portal 的应用列表页面会显示账单生成日的倒计时（参考上图左侧的卡片）。
+- 随着日活的增长，应用会自动升级（详见 [价格页面](https://yunba.io/pricing/)）：当日活超过 100 时，会由免费版本自动升级为基础 A 档；超过 1000 时，升级为基础 B 档；超过 5000 时，会升级为基础 C 档；超过 10000，则需要联系商务开通专业版套餐。
+- 账单生成后，系统会自动进行扣费；如果扣费时余额不足，应用会进入欠费状态（参考上图中间的卡片），用户需要在 20 天内登录 Portal 的“我的账单”页面手动进行缴费，否则，应用会进入免费版受限状态（参考上图右侧的卡片），详见 [计费规则](https://yunba.io/docs/product_kb_pricing_details)。
+
+### 我的账单
+
+在“我的账单”页面，用户可以查看各个应用的日活、消息量和账单状态，并对欠费账单进行手动缴费。
+
+![productpng_portal_bills.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_bills.png)
+
+
+### 收支管理
+
+在“收支管理”页面，用户可以进行账号充值。目前支持“微信”和“支付宝”两种支付方式。用户可以在账单结算日之前提前进行充值，以保证自动扣费成功。
+
+![productpng_portal_payment.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_payment.png)
+
+
