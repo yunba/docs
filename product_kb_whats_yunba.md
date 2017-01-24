@@ -2,7 +2,7 @@
 
 云巴（Cloud Bus）是一个跨平台的双向实时通信系统，为物联网、App 和 Web 提供实时通信服务。
 
-云巴基于 [MQTT](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html)，支持 [Socket.IO](socketio_api_api_manual.md) 协议，支持 [RESTful API](restful_api_api_manual.md)。
+云巴基于 [MQTT](http://public.dhe.ibm.com/software/dw/webservices/ws-mqtt/mqtt-v3r1.html)，支持 [Socket.IO](socketio_api_api_manual.md) 协议，支持 [RESTful API](restful_api_api_manual.md)。更多详情： [《云巴产品白皮书》](https://raw.githubusercontent.com/yunba/docs/master/white_paper.pdf)
 
 ## 跨平台
 
