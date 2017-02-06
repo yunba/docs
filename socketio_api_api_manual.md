@@ -65,6 +65,23 @@ port | Number | Socket.IO API 端口，默认值 3000。
 --------- | ------- | -----------
 msg | String | 连接信息。
 
+## message
+### 功能
+
+获取到新消息的事件，获取到的消息的格式为{topic: `topic`, msg: `msg`}。
+
+### 代码示例
+
+```python
+socketIO.on('message', {callback_function})
+```
+
+### 参数说明
+名称 | 类型 | 说明
+--------- | ------- | -----------
+topic | String | 收到消息的 topic/alias 
+msg | String | 收到消息的 内容
+
 ## connect_v2
 ### 功能
 
