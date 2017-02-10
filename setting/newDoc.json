@@ -20,6 +20,12 @@
             "url": "product_kb_yunba_quick_start",
             "show": true,
             "release": true
+        }, {
+            "name": "《云巴产品白皮书》",
+            "markdown": "https://yunba.github.io/docs/white_paper.pdf",
+            "url": "white_paper",
+            "show": true,
+            "release": true
         }]
     }, {
         "name": "JavaScript",
