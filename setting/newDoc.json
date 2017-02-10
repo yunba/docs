@@ -23,7 +23,7 @@
         }, {
             "name": "《云巴产品白皮书》",
             "markdown": "https://yunba.github.io/docs/white_paper.pdf",
-            "url": "white_paper",
+            "url": "https://yunba.github.io/docs/white_paper.pdf",
             "show": true,
             "release": true
         }]
