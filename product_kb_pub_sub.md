@@ -7,7 +7,7 @@
 
 # 概念
 
-![productpng_pub_sub_1.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_pub_sub_1.png)
+![productpng_kb_pub_sub_1.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_pub_sub_1.png)
 
 发布/订阅（Publish/Subscribe 或 Pub/Sub）是一种消息范式。
 
@@ -32,12 +32,12 @@ Broker 的引入，实现了 Publisher 和 Subscriber 在空间上、时间上�
 
 下图中，两个智能灯泡订阅了名为 Light 的 Topic，智能手机向 Light 发消息，云巴 MQTT Broker 将消息转发给了灯泡。
 
-![productpng_pub_sub_2.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_pub_sub_2.png)
+![productpng_kb_pub_sub_2.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_pub_sub_2.png)
 
 **图二**
 
 下图中，智能温度计向名为 Temperature 的频道发消息，云巴 MQTT Broker 将消息转发给了该频道的订阅者。未订阅的客户端不会收到消息。
 
-![productpng_pub_sub_3.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_pub_sub_3.png)
+![productpng_kb_pub_sub_3.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_pub_sub_3.png)
 
 注意，上方的示意图仅演示了单向的消息传输，云巴支持 [双向的消息通信](https://yunba.io/docs/product_kb_whats_yunba#%E5%8F%8C%E5%90%91)。基于发布/订阅原理，在图一中，灯泡可以通过订阅频道的方式接收来自智能手机的消息，智能手机也可以通过订阅频道的方式接收灯泡端上报的消息。
