@@ -27,6 +27,11 @@
   show: true
   release: true
   docs: 
+    - name: 发布订阅模型
+      markdown: product_kb_pub_sub.md
+      url: product_kb_pub_sub
+      show: true
+      release: true
     - name: 频道和别名
       markdown: product_kb_topic_and_alias.md
       url: product_kb_topic_and_alias
