@@ -5,7 +5,7 @@
 
 本文简单介绍一下 MQTT 协议中的发布/订阅模型。
 
-# 概念
+## 概念
 
 ![productpng_kb_pub_sub_1.png](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_kb_pub_sub_1.png)
 
