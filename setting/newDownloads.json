@@ -146,14 +146,23 @@
     "display": "none",
     "latestVersion": [{
         "versionUrl": "/docs2/js_sdk_api_manual",
+        "downloadUrl":"https://github.com/yunba/yunba-javascript-sdk/archive/2.1.2.zip",        
+        "githubUrl":"https://github.com/yunba/yunba-javascript-sdk",
+        "versionNum": "Release 2.1.2",
+        "versionDetail": [
+            "修正 file 协议下默认 server",
+            "关闭 Demo 时会取消订阅本次订阅的所有 Topic"
+        ]
+    }],
+    "revisionHistory": [{
+        "versionUrl": "/docs2/js_sdk_api_manual",
         "downloadUrl":"https://github.com/yunba/yunba-javascript-sdk/archive/2.0.3.zip",
         "githubUrl":"https://github.com/yunba/yunba-javascript-sdk",
         "versionNum": "Release 2.0.3",
         "versionDetail": [
             "修复了 get_alias_list、get_topic_list、get_state 接口批量操作时可能存在的 callback 回调问题"
         ]
-    }],
-    "revisionHistory": [{
+    }, {
         "versionUrl": "https://github.com/yunba/yunba-javascript-sdk/archive/2.0.2.zip",
         "downloadUrl":"",
         "versionNum": "Release 2.0.2",
