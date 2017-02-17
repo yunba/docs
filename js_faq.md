@@ -52,4 +52,7 @@ IE7 以下版本需 [配置](https://github.com/yunba/yunba-javascript-sdk) 即�
 
 * 最后，还有一种可能是您当前使用的 [AppKey](product_kb_app_key.md) 被我们的系统限制了，请将您的 Appkey 用私聊或邮件（support@yunba.io）的方式发给我们，我们会及时处理。
 
+---
+<a name="8"></a>8. **使用 JS SDK，为什么同一个页面用多台电脑打开，只有最后打开的页面可以收到推送？**
 
+答：应该是这些页面使用了同一个 Custom ID 造成的。**同时使用多个相同 Custom ID 进行连接时只有一个连接是有效的。**请在调用 [connect_by_customid](https://yunba.io/docs/js_sdk_api_manual#connect_by_customid) 时改为使用不同的 Custom ID。
