@@ -6,6 +6,8 @@
 
 由于微信原生 API 中只支持 WebSocket，没有提供 socket io 的接口。为方便起见，本 demo 使用了 [socket io client](https://github.com/wxsocketio/wxapp-socket-io) 的库来连接云巴。
 
+参考我们的[微信小程序 demo](https://github.com/yunba/yunba-wxapp-demo) 来在微信小程序中中集成云巴。关键的使用说明如下：
+
 ## 使用
 
 首先，参考该 socket io client 的[使用说明](https://github.com/wxsocketio/wxapp-socket-io)在项目中引入该库。

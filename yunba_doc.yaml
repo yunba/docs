@@ -321,8 +321,8 @@
       show: true
       release: true
     - name: 通过 Socket.IO 在微信小程序中集成云巴
-      markdown: socketio_java_demo_quick_start.md
-      url: socketio_java_demo_quick_start
+      markdown: socketio_wxapp_usage.md
+      url: socketio_wxapp_usage
       show: true 
       release: true
     - name: 运行 Yunba Socket.IO Python Demo
@@ -331,8 +331,8 @@
       show: true 
       release: true
     - name: 运行 Yunba Socket.IO Java Demo
-      markdown: socketio_wxapp_usage.md
-      url: socketio_wxapp_usage
+      markdown: socketio_java_demo_quick_start.md
+      url: socketio_java_demo_quick_start
       show: true 
       release: true
     - name: Socket.IO API 常见问题解答
