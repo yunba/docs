@@ -162,7 +162,7 @@ $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_to_
 ### `publish_async`
 
 `publish_async` 与 `publish` 的不同之处在于前者是异步的，会立即返回，而后者则要等操作完成后才能返回。
-在向 Topic 下的单个用户发送消息时，速度很快，使用同步调用即可。而当 Topic 下拥有数目庞大的订阅用户时，应使用异步调用。
+在向 Topic 下的单个用户发送消息时，速度很快，使用同步调用即可。而当 Topic 下拥有数目庞大的订阅用户时，应使用异步调用。***注意：这个特性也导致了 publish_async 的调用不保证成功，如果需要确认每次发送的结果，请使用 publish***
 
 ```bash
 $ curl -l -H "Content-type: application/json" -X POST -d '{"method":"publish_async", "appkey":"567a4a754407a3cd028aaf6b", "seckey":"sec-mj64xlu0ob1Xs1wWuZzmGZOYZqrpFmFxp5jHULr13eUZCVpS", "topic":"news", "msg":"good news"}' http://rest.yunba.io:8080
