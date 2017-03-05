@@ -94,7 +94,7 @@ yunba.connect(callback)
 
 名称 | 类型 | 说明
 --------- | ------- |  -----------
-callback | Function | 参数可选。连接成功后会调用 callback。
+callback | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -131,7 +131,7 @@ yunba.connect_by_customid(customid, callback)
 名称 | 类型 | 说明
 --------- | ------- |  -----------
 customid | String | 参数必选。自定义会话 ID。
-callback | Function | 参数可选。连接成功后会调用 callback。
+callback | Function | callback 的结构为 function (success, msg, sessionid)，操作成功返回 success == true 和 sessionid，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -228,7 +228,7 @@ yunba.subscribe(obj,cb)
 --------- | ------- |  -----------
 obj.topic | String| 参数必选。表示准备收听的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)。
 obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-cb  | Function | 参数可选。收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg。
+cb  | Function | 回调的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -264,7 +264,7 @@ yunba.subscribe_presence(obj,cb)
 --------- | ------- |  -----------
 obj.topic | String| 参数必选。表示准备收听的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)。
 obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-cb  | Function | 参数可选。收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示收听成功，否则表示失败。如果失败，则返回错误信息 msg。
+cb  | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -297,7 +297,7 @@ yunba.unsubscribe(obj,cb)
 名称 | 类型 | 说明
 --------- | ------- | -----------
 obj.topic | String| 参数必选。表示准备取消收听的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)。
-cb | Function | 参数可选。取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg。
+cb | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -331,7 +331,7 @@ yunba.unsubscribe_presence(obj,cb)
 名称 | 类型 | 说明
 --------- | ------- | -----------
 obj.topic | String| 参数必选。表示准备取消收听的 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)。
-cb | Function | 参数可选。取消收听某频道成功或失败都会回调该函数。传递过来的参数有 success、msg。success 为 true 表示取消收听成功，否则表示失败。如果失败，则返回错误信息 msg。
+cb | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。
 
 
 ### 代码示例
@@ -368,7 +368,7 @@ obj.topic | String| 参数必选。表示目标 [频道](product_kb_topic_and_al
 obj.msg | String | 参数必选。表示消息体。
 obj.messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
 obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-cb    | Function | 参数可选。不管消息发布是成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
+cb    | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
 ### 代码示例
@@ -402,7 +402,7 @@ yunba.publish2(obj,cb)
 obj.topic | String| 参数必选。表示目标 [频道](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#topic)。
 obj.msg | String | 参数必选。表示消息体。
 obj.opts | Dict | [扩展参数](#扩展参数说明)。
-cb    | Function | 参数可选。不管消息发布是成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
+cb    | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
 ### 扩展参数说明
@@ -457,7 +457,7 @@ obj.alias | String| 参数必选。表示目标 [别名](product_kb_topic_and_al
 obj.msg | String | 参数必选。表示消息体。
 obj.messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
 obj.qos | Number | 参数可选。表示服务质量等级，有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
-cb    | Function | 参数可选。不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
+cb    | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
 ### 代码示例
@@ -498,7 +498,7 @@ yunba.publish2_to_alias(obj,cb)
 obj.alias | String| 参数必选。表示目标 [别名](product_kb_topic_and_alias.md)，取值范围详见 [参数说明](product_kb_param.md#alias)。
 obj.msg | String | 参数必选。表示消息体。
 obj.opts | Dict | [扩展参数](#扩展参数说明)。
-cb    | Function | 参数可选。不管消息发布是否成功或失败都会回调此函数。传递回的参数有 success、msg。success 值为 true 表示消息发布成功，否则发送失败。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
+cb    | Function | callback 的结构为 function (success, msg)，操作成功返回 success == true，失败返回 success ==  false 和 msg （错误信息）。如果发送成功返回含有 messageId 的 msg，发送失败返回错误消息 msg。
 
 
 ### 扩展参数说明
