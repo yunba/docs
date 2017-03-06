@@ -6,7 +6,7 @@
 一方面，云巴的服务器会负责向苹果的服务器发送 APNs 的消息；
 另一方面，当应用在前台运行时，云巴会通过与 App 建立的长连接，直接推送内部消息。
 
-![iospng_kb_push_message.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_kb_push_message.png)
+![iospng_kb_push_apns_message.png](https://raw.githubusercontent.com/yunba/docs/master/image/iospng_kb_push_apns_message.png)
 
 
 通过云巴的 SDK 向 iOS App 推送消息，App 在不同状态下的消息接收情况如下：
