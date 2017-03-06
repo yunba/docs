@@ -80,6 +80,8 @@ yunba.init(function (success) {
 
 **在浏览器支持并开启 cookie 的情况下，会自动生成一个 uid 并保存到 cookie 中然后进行 connect_by_customid 连接，若不支持或没开启 cookie 则只会进行普通的 connect 连接。**
 
+***注意：如果不使用 [connect_by_customid](https://yunba.io/docs/js_sdk_api_manual#connect_by_customid) 而使用不带 customid 的 [connect](https://yunba.io/docs/js_sdk_api_manual#connect)，那对云巴来说每次连接的都是新用户，也就是客户端每次连接都会创建一个新的日活，***
+
 yunba `init()`实例初始化后，只表明与服务器建立了 socket 连接，还需要通过`connect()`方法（推荐使用`connect_by_customid()`）连接上消息服务器。连接上消息服务器后，才开始收发消息。
 
 
@@ -115,6 +117,9 @@ yunba.connect(function (success, msg) {
 与`connect()`功能一致，不同的是此接口使用特定的会话 ID 进行连接，连接后的会话状态与上次连接一致（包括 [离线消息](product_kb_offline_message.md)、已订阅的 [频道](product_kb_topic_and_alias.md) 和 [别名](product_kb_topic_and_alias.md)）。
 
 **同时使用多个相同 customid 进行连接时只有一个连接是有效的。**
+
+***注意：如果不使用 [connect_by_customid](https://yunba.io/docs/js_sdk_api_manual#connect_by_customid) 而使用不带 customid 的 [connect](https://yunba.io/docs/js_sdk_api_manual#connect)，那对云巴来说每次连接的都是新用户，也就是客户端每次连接都会创建一个新的日活，***
+
 
 >**注**：customid 和 alias 没有任何关系，如果想通过 customid 发消息，还需要将 alias 设置为 customid。参见`set_alias()`。
 

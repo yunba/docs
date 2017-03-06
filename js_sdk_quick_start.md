@@ -30,6 +30,8 @@ var yunba = new Yunba({server: 'sock.yunba.io', port: 3000, appkey: appkey});
 
 ### 第三步：初始化并连接消息服务器
 
+***注意：如果不使用 [connect_by_customid](https://yunba.io/docs/js_sdk_api_manual#connect_by_customid) 而使用不带 customid 的 [connect](https://yunba.io/docs/js_sdk_api_manual#connect)，那对云巴来说每次连接的都是新用户，也就是客户端每次连接都会创建一个新的日活，***
+
 ```javascript
 yunba.init(function (success) {
     if (success) {
