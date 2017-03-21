@@ -220,4 +220,16 @@ socketIO.wait()
 
 ![socketiopng_demo_term_receive.png](https://raw.githubusercontent.com/yunba/docs/master/image/socketiopng_demo_term_receive.png)
 
+## 注意事项
+
+在使用 python 的 socket io client 库的时候，在监听事件的时候，你的 `on_message` 函数可能会监听到一些开头为 `2` 的消息事件，而这里面的内容和你的其它监听函数监听到的内容可能十分类似。比如：
+
+![socketiopng_demo_python_on_message.png](https://raw.githubusercontent.com/yunba/docs/master/image/socketiopng_demo_python_on_message.png)
+
+这个现象的原因是：
+
+- 这个 socket io 的库会根据前面的 nsp key(namespace key) 来判断这个事件的属性，而我们的 event 都是通过 nsp key = 2 这个方式发出去的，所以 socket io client 就认为这是一个 message event，然后就被 on_message 捕获到了，而 socket io 的协议还有一个 event 的表述方式，就是用一个 array，然后以第一个元素作为 event 的名字。所以这一个 json 就被两个事件监听捕获到了。
+
+解决办法：过滤 on_message 捕获到的这类前面有 `2` 的消息。
+
 更多用法和功能，请参考 [Socket.IO API 手册](socketio_api_api_manual.md)。
