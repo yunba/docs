@@ -28,7 +28,7 @@
 
    | IE  | Safari | Chrome  | Opera  | Firefox |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
-   | 7+  |  ✓   |  ✓  |  ✓   |  ✓ |
+   | 10+  |  ✓   |  ✓  |  ✓   |  ✓ |
 
 IE7 以下版本需 [配置](https://github.com/yunba/yunba-javascript-sdk) 即可。
 
