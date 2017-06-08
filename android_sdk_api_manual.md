@@ -463,36 +463,6 @@ context | Context | Android 应用上下文环境
 YunBaManager.isStopped(getApplicationContext());
 ```
 
-
-## report
-
-### 功能
-
-App 可以调用此函数来上报客户端的行为，如打开通知栏次数，按钮点击次数，资源下载成功等行为。
-
-
-### 函数原型
-
-`public static void report(Context context, String actiton, String data)`
-
-
-### 参数说明
-
-名称 | 类型 | 说明
---------- | ------- | -----------
-context | Context | Android 应用上下文环境
-action | String | 需要统计的行为，如打开通知栏，下载资源成功等等
-data | String | 相对应 action 的附加数据，以满足统计相关的其他业务需求
-
-
-### Code Example
-
-```java
-
-YunBaManager.report(getApplicationContext(), "notifaction_opened", null);
-```
-
-
 ## setAlias
 
 ### 功能
