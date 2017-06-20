@@ -22,6 +22,8 @@
 
 ## 方法
 
+>***注：msg 字段使用了 [URL encoding](https://www.w3schools.com/tags/ref_urlencode.asp)，特殊符号请遵循该标准，如百分号 '%' 的 URL encoding 为 '%25'***
+
 ### HTTP GET
 
 **重要提示：GET 方法仅供测试，实际应用中请使用 POST 方法。（[GET 与 POST 的比较](http://www.w3school.com.cn/tags/html_ref_httpmethods.asp)）**
