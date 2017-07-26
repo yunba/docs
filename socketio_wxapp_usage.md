@@ -25,10 +25,10 @@ onLaunch: function () {
 然后，在需要连接到云巴的时候，首先连接到我们的 socket io 服务器：
 
 ```javascript
-const socket = app.globalData.io("wss://abj-rest-fc1.yunba.io:3003/")
+const socket = app.globalData.io("wss://abj-rest-fc1.yunba.io:443/")
 ```
 
-本例中即在 index.js 中使用全局的 io 对象连接到 `wss://abj-rest-fc1.yunba.io:3003/`，在监听到 `connect` 事件的时候，就说明连接上云巴的 socket io 服务器了。
+本例中即在 index.js 中使用全局的 io 对象连接到 `wss://abj-rest-fc1.yunba.io:443/`，在监听到 `connect` 事件的时候，就说明连接上云巴的 socket io 服务器了。
 
 ```javascript
     socket.on('connect', function () {
