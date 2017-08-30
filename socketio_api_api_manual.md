@@ -530,7 +530,7 @@ logging.basicConfig(level=logging.INFO)
 
 def on_socket_connect_ack(args):
     print 'on_socket_connect_ack', args
-    socketIO.emit('connect', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'python_demo'})
+    socketIO.emit('connect_v2', {'appkey': '52fcc04c4dc903d66d6f8f92', 'customid': 'python_demo'})
 
 def on_connack(args):
     print 'on_connack', args
