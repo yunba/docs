@@ -22,6 +22,11 @@
       url: product_faq
       show: true
       release: true
+    - name: 身份认证信息
+      markdown: product_kb_identification.md
+      url: product_kb_identification
+      show: true
+      release: true
 
 - name: 功能介绍
   show: true
