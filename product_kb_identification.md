@@ -41,5 +41,5 @@ iOS sdk 中，注册信息存储在 KeyChain 中，用户一般不允许访问�
 ### JavaScript
 如果允许使用 Cookie，注册信息会存在 Cookie 中，在用户下次使用，且未指定新的 Customid 时会使用此连接信息。
 
-### C# 
+### C sharp
 C# sdk 中，注册信息存储在文件`MqttLib.dll.config`中。
