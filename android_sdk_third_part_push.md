@@ -21,6 +21,7 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 * 云巴会自动识别这两类机型，所以在使用第三方推送时不影响其它型号手机接收推送；
 * 不需要打开“应用自启动”权限；
 * **应用未被杀的情况下，可以收到“云巴通道的消息”。如果应用开发者选择弹出通知，那么加上“第三方推送通道的通知”，就可能会出现两条通知栏的现象，参见上方表格以及 [FAQ 问题 9](android_faq.md#9)**；
+* 由于华为官方已经不再支持旧版的华为推送，我们的 Android SDK已经对新版华为推送做了适配。本文档中的集成华为推送步骤是针对新版的华为推送。
 
 ---
 
@@ -38,13 +39,9 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 在集成之前，需要先在小米、华为平台创建应用。
 
-### 云巴自动创建
-
-**为了极大地提高集成效率，云巴推出了“自动创建应用”的功能，免去了注册小米、华为账号的繁琐步骤。**详见后面的描述。
-
 ### 开发者自行创建
 
-对于希望自己创建应用的开发者们，可前往小米、华为 Portal 创建应用：
+前往小米、华为 Portal 创建应用：
 
 * 进入[小米开放平台官网](http://dev.xiaomi.com/console/)，注册账号，选择`应用服务`->`小米推送`，进入小米推送服务，启用小米推送需要在小米控制台添加你的应用名和包名，然后获取小米推送的 AppID 和 AppKey，同时在项目中集成小米 SDK；可以参照小米的[启用指南](http://dev.xiaomi.com/doc/?p=1621)。
 
@@ -65,15 +62,9 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 ### 选择应用来源
 
-* 云巴自动创建
-
-如图所示，用户只需选择`云巴自动创建`并保存，云巴就会立刻代替用户进行小米或华为应用的申请，并在申请成功后，将获取到的 AppID、AppKey 等应用信息显示在当前页面上。
-
-![appsource](https://raw.githubusercontent.com/yunba/docs/master/image/productpng_portal_third_push_appsource.png)
-
 * 开发者自行创建
 
-如果用户选择`开发者自行创建`，需将自己注册的小米、华为应用的应用信息填写到云巴 Portal 中。
+目前`云巴自动创建`功能暂时不能使用，请选择`开发者自行创建`，需将自己注册的小米、华为应用的应用信息填写到云巴 Portal 中。
 
 对于[小米应用](http://dev.xiaomi.com/doc/?p=1621)，需填写的内容包括：应用包名、AppID、AppKey、AppSecret；
 对于[华为应用](http://developer.huawei.com/cn/consumer/wiki/index.php?title=%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E#2.2_.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A8)，需填写的内容包括：应用包名、AppID、AppSecret；
@@ -91,7 +82,7 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 在[设置了云巴推送](android_sdk_quick_start.md)的基础上，在 AndroidManifest.xml 中加入第三方推送的权限。注意用户需要自行引入第三方推送的 jar 包，云巴第三方推送使用的 jar 包可以在小米和华为的官网上下载，也可以在我们的 demo 程序中的 libs 中找到。如下图所示：
 
-![androidpng_thirdpart_jar_path](https://raw.githubusercontent.com/yunba/docs/master/image/androidpng_thirdpart_jar_path.png)
+![androidpng_thirdpart_jar_path](https://raw.githubusercontent.com/yunba/docs/feature/android_thirdpart_update/image/androidpng_thirdpart_jar_path.png)
 
 * 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置：
 
@@ -157,7 +148,16 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 * 对于华为推送，需要在 AndroidManifest.xml 中进行以下设置：
 
-在`<application>......</application>`中添加 service 和 receiver：
+(1) 在`<application>......</application>`中添加以下代码来添加 meta-data：
+
+```xml
+<!--配置华为的appid-->
+<meta-data
+    android:name="com.huawei.hms.client.appid"
+    android:value="你在华为推送平台上申请应用所得到的appid" />
+```
+
+(2) 在`<application>......</application>`中添加 service 和 receiver：
 
 ```xml
 <service
@@ -167,43 +167,39 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 <!-- 这是第三方华为的接收器权限声明 -->
 <receiver android:name="io.yunba.android.thirdparty.receiver.ThirdPartyHWReceiver">
     <intent-filter>
-        <!-- 必须,用于接收token-->
+        <!-- 必须,用于接收TOKEN -->
         <action android:name="com.huawei.android.push.intent.REGISTRATION" />
-        <!-- 必须，用于接收消息-->
+        <!-- 必须，用于接收消息 -->
         <action android:name="com.huawei.android.push.intent.RECEIVE" />
-        <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调-->
+        <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
         <action android:name="com.huawei.android.push.intent.CLICK" />
-        <!-- 可选，查看push通道是否连接，不查看则不需要-->
+        <!-- 可选，查看PUSH通道是否连接，不查看则不需要 -->
         <action android:name="com.huawei.intent.action.PUSH_STATE" />
-        <!-- 可选，标签、地理位置上报回应，不上报则不需要 -->
-        <action android:name="com.huawei.android.push.plugin.RESPONSE" />
     </intent-filter>
 </receiver>
-<receiver
-    android:name="com.huawei.android.pushagent.PushEventReceiver"
-    android:process=":pushservice" >
+<receiver android:name="com.huawei.hms.support.api.push.PushEventReceiver">
     <intent-filter>
-        <action android:name="com.huawei.android.push.intent.REFRESH_PUSH_CHANNEL" />
+        <!-- 接收通道发来的通知栏消息，兼容老版本PUSH -->
         <action android:name="com.huawei.intent.action.PUSH" />
-        <action android:name="com.huawei.intent.action.PUSH_ON" />
-        <action android:name="com.huawei.android.push.PLUGIN" />
-    </intent-filter>
-    <intent-filter>
-        <action android:name="android.intent.action.PACKAGE_ADDED" />
-        <action android:name="android.intent.action.PACKAGE_REMOVED" />              
-        <data android:scheme="package" />
     </intent-filter>
 </receiver>
-<receiver
-    android:name="com.huawei.android.pushagent.PushBootReceiver"
-    android:process=":pushservice" >
+```
+
+(3) 在接受云巴消息的receiver中添加以下代码来监听华为推送连接状态的事件（本步骤不是必须，只是为了方便开发者在集成华为推送的时候发现问题）
+
+```xml
+<!-- 这是云巴推送接收器的声明，此处以demo为例，开发者请自行替换成自己的receiver -->
+<receiver android:name="io.yunba.thirdpart.receiver.DemoReceiver">
     <intent-filter>
-        <action android:name="com.huawei.android.push.intent.REGISTER" />
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <action android:name="io.yunba.android.MESSAGE_RECEIVED_ACTION" />
+        <action android:name="io.yunba.android.PRESENCE_RECEIVED_ACTION" />
+        <action android:name="io.yunba.android.MESSAGE_CONNECTED_ACTION" />
+        <action android:name="io.yunba.android.MESSAGE_DISCONNECTED_ACTION" />
+        <!--监听华为推送是否连接成功-->
+        <action android:name="io.yunba.android.MESSAGE_HMS_CONNECTED_ACTION" />
+        <action android:name="io.yunba.android.MESSAGE_HMS_CONNECTION_FAILED_ACTION" />
+        <category android:name="io.yunba.thirdpart3" />
     </intent-filter>
-    <meta-data
-        android:name="CS_cloud_version"
-        android:value="\u0032\u0037\u0030\u0035" />
 </receiver>
 ```
 
