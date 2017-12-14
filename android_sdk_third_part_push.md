@@ -84,7 +84,7 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
 
 ![androidpng_thirdpart_jar_path](https://raw.githubusercontent.com/yunba/docs/feature/android_thirdpart_update/image/androidpng_thirdpart_jar_path.png)
 
-* 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置：
+* 对于小米推送，需要在 AndroidManifest.xml 中进行以下设置： 
 
 (1) 在`<manifest>......</manifest>`中添加以下代码来添加 permission，注意*app包名要替换成自己的包名*:
 
@@ -157,13 +157,9 @@ App 被杀的情况下，收到第三方推送通道的通知并不会将 App �
     android:value="你在华为推送平台上申请应用所得到的appid" />
 ```
 
-(2) 在`<application>......</application>`中添加 service 和 receiver：
+(2) 在`<application>......</application>`中添加 receiver：
 
 ```xml
-<service
-    android:name="com.huawei.android.pushagent.PushService"
-    android:process=":pushservice" >
-</service>
 <!-- 这是第三方华为的接收器权限声明 -->
 <receiver android:name="io.yunba.android.thirdparty.receiver.ThirdPartyHWReceiver">
     <intent-filter>
