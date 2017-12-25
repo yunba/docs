@@ -7,6 +7,7 @@
 ## 准备步骤
 1. 在[官网](https://www.wireshark.org/)下载 Wireshark，然后安装。
 2. 开启 Wi-Fi 共享，如需帮助可以参考[这里](http://jingyan.baidu.com/article/17bd8e52e344cf85ab2bb8f0.html)。
+3. 按照 [这个插件](https://github.com/johnzeng/Wireshark-MQTT) 的usage段安装mqtt插件，然后即可解析云巴mqtt协议。
 
 ## 开始进行
 首先，打开 Wireshark，选择捕获的接口，本教程是通过 Wi-Fi 来进行抓包的，所以选择 Wi-Fi:en0。***注意：多个无线网卡可能会有多个选项，选择你用来进行共享的接口即可***
