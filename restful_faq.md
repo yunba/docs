@@ -3,7 +3,7 @@
 
 <a name="1"></a>1. **RESTful 如何设置离线消息保留时间？**
 
-答： "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是 5 天，详见： [云巴的离线消息](product_kb_offline_message.md) 和 [RESTful API 的示例](restful_api_api_manual.md#httppost)。
+答： "opts" 设置 "qos" 值为 1 或 2，才能成功发送离线消息；设置 "time_to_live" 参数指定离线消息的保留时间，默认是 3 天，详见： [云巴的离线消息](product_kb_offline_message.md) 和 [RESTful API 的示例](restful_api_api_manual.md#httppost)。
 
 ---
 <a name="2"></a>2. **加 opts 参数之后，可以用 get 请求吗？**

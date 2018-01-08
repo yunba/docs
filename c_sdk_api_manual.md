@@ -235,7 +235,7 @@ opt | CJSON * | [扩展参数](#扩展参数说明)，可以带 apn_json，time_
 qos | Number | 服务质量等级。有三种取值：“0”表示最多送达一次；“1”表示最少送达一次；“2”表示保证送达且仅送达一次。默认为“1”。详见 [QoS](product_kb_qos.md) 的说明。
 apn_json | Dict | 如果不填，则不会发送 APN。 APN 参考：[Apple 官方文档](https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html#//apple_ref/doc/uid/TP40008194-CH17-SW1) 及云巴 [相关文档](ios_kb_payload.md)。
 messageId | String | 消息 ID，64 位整型数转化成 String。发布消息时可以指定，如果不填，则由系统自动生成。
-time_to_live | Number | 用来设置 [离线消息](product_kb_offline_message.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 5 天，最大不超过 15 天。
+time_to_live | Number | 用来设置 [离线消息](product_kb_offline_message.md) 保留多久。单位为秒（例如，3600 代表 1 小时），默认值为 3 天，最大不超过 15 天。
 
 
 ### 返回值
